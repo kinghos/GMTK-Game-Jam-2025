@@ -8,3 +8,8 @@ script = ExtResource("1_a68rm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="KickRange" type="Area2D" parent="."]
+
+[connection signal="body_entered" from="KickRange" to="." method="_on_kick_range_body_entered"]
+[connection signal="body_exited" from="KickRange" to="." method="_on_kick_range_body_exited"]

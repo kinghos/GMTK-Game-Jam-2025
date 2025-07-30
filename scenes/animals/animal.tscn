@@ -15,9 +15,12 @@ script = ExtResource("1_a68rm")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="KickParticles" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 5
 texture = ExtResource("2_4f3xh")
 lifetime = 0.5
+one_shot = true
+speed_scale = 2.0
 explosiveness = 0.09
 randomness = 0.05
 emission_shape = 1
@@ -31,9 +34,9 @@ angular_velocity_min = 14.55
 angular_velocity_max = 87.28
 damping_min = 3.03
 damping_max = 9.091
-angle_min = -72.7
-angle_max = 276.4
-scale_amount_max = 1.2
+angle_max = 180.0
+scale_amount_min = 0.5
+scale_amount_max = 0.7
 
 [connection signal="body_entered" from="KickRange" to="." method="_on_kick_range_body_entered"]
 [connection signal="body_exited" from="KickRange" to="." method="_on_kick_range_body_exited"]

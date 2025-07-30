@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://di53xit540gqa"]
+[gd_scene load_steps=3 format=3 uid="uid://di53xit540gqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpxs5"]
 size = Vector2(186, 186)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngeja"]
+size = Vector2(10, 186)
 
 [node name="Pen" type="Node2D" groups=["Pens"]]
 
@@ -16,3 +19,34 @@ color = Color(0.946983, 0.929075, 0.777775, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_lpxs5")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+position = Vector2(-93, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_ngeja")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, -88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_ngeja")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_ngeja")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
+position = Vector2(88, 0)
+rotation = -1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4"]
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_ngeja")

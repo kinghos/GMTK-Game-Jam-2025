@@ -5,6 +5,8 @@ var in_kick_range: bool
 @export var kick_distance: float = 50
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var kick_particles: CPUParticles2D = $KickParticles
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func _on_kick_range_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -30,11 +32,15 @@ func kick():
 	diff = global_position - closest_pen.global_position
 	diff = diff.normalized() * kick_distance
 	var end_pos = global_position - diff
-	var tween = create_tween()
+	
 	animation_player.play("kicked")
+	kick_particles.emitting = true
 	animated_sprite_2d.animation = "idle"
+	collision_shape_2d.disabled = true
+	
+	var tween = create_tween()
 	tween.tween_property(self, "global_position", end_pos, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
 	animated_sprite_2d.animation = "walk"
+	collision_shape_2d.disabled = false
 	
-		

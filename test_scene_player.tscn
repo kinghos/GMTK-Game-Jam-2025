@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://mvaqsm2mkbo8"]
+[gd_scene load_steps=3 format=3 uid="uid://mvaqsm2mkbo8"]
 
 [ext_resource type="PackedScene" uid="uid://cndmwkj47j0ww" path="res://scenes/Player.tscn" id="1_tyvl6"]
+[ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="2_semqn"]
 
 [node name="TestScenePlayer" type="Node2D"]
 
+[node name="Sheep" parent="." instance=ExtResource("2_semqn")]
+position = Vector2(583, 328)
+
 [node name="Player" parent="." instance=ExtResource("1_tyvl6")]
-position = Vector2(378, 295)
-script = null
+position = Vector2(541, 335)

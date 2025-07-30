@@ -3,6 +3,7 @@ class_name BaseAnimal
 
 var in_kick_range: bool
 @export var kick_distance: float = 50
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _on_kick_range_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -27,10 +28,9 @@ func kick():
 			
 	diff = global_position - closest_pen.global_position
 	diff = diff.normalized() * kick_distance
-	print(closest_pen.global_position, global_position)
 	var end_pos = global_position - diff
 	var tween = create_tween()
-	print("Global Pos", global_position, "End pos", end_pos)
-	tween.tween_property(self, "global_position", end_pos, 1)
-		
+	animation_player.play("kicked")
+	tween.tween_property(self, "global_position", end_pos, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	
 		

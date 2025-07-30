@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqbyf3duimude"]
+[gd_scene load_steps=14 format=3 uid="uid://cqbyf3duimude"]
 
 [ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_gw4f6"]
 [ext_resource type="Texture2D" uid="uid://cgs60xi7ec1wr" path="res://assets/sprites/sheep.png" id="2_ntctc"]
@@ -52,12 +52,72 @@ size = Vector2(11, 13)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ntctc"]
 radius = 18.0
 
+[sub_resource type="Animation" id="Animation_ntctc"]
+resource_name = "kicked"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 2.21914, 2702.37),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -45), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_ag106"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbeb1"]
+_data = {
+&"RESET": SubResource("Animation_ag106"),
+&"kicked": SubResource("Animation_ntctc")
+}
+
 [node name="Sheep" instance=ExtResource("1_gw4f6")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_55m3e")
 autoplay = "default"
-frame_progress = 0.143801
+frame_progress = 0.532128
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-0.5, -0.5)
@@ -66,3 +126,8 @@ shape = SubResource("RectangleShape2D_n54i3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KickRange" index="0"]
 shape = SubResource("CircleShape2D_ntctc")
 debug_color = Color(0.873576, 0.245228, 0.618886, 0.42)
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_xbeb1")
+}

@@ -11,5 +11,7 @@ script = ExtResource("1_a68rm")
 
 [node name="KickRange" type="Area2D" parent="."]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [connection signal="body_entered" from="KickRange" to="." method="_on_kick_range_body_entered"]
 [connection signal="body_exited" from="KickRange" to="." method="_on_kick_range_body_exited"]

@@ -1,17 +1,23 @@
 extends Node2D
 
 @onready var line = $LassoLine
+@onready var line_from_player = $PlayerToLassoLine
 @onready var lasso_polygon = $LassoPolygon
 
-@export var MAX_LASSO_LENGTH = 100
-@export var DISTANCE_THRESHOLD = 5
+@export var player: Player
+
+@export var MAX_LASSO_LENGTH = 400
+@export var DISTANCE_THRESHOLD = 7
 @export var LASSO_COMPLETION_GAP = 100
 
 var points: PackedVector2Array = []
-var is_drawing := false
+var is_drawing = false
 
 func _process(delta):
+	var nearest_lasso_point: Vector2  # for drawing line_from_player later
+	
 	if is_drawing:
+		# Handle the drawing of the main lasso
 		var pos = get_global_mouse_position()
 		if points.is_empty() or pos.distance_to(points[-1]) > DISTANCE_THRESHOLD:
 			var new_lasso_length = calculate_perimeter_with_extra_point(points, pos)
@@ -19,8 +25,19 @@ func _process(delta):
 				points.append(pos)
 				line.add_point(pos)
 			else:
-				print("Reached max lasso length!")
 				finish_lasso()
+		
+		# Find nearest lasso point to the player
+		var distance_to_player = INF
+		for point in points:
+			if player.global_position.distance_to(point) < distance_to_player:
+				nearest_lasso_point = point
+				distance_to_player = player.global_position.distance_to(point)
+	
+	if nearest_lasso_point:
+		line_from_player.points = [player.global_position, nearest_lasso_point]
+	else:
+		line_from_player.points = [player.global_position, get_global_mouse_position()]
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -71,11 +88,8 @@ func stun_animals_in_lasso():
 		if animal is BaseAnimal:
 			var local_pos = to_local(animal.global_position)
 			if Geometry2D.is_point_in_polygon(local_pos, lasso_polygon.polygon):
-				print("Animal inside shape: ", animal.name)
 				if !animal.being_stunned:
 					animal.stun()
-			else:
-				print("Animal outside shape:", animal.name)
 
 # Unused for now: do we want to make sure the lasso drawn by the player is circular?
 func is_shape_circular(points: PackedVector2Array) -> bool:

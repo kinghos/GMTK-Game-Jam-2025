@@ -5,10 +5,15 @@
 
 [node name="Lasso" type="Node2D"]
 script = ExtResource("1_1us5d")
-MAX_LASSO_LENGTH = 400
-DISTANCE_THRESHOLD = 7
 
 [node name="LassoLine" type="Line2D" parent="."]
+texture_repeat = 2
+closed = true
+texture = ExtResource("2_t680u")
+texture_mode = 1
+
+[node name="PlayerToLassoLine" type="Line2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
 texture_repeat = 2
 closed = true
 texture = ExtResource("2_t680u")

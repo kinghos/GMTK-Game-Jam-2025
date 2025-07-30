@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 class_name BaseAnimal
 
 var in_kick_range: bool

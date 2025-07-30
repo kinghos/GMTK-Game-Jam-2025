@@ -9,6 +9,11 @@ var is_drawing := false
 const MAX_LASSO_LENGTH = 1000
 const THE_DISTANCE_YOU_NEED_THE_LINE_TO_BE_BELOW_TO_MAKE_THE_SHAPE = 100.0
 
+var paused: bool = false
+
+func _ready():
+	Globals.pause_menu = $PauseMenu
+
 func _process(delta):
 	if is_drawing:
 		var pos = get_global_mouse_position()

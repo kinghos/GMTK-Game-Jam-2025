@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c461xpxwj25h2"]
+[gd_scene load_steps=3 format=3 uid="uid://c461xpxwj25h2"]
 
 [ext_resource type="Script" uid="uid://bniwyt5umo3i7" path="res://scenes/test_scene.gd" id="1_g7g4h"]
+[ext_resource type="PackedScene" uid="uid://c2d3oaak7o717" path="res://scenes/ui/pause_menu.tscn" id="2_j8ivh"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_g7g4h")
@@ -9,3 +10,6 @@ script = ExtResource("1_g7g4h")
 closed = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_j8ivh")]
+visible = false

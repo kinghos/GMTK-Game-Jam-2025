@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpxs5"]
 size = Vector2(186, 186)
 
-[node name="Pen" type="Node2D"]
+[node name="Pen" type="Node2D" groups=["Pens"]]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -93.0

@@ -1,7 +1,10 @@
 extends CharacterBody2D
+class_name Player
 
 @export var speed = 300
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+var animals_in_range: Array[BaseAnimal]
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
@@ -12,4 +15,9 @@ func _physics_process(delta: float) -> void:
 	velocity = speed * direction
 	
 	move_and_slide()
-	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Kick"):
+		for animal in animals_in_range:
+			animal.kick()
+		

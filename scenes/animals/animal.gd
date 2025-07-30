@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name BaseAnimal
 
 var in_kick_range: bool
+var being_kicked: bool
+
 @export var kick_distance: float = 50
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -19,6 +21,7 @@ func _on_kick_range_body_exited(body: Node2D) -> void:
 		body.animals_in_range.erase(self)
 
 func kick():
+	being_kicked = true
 	var closest = INF
 	var closest_pen: Node2D
 	var diff
@@ -43,4 +46,5 @@ func kick():
 	await tween.finished
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false
+	being_kicked = false
 	

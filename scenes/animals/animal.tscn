@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cjv6h5aem5r4u" path="res://assets/sprites/star_particle.png" id="2_4f3xh"]
 
 [node name="Animal" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 15
 script = ExtResource("1_a68rm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

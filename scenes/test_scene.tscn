@@ -19,6 +19,8 @@ visible = false
 
 [node name="Sheep" parent="." instance=ExtResource("3_7ddre")]
 position = Vector2(606, 207)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Player" parent="." instance=ExtResource("4_qjeyg")]
 position = Vector2(453, 307)

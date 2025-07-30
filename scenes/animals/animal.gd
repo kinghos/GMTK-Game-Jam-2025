@@ -3,6 +3,7 @@ class_name BaseAnimal
 
 var in_kick_range: bool
 var being_kicked: bool
+var being_stunned: bool
 
 @export var kick_distance: float = 50
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -48,3 +49,17 @@ func kick():
 	collision_shape_2d.disabled = false
 	being_kicked = false
 	
+func stun():
+	being_stunned = true
+	
+			
+	
+	animation_player.play("stun")
+	kick_particles.emitting = true
+	animated_sprite_2d.animation = "idle"
+	collision_shape_2d.disabled = true
+	
+	await animation_player.animation_finished
+	animated_sprite_2d.animation = "walk"
+	collision_shape_2d.disabled = false
+	being_stunned = false

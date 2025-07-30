@@ -3,9 +3,9 @@ extends Node2D
 @onready var line = $LassoLine
 @onready var lasso_polygon = $LassoPolygon
 
-const MAX_LASSO_LENGTH = 100
-const DISTANCE_THRESHOLD = 5
-const LASSO_COMPLETION_GAP = 100
+@export var MAX_LASSO_LENGTH = 100
+@export var DISTANCE_THRESHOLD = 5
+@export var LASSO_COMPLETION_GAP = 100
 
 var points: PackedVector2Array = []
 var is_drawing := false
@@ -72,6 +72,8 @@ func stun_animals_in_lasso():
 			var local_pos = to_local(animal.global_position)
 			if Geometry2D.is_point_in_polygon(local_pos, lasso_polygon.polygon):
 				print("Animal inside shape: ", animal.name)
+				if !animal.being_stunned:
+					animal.stun()
 			else:
 				print("Animal outside shape:", animal.name)
 

@@ -10,10 +10,22 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
-run/main_scene="uid://c461xpxwj25h2"
+config/name="Thrown for a Loop"
+run/main_scene="uid://cxl64go8kr6od"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://globals/globals.gd"
+Music="*res://globals/music.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [rendering]
 

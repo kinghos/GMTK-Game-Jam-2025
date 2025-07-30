@@ -5,4 +5,4 @@
 [node name="TestScenePlayer" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_tyvl6")]
-position = Vector2(116, 71)
+position = Vector2(378, 295)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqsuvlkj8r8ok"
-path="res://.godot/imported/skeleton_v2_1.png-af0f0c22a2024f86471541c9d2522531.ctex"
+uid="uid://cjv6h5aem5r4u"
+path="res://.godot/imported/star_particle.png-a33a525067fd3a335ab170ec851e7446.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/sprites/skeleton_v2_1.png"
-dest_files=["res://.godot/imported/skeleton_v2_1.png-af0f0c22a2024f86471541c9d2522531.ctex"]
+source_file="res://assets/graphics/misc/star_particle.png"
+dest_files=["res://.godot/imported/star_particle.png-a33a525067fd3a335ab170ec851e7446.ctex"]
 
 [params]
 

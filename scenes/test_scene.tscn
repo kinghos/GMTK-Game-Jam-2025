@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="2_j8ivh"]
 [ext_resource type="PackedScene" uid="uid://k3vx7abiijuu" path="res://scenes/lasso.tscn" id="2_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="3_7ddre"]
-[ext_resource type="Script" path="res://scenes/lasso.gd" id="3_rnaij"]
+[ext_resource type="Script" uid="uid://dy7kp0sseanyk" path="res://scenes/lasso.gd" id="3_rnaij"]
 [ext_resource type="PackedScene" uid="uid://cndmwkj47j0ww" path="res://scenes/Player.tscn" id="4_qjeyg"]
 [ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/pen.tscn" id="5_qjeyg"]
 

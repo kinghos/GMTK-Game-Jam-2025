@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv1ff04sewqvy"
-path="res://.godot/imported/skull_v2_1.png-a0a612946c25396c26e2ebe665a7cc55.ctex"
+uid="uid://ce5uu5lcikxbs"
+path="res://.godot/imported/lasso.png-46064da3140fe40a5d2c5f209438f568.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/sprites/skull_v2_1.png"
-dest_files=["res://.godot/imported/skull_v2_1.png-a0a612946c25396c26e2ebe665a7cc55.ctex"]
+source_file="res://assets/graphics/sprites/lasso.png"
+dest_files=["res://.godot/imported/lasso.png-46064da3140fe40a5d2c5f209438f568.ctex"]
 
 [params]
 

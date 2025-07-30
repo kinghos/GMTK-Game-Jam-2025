@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c730r02j0a3ic"]
 
 [ext_resource type="Script" uid="uid://bodcxjeobaic" path="res://scenes/animals/animal.gd" id="1_a68rm"]
-[ext_resource type="Texture2D" uid="uid://cjv6h5aem5r4u" path="res://assets/sprites/star_particle.png" id="2_4f3xh"]
+[ext_resource type="Texture2D" uid="uid://cjv6h5aem5r4u" path="res://assets/graphics/sprites/star_particle.png" id="2_4f3xh"]
 
 [node name="Animal" type="CharacterBody2D"]
 collision_layer = 2

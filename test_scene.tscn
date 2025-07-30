@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c461xpxwj25h2"]
+
+[ext_resource type="Script" uid="uid://bniwyt5umo3i7" path="res://test_scene.gd" id="1_uhqqe"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_uhqqe")
+
+[node name="Line2D" type="Line2D" parent="."]
+closed = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]

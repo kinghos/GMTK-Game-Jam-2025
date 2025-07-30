@@ -1,4 +1,6 @@
-[gd_scene load_steps=0 format=3 uid="uid://daq4fobxvmqj5"]
+[gd_scene load_steps=2 format=3 uid="uid://daq4fobxvmqj5"]
+
+[ext_resource type="PackedScene" uid="uid://yu5mo8j8kfvh" path="res://scenes/ui/menu_back_arrow.tscn" id="1_oap8i"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -7,3 +9,54 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = -35.0
+offset_right = 35.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="MTOnline" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "MTOnline"
+
+[node name="PeepsChilli" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "PeepsChilli"
+
+[node name="Fishmommy" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Fishmommy
+"
+
+[node name="AspectDuck" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "AspectDuck"
+
+[node name="TheCurryDealer" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "TheCurryDealer"
+
+[node name="MenuBackArrow" parent="." instance=ExtResource("1_oap8i")]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 477.0
+offset_right = 71.0
+offset_bottom = 509.0
+flip_h = true

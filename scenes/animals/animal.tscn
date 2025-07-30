@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c730r02j0a3ic"]
+
+[ext_resource type="Script" uid="uid://bodcxjeobaic" path="res://scenes/animals/animal.gd" id="1_a68rm"]
+
+[node name="Animal" type="CharacterBody2D"]
+script = ExtResource("1_a68rm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

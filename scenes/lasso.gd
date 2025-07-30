@@ -1,0 +1,97 @@
+extends Node2D
+
+@onready var line = $LassoLine
+@onready var lasso_polygon = $LassoPolygon
+
+const MAX_LASSO_LENGTH = 100
+const DISTANCE_THRESHOLD = 5
+const LASSO_COMPLETION_GAP = 100
+
+var points: PackedVector2Array = []
+var is_drawing := false
+
+func _process(delta):
+	if is_drawing:
+		var pos = get_global_mouse_position()
+		if points.is_empty() or pos.distance_to(points[-1]) > DISTANCE_THRESHOLD:
+			var new_lasso_length = calculate_perimeter_with_extra_point(points, pos)
+			if new_lasso_length <= MAX_LASSO_LENGTH:
+				points.append(pos)
+				line.add_point(pos)
+			else:
+				print("Reached max lasso length!")
+				finish_lasso()
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			start_lasso()
+		else:
+			if is_drawing:
+				finish_lasso()
+
+func start_lasso():
+	is_drawing = true
+	clear()
+
+func finish_lasso():
+	is_drawing = false
+	if points.size() >= 3:
+		close_shape()
+		update_polygon()
+		stun_animals_in_lasso()
+	else:
+		clear()
+
+func close_shape():
+	if points.size() > 1 and points[0] != points[-1]:
+		points.append(points[0])
+		line.add_point(points[0])
+
+func update_polygon():
+	lasso_polygon.polygon = points
+
+func clear():
+	points.clear()
+	line.clear_points()
+	lasso_polygon.polygon = []
+
+func calculate_perimeter_with_extra_point(existing_points: PackedVector2Array, new_point: Vector2) -> float:
+	var total = 0
+	for i in range(existing_points.size() - 1):
+		total += existing_points[i].distance_to(existing_points[i + 1])
+	if existing_points.size() > 0:
+		total += existing_points[-1].distance_to(new_point)
+	return total
+
+func stun_animals_in_lasso():
+	var animals = get_tree().get_nodes_in_group("Animals")
+	
+	for animal in animals:
+		if animal is BaseAnimal:
+			var local_pos = to_local(animal.global_position)
+			if Geometry2D.is_point_in_polygon(local_pos, lasso_polygon.polygon):
+				print("Animal inside shape: ", animal.name)
+			else:
+				print("Animal outside shape:", animal.name)
+
+# Unused for now: do we want to make sure the lasso drawn by the player is circular?
+func is_shape_circular(points: PackedVector2Array) -> bool:
+	if points.size() < 3:
+		return false
+	
+	var area = 0
+	var perimeter = 0
+	
+	for i in points.size():
+		var p1 = points[i]
+		var p2 = points[(i + 1) % points.size()]
+		area += (p1.x * p2.y - p2.x * p1.y) / 2
+		perimeter += p1.distance_to(p2)
+	
+	area = abs(area)
+	
+	if perimeter == 0:
+		return false
+	
+	return (4 * PI * area) / (perimeter * perimeter) >= 0.9

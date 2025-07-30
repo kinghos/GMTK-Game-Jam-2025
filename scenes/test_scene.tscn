@@ -1,26 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://c461xpxwj25h2"]
+[gd_scene load_steps=8 format=3 uid="uid://c461xpxwj25h2"]
 
 [ext_resource type="Script" uid="uid://bniwyt5umo3i7" path="res://scenes/test_scene.gd" id="1_g7g4h"]
-[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="2_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://c2d3oaak7o717" path="res://scenes/ui/pause_menu.tscn" id="2_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://k3vx7abiijuu" path="res://scenes/lasso.tscn" id="2_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="3_7ddre"]
+[ext_resource type="Script" uid="uid://dy7kp0sseanyk" path="res://scenes/lasso.gd" id="3_rnaij"]
 [ext_resource type="PackedScene" uid="uid://cndmwkj47j0ww" path="res://scenes/Player.tscn" id="4_qjeyg"]
 [ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/pen.tscn" id="5_qjeyg"]
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_g7g4h")
 
-[node name="Line2D" type="Line2D" parent="."]
-closed = true
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Lasso" parent="." instance=ExtResource("2_wtsjf")]
+script = ExtResource("3_rnaij")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_j8ivh")]
 visible = false
 
-[node name="Sheep" parent="." instance=ExtResource("3_7ddre")]
+[node name="Sheep" parent="." groups=["Animals"] instance=ExtResource("3_7ddre")]
 position = Vector2(606, 207)
 collision_layer = 1
 collision_mask = 1
+
+[node name="Sheep2" parent="." groups=["Animals"] instance=ExtResource("3_7ddre")]
+position = Vector2(618, 345)
+
+[node name="Sheep3" parent="." groups=["Animals"] instance=ExtResource("3_7ddre")]
+position = Vector2(748, 342)
 
 [node name="Player" parent="." instance=ExtResource("4_qjeyg")]
 position = Vector2(453, 307)

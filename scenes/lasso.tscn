@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://k3vx7abiijuu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LassoLine" type="Line2D" parent="."]
+closed = true
+
+[node name="LassoPolygon" type="Polygon2D" parent="."]
+color = Color(1, 0, 0, 0.486275)

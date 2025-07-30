@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_gw4f6"]
 [ext_resource type="Texture2D" uid="uid://cgs60xi7ec1wr" path="res://assets/sprites/sheep.png" id="2_ntctc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ag106"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntctc"]
 atlas = ExtResource("2_ntctc")
 region = Rect2(0, 0, 32, 32)
 
@@ -27,8 +27,13 @@ region = Rect2(128, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ag106")
+"texture": SubResource("AtlasTexture_ntctc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xbeb1")
 }, {
@@ -42,7 +47,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_b10s4")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walk",
 "speed": 9.0
 }]
 
@@ -116,8 +121,8 @@ _data = {
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_55m3e")
-autoplay = "default"
-frame_progress = 0.532128
+animation = &"walk"
+autoplay = "walk"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-0.5, -0.5)

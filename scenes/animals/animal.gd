@@ -4,6 +4,7 @@ class_name BaseAnimal
 var in_kick_range: bool
 @export var kick_distance: float = 50
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _on_kick_range_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -31,6 +32,9 @@ func kick():
 	var end_pos = global_position - diff
 	var tween = create_tween()
 	animation_player.play("kicked")
+	animated_sprite_2d.animation = "idle"
 	tween.tween_property(self, "global_position", end_pos, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	await tween.finished
+	animated_sprite_2d.animation = "walk"
 	
 		

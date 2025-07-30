@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://k3vx7abiijuu"]
+[gd_scene load_steps=2 format=3 uid="uid://k3vx7abiijuu"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://dy7kp0sseanyk" path="res://scenes/lasso.gd" id="1_1us5d"]
+
+[node name="Lasso" type="Node2D"]
+script = ExtResource("1_1us5d")
 
 [node name="LassoLine" type="Line2D" parent="."]
 closed = true

@@ -6,7 +6,7 @@ func _ready() -> void:
 	Music.play_music(MAIN_MENU_MUSIC)
 
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/test_scene.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/opening_cutscene.tscn")
 
 func _on_settings_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/settings.tscn")

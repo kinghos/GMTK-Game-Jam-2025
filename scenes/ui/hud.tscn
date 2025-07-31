@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqj5beox7atc5"]
+
+[ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_0mwgc"]
+[ext_resource type="Script" uid="uid://b60n3csy1oq4y" path="res://scenes/ui/hud.gd" id="1_hqnrr"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hqnrr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0mwgc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -913.0
+offset_right = 113.0
+offset_bottom = 93.0
+grow_horizontal = 2
+
+[node name="Powerups" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Powerups"
+
+[node name="TimeLeft" type="Label" parent="Control"]
+offset_left = 1344.0
+offset_top = 15.0
+offset_right = 1823.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 55
+text = "Time Left: "

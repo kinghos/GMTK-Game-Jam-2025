@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbbfxgqv47ulh"]
 
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_8wfqe"]
-[ext_resource type="PackedScene" uid="uid://yu5mo8j8kfvh" path="res://scenes/ui/menu_back_arrow.tscn" id="2_7pacj"]
-[ext_resource type="Script" uid="uid://cumdgbgw8rwv0" path="res://scenes/ui/settings.gd" id="2_ptynm"]
-[ext_resource type="Script" uid="uid://dk7oyx2t2k3yj" path="res://scenes/ui/volume_control.gd" id="3_h175o"]
+[ext_resource type="PackedScene" uid="uid://dsudqg24muyb2" path="res://scenes/ui/menu_back_arrow.tscn" id="2_7pacj"]
+[ext_resource type="Script" path="res://scenes/ui/settings.gd" id="2_ptynm"]
+[ext_resource type="Script" path="res://scenes/ui/volume_control.gd" id="3_h175o"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3

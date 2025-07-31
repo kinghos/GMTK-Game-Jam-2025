@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var game_ui: CanvasLayer = $GameUI
+@onready var game_ui: CanvasLayer = $Overlay
 @onready var start_countdown: CanvasLayer = $StartCountdown
 @export var next_level: String
 @onready var game_timer: Timer = $GameTimer

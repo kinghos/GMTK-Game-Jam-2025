@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://daq4fobxvmqj5"]
+[gd_scene load_steps=2 format=3 uid="uid://dw34xq1emv18a"]
 
-[ext_resource type="PackedScene" uid="uid://yu5mo8j8kfvh" path="res://scenes/ui/menu_back_arrow.tscn" id="1_oap8i"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menu_back_arrow.tscn" id="1_oap8i"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3

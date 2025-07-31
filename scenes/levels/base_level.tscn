@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dow5jdyygni3s"]
+[gd_scene load_steps=14 format=3 uid="uid://dow5jdyygni3s"]
 
 [ext_resource type="Script" uid="uid://bmvevy34gpj8u" path="res://scenes/level.gd" id="1_earhg"]
 [ext_resource type="Texture2D" uid="uid://d2brulbka1pa" path="res://assets/graphics/sprites/tileset.png" id="2_3rriw"]
 [ext_resource type="PackedScene" uid="uid://byg6xjjjpdp1o" path="res://scenes/ui/overlay.tscn" id="3_fal5o"]
 [ext_resource type="PackedScene" uid="uid://bf3xuac4xxpsw" path="res://scenes/camera_bound.tscn" id="3_h4ce7"]
+[ext_resource type="PackedScene" uid="uid://bqj5beox7atc5" path="res://scenes/ui/hud.tscn" id="4_43bxi"]
 [ext_resource type="PackedScene" uid="uid://c2d3oaak7o717" path="res://scenes/ui/pause_menu.tscn" id="4_b0lsh"]
 [ext_resource type="PackedScene" uid="uid://bf5tbh3arhyid" path="res://scenes/Player.tscn" id="5_3rj88"]
 [ext_resource type="PackedScene" uid="uid://fs7gqsq5cg6l" path="res://scenes/ui/start_countdown.tscn" id="5_53c65"]
@@ -103,7 +104,9 @@ bound_type = "left"
 [node name="Right" parent="CameraBounds" instance=ExtResource("3_h4ce7")]
 bound_type = "right"
 
-[node name="GameUI" parent="." instance=ExtResource("3_fal5o")]
+[node name="HUD" parent="." instance=ExtResource("4_43bxi")]
+
+[node name="Overlay" parent="." instance=ExtResource("3_fal5o")]
 
 [node name="StartCountdown" parent="." instance=ExtResource("5_53c65")]
 layer = 2
@@ -132,5 +135,3 @@ player = NodePath("../Player")
 wait_time = 60.0
 one_shot = true
 autostart = true
-
-[connection signal="powerup_selected" from="GameUI" to="." method="_on_game_ui_powerup_selected"]

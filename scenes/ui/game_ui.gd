@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var powerup_options: HBoxContainer = $Powerups/ColorRect/PowerupOptions
 
+signal powerup_selected
+
 func _ready() -> void:
 	powerups.hide()
 
@@ -25,6 +27,7 @@ func close_powerups_menu():
 	await animation_player.animation_finished
 	powerups.hide()
 	get_tree().paused = false
+	powerup_selected.emit()
 
 func _on_option_pressed(option: String) -> void:
 	print("Option ", option, " pressed")

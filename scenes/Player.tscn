@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://t3b5gcmdq0w2"]
 
 [ext_resource type="Script" uid="uid://b3fn543w2od6l" path="res://scenes/player.gd" id="1_p0vlq"]
-[ext_resource type="Texture2D" uid="uid://brj7y667qscpi" path="res://assets/graphics/misc/menu_arrow.png" id="2_v6fml"]
+[ext_resource type="Texture2D" uid="uid://cxwy30oynw0ag" path="res://assets/graphics/sprites/loopus.png" id="2_3li8b"]
 [ext_resource type="Script" uid="uid://b12hvo60xfyeq" path="res://scenes/camera_2d.gd" id="3_3li8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
-size = Vector2(24, 28)
+size = Vector2(44, 58)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gntrk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_v6fml")
+"texture": ExtResource("2_3li8b")
 }],
 "loop": true,
 "name": &"new_animation",
@@ -24,7 +24,7 @@ motion_mode = 1
 script = ExtResource("1_p0vlq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 0)
+position = Vector2(-2, 3)
 shape = SubResource("RectangleShape2D_kyqiw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

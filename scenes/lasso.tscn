@@ -21,4 +21,4 @@ texture = ExtResource("2_t680u")
 texture_mode = 1
 
 [node name="LassoPolygon" type="Polygon2D" parent="."]
-color = Color(1, 0, 0, 0.486275)
+color = Color(0.83, 0.598707, 0.1992, 0.517647)

@@ -26,27 +26,27 @@ position = Vector2(-50, 508)
 position = Vector2(1970, 531)
 
 [node name="Player" parent="." index="5"]
-position = Vector2(481, 538)
+position = Vector2(958, 738)
 
 [node name="Pen" parent="Pens" index="0" instance=ExtResource("2_nsrm0")]
-position = Vector2(988, 545)
+position = Vector2(960, 540)
 max_animals = 6
 animal_type = "Sheep"
 
 [node name="Sheep" parent="Animals/Sheep" index="0" instance=ExtResource("3_x42e6")]
-position = Vector2(838, 349)
+position = Vector2(643, 261)
 
 [node name="Sheep2" parent="Animals/Sheep" index="1" instance=ExtResource("3_x42e6")]
-position = Vector2(1132, 345)
+position = Vector2(1677, 300)
 
 [node name="Sheep3" parent="Animals/Sheep" index="2" instance=ExtResource("3_x42e6")]
-position = Vector2(1239, 542)
+position = Vector2(1661, 766)
 
 [node name="Sheep4" parent="Animals/Sheep" index="3" instance=ExtResource("3_x42e6")]
-position = Vector2(1123, 748)
+position = Vector2(1287, 922)
 
 [node name="Sheep5" parent="Animals/Sheep" index="4" instance=ExtResource("3_x42e6")]
-position = Vector2(861, 776)
+position = Vector2(538, 855)
 
 [node name="Sheep6" parent="Animals/Sheep" index="5" instance=ExtResource("3_x42e6")]
-position = Vector2(730, 562)
+position = Vector2(271, 540)

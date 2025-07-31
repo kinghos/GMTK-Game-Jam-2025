@@ -128,24 +128,3 @@ func stun_animals_in_lasso():
 				if !animal.being_stunned and !animal.being_kicked:
 					animal.stun(i)
 					i += 1
-
-# Unused for now: do we want to make sure the lasso drawn by the player is circular?
-func is_shape_circular(points: PackedVector2Array) -> bool:
-	if points.size() < 3:
-		return false
-	
-	var area = 0
-	var perimeter = 0
-	
-	for i in points.size():
-		var p1 = points[i]
-		var p2 = points[(i + 1) % points.size()]
-		area += (p1.x * p2.y - p2.x * p1.y) / 2
-		perimeter += p1.distance_to(p2)
-	
-	area = abs(area)
-	
-	if perimeter == 0:
-		return false
-	
-	return (4 * PI * area) / (perimeter * perimeter) >= 0.9

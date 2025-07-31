@@ -6,7 +6,7 @@ var is_mouse_over: bool = false
 var animals_in_auto_kick_area: Array[BaseAnimal]
 var animals_in_pen_enclosure: Array[BaseAnimal]
 @onready var animals_count_label: Label = $AnimalsCount
-@onready var animal_icon: Sprite2D = $AnimalIcon
+@onready var animal_icon: TextureRect = $PenEnclosure/AnimalIcon
 
 @export var max_animals: int
 @export_enum("Sheep", "Cow", "Chicken") var animal_type: String

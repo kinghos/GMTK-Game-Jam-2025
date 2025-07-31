@@ -33,6 +33,11 @@ position = Vector2(1287, 558)
 max_animals = 3
 animal_type = "Cow"
 
+[node name="Pen3" parent="Pens" index="2" instance=ExtResource("2_fr1um")]
+position = Vector2(899, 165)
+max_animals = 3
+animal_type = "Chicken"
+
 [node name="Button" type="Button" parent="." index="8"]
 offset_left = 623.0
 offset_top = 889.0

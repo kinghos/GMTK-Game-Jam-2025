@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cqbyf3duimude"]
 
 [ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_gw4f6"]
-[ext_resource type="Texture2D" uid="uid://dk7wu5e638wj3" path="res://assets/graphics/misc/skip_button_hovering.png" id="2_ag106"]
+[ext_resource type="Texture2D" uid="uid://dg5irpu268sb7" path="res://assets/graphics/misc/menu_arrow_hovering.png" id="2_ag106"]
 [ext_resource type="Texture2D" uid="uid://cgs60xi7ec1wr" path="res://assets/graphics/sprites/sheep.png" id="2_ntctc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntctc"]

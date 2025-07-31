@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dow5jdyygni3s"]
+[gd_scene load_steps=12 format=3 uid="uid://dow5jdyygni3s"]
 
 [ext_resource type="Script" uid="uid://bmvevy34gpj8u" path="res://scenes/level.gd" id="1_earhg"]
 [ext_resource type="Texture2D" uid="uid://d2brulbka1pa" path="res://assets/graphics/sprites/tileset.png" id="2_3rriw"]
 [ext_resource type="PackedScene" uid="uid://byg6xjjjpdp1o" path="res://scenes/ui/game_ui.tscn" id="3_fal5o"]
+[ext_resource type="PackedScene" uid="uid://bf3xuac4xxpsw" path="res://scenes/camera_bound.tscn" id="3_h4ce7"]
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="4_b0lsh"]
 [ext_resource type="PackedScene" uid="uid://dtxp55d6fo5rt" path="res://scenes/Player.tscn" id="5_3rj88"]
 [ext_resource type="PackedScene" uid="uid://k3vx7abiijuu" path="res://scenes/lasso.tscn" id="6_klwti"]
@@ -154,6 +155,20 @@ tile_set = SubResource("TileSet_olg7q")
 
 [node name="Fences" type="TileMapLayer" parent="Tilemap"]
 tile_set = SubResource("TileSet_h4ce7")
+
+[node name="CameraBounds" type="Node2D" parent="."]
+
+[node name="Top" parent="CameraBounds" instance=ExtResource("3_h4ce7")]
+bound_type = "top"
+
+[node name="Bottom" parent="CameraBounds" instance=ExtResource("3_h4ce7")]
+bound_type = "bottom"
+
+[node name="Left" parent="CameraBounds" instance=ExtResource("3_h4ce7")]
+bound_type = "left"
+
+[node name="Right" parent="CameraBounds" instance=ExtResource("3_h4ce7")]
+bound_type = "right"
 
 [node name="GameUI" parent="." instance=ExtResource("3_fal5o")]
 

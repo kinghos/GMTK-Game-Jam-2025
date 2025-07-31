@@ -1,18 +1,29 @@
-extends RigidBody2D
+extends CharacterBody2D
 class_name BaseAnimal
 
 var in_kick_range: bool
 var being_kicked: bool
 var being_stunned: bool
+var target: Vector2 = position
+
+@export var speed = 75
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var kick_particles: CPUParticles2D = $KickParticles
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var stun_timer: Timer = $StunTimer
+@onready var random_movement_timer: Timer = $RandomMovementTimer
 
 func _ready() -> void:
 	stun_timer.wait_time = Globals.stun_time
+	_on_random_movement_timer_timeout()
+	random_movement_timer.start()
+
+func _physics_process(delta: float) -> void:
+	velocity = position.direction_to(target) * speed
+	if position.distance_to(target) > 10 and !being_stunned:
+		move_and_slide()
 
 func _on_kick_range_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -61,8 +72,15 @@ func stun():
 	stun_timer.start()
 	
 
-func _on_stun_timer_timeout() -> void:
+func _on_stun_timer_timeout() -> void:	
 	animation_player.stop()
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false
 	being_stunned = false
+
+func _on_random_movement_timer_timeout() -> void:
+	var rect = get_viewport().get_visible_rect()
+	target = rect.position + Vector2(
+		randf_range(0, rect.size.x),
+		randf_range(0, rect.size.y)
+	)

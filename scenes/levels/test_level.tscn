@@ -62,3 +62,12 @@ position = Vector2(904, 847)
 
 [node name="Chicken4" parent="Animals/Chickens" index="3" instance=ExtResource("5_48ne7")]
 position = Vector2(1458, 131)
+
+[node name="Button" type="Button" parent="." index="8"]
+offset_left = 623.0
+offset_top = 889.0
+offset_right = 815.0
+offset_bottom = 920.0
+text = "activate powerup menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

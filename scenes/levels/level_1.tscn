@@ -33,10 +33,10 @@ max_animals = 6
 animal_type = "Sheep"
 
 [node name="Button" type="Button" parent="." index="7"]
-offset_left = 378.0
-offset_top = 679.0
-offset_right = 570.0
-offset_bottom = 710.0
+offset_left = 130.0
+offset_top = 134.0
+offset_right = 322.0
+offset_bottom = 165.0
 text = "activate powerup menu"
 
 [node name="Sheep" parent="Animals/Sheep" index="0" instance=ExtResource("3_x42e6")]

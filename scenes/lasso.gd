@@ -81,16 +81,10 @@ func start_lasso():
 func finish_lasso():
 	is_drawing = false
 	if points.size() >= 3:
-		var crossed = false
-		for i in range(points.size() - 2):
-			if Geometry2D.segment_intersects_segment(points[i], points[i + 1], points[-2], points[-1]):
-				crossed = true
-				break
-		if crossed:
-			close_shape()
-			update_polygon()
-			stun_animals_in_lasso()
-			fade_out()
+		close_shape()
+		update_polygon()
+		stun_animals_in_lasso()
+		fade_out()
 	else:
 		clear()
 

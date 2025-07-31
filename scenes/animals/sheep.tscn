@@ -55,8 +55,8 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ntctc"]
 height = 25.9882
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ntctc"]
-radius = 23.5213
+[sub_resource type="CircleShape2D" id="CircleShape2D_ag106"]
+radius = 23.5053
 
 [sub_resource type="Animation" id="Animation_ag106"]
 length = 0.001
@@ -166,9 +166,9 @@ shape = SubResource("CapsuleShape2D_ntctc")
 [node name="KickRange" parent="." index="2"]
 collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KickRange" index="0"]
-shape = SubResource("CircleShape2D_ntctc")
-debug_color = Color(0.873576, 0.245228, 0.618886, 0.42)
+[node name="CollisionShape2D" parent="KickRange" index="0"]
+shape = SubResource("CircleShape2D_ag106")
+debug_color = Color(0.87451, 0.247059, 0.619608, 0.419608)
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {

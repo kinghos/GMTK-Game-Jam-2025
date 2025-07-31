@@ -3,6 +3,7 @@ extends Node2D
 @onready var game_ui: CanvasLayer = $GameUI
 @onready var start_countdown: CanvasLayer = $StartCountdown
 @export var next_level: String
+@onready var game_timer: Timer = $GameTimer
 
 func _ready():
 	Globals.current_level = self
@@ -17,6 +18,7 @@ func _process(delta: float) -> void:
 		if !pen.is_full():
 			return
 	change_to_next_level()
+	Globals.time_left_on_timer = game_timer.wait_time - game_timer.time_left
 
 func change_to_next_level():
 	game_ui.trigger_powerups_menu()

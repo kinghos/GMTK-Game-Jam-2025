@@ -17,6 +17,7 @@ var KICK_MULT = {
 	"Cow": 0.8,
 	"Sheep": 1
 }
+var time_left_on_timer: float
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS

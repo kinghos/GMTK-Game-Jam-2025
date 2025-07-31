@@ -1,8 +1,9 @@
 extends CanvasLayer
 
-@onready var powerups: Control = $Powerups
+@onready var powerups: Control = $RoundEnd
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var powerup_options: HBoxContainer = $Powerups/ColorRect/PowerupOptions
+@onready var powerup_options: HBoxContainer = $RoundEnd/ColorRect/PowerupOptions
+@onready var time_left: Label = $RoundEnd/TimeLeft
 
 signal powerup_selected
 
@@ -21,6 +22,7 @@ func trigger_powerups_menu():
 	animation_player.play("Slide")
 	randomise_powerup_options()
 	get_tree().paused = true
+	time_left.text = "Cleared in:\n%6.3f seconds" % Globals.time_left_on_timer
 
 func close_powerups_menu():
 	animation_player.play_backwards("Slide")

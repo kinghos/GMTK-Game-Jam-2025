@@ -12,6 +12,7 @@ func trigger_powerups_menu():
 
 func close_powerups_menu():
 	animation_player.play_backwards("Slide")
+	await animation_player.animation_finished
 	powerups.hide()
 	get_tree().paused = false
 

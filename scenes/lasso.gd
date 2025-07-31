@@ -58,7 +58,7 @@ func _input(event):
 				finish_lasso()
 
 func start_lasso():
-	modulate = Color(1, 1, 1, 1)
+	$LassoLine.modulate = Color(1, 1, 1, 1)
 	is_drawing = true
 	var tween_array: Array[Tween] = get_tree().get_processed_tweens()
 	for tween in tween_array:
@@ -91,7 +91,7 @@ func clear():
 func fade_out():
 	var tween = get_tree().create_tween()
 	print("fading")
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 1)
+	tween.tween_property(line, "modulate", Color(1, 1, 1, 0), 1)
 	await tween.finished
 	clear()
 	modulate = Color(1, 1, 1, 1)

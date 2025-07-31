@@ -28,7 +28,7 @@ position = Vector2(1970, 531)
 position = Vector2(481, 538)
 
 [node name="Pen" parent="Pens" index="0" instance=ExtResource("2_nsrm0")]
-position = Vector2(950, 529)
+position = Vector2(988, 545)
 
 [node name="Button" type="Button" parent="." index="7"]
 offset_left = 378.0
@@ -38,21 +38,21 @@ offset_bottom = 710.0
 text = "activate powerup menu"
 
 [node name="Sheep" parent="Animals/Sheep" index="0" instance=ExtResource("3_x42e6")]
-position = Vector2(1315, 477)
+position = Vector2(838, 349)
 
 [node name="Sheep2" parent="Animals/Sheep" index="1" instance=ExtResource("3_x42e6")]
-position = Vector2(1222, 783)
+position = Vector2(1132, 345)
 
 [node name="Sheep3" parent="Animals/Sheep" index="2" instance=ExtResource("3_x42e6")]
-position = Vector2(1110, 238)
+position = Vector2(1239, 542)
 
 [node name="Sheep4" parent="Animals/Sheep" index="3" instance=ExtResource("3_x42e6")]
-position = Vector2(835, 790)
+position = Vector2(1123, 748)
 
 [node name="Sheep5" parent="Animals/Sheep" index="4" instance=ExtResource("3_x42e6")]
-position = Vector2(729, 243)
+position = Vector2(861, 776)
 
 [node name="Sheep6" parent="Animals/Sheep" index="5" instance=ExtResource("3_x42e6")]
-position = Vector2(665, 524)
+position = Vector2(730, 562)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

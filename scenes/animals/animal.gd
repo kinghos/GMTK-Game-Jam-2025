@@ -58,26 +58,32 @@ func _on_kick_range_body_exited(body: Node2D) -> void:
 func kick():
 	being_kicked = true
 	var closest = INF
-	var closest_pen: Node2D
+	var closest_pen: Pen
 	var diff
 	
-	for pen: Node2D in get_tree().get_nodes_in_group("Pens"):
+	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 		diff = global_position.distance_to(pen.global_position)
 		if diff < closest:
 			closest_pen = pen
 			closest = diff
-			
-	diff = global_position - closest_pen.global_position
-	diff = diff.normalized() * Globals.kick_distance
-	var end_pos = global_position - diff
+	
+	var end_pos: Vector2
+	print("self: ", self, " animaarray", closest_pen.animals_in_area)
+	if self in closest_pen.animals_in_area:
+		end_pos = closest_pen.global_position
+		print("AUTO")
+	else:
+		diff = global_position - closest_pen.global_position
+		diff = diff.normalized() * Globals.kick_distance
+		end_pos = global_position - diff
 	
 	animation_player.play("kicked")
 	kick_particles.emitting = true
 	animated_sprite_2d.animation = "idle"
-	collision_shape_2d.disabled = true
 	
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	collision_shape_2d.disabled = true
 	await tween.finished
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false

@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://di53xit540gqa"]
+[gd_scene load_steps=6 format=3 uid="uid://di53xit540gqa"]
 
 [ext_resource type="Script" uid="uid://bablyi76071k6" path="res://scenes/pen.gd" id="1_ngeja"]
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="2_spjee"]
-[ext_resource type="Shader" uid="uid://cgd35j7ohkq3b" path="res://scenes/pen_animal_icon.gdshader" id="3_xbp3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpxs5"]
 size = Vector2(166, 166)
@@ -13,26 +12,29 @@ size = Vector2(10, 186)
 [sub_resource type="CircleShape2D" id="CircleShape2D_lpxs5"]
 radius = 315.078
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j676a"]
-shader = ExtResource("3_xbp3v")
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/width = 0.5
-
 [node name="Pen" type="Node2D" groups=["Pens"]]
 z_index = -1
 script = ExtResource("1_ngeja")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
 offset_left = -93.0
 offset_top = -93.0
 offset_right = 93.0
 offset_bottom = 93.0
-mouse_filter = 1
-color = Color(0.946983, 0.929075, 0.777775, 1)
+color = Color(0.947, 0.929, 0.778, 1)
 
 [node name="PenEnclosure" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 2
+
+[node name="AnimalIcon" type="TextureRect" parent="PenEnclosure"]
+modulate = Color(1, 1, 1, 0.5)
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -60.0
+offset_bottom = -60.0
+scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PenEnclosure"]
 shape = SubResource("RectangleShape2D_lpxs5")
@@ -92,11 +94,6 @@ theme = ExtResource("2_spjee")
 theme_override_font_sizes/font_size = 37
 text = "0 / 6"
 horizontal_alignment = 1
-
-[node name="AnimalIcon" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_j676a")
-position = Vector2(0, -162)
-scale = Vector2(2, 2)
 
 [connection signal="body_entered" from="PenEnclosure" to="." method="_on_pen_enclosure_body_entered"]
 [connection signal="body_exited" from="PenEnclosure" to="." method="_on_pen_enclosure_body_exited"]

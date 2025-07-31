@@ -15,6 +15,7 @@ func _on_button_pressed() -> void:
 
 func _process(_delta: float) -> void:
 	Globals.time_elapsed = game_timer.wait_time - game_timer.time_left
+	Globals.time_left = game_timer.time_left
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 		if !pen.is_full():
 			return

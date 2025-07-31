@@ -26,7 +26,10 @@ var KICK_MULT = {
 	"Sheep": 1
 }
 var time_elapsed: float
+var time_left: float
 var prevent_pause: bool = false
+
+var powerup_selections: Array[String]
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS

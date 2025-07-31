@@ -11,7 +11,7 @@ var lives: int
 var stun_time: float = 1
 var kick_distance: float = 150
 enum POWERUPS {LassoSize, StunTime, KickDistance, ExtraLives, LassoReach, PlayerSpeed}
-var POWERUP_LIST = ["LassoSize", "StunTime", "KickDistance", "ExtraLives", "LassoReach", "PlayerSpeed"]
+var POWERUP_LIST = ["Lasso Length", "Animal\nStun Time", "Kick Power", "Extra Lives", "Lasso Reach", "Player Speed"]
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS

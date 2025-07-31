@@ -116,6 +116,12 @@ _data = {
 process_mode = 3
 script = ExtResource("1_gwk6t")
 
+[node name="AnimalPointers" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="DebugValues" type="VBoxContainer" parent="."]
 anchors_preset = -1
 anchor_left = 0.05

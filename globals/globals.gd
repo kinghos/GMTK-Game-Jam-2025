@@ -2,8 +2,11 @@ extends Node
 
 var player: Player
 var lasso: Lasso
-var player_lasso_reach = 500
+var current_level: Node2D
 var pause_menu: CanvasLayer = null
+
+# Powerup values
+var player_lasso_reach = 500
 var lives: int
 var stun_time: float = 1
 var kick_distance: float = 150

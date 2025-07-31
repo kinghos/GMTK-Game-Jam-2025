@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name BaseAnimal
 
 var in_kick_range: bool
+var is_visible_on_screen: bool = false
 var being_kicked: bool
 var being_stunned: bool
 var target: Vector2
@@ -119,3 +120,10 @@ func _on_random_movement_timer_timeout() -> void:
 		#changed_target_last_time = true
 		#need_to_change_target = false
 	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	is_visible_on_screen = true
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	is_visible_on_screen = false

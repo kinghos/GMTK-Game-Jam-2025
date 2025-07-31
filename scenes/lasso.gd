@@ -125,6 +125,6 @@ func stun_animals_in_lasso():
 		if animal is BaseAnimal:
 			var local_pos = to_local(animal.global_position)
 			if Geometry2D.is_point_in_polygon(local_pos, lasso_polygon.polygon):
-				if !animal.being_stunned and !animal.being_kicked:
+				if !animal.being_kicked:
 					animal.stun(i)
 					i += 1

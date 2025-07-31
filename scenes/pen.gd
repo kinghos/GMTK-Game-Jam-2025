@@ -3,7 +3,7 @@ class_name Pen
 
 var is_mouse_over: bool = false
 
-var animals_in_auto_kick_area: Array[BaseAnimal]
+var animals_in_kick_area: Array[BaseAnimal]
 var animals_in_pen_enclosure: Array[BaseAnimal]
 @onready var animals_count_label: Label = $AnimalsCount
 @onready var animal_icon: TextureRect = $PenEnclosure/AnimalIcon
@@ -17,6 +17,9 @@ const ANIMAL_ICONS = {
 	"Chicken": preload("res://assets/graphics/sprites/sheep_icon.png")
 }
 
+func _draw():
+	draw_circle($KickArea/CollisionShape2D.position, Globals.pen_kick_area, Color.RED, false, 2.0, true)
+
 func _ready() -> void:
 	animal_icon.texture = ANIMAL_ICONS[animal_type]
 
@@ -25,14 +28,17 @@ func is_full() -> bool:
 
 func _process(_delta: float) -> void:
 	animals_count_label.text = str(len(animals_in_pen_enclosure)) + " / " + str(max_animals)
+	$KickArea/CollisionShape2D.shape.set_radius(Globals.pen_kick_area)
 
-func _on_instant_kick_area_body_entered(body: Node2D) -> void:
-	if body is BaseAnimal:
-		animals_in_auto_kick_area.append(body)
+func _on_kick_area_body_entered(body: Node2D) -> void:
+	if body is BaseAnimal and body.type == animal_type:
+		animals_in_kick_area.append(body)
+		body.is_in_kick_area = true
 
-func _on_instant_kick_area_body_exited(body: Node2D) -> void:
-	if body is BaseAnimal:
-		animals_in_auto_kick_area.erase(body)
+func _on_kick_area_body_exited(body: Node2D) -> void:
+	if body is BaseAnimal and body.type == animal_type:
+		animals_in_kick_area.erase(body)
+		body.is_in_kick_area = true
 
 func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 	if body is BaseAnimal:

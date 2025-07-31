@@ -14,7 +14,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	$DebugValues/PlayerSpeed.text = "Speed: " + str(Globals.player.speed)
 	$DebugValues/StunTime.text = "StunTime: " + str(Globals.stun_time)
-	$DebugValues/KickDistance.text = "Kick Power: " + str(Globals.kick_distance)
+	$DebugValues/PenKickArea.text = "Pen Kick Area: " + str(Globals.pen_kick_area)
 	$DebugValues/LassoReach.text = "Lasso Reach: " + str(Globals.player_lasso_reach)
 	$DebugValues/LassoSize.text = "Lasso Size: " + str(Globals.lasso.MAX_LASSO_LENGTH)
 

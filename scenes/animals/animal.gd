@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name BaseAnimal
 
 var in_kick_range: bool
+var is_in_kick_area: bool
 var being_kicked: bool
 var being_stunned: bool
 var in_pen: bool = false
@@ -75,21 +76,13 @@ func kick():
 	if !closest_pen:
 		return
 	
-	var end_pos: Vector2
-	if self in closest_pen.animals_in_auto_kick_area:
-		end_pos = closest_pen.global_position
-	else:
-		diff = global_position - closest_pen.global_position
-		diff = diff.normalized() * Globals.kick_distance * Globals.KICK_MULT[type]
-		end_pos = global_position - diff
-	
 	animation_player.play("kicked")
 	kick_particles.emitting = true
 	collision_shape_2d.disabled = true
 	animated_sprite_2d.animation = "idle"
 	
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "global_position", closest_pen.global_position, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false

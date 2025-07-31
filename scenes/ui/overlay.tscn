@@ -313,7 +313,7 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 
-[node name="KickDistance" type="Label" parent="DebugValues"]
+[node name="PenKickArea" type="Label" parent="DebugValues"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 

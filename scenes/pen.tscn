@@ -10,7 +10,7 @@ size = Vector2(166, 166)
 size = Vector2(10, 186)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lpxs5"]
-radius = 315.078
+radius = 250.0
 
 [node name="Pen" type="Node2D" groups=["Pens"]]
 z_index = -1
@@ -77,11 +77,11 @@ collision_mask = 3
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_ngeja")
 
-[node name="InstantKickArea" type="Area2D" parent="."]
+[node name="KickArea" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InstantKickArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KickArea"]
 shape = SubResource("CircleShape2D_lpxs5")
 
 [node name="AnimalsCount" type="Label" parent="."]
@@ -98,5 +98,5 @@ horizontal_alignment = 1
 [connection signal="body_exited" from="PenEnclosure" to="." method="_on_pen_enclosure_body_exited"]
 [connection signal="mouse_entered" from="PenEnclosure" to="." method="_on_pen_enclosure_mouse_entered"]
 [connection signal="mouse_exited" from="PenEnclosure" to="." method="_on_pen_enclosure_mouse_exited"]
-[connection signal="body_entered" from="InstantKickArea" to="." method="_on_instant_kick_area_body_entered"]
-[connection signal="body_exited" from="InstantKickArea" to="." method="_on_instant_kick_area_body_exited"]
+[connection signal="body_entered" from="KickArea" to="." method="_on_kick_area_body_entered"]
+[connection signal="body_exited" from="KickArea" to="." method="_on_kick_area_body_exited"]

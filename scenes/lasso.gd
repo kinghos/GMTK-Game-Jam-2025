@@ -37,11 +37,21 @@ func _process(delta):
 	if nearest_lasso_point:
 		line_from_player.points = [player.global_position, nearest_lasso_point]
 	else:
-		line_from_player.points = [player.global_position, get_global_mouse_position()]
+		var mouse_pos = get_global_mouse_position()
+		var direction = (mouse_pos - player.global_position).normalized()
+		var distance = player.global_position.distance_to(mouse_pos)
+
+		if distance <= Globals.player_lasso_reach:
+			line_from_player.points = [player.global_position, mouse_pos]
+			line_from_player.modulate = Color.WHITE
+		else:
+			var clamped_point = player.global_position + direction * Globals.player_lasso_reach
+			line_from_player.points = [player.global_position, clamped_point]
+			line_from_player.modulate = Color.RED
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
+		if event.pressed and player.global_position.distance_to(get_global_mouse_position()) <= Globals.player_lasso_reach:
 			start_lasso()
 		else:
 			if is_drawing:

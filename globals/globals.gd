@@ -1,5 +1,7 @@
 extends Node
 
+var player_lasso_reach = 200
+
 var pause_menu: CanvasLayer = null
 
 func _ready():

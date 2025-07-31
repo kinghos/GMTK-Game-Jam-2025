@@ -61,4 +61,4 @@ func _on_back_arrow_pressed() -> void:
 		update_current_frame()
 
 func _go_to_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/test_scene.tscn")
+	get_tree().change_scene_to_file("res://scenes/level.tscn")

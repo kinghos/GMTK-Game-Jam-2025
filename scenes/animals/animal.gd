@@ -7,6 +7,7 @@ var being_stunned: bool
 var target: Vector2
 var need_to_change_target = false
 var changed_target_last_time = false
+var in_pen: bool = false
 
 @export var pointer_icon: Texture2D
 @export var speed = 75
@@ -67,7 +68,7 @@ func kick():
 	
 	var end_pos: Vector2
 	var is_pen_full = len(closest_pen.animals_in_pen_enclosure) == closest_pen.max_animals
-	if self in closest_pen.animals_in_pen_enclosure or is_pen_full:
+	if in_pen or is_pen_full:
 		being_kicked = false
 		return
 	if self in closest_pen.animals_in_auto_kick_area:
@@ -90,12 +91,18 @@ func kick():
 	being_kicked = false
 	
 func stun():
+	if in_pen:
+		return
 	being_stunned = true
-	animation_player.play("stun")
+	
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", Globals.player.global_position, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	kick_particles.emitting = true
 	animated_sprite_2d.animation = "idle"
-	#collision_shape_2d.disabled = true
+	
+	await tween.finished
 	stun_timer.start()
+	animation_player.play("stun")
 	
 
 func _on_stun_timer_timeout() -> void:	

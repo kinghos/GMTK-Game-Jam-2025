@@ -72,9 +72,9 @@ func kick():
 			closest = diff
 	
 	var end_pos: Vector2
-	if self in closest_pen.animals_in_pen_enclosure:
+	var is_pen_full = len(closest_pen.animals_in_pen_enclosure) == closest_pen.max_animals
+	if self in closest_pen.animals_in_pen_enclosure or is_pen_full:
 		being_kicked = false
-		print("Wrong!")
 		return
 	if self in closest_pen.animals_in_auto_kick_area:
 		end_pos = closest_pen.global_position

@@ -5,14 +5,10 @@ func _ready() -> void:
 		var pos: float
 		match bound.bound_type:
 			"top":
-				pos = bound.global_position.y
-				limit_top = pos
+				limit_top = bound.global_position.y
 			"bottom":
-				pos = bound.global_position.y
-				limit_bottom = pos
+				limit_bottom = bound.global_position.y
 			"left":
-				pos = bound.global_position.x
-				limit_left = pos
+				limit_left = bound.global_position.x
 			"right":
-				pos = bound.global_position.x
-				limit_right = pos
+				limit_right = bound.global_position.x

@@ -135,6 +135,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_6t8lt"]
 resource_name = "kick"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -162,6 +163,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_jhwbb"]
 resource_name = "stun"
+length = 0.375
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -200,7 +202,7 @@ type = "Cow"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_do5cp")
-animation = &"stun"
+animation = &"idle"
 autoplay = "walk"
 
 [node name="CollisionShape2D" parent="." index="1"]

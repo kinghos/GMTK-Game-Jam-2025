@@ -148,6 +148,7 @@ _data = {
 }
 
 [node name="Sheep" instance=ExtResource("1_gw4f6")]
+scale = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_55m3e")

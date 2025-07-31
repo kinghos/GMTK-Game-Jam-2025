@@ -27,7 +27,6 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	velocity = position.direction_to(target) * speed
-	move_and_slide()
 	
 	# Bounce off pens and other sheep
 	for i in range(get_slide_collision_count()):
@@ -35,17 +34,12 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		
 		if collider:
-			var current = collider
-			while current:
-				if current.is_in_group("Pens") or current.is_in_group("Animals") or current.name == "Player":
-					print("TBA: bounce somehow")
-					#var normal = collision.get_normal()
-					#velocity = velocity.bounce(normal)
-					#target = global_position + velocity.normalized() * 100
-					break
-				current = current.get_parent()
-			if current:
-				break
+			print("TBA: bounce somehow")
+			var normal = collision.get_normal()
+			velocity = velocity.bounce(normal)
+			target = global_position + velocity.normalized() * 100
+			
+	move_and_slide()
 
 func _on_kick_range_body_entered(body: Node2D) -> void:
 	if body is Player:

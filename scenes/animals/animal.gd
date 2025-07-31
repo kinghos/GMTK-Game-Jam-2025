@@ -90,13 +90,18 @@ func kick():
 	collision_shape_2d.disabled = false
 	being_kicked = false
 	
-func stun():
+func stun(index: int):
 	if in_pen:
 		return
 	being_stunned = true
 	
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", Globals.player.global_position, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	var diff = Globals.player.global_position - global_position
+	var length = diff.length()
+	diff = diff.normalized() * pow(0.8, index) * length
+	var end_pos = global_position + diff
+	
+	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	kick_particles.emitting = true
 	animated_sprite_2d.animation = "idle"
 	

@@ -121,12 +121,14 @@ func calculate_perimeter_with_extra_point(existing_points: PackedVector2Array, n
 func stun_animals_in_lasso():
 	var animals = get_tree().get_nodes_in_group("Animals")
 	
+	var i = 1
 	for animal in animals:
 		if animal is BaseAnimal:
 			var local_pos = to_local(animal.global_position)
 			if Geometry2D.is_point_in_polygon(local_pos, lasso_polygon.polygon):
 				if !animal.being_stunned and !animal.being_kicked:
-					animal.stun()
+					animal.stun(i)
+					i += 1
 
 # Unused for now: do we want to make sure the lasso drawn by the player is circular?
 func is_shape_circular(points: PackedVector2Array) -> bool:

@@ -25,7 +25,7 @@ var KICK_MULT = {
 	"Cow": 0.8,
 	"Sheep": 1
 }
-var time_left_on_timer: float
+var time_elapsed: float
 var prevent_pause: bool = false
 
 func _ready():

@@ -23,7 +23,7 @@ func _ready() -> void:
 func is_full() -> bool:
 	return len(animals_in_pen_enclosure) >= max_animals
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	animals_count_label.text = str(len(animals_in_pen_enclosure)) + " / " + str(max_animals)
 
 func _on_instant_kick_area_body_entered(body: Node2D) -> void:

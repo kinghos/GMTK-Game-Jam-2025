@@ -5,7 +5,7 @@ const SCREEN_MARGIN: float = 100.0
 func _ready():
 	hide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var target_global_position: Vector2 = get_parent().global_position
 	
 	var camera: Camera2D = get_viewport().get_camera_2d()

@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 		else:
 			lasso_start.position = Vector2(-22, 16)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	if direction.x < 0:
 		animated_sprite_2d.flip_h = true

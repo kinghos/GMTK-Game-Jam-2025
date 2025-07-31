@@ -18,7 +18,7 @@ var fade_out_tweens: Array[Tween]
 func _ready():
 	Globals.lasso = self
 
-func _process(delta):
+func _process(_delta):
 	if is_drawing:
 		# Handle the drawing of the main lasso
 		var pos = get_global_mouse_position()

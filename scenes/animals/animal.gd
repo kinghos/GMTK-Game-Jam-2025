@@ -25,7 +25,7 @@ func _ready() -> void:
 	_on_random_movement_timer_timeout()
 	random_movement_timer.start()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if being_stunned or being_kicked:
 		return
 	if velocity.x < 0:

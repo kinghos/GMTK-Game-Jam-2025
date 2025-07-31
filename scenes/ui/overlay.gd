@@ -21,7 +21,7 @@ func trigger_powerups_menu():
 	animation_player.play("Slide")
 	randomise_powerup_options()
 	get_tree().paused = true
-	time_left.text = "Cleared in:\n%6.3f seconds" % Globals.time_left_on_timer
+	time_left.text = "Cleared in:\n%6.3f seconds" % Globals.time_elapsed
 
 func close_powerups_menu():
 	animation_player.play("Slide_out")

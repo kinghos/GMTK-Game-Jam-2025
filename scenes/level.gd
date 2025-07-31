@@ -13,8 +13,8 @@ func _ready():
 func _on_button_pressed() -> void:
 	game_ui.trigger_powerups_menu()
 
-func _process(delta: float) -> void:
-	Globals.time_left_on_timer = game_timer.wait_time - game_timer.time_left
+func _process(_delta: float) -> void:
+	Globals.time_elapsed = game_timer.wait_time - game_timer.time_left
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 		if !pen.is_full():
 			return

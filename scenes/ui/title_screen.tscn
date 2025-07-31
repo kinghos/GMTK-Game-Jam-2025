@@ -58,7 +58,17 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "EXIT"
 
+[node name="TestButton" type="Button" parent="."]
+offset_left = 971.0
+offset_top = 363.0
+offset_right = 1141.0
+offset_bottom = 402.0
+scale = Vector2(3, 3)
+size_flags_vertical = 3
+text = "Test Level"
+
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]

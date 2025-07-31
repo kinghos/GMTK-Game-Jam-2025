@@ -84,10 +84,15 @@ func kick():
 	kick_particles.emitting = true
 	collision_shape_2d.disabled = true
 	animated_sprite_2d.animation = "idle"
+	combo_count += 1
+	combo_counter.text = "x%s" % combo_count
+	show_combo_count()
 	
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", closest_pen.global_position, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
+	combo_counter.text = Globals.cowboy_congratulations.pick_random()
+	show_combo_count()
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false
 	being_kicked = false
@@ -121,7 +126,8 @@ func _on_stun_timer_timeout() -> void:
 	animated_sprite_2d.animation = "walk"
 	#collision_shape_2d.disabled = false
 	being_stunned = false
-	combo_count = 0
+	if not being_kicked:
+		combo_count = 0
 
 func _on_random_movement_timer_timeout() -> void:
 	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()

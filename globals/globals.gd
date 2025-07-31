@@ -25,6 +25,8 @@ var KICK_MULT = {
 	"Cow": 0.8,
 	"Sheep": 1
 }
+var cowboy_congratulations = ["Rootin' Tootin!", "Yeehaw!", "Cowabunga!", "Howdy!", "Yippee-Ki-yay!", "He-yah!", "Hot Diggidy Damn!"]
+
 var time_elapsed: float
 var time_left: float
 var prevent_pause: bool = false

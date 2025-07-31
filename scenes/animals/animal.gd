@@ -80,11 +80,11 @@ func kick():
 	
 	animation_player.play("kicked")
 	kick_particles.emitting = true
+	collision_shape_2d.disabled = true
 	animated_sprite_2d.animation = "idle"
 	
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	collision_shape_2d.disabled = true
 	await tween.finished
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false
@@ -95,14 +95,14 @@ func stun():
 	animation_player.play("stun")
 	kick_particles.emitting = true
 	animated_sprite_2d.animation = "idle"
-	collision_shape_2d.disabled = true
+	#collision_shape_2d.disabled = true
 	stun_timer.start()
 	
 
 func _on_stun_timer_timeout() -> void:	
 	animation_player.stop()
 	animated_sprite_2d.animation = "walk"
-	collision_shape_2d.disabled = false
+	#collision_shape_2d.disabled = false
 	being_stunned = false
 
 # okay my thought process behind this was that it should change target if it hasn't reached it in 2 timeouts

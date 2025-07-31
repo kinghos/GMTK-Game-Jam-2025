@@ -27,6 +27,7 @@ offset_left = -93.0
 offset_top = -93.0
 offset_right = 93.0
 offset_bottom = 93.0
+mouse_filter = 1
 color = Color(0.946983, 0.929075, 0.777775, 1)
 
 [node name="PenEnclosure" type="Area2D" parent="."]
@@ -99,5 +100,7 @@ scale = Vector2(2, 2)
 
 [connection signal="body_entered" from="PenEnclosure" to="." method="_on_pen_enclosure_body_entered"]
 [connection signal="body_exited" from="PenEnclosure" to="." method="_on_pen_enclosure_body_exited"]
+[connection signal="mouse_entered" from="PenEnclosure" to="." method="_on_pen_enclosure_mouse_entered"]
+[connection signal="mouse_exited" from="PenEnclosure" to="." method="_on_pen_enclosure_mouse_exited"]
 [connection signal="body_entered" from="InstantKickArea" to="." method="_on_instant_kick_area_body_entered"]
 [connection signal="body_exited" from="InstantKickArea" to="." method="_on_instant_kick_area_body_exited"]

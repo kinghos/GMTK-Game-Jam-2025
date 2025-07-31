@@ -1,6 +1,8 @@
 extends Node2D
 class_name Pen
 
+var is_mouse_over: bool = false
+
 var animals_in_auto_kick_area: Array[BaseAnimal]
 var animals_in_pen_enclosure: Array[BaseAnimal]
 @onready var animals_count_label: Label = $AnimalsCount
@@ -27,20 +29,24 @@ func _on_instant_kick_area_body_entered(body: Node2D) -> void:
 	if body is BaseAnimal:
 		animals_in_auto_kick_area.append(body)
 
-
 func _on_instant_kick_area_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal:
 		animals_in_auto_kick_area.erase(body)
-
 
 func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 	if body is BaseAnimal:
 		animals_in_pen_enclosure.append(body)
 		body.in_pen = true
 
-
 func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal:
 		animals_in_pen_enclosure.erase(body)
 		body.in_pen = false
-		
+
+func _on_pen_enclosure_mouse_entered() -> void:
+	print("mouse entered")
+	is_mouse_over = true
+
+func _on_pen_enclosure_mouse_exited() -> void:
+	print("mouse exited")
+	is_mouse_over = false

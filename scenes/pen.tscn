@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bablyi76071k6" path="res://scenes/pen.gd" id="1_ngeja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpxs5"]
-size = Vector2(186, 186)
+size = Vector2(166, 166)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngeja"]
 size = Vector2(10, 186)
@@ -22,9 +22,11 @@ offset_right = 93.0
 offset_bottom = 93.0
 color = Color(0.946983, 0.929075, 0.777775, 1)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PenEnclosure" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PenEnclosure"]
 shape = SubResource("RectangleShape2D_lpxs5")
 
 [node name="Walls" type="Node2D" parent="."]
@@ -73,5 +75,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InstantKickArea"]
 shape = SubResource("CircleShape2D_lpxs5")
 
+[connection signal="body_entered" from="PenEnclosure" to="." method="_on_pen_enclosure_body_entered"]
+[connection signal="body_exited" from="PenEnclosure" to="." method="_on_pen_enclosure_body_exited"]
 [connection signal="body_entered" from="InstantKickArea" to="." method="_on_instant_kick_area_body_entered"]
 [connection signal="body_exited" from="InstantKickArea" to="." method="_on_instant_kick_area_body_exited"]

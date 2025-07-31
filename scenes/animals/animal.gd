@@ -69,10 +69,12 @@ func kick():
 			closest = diff
 	
 	var end_pos: Vector2
-	print("self: ", self, " animaarray", closest_pen.animals_in_area)
-	if self in closest_pen.animals_in_area:
+	if self in closest_pen.animals_in_pen_enclosure:
+		being_kicked = false
+		print("Wrong!")
+		return
+	if self in closest_pen.animals_in_auto_kick_area:
 		end_pos = closest_pen.global_position
-		print("AUTO")
 	else:
 		diff = global_position - closest_pen.global_position
 		diff = diff.normalized() * Globals.kick_distance

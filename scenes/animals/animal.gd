@@ -4,14 +4,10 @@ class_name BaseAnimal
 var in_kick_range: bool
 var being_kicked: bool
 var being_stunned: bool
-var target: Vector2
-var need_to_change_target = false
-var changed_target_last_time = false
 var in_pen: bool = false
 
 @export var speed = 75
 @export_enum("Sheep", "Cow", "Chicken") var type: String
-var direction
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -20,6 +16,8 @@ var direction
 @onready var offscreen_pointer: Sprite2D = $OffscreenPointer
 @onready var stun_timer: Timer = $StunTimer
 @onready var random_movement_timer: Timer = $RandomMovementTimer
+
+var direction
 
 func _ready() -> void:
 	stun_timer.wait_time = Globals.stun_time
@@ -54,23 +52,23 @@ func _on_kick_range_body_exited(body: Node2D) -> void:
 		body.animals_in_range.erase(self)
 
 func kick():
+	if in_pen:
+		return
 	being_kicked = true
+	
 	var closest = INF
 	var closest_pen: Pen
 	var diff
-	
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 		diff = global_position.distance_to(pen.global_position)
-		var is_pen_full = len(pen.animals_in_pen_enclosure) == pen.max_animals
-		if diff < closest and pen.animal_type == type and !is_pen_full:
+		if diff < closest and pen.animal_type == type and !pen.is_full():
 			closest_pen = pen
 			closest = diff
 	
-	var end_pos: Vector2
-	var is_pen_full = len(closest_pen.animals_in_pen_enclosure) == closest_pen.max_animals
-	if in_pen or is_pen_full:
-		being_kicked = false
+	if !closest_pen:
 		return
+	
+	var end_pos: Vector2
 	if self in closest_pen.animals_in_auto_kick_area:
 		end_pos = closest_pen.global_position
 	else:
@@ -89,7 +87,7 @@ func kick():
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false
 	being_kicked = false
-	
+
 func stun(index: int):
 	if in_pen:
 		return
@@ -108,7 +106,6 @@ func stun(index: int):
 	
 	await tween.finished
 	stun_timer.start()
-	
 
 func _on_stun_timer_timeout() -> void:	
 	animation_player.stop()
@@ -116,18 +113,5 @@ func _on_stun_timer_timeout() -> void:
 	#collision_shape_2d.disabled = false
 	being_stunned = false
 
-# okay my thought process behind this was that it should change target if it hasn't reached it in 2 timeouts
 func _on_random_movement_timer_timeout() -> void:
-	#if not changed_target_last_time:
-		#need_to_change_target = true
-	#var rect = get_viewport().get_visible_rect()
-	## and here, if the distance of the target is more than 100, it won't reach it before the end of the timeout and look jank
-	## maybe need to adjust the value of 100 to enable that
-	#while not target or position.distance_to(target) < 100 or need_to_change_target:
-		#target = rect.position + Vector2(
-			#randf_range(0, rect.size.x),
-			#randf_range(0, rect.size.y)
-		#)
-		#changed_target_last_time = true
-		#need_to_change_target = false
 	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()

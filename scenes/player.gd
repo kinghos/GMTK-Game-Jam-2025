@@ -26,4 +26,3 @@ func _input(event: InputEvent) -> void:
 				animal.stun_timer.stop()
 				animal._on_stun_timer_timeout()
 				animal.kick()
-		

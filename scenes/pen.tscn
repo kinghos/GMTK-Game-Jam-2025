@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bablyi76071k6" path="res://scenes/pen.gd" id="1_ngeja"]
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="2_spjee"]
-[ext_resource type="Shader" path="res://scenes/pen_animal_icon.gdshader" id="3_xbp3v"]
+[ext_resource type="Shader" uid="uid://cgd35j7ohkq3b" path="res://scenes/pen_animal_icon.gdshader" id="3_xbp3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpxs5"]
 size = Vector2(166, 166)

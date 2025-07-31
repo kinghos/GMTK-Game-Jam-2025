@@ -16,7 +16,9 @@ const ANIMAL_ICONS = {
 
 func _ready() -> void:
 	animal_icon.texture = ANIMAL_ICONS[animal_type]
-	
+
+func is_full() -> bool:
+	return len(animals_in_pen_enclosure) >= max_animals
 
 func _process(delta: float) -> void:
 	animals_count_label.text = str(len(animals_in_pen_enclosure)) + " / " + str(max_animals)

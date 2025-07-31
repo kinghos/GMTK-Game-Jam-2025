@@ -14,12 +14,12 @@ func _on_button_pressed() -> void:
 	game_ui.trigger_powerups_menu()
 
 func _process(delta: float) -> void:
+	Globals.time_left_on_timer = game_timer.wait_time - game_timer.time_left
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 		if !pen.is_full():
 			return
 	Globals.prevent_pause = true
 	change_to_next_level()
-	Globals.time_left_on_timer = game_timer.wait_time - game_timer.time_left
 
 func change_to_next_level():
 	game_ui.trigger_powerups_menu()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://di53xit540gqa"]
+[gd_scene load_steps=6 format=3 uid="uid://di53xit540gqa"]
 
 [ext_resource type="Script" uid="uid://bablyi76071k6" path="res://scenes/pen.gd" id="1_ngeja"]
+[ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="2_spjee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpxs5"]
 size = Vector2(166, 166)
@@ -74,6 +75,16 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InstantKickArea"]
 shape = SubResource("CircleShape2D_lpxs5")
+
+[node name="AnimalsCount" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -145.0
+offset_right = 40.0
+offset_bottom = -122.0
+theme = ExtResource("2_spjee")
+theme_override_font_sizes/font_size = 37
+text = "0 / 6"
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="PenEnclosure" to="." method="_on_pen_enclosure_body_entered"]
 [connection signal="body_exited" from="PenEnclosure" to="." method="_on_pen_enclosure_body_exited"]

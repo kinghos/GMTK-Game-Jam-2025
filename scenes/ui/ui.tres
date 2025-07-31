@@ -1,4 +1,7 @@
-[gd_resource type="Theme" format=3 uid="uid://cqid6eqdw6f54"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cqid6eqdw6f54"]
+
+[ext_resource type="FontFile" uid="uid://b701gf70p7pnh" path="res://assets/fonts/Jersey25-Regular.ttf" id="1_dhrac"]
 
 [resource]
+default_font = ExtResource("1_dhrac")
 default_font_size = 30

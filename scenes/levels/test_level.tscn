@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8i5q6kc37s2"]
+[gd_scene load_steps=4 format=3 uid="uid://c8i5q6kc37s2"]
 
 [ext_resource type="PackedScene" uid="uid://dow5jdyygni3s" path="res://scenes/levels/base_level.tscn" id="1_jbqir"]
+[ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/pen.tscn" id="2_fr1um"]
 [ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="2_yautc"]
 
 [node name="Level2" instance=ExtResource("1_jbqir")]
@@ -17,6 +18,9 @@ position = Vector2(-2135, 311)
 [node name="Right" parent="CameraBounds" index="3"]
 position = Vector2(3803, 272)
 
+[node name="Pen" parent="Pens" index="0" instance=ExtResource("2_fr1um")]
+position = Vector2(478, 544)
+
 [node name="Sheep" parent="Animals/Sheep" index="0" instance=ExtResource("2_yautc")]
 position = Vector2(227, 253)
 
@@ -24,4 +28,4 @@ position = Vector2(227, 253)
 position = Vector2(893, 345)
 
 [node name="Sheep3" parent="Animals/Sheep" index="2" instance=ExtResource("2_yautc")]
-position = Vector2(1660, 127)
+position = Vector2(232, 410)

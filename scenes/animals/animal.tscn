@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c730r02j0a3ic"]
+[gd_scene load_steps=7 format=3 uid="uid://c730r02j0a3ic"]
 
 [ext_resource type="Script" uid="uid://bodcxjeobaic" path="res://scenes/animals/animal.gd" id="1_a68rm"]
 [ext_resource type="Texture2D" uid="uid://cjv6h5aem5r4u" path="res://assets/graphics/misc/star_particle.png" id="2_4f3xh"]
-[ext_resource type="Texture2D" uid="uid://dg5irpu268sb7" path="res://assets/graphics/misc/menu_arrow_hovering.png" id="3_qmecq"]
 [ext_resource type="Script" uid="uid://ffs1brga2vho" path="res://scenes/animals/offscreen_pointer.gd" id="3_to7qb"]
 
 [sub_resource type="Animation" id="Animation_dfea1"]
@@ -86,7 +85,6 @@ scale_amount_max = 0.7
 one_shot = true
 
 [node name="OffscreenPointer" type="Sprite2D" parent="."]
-texture = ExtResource("3_qmecq")
 script = ExtResource("3_to7qb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OffscreenPointer"]

@@ -4,7 +4,9 @@ class_name BaseAnimal
 var in_kick_range: bool
 var being_kicked: bool
 var being_stunned: bool
-var target: Vector2 = position
+var target: Vector2
+var need_to_change_target = false
+var changed_target_last_time = false
 
 @export var speed = 75
 
@@ -21,9 +23,30 @@ func _ready() -> void:
 	random_movement_timer.start()
 
 func _physics_process(delta: float) -> void:
+	print(name, " ", target)
+	if being_stunned or being_kicked:
+		return
+	
 	velocity = position.direction_to(target) * speed
-	if position.distance_to(target) > 10 and !being_stunned:
-		move_and_slide()
+	move_and_slide()
+	
+	# Bounce off pens and other sheep
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider:
+			var current = collider
+			while current:
+				if current.is_in_group("Pens") or current.is_in_group("Animals"):
+					print("TBA: bounce somehow")
+					#var normal = collision.get_normal()
+					#velocity = velocity.bounce(normal)
+					#target = global_position + velocity.normalized() * 100
+					break
+				current = current.get_parent()
+			if current:
+				break
 
 func _on_kick_range_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -78,9 +101,17 @@ func _on_stun_timer_timeout() -> void:
 	collision_shape_2d.disabled = false
 	being_stunned = false
 
+# okay my thought process behind this was that it should change target if it hasn't reached it in 2 timeouts
 func _on_random_movement_timer_timeout() -> void:
+	if not changed_target_last_time:
+		need_to_change_target = true
 	var rect = get_viewport().get_visible_rect()
-	target = rect.position + Vector2(
-		randf_range(0, rect.size.x),
-		randf_range(0, rect.size.y)
-	)
+	# and here, if the distance of the target is more than 100, it won't reach it before the end of the timeout and look jank
+	# maybe need to adjust the value of 100 to enable that
+	while not target or position.distance_to(target) < 100 or need_to_change_target:
+		target = rect.position + Vector2(
+			randf_range(0, rect.size.x),
+			randf_range(0, rect.size.y)
+		)
+		changed_target_last_time = true
+		need_to_change_target = false

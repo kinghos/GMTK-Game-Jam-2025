@@ -20,8 +20,15 @@ position = Vector2(-2135, 311)
 [node name="Right" parent="CameraBounds" index="3"]
 position = Vector2(3803, 272)
 
-[node name="Player" parent="." index="5"]
+[node name="Player" parent="." index="6"]
 position = Vector2(868, 438)
+
+[node name="Button" type="Button" parent="." index="8"]
+offset_left = 623.0
+offset_top = 889.0
+offset_right = 815.0
+offset_bottom = 920.0
+text = "activate powerup menu"
 
 [node name="Pen" parent="Pens" index="0" instance=ExtResource("2_fr1um")]
 position = Vector2(478, 544)
@@ -37,13 +44,6 @@ animal_type = "Cow"
 position = Vector2(899, 165)
 max_animals = 3
 animal_type = "Chicken"
-
-[node name="Button" type="Button" parent="." index="8"]
-offset_left = 623.0
-offset_top = 889.0
-offset_right = 815.0
-offset_bottom = 920.0
-text = "activate powerup menu"
 
 [node name="Sheep" parent="Animals/Sheep" index="0" instance=ExtResource("2_yautc")]
 position = Vector2(245, 489)

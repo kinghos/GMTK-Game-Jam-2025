@@ -25,7 +25,7 @@ position = Vector2(-50, 508)
 [node name="Right" parent="CameraBounds" index="3"]
 position = Vector2(1970, 531)
 
-[node name="Player" parent="." index="5"]
+[node name="Player" parent="." index="6"]
 position = Vector2(958, 738)
 
 [node name="Pen" parent="Pens" index="0" instance=ExtResource("2_nsrm0")]

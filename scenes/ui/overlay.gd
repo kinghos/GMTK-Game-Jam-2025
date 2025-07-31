@@ -5,7 +5,10 @@ extends CanvasLayer
 @onready var powerup_options: HBoxContainer = $RoundEnd/ColorRect/PowerupOptions
 @onready var time_left: Label = $RoundEnd/TimeLeft
 
+const powerup_display = preload("res://scenes/powerup_display.tscn")
+
 signal powerup_selected
+signal send_powerup_display(new_powerup_display: TextureRect)
 
 func _ready() -> void:
 	powerups.hide()
@@ -32,9 +35,13 @@ func close_powerups_menu():
 	Globals.prevent_pause = false
 
 func _on_option_pressed(option: String) -> void:
-	print(option, " pressed")
 	var powerup_type = powerup_options.get_node(option).get_meta("powerup_type")
 	Globals.apply_powerup(powerup_type)
+	
+	var new_powerup_display: TextureRect = powerup_display.instantiate()
+	new_powerup_display.texture = Globals.POWERUP_ICONS[powerup_type]
+	send_powerup_display.emit(new_powerup_display)
+	
 	close_powerups_menu()
 
 func randomise_powerup_options():

@@ -17,7 +17,6 @@ z_index = -1
 script = ExtResource("1_ngeja")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = -1
 offset_left = -93.0
 offset_top = -93.0
 offset_right = 93.0

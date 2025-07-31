@@ -24,5 +24,5 @@ func _process(_delta: float) -> void:
 func change_to_next_level():
 	game_ui.trigger_powerups_menu()
 
-func _on_game_ui_powerup_selected() -> void:
+func _on_overlay_powerup_selected() -> void:
 	get_tree().change_scene_to_file(next_level)

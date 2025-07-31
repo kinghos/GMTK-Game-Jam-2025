@@ -76,6 +76,7 @@ Kick={
 2d_physics/layer_2="Animals"
 2d_physics/layer_3="Pens"
 2d_physics/layer_4="Walls"
+2d_physics/layer_5="Areas"
 
 [physics]
 

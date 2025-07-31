@@ -79,25 +79,38 @@ player = NodePath("../Player")
 z_index = -1
 position = Vector2(480, 110)
 
+[node name="Pen" parent="Pen" instance=ExtResource("4_2r41h")]
+z_index = -1
+position = Vector2(182, 365)
+
+[node name="Pen" parent="Pen/Pen" instance=ExtResource("4_2r41h")]
+z_index = -1
+position = Vector2(282, 8)
+
+[node name="Pen" parent="Pen/Pen/Pen" instance=ExtResource("4_2r41h")]
+z_index = -1
+position = Vector2(-129, -165)
+
+[node name="Pen" parent="Pen/Pen/Pen/Pen" instance=ExtResource("4_2r41h")]
+z_index = -1
+position = Vector2(-13, 313)
+
 [node name="Sheep" type="Node2D" parent="."]
 
 [node name="Sheep" parent="Sheep" instance=ExtResource("3_ppgk2")]
-position = Vector2(358, 231)
+position = Vector2(250, 253)
 
 [node name="Sheep2" parent="Sheep" instance=ExtResource("3_ppgk2")]
-position = Vector2(607, 235)
+position = Vector2(176, 341)
 
 [node name="Sheep3" parent="Sheep" instance=ExtResource("3_ppgk2")]
-position = Vector2(254, 364)
+position = Vector2(221, 155)
 
 [node name="Sheep4" parent="Sheep" instance=ExtResource("3_ppgk2")]
-position = Vector2(466, 406)
+position = Vector2(367, 249)
 
 [node name="Sheep5" parent="Sheep" instance=ExtResource("3_ppgk2")]
-position = Vector2(711, 425)
-
-[node name="Sheep6" parent="Sheep" instance=ExtResource("3_ppgk2")]
-position = Vector2(154, 241)
+position = Vector2(807, 463)
 
 [node name="Button" type="Button" parent="."]
 offset_left = 378.0

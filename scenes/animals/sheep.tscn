@@ -149,7 +149,6 @@ _data = {
 
 [node name="Sheep" instance=ExtResource("1_gw4f6")]
 scale = Vector2(2, 2)
-safe_margin = 0.2
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_55m3e")
@@ -159,6 +158,9 @@ autoplay = "walk"
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_n54i3")
+
+[node name="KickRange" parent="." index="2"]
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KickRange" index="0"]
 shape = SubResource("CircleShape2D_ntctc")

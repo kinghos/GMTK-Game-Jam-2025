@@ -36,8 +36,9 @@ func _physics_process(delta: float) -> void:
 		var collider: Object = collision.get_collider()
 		
 		if collider:
-			var normal = collision.get_normal()
-			velocity = velocity.reflect(normal)
+			#var normal = collision.get_normal()
+			#direction = velocity.bounce(normal).normalized()
+			_on_random_movement_timer_timeout()
 			#target = global_position + (velocity.normalized() * 100)
 			
 	move_and_slide()

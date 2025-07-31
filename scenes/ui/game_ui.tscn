@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://byg6xjjjpdp1o"]
+[gd_scene load_steps=7 format=3 uid="uid://byg6xjjjpdp1o"]
 
 [ext_resource type="Script" uid="uid://fwjf42gvfgrd" path="res://scenes/ui/game_ui.gd" id="1_gwk6t"]
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="2_xjfbv"]
+[ext_resource type="Texture2D" uid="uid://du50sjms5y6q4" path="res://assets/graphics/sprites/cow_icon.png" id="3_bma8u"]
 
 [sub_resource type="Animation" id="Animation_gwk6t"]
 length = 0.001
@@ -129,21 +130,27 @@ theme_override_constants/separation = 10
 
 [node name="PlayerSpeed" type="Label" parent="DebugValues"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 
 [node name="LassoSize" type="Label" parent="DebugValues"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 
 [node name="StunTime" type="Label" parent="DebugValues"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 
 [node name="KickDistance" type="Label" parent="DebugValues"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 
 [node name="Lives" type="Label" parent="DebugValues"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 
 [node name="LassoReach" type="Label" parent="DebugValues"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 
 [node name="Powerups" type="Control" parent="."]
 visible = false
@@ -175,26 +182,40 @@ anchor_bottom = 0.5
 offset_left = -268.0
 offset_top = -98.9996
 offset_right = 268.0
-offset_bottom = 99.0004
+offset_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(268, 151)
 
 [node name="Option1" type="Button" parent="Powerups/ColorRect/PowerupOptions"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "opt 1"
+icon = ExtResource("3_bma8u")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 metadata/powerup_type = 0
 
 [node name="Option2" type="Button" parent="Powerups/ColorRect/PowerupOptions"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "opt 2"
+icon = ExtResource("3_bma8u")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 metadata/powerup_type = 0
 
 [node name="Option3" type="Button" parent="Powerups/ColorRect/PowerupOptions"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "opt 3"
+icon = ExtResource("3_bma8u")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 metadata/powerup_type = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

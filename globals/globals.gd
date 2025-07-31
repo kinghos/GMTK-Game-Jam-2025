@@ -10,8 +10,16 @@ var player_lasso_reach = 500
 var lives: int
 var stun_time: float = 1
 var kick_distance: float = 150
-enum POWERUPS {LassoSize, StunTime, KickDistance, ExtraLives, LassoReach, PlayerSpeed}
-var POWERUP_LIST = ["Lasso Length", "Animal\nStun Time", "Kick Power", "Extra Lives", "Lasso Reach", "Player Speed"]
+enum POWERUPS {LassoSize, StunTime, KickDistance, LassoReach, PlayerSpeed}
+var POWERUP_LIST = ["Lasso Length", "Animal\nStun Time", "Kick Power", "Lasso Reach", "Player Speed"]
+var POWERUP_ICONS = {
+	"Lasso Length": preload("res://assets/graphics/sprites/powerups/lasso_length.png"),
+	"Animal\nStun Time": preload("res://assets/graphics/sprites/powerups/lasso_reach.png"),
+	"Kick Power": preload("res://assets/graphics/sprites/powerups/kick_power.png"),
+	"Lasso Reach": preload("res://assets/graphics/sprites/powerups/lasso_reach.png"),
+	"Player Speed": preload("res://assets/graphics/sprites/powerups/speed.png")
+}
+
 var KICK_MULT = {
 	"Chicken": 1.2,
 	"Cow": 0.8,
@@ -41,8 +49,6 @@ func apply_powerup(powerup: int):
 			stun_time += 0.5
 		POWERUPS.KickDistance:
 			kick_distance += 20
-		POWERUPS.ExtraLives:
-			lives += 5
 		POWERUPS.LassoReach:
 			player_lasso_reach += 50
 		POWERUPS.PlayerSpeed:

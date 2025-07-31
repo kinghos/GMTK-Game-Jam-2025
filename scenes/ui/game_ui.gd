@@ -13,8 +13,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	$DebugValues/PlayerSpeed.text = "Speed: " + str(Globals.player.speed)
 	$DebugValues/StunTime.text = "StunTime: " + str(Globals.stun_time)
-	$DebugValues/KickDistance.text = "Kick Distance: " + str(Globals.kick_distance)
-	$DebugValues/Lives.text = "Lives: " + str(Globals.lives)
+	$DebugValues/KickDistance.text = "Kick Power: " + str(Globals.kick_distance)
 	$DebugValues/LassoReach.text = "Lasso Reach: " + str(Globals.player_lasso_reach)
 	$DebugValues/LassoSize.text = "Lasso Size: " + str(Globals.lasso.MAX_LASSO_LENGTH)
 
@@ -44,5 +43,6 @@ func randomise_powerup_options():
 	powerups = powerups.slice(0, 3)
 	for opt: Button in powerup_options.get_children():
 		opt.text = powerups.pop_front()
+		opt.icon = Globals.POWERUP_ICONS[opt.text]
 		opt.set_meta("powerup_type", Globals.POWERUP_LIST.find(opt.text))
 	

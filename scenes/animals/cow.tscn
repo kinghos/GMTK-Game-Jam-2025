@@ -1,34 +1,42 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqbyf3duimude"]
+[gd_scene load_steps=18 format=3 uid="uid://bfmmdybm5lt0r"]
 
-[ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_gw4f6"]
-[ext_resource type="Texture2D" uid="uid://b3j0asmr3aocx" path="res://assets/graphics/sprites/sheep_pointer.png" id="2_ag106"]
-[ext_resource type="Texture2D" uid="uid://cgs60xi7ec1wr" path="res://assets/graphics/sprites/sheep.png" id="2_ntctc"]
+[ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_c136b"]
+[ext_resource type="Texture2D" uid="uid://drnvkb6n7d4os" path="res://assets/graphics/sprites/cow.png" id="2_a5y40"]
+[ext_resource type="Texture2D" uid="uid://dbig02d2brbjh" path="res://assets/graphics/sprites/cow_pointer.png" id="3_r1mxx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ntctc"]
-atlas = ExtResource("2_ntctc")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1mxx"]
+atlas = ExtResource("2_a5y40")
+region = Rect2(0, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xbeb1"]
-atlas = ExtResource("2_ntctc")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t8lt"]
+atlas = ExtResource("2_a5y40")
+region = Rect2(48, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hnrcd"]
-atlas = ExtResource("2_ntctc")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhwbb"]
+atlas = ExtResource("2_a5y40")
+region = Rect2(96, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_thsxa"]
-atlas = ExtResource("2_ntctc")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc6fi"]
+atlas = ExtResource("2_a5y40")
+region = Rect2(144, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b10s4"]
-atlas = ExtResource("2_ntctc")
-region = Rect2(128, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tue7c"]
+atlas = ExtResource("2_a5y40")
+region = Rect2(192, 0, 48, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_55m3e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfysl"]
+atlas = ExtResource("2_a5y40")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ugi3"]
+atlas = ExtResource("2_a5y40")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_do5cp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ntctc")
+"texture": SubResource("AtlasTexture_r1mxx")
 }],
 "loop": true,
 "name": &"idle",
@@ -36,30 +44,36 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xbeb1")
+"texture": SubResource("AtlasTexture_6t8lt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hnrcd")
+"texture": SubResource("AtlasTexture_jhwbb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_thsxa")
+"texture": SubResource("AtlasTexture_nc6fi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b10s4")
+"texture": SubResource("AtlasTexture_tue7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfysl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ugi3")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 9.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ntctc"]
-height = 25.9882
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5y40"]
+radius = 10.0021
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ag106"]
-radius = 23.5053
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5y40"]
+radius = 22.0
 
-[sub_resource type="Animation" id="Animation_ag106"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_r1mxx"]
+resource_name = "RESET"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -85,9 +99,8 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_ntctc"]
-resource_name = "kicked"
-length = 0.5
+[sub_resource type="Animation" id="Animation_6t8lt"]
+resource_name = "kick"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -113,10 +126,8 @@ tracks/1/keys = {
 "values": [0.0, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_xbeb1"]
+[sub_resource type="Animation" id="Animation_jhwbb"]
 resource_name = "stun"
-length = 0.375
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -142,38 +153,34 @@ tracks/1/keys = {
 "values": [0.0, -0.523599, 0.523599, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbeb1"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6t8lt"]
 _data = {
-&"RESET": SubResource("Animation_ag106"),
-&"kicked": SubResource("Animation_ntctc"),
-&"stun": SubResource("Animation_xbeb1")
+&"RESET": SubResource("Animation_r1mxx"),
+&"kicked": SubResource("Animation_6t8lt"),
+&"stun": SubResource("Animation_jhwbb")
 }
 
-[node name="Sheep" instance=ExtResource("1_gw4f6")]
-scale = Vector2(2, 2)
+[node name="Cow" instance=ExtResource("1_c136b")]
+scale = Vector2(2.5, 2.5)
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_55m3e")
+sprite_frames = SubResource("SpriteFrames_do5cp")
 animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.732503
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-2, -0.5)
-rotation = 1.54066
-shape = SubResource("CapsuleShape2D_ntctc")
-
-[node name="KickRange" parent="." index="2"]
-collision_layer = 16
+position = Vector2(-5, 0)
+rotation = 1.57044
+shape = SubResource("CapsuleShape2D_a5y40")
 
 [node name="CollisionShape2D" parent="KickRange" index="0"]
-shape = SubResource("CircleShape2D_ag106")
+shape = SubResource("CircleShape2D_a5y40")
 debug_color = Color(0.87451, 0.247059, 0.619608, 0.419608)
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
-&"": SubResource("AnimationLibrary_xbeb1")
+&"": SubResource("AnimationLibrary_6t8lt")
 }
 
 [node name="OffscreenPointer" parent="." index="6"]
-texture = ExtResource("2_ag106")
+texture = ExtResource("3_r1mxx")

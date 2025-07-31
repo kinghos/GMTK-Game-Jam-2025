@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8i5q6kc37s2"]
+[gd_scene load_steps=5 format=3 uid="uid://c8i5q6kc37s2"]
 
 [ext_resource type="PackedScene" uid="uid://dow5jdyygni3s" path="res://scenes/levels/base_level.tscn" id="1_jbqir"]
 [ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/pen.tscn" id="2_fr1um"]
 [ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="2_yautc"]
+[ext_resource type="PackedScene" uid="uid://bfmmdybm5lt0r" path="res://scenes/animals/cow.tscn" id="4_v45ci"]
 
 [node name="Level2" instance=ExtResource("1_jbqir")]
 
@@ -29,3 +30,12 @@ position = Vector2(893, 345)
 
 [node name="Sheep3" parent="Animals/Sheep" index="2" instance=ExtResource("2_yautc")]
 position = Vector2(232, 410)
+
+[node name="Cow" parent="Animals/Cow" index="0" instance=ExtResource("4_v45ci")]
+position = Vector2(921, 657)
+
+[node name="Cow2" parent="Animals/Cow" index="1" instance=ExtResource("4_v45ci")]
+position = Vector2(31, 697)
+
+[node name="Cow3" parent="Animals/Cow" index="2" instance=ExtResource("4_v45ci")]
+position = Vector2(65, 396)

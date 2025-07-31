@@ -9,7 +9,6 @@ var need_to_change_target = false
 var changed_target_last_time = false
 var in_pen: bool = false
 
-@export var pointer_icon: Texture2D
 @export var speed = 75
 var direction
 
@@ -22,7 +21,6 @@ var direction
 @onready var random_movement_timer: Timer = $RandomMovementTimer
 
 func _ready() -> void:
-	offscreen_pointer.texture = pointer_icon
 	stun_timer.wait_time = Globals.stun_time
 	random_movement_timer.wait_time *= randf_range(0.8, 1.2)
 	_on_random_movement_timer_timeout()

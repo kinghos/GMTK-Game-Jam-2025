@@ -85,7 +85,8 @@ func close_shape():
 		line.add_point(points[0])
 
 func update_polygon():
-	lasso_polygon.polygon = points
+	var hull = Geometry2D.convex_hull(points)
+	lasso_polygon.polygon = hull
 
 func clear():
 	points.clear()

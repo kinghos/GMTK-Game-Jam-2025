@@ -2,7 +2,6 @@ extends CharacterBody2D
 class_name BaseAnimal
 
 var in_kick_range: bool
-var is_visible_on_screen: bool = false
 var being_kicked: bool
 var being_stunned: bool
 var target: Vector2
@@ -33,22 +32,17 @@ func _physics_process(delta: float) -> void:
 	if being_stunned or being_kicked:
 		return
 	
-	#velocity = position.direction_to(target) * speed
 	velocity = direction * speed
 	
-	# Bounce off pens and other sheep
+	# Bounce off collisions
 	for i in range(get_slide_collision_count()):
 		var collision: KinematicCollision2D = get_slide_collision(i)
 		var collider: Object = collision.get_collider()
 		
 		if collider:
-			#var normal = collision.get_normal()
-			#direction = velocity.bounce(normal).normalized()
 			_on_random_movement_timer_timeout()
-			#target = global_position + (velocity.normalized() * 100)
-			
+	
 	move_and_slide()
-			
 
 func _on_kick_range_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -132,10 +126,3 @@ func _on_random_movement_timer_timeout() -> void:
 		#changed_target_last_time = true
 		#need_to_change_target = false
 	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
-
-
-func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	is_visible_on_screen = true
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	is_visible_on_screen = false

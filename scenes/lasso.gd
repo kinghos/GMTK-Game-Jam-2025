@@ -27,8 +27,17 @@ func _process(delta):
 		if points.is_empty() or pos.distance_to(points[-1]) > DISTANCE_THRESHOLD:
 			var new_lasso_length = calculate_perimeter_with_extra_point(points, pos)
 			if new_lasso_length <= MAX_LASSO_LENGTH:
-				points.append(pos)
-				line.add_point(pos)
+				var new_segment_start = points[-1] if points.size() > 0 else pos
+				var crossed = false
+				for i in range(points.size() - 2):
+					if Geometry2D.segment_intersects_segment(points[i], points[i + 1], new_segment_start, pos):
+						crossed = true
+						break
+				if crossed:
+					finish_lasso()
+				else:
+					points.append(pos)
+					line.add_point(pos)
 			else:
 				finish_lasso()
 		
@@ -72,10 +81,16 @@ func start_lasso():
 func finish_lasso():
 	is_drawing = false
 	if points.size() >= 3:
-		close_shape()
-		update_polygon()
-		stun_animals_in_lasso()
-		fade_out()
+		var crossed = false
+		for i in range(points.size() - 2):
+			if Geometry2D.segment_intersects_segment(points[i], points[i + 1], points[-2], points[-1]):
+				crossed = true
+				break
+		if crossed:
+			close_shape()
+			update_polygon()
+			stun_animals_in_lasso()
+			fade_out()
 	else:
 		clear()
 

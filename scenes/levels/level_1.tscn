@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbiukhjm8lc4s"]
+[gd_scene load_steps=2 format=3 uid="uid://c6snvj3uh4hml"]
 
 [ext_resource type="PackedScene" uid="uid://dow5jdyygni3s" path="res://scenes/levels/base_level.tscn" id="1_ksju7"]
 
 [node name="Level" instance=ExtResource("1_ksju7")]
+
+[node name="Player" parent="." index="3"]
+position = Vector2(960, 540)
 
 [node name="Button" type="Button" parent="." index="7"]
 offset_left = 378.0

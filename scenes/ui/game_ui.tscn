@@ -33,7 +33,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Powerups/ColorRect/HBoxContainer:modulate")
+tracks/2/path = NodePath("Powerups/ColorRect/PowerupOptions:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -45,7 +45,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Powerups/ColorRect/HBoxContainer:visible")
+tracks/3/path = NodePath("Powerups/ColorRect/PowerupOptions:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -84,7 +84,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Powerups/ColorRect/HBoxContainer:modulate")
+tracks/2/path = NodePath("Powerups/ColorRect/PowerupOptions:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -96,7 +96,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Powerups/ColorRect/HBoxContainer:visible")
+tracks/3/path = NodePath("Powerups/ColorRect/PowerupOptions:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -136,7 +136,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.392157)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Powerups/ColorRect"]
+[node name="PowerupOptions" type="HBoxContainer" parent="Powerups/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -150,26 +150,29 @@ offset_bottom = 99.0004
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Option1" type="Button" parent="Powerups/ColorRect/HBoxContainer"]
+[node name="Option1" type="Button" parent="Powerups/ColorRect/PowerupOptions"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "opt 1"
+metadata/powerup_type = 0
 
-[node name="Option2" type="Button" parent="Powerups/ColorRect/HBoxContainer"]
+[node name="Option2" type="Button" parent="Powerups/ColorRect/PowerupOptions"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "opt 2"
+metadata/powerup_type = 0
 
-[node name="Option3" type="Button" parent="Powerups/ColorRect/HBoxContainer"]
+[node name="Option3" type="Button" parent="Powerups/ColorRect/PowerupOptions"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "opt 3"
+metadata/powerup_type = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_xjfbv")
 }
 
-[connection signal="pressed" from="Powerups/ColorRect/HBoxContainer/Option1" to="." method="_on_option_pressed" binds= [0]]
-[connection signal="pressed" from="Powerups/ColorRect/HBoxContainer/Option2" to="." method="_on_option_pressed" binds= [1]]
-[connection signal="pressed" from="Powerups/ColorRect/HBoxContainer/Option3" to="." method="_on_option_pressed" binds= [2]]
+[connection signal="pressed" from="Powerups/ColorRect/PowerupOptions/Option1" to="." method="_on_option_pressed" binds= [0]]
+[connection signal="pressed" from="Powerups/ColorRect/PowerupOptions/Option2" to="." method="_on_option_pressed" binds= [1]]
+[connection signal="pressed" from="Powerups/ColorRect/PowerupOptions/Option3" to="." method="_on_option_pressed" binds= [2]]

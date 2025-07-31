@@ -7,8 +7,8 @@ var pause_menu: CanvasLayer = null
 var lives: int
 var stun_time: float = 1
 var kick_distance: float = 50
-enum POWERUPS {LassoSize, StunTime, KickDistance, ExtraLives, LassoReach}
-
+enum POWERUPS {LassoSize, StunTime, KickDistance, ExtraLives, LassoReach, PlayerSpeed}
+var POWERUP_LIST = ["LassoSize", "StunTime", "KickDistance", "ExtraLives", "LassoReach", "PlayerSpeed"]
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -35,6 +35,8 @@ func apply_powerup(powerup: int):
 			lives += 5
 		POWERUPS.LassoReach:
 			player_lasso_reach += 50
+		POWERUPS.PlayerSpeed:
+			player.speed += 30
 		_:
 			print("Invalid powerup")
 			 

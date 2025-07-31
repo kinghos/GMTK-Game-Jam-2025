@@ -2,11 +2,11 @@ extends Node
 
 var player: Player
 var lasso: Lasso
-var player_lasso_reach = 200
+var player_lasso_reach = 500
 var pause_menu: CanvasLayer = null
 var lives: int
 var stun_time: float = 1
-var kick_distance: float = 50
+var kick_distance: float = 150
 enum POWERUPS {LassoSize, StunTime, KickDistance, ExtraLives, LassoReach, PlayerSpeed}
 var POWERUP_LIST = ["LassoSize", "StunTime", "KickDistance", "ExtraLives", "LassoReach", "PlayerSpeed"]
 

@@ -20,6 +20,7 @@ var direction
 
 func _ready() -> void:
 	stun_timer.wait_time = Globals.stun_time
+	random_movement_timer.wait_time *= randf_range(0.8, 1.2)
 	_on_random_movement_timer_timeout()
 	random_movement_timer.start()
 
@@ -76,7 +77,7 @@ func kick():
 	collision_shape_2d.disabled = true
 	
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", end_pos, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false

@@ -7,7 +7,7 @@ class_name Lasso
 
 @export var player: Player
 
-@export var MAX_LASSO_LENGTH = 400
+@export var MAX_LASSO_LENGTH = 600
 @export var DISTANCE_THRESHOLD = 7
 @export var LASSO_COMPLETION_GAP = 100
 

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed = 300
+@export var speed = 400
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var animals_in_range: Array[BaseAnimal]

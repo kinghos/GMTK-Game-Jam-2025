@@ -23,7 +23,6 @@ func _ready() -> void:
 	random_movement_timer.start()
 
 func _physics_process(delta: float) -> void:
-	print(name, " ", target)
 	if being_stunned or being_kicked:
 		return
 	
@@ -38,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		if collider:
 			var current = collider
 			while current:
-				if current.is_in_group("Pens") or current.is_in_group("Animals"):
+				if current.is_in_group("Pens") or current.is_in_group("Animals") or current.name == "Player":
 					print("TBA: bounce somehow")
 					#var normal = collision.get_normal()
 					#velocity = velocity.bounce(normal)

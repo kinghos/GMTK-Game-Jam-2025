@@ -16,6 +16,8 @@ script = ExtResource("1_a68rm")
 
 [node name="KickRange" type="Area2D" parent="."]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KickRange"]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="KickParticles" type="CPUParticles2D" parent="."]

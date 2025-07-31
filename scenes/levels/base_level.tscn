@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d2brulbka1pa" path="res://assets/graphics/sprites/tileset.png" id="2_3rriw"]
 [ext_resource type="PackedScene" uid="uid://byg6xjjjpdp1o" path="res://scenes/ui/game_ui.tscn" id="3_fal5o"]
 [ext_resource type="PackedScene" uid="uid://bf3xuac4xxpsw" path="res://scenes/camera_bound.tscn" id="3_h4ce7"]
-[ext_resource type="PackedScene" uid="uid://c2d3oaak7o717" path="res://scenes/ui/pause_menu.tscn" id="4_b0lsh"]
-[ext_resource type="PackedScene" uid="uid://t3b5gcmdq0w2" path="res://scenes/player.tscn" id="5_3rj88"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="4_b0lsh"]
+[ext_resource type="PackedScene" uid="uid://t3b5gcmdq0w2" path="res://scenes/Player.tscn" id="5_3rj88"]
 [ext_resource type="PackedScene" uid="uid://k3vx7abiijuu" path="res://scenes/lasso.tscn" id="6_klwti"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4ce7"]

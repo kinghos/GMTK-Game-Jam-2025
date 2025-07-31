@@ -173,6 +173,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_xjfbv")
 }
 
-[connection signal="pressed" from="Powerups/ColorRect/PowerupOptions/Option1" to="." method="_on_option_pressed" binds= [0]]
-[connection signal="pressed" from="Powerups/ColorRect/PowerupOptions/Option2" to="." method="_on_option_pressed" binds= [1]]
-[connection signal="pressed" from="Powerups/ColorRect/PowerupOptions/Option3" to="." method="_on_option_pressed" binds= [2]]
+[connection signal="pressed" from="Powerups/ColorRect/PowerupOptions/Option1" to="." method="_on_option_pressed" binds= ["Option1"]]
+[connection signal="pressed" from="Powerups/ColorRect/PowerupOptions/Option2" to="." method="_on_option_pressed" binds= ["Option2"]]
+[connection signal="pressed" from="Powerups/ColorRect/PowerupOptions/Option3" to="." method="_on_option_pressed" binds= ["Option3"]]

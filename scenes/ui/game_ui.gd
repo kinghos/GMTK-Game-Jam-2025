@@ -18,8 +18,10 @@ func close_powerups_menu():
 	powerups.hide()
 	get_tree().paused = false
 
-func _on_option_pressed(option: int) -> void:
+func _on_option_pressed(option: String) -> void:
 	print("Option ", option, " pressed")
+	var powerup_type = powerup_options.get_node(option).get_meta("powerup_type")
+	Globals.apply_powerup(powerup_type)
 	close_powerups_menu()
 
 func randomise_powerup_options():

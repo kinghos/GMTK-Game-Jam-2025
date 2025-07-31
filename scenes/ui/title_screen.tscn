@@ -59,6 +59,7 @@ size_flags_vertical = 3
 text = "EXIT"
 
 [node name="TestButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 971.0
 offset_top = 363.0
 offset_right = 1141.0

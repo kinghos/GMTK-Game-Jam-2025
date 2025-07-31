@@ -1,12 +1,29 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfmmdybm5lt0r"]
+[gd_scene load_steps=23 format=3 uid="uid://cwj0jrdu6p7ug"]
 
 [ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_c136b"]
 [ext_resource type="Texture2D" uid="uid://drnvkb6n7d4os" path="res://assets/graphics/sprites/cow.png" id="2_a5y40"]
+[ext_resource type="Texture2D" uid="uid://bdhe66r4fqjbh" path="res://assets/graphics/sprites/cow_stun.png" id="3_6t8lt"]
 [ext_resource type="Texture2D" uid="uid://dbig02d2brbjh" path="res://assets/graphics/sprites/cow_pointer.png" id="3_r1mxx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r1mxx"]
 atlas = ExtResource("2_a5y40")
 region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do5cp"]
+atlas = ExtResource("3_6t8lt")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4juv"]
+atlas = ExtResource("3_6t8lt")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nejg1"]
+atlas = ExtResource("3_6t8lt")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r10ir"]
+atlas = ExtResource("3_6t8lt")
+region = Rect2(144, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t8lt"]
 atlas = ExtResource("2_a5y40")
@@ -44,6 +61,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_do5cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4juv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nejg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r10ir")
+}],
+"loop": true,
+"name": &"stun",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6t8lt")
 }, {
 "duration": 1.0,
@@ -70,7 +104,7 @@ animations = [{
 radius = 10.0021
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a5y40"]
-radius = 22.0
+radius = 26.403
 
 [sub_resource type="Animation" id="Animation_r1mxx"]
 resource_name = "RESET"
@@ -165,7 +199,7 @@ scale = Vector2(2.5, 2.5)
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_do5cp")
-animation = &"walk"
+animation = &"stun"
 autoplay = "walk"
 
 [node name="CollisionShape2D" parent="." index="1"]

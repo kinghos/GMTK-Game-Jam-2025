@@ -86,6 +86,10 @@ theme_override_font_sizes/font_size = 37
 text = "0 / 6"
 horizontal_alignment = 1
 
+[node name="AnimalIcon" type="Sprite2D" parent="."]
+position = Vector2(0, -162)
+scale = Vector2(2, 2)
+
 [connection signal="body_entered" from="PenEnclosure" to="." method="_on_pen_enclosure_body_entered"]
 [connection signal="body_exited" from="PenEnclosure" to="." method="_on_pen_enclosure_body_exited"]
 [connection signal="body_entered" from="InstantKickArea" to="." method="_on_instant_kick_area_body_entered"]

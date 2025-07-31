@@ -30,6 +30,7 @@ position = Vector2(481, 538)
 [node name="Pen" parent="Pens" index="0" instance=ExtResource("2_nsrm0")]
 position = Vector2(988, 545)
 max_animals = 6
+animal_type = ""
 
 [node name="Button" type="Button" parent="." index="7"]
 offset_left = 378.0

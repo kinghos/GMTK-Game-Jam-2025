@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dow5jdyygni3s" path="res://scenes/levels/base_level.tscn" id="1_jbqir"]
 [ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/pen.tscn" id="2_fr1um"]
 [ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="2_yautc"]
-[ext_resource type="PackedScene" uid="uid://bfmmdybm5lt0r" path="res://scenes/animals/cow.tscn" id="4_v45ci"]
+[ext_resource type="PackedScene" uid="uid://cwj0jrdu6p7ug" path="res://scenes/animals/cow.tscn" id="4_v45ci"]
 
 [node name="Level2" instance=ExtResource("1_jbqir")]
 
@@ -19,23 +19,33 @@ position = Vector2(-2135, 311)
 [node name="Right" parent="CameraBounds" index="3"]
 position = Vector2(3803, 272)
 
+[node name="Player" parent="." index="4"]
+position = Vector2(868, 438)
+
 [node name="Pen" parent="Pens" index="0" instance=ExtResource("2_fr1um")]
 position = Vector2(478, 544)
+max_animals = 3
+animal_type = "Sheep"
+
+[node name="Pen2" parent="Pens" index="1" instance=ExtResource("2_fr1um")]
+position = Vector2(1287, 558)
+max_animals = 3
+animal_type = "Cow"
 
 [node name="Sheep" parent="Animals/Sheep" index="0" instance=ExtResource("2_yautc")]
-position = Vector2(227, 253)
+position = Vector2(245, 489)
 
 [node name="Sheep2" parent="Animals/Sheep" index="1" instance=ExtResource("2_yautc")]
-position = Vector2(893, 345)
+position = Vector2(293, 678)
 
 [node name="Sheep3" parent="Animals/Sheep" index="2" instance=ExtResource("2_yautc")]
-position = Vector2(232, 410)
+position = Vector2(121, 574)
 
 [node name="Cow" parent="Animals/Cow" index="0" instance=ExtResource("4_v45ci")]
-position = Vector2(921, 657)
+position = Vector2(1644, 398)
 
 [node name="Cow2" parent="Animals/Cow" index="1" instance=ExtResource("4_v45ci")]
-position = Vector2(31, 697)
+position = Vector2(1315, 833)
 
 [node name="Cow3" parent="Animals/Cow" index="2" instance=ExtResource("4_v45ci")]
-position = Vector2(65, 396)
+position = Vector2(1591, 706)

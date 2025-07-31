@@ -196,6 +196,7 @@ _data = {
 
 [node name="Cow" instance=ExtResource("1_c136b")]
 scale = Vector2(2.5, 2.5)
+type = "Cow"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_do5cp")

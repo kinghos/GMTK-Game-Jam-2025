@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/pen.tscn" id="2_fr1um"]
 [ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="2_yautc"]
 [ext_resource type="PackedScene" uid="uid://bfmmdybm5lt0r" path="res://scenes/animals/cow.tscn" id="4_v45ci"]
-[ext_resource type="PackedScene" uid="uid://c61xmmh1de58g" path="res://scenes/animals/chicken.tscn" id="5_48ne7"]
+[ext_resource type="PackedScene" uid="uid://ccewnaer85wm4" path="res://scenes/animals/chicken.tscn" id="5_48ne7"]
 
 [node name="Level2" instance=ExtResource("1_jbqir")]
 

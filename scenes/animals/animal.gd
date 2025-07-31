@@ -10,6 +10,7 @@ var changed_target_last_time = false
 var in_pen: bool = false
 
 @export var speed = 75
+@export_enum("Sheep", "Cow", "Chicken") var type: String
 var direction
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -60,7 +61,8 @@ func kick():
 	
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 		diff = global_position.distance_to(pen.global_position)
-		if diff < closest:
+		var is_pen_full = len(pen.animals_in_pen_enclosure) == pen.max_animals
+		if diff < closest and pen.animal_type == type and !is_pen_full:
 			closest_pen = pen
 			closest = diff
 	

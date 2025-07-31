@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c61xmmh1de58g"]
+[gd_scene load_steps=24 format=3 uid="uid://ccewnaer85wm4"]
 
 [ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_hmq33"]
 [ext_resource type="Texture2D" uid="uid://dkcp8mu4hpkrf" path="res://assets/graphics/sprites/chicken.png" id="2_e2rpr"]
@@ -148,6 +148,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_wthsh"]
 resource_name = "kick"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -175,6 +176,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_fdvt3"]
 resource_name = "stun"
+length = 0.375
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -209,6 +211,7 @@ _data = {
 
 [node name="Chicken" instance=ExtResource("1_hmq33")]
 scale = Vector2(1.5, 1.5)
+type = "Chicken"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_nfg7i")

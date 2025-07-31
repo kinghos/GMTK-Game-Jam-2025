@@ -1,0 +1,232 @@
+[gd_scene load_steps=24 format=3 uid="uid://c61xmmh1de58g"]
+
+[ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_hmq33"]
+[ext_resource type="Texture2D" uid="uid://dkcp8mu4hpkrf" path="res://assets/graphics/sprites/chicken.png" id="2_e2rpr"]
+[ext_resource type="Texture2D" uid="uid://dg5irpu268sb7" path="res://assets/graphics/misc/menu_arrow_hovering.png" id="3_u21h3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u21h3"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2rpr"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(304, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfg7i"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(336, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn4nu"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(368, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufkfd"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(400, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wthsh"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdvt3"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyh8i"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysyug"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oagdg"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(176, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6047"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(208, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avbdx"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(240, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eglxy"]
+atlas = ExtResource("2_e2rpr")
+region = Rect2(272, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfg7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u21h3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2rpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfg7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn4nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufkfd")
+}],
+"loop": true,
+"name": &"stun",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wthsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdvt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyh8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysyug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oagdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6047")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avbdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eglxy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e2rpr"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u21h3"]
+radius = 23.51
+
+[sub_resource type="Animation" id="Animation_u21h3"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wthsh"]
+resource_name = "kick"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 2.21914, 2702.37),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -45), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_fdvt3"]
+resource_name = "stun"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-3, 0), Vector2(3, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, 0.523599, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fdvt3"]
+_data = {
+&"RESET": SubResource("Animation_u21h3"),
+&"kicked": SubResource("Animation_wthsh"),
+&"stun": SubResource("Animation_fdvt3")
+}
+
+[node name="Chicken" instance=ExtResource("1_hmq33")]
+scale = Vector2(1.5, 1.5)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_nfg7i")
+animation = &"stun"
+autoplay = "walk"
+frame_progress = 0.557186
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_e2rpr")
+
+[node name="CollisionShape2D" parent="KickRange" index="0"]
+shape = SubResource("CircleShape2D_u21h3")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_fdvt3")
+}
+
+[node name="OffscreenPointer" parent="." index="6"]
+texture = ExtResource("3_u21h3")

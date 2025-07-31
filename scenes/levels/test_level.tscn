@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8i5q6kc37s2"]
+[gd_scene load_steps=6 format=3 uid="uid://c8i5q6kc37s2"]
 
 [ext_resource type="PackedScene" uid="uid://dow5jdyygni3s" path="res://scenes/levels/base_level.tscn" id="1_jbqir"]
 [ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/pen.tscn" id="2_fr1um"]
 [ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="2_yautc"]
-[ext_resource type="PackedScene" uid="uid://cwj0jrdu6p7ug" path="res://scenes/animals/cow.tscn" id="4_v45ci"]
+[ext_resource type="PackedScene" uid="uid://bfmmdybm5lt0r" path="res://scenes/animals/cow.tscn" id="4_v45ci"]
+[ext_resource type="PackedScene" uid="uid://c61xmmh1de58g" path="res://scenes/animals/chicken.tscn" id="5_48ne7"]
 
 [node name="Level2" instance=ExtResource("1_jbqir")]
 
@@ -41,11 +42,23 @@ position = Vector2(293, 678)
 [node name="Sheep3" parent="Animals/Sheep" index="2" instance=ExtResource("2_yautc")]
 position = Vector2(121, 574)
 
-[node name="Cow" parent="Animals/Cow" index="0" instance=ExtResource("4_v45ci")]
+[node name="Cow" parent="Animals/Cows" index="0" instance=ExtResource("4_v45ci")]
 position = Vector2(1644, 398)
 
-[node name="Cow2" parent="Animals/Cow" index="1" instance=ExtResource("4_v45ci")]
+[node name="Cow2" parent="Animals/Cows" index="1" instance=ExtResource("4_v45ci")]
 position = Vector2(1315, 833)
 
-[node name="Cow3" parent="Animals/Cow" index="2" instance=ExtResource("4_v45ci")]
+[node name="Cow3" parent="Animals/Cows" index="2" instance=ExtResource("4_v45ci")]
 position = Vector2(1591, 706)
+
+[node name="Chicken" parent="Animals/Chickens" index="0" instance=ExtResource("5_48ne7")]
+position = Vector2(675, 145)
+
+[node name="Chicken2" parent="Animals/Chickens" index="1" instance=ExtResource("5_48ne7")]
+position = Vector2(304, 146)
+
+[node name="Chicken3" parent="Animals/Chickens" index="2" instance=ExtResource("5_48ne7")]
+position = Vector2(904, 847)
+
+[node name="Chicken4" parent="Animals/Chickens" index="3" instance=ExtResource("5_48ne7")]
+position = Vector2(1458, 131)

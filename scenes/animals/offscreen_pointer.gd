@@ -6,22 +6,22 @@ func _ready():
 	hide()
 
 func _process(delta: float) -> void:
-	var camera_node = get_viewport().get_camera_2d()
-	var screen_dimensions: Vector2 = get_viewport().get_visible_rect().size
-	var screen_center = screen_dimensions / 2
-	
 	var target_global_position: Vector2 = get_parent().global_position
-	var screen_coordinates: Vector2 = (target_global_position -  camera_node.global_position) + screen_center
 	
-	var screen_inset_rectangle: Rect2 = Rect2(Vector2.ZERO, screen_dimensions).grow(-SCREEN_MARGIN)
+	var camera: Camera2D = get_viewport().get_camera_2d()
+	var camera_center: Vector2 = camera.get_screen_center_position()
 	
-	if !screen_inset_rectangle.has_point(screen_coordinates):
-		var clamped_x = clamp(screen_coordinates.x, SCREEN_MARGIN, screen_dimensions.x - SCREEN_MARGIN)
-		var clamped_y = clamp(screen_coordinates.y, SCREEN_MARGIN, screen_dimensions.y - SCREEN_MARGIN)
-		var clamped_screen_coords: Vector2 = Vector2(clamped_x, clamped_y)
-		
-		global_position = camera_node.global_position + (clamped_screen_coords - screen_center)
-		
+	var screen_size: Vector2 = get_viewport().get_visible_rect().size
+	var half_screen = screen_size / 2
+	
+	var visible_rect = Rect2(
+		camera_center - half_screen,
+		screen_size
+	)
+	
+	if not visible_rect.has_point(target_global_position):
 		show()
+		global_position.x = clamp(global_position.x, visible_rect.position.x, visible_rect.position.x + visible_rect.size.x)
+		global_position.y = clamp(global_position.y, visible_rect.position.y, visible_rect.position.y + visible_rect.size.y)
 	else:
 		hide()

@@ -6,6 +6,7 @@ var is_in_kick_area: bool
 var being_kicked: bool
 var being_stunned: bool
 var in_pen: bool = false
+var in_wrong_pen: bool = false
 var combo_count: int = 1
 
 @export var speed = 75
@@ -64,37 +65,58 @@ func _on_kick_range_body_exited(body: Node2D) -> void:
 		body.animals_in_range.erase(self)
 
 func kick():
-	if in_pen:
+	if in_pen and not in_wrong_pen:
 		return
 	being_kicked = true
 	
-	var closest = INF
-	var closest_pen: Pen
-	var diff
-	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
-		diff = global_position.distance_to(pen.global_position)
-		if diff < closest and pen.animal_type == type and !pen.is_full():
-			closest_pen = pen
-			closest = diff
-	
-	if !closest_pen:
-		return
+	var end_pos: Vector2
+	if in_wrong_pen:
+		for pen: Pen in get_tree().get_nodes_in_group("Pens"):
+			if self in pen.animals_in_pen_enclosure:
+				# Choose random spot in kick area (but not the enclosure area!) to kick the incorrect animal to
+				var kick_rect = pen.get_node("KickArea/CollisionShape2D").shape.get_rect()
+				var enclosure_rect = pen.get_node("PenEnclosure/CollisionShape2D").shape.get_rect()
+				var x = randi_range(kick_rect.position.x, kick_rect.position.x + kick_rect.size.x)
+				var y = randi_range(kick_rect.position.y, kick_rect.position.y + kick_rect.size.y)
+				end_pos = Vector2(x, y)
+				while true:
+					x = randi_range(kick_rect.position.x, kick_rect.position.x + kick_rect.size.x)
+					y = randi_range(kick_rect.position.y, kick_rect.position.y + kick_rect.size.y)
+					end_pos = to_global(Vector2(x, y))
+					if not enclosure_rect.has_point(end_pos):
+						break
+	else:
+		var closest = INF
+		var closest_pen: Pen
+		var diff
+		for pen: Pen in get_tree().get_nodes_in_group("Pens"):
+			diff = global_position.distance_to(pen.global_position)
+			if diff < closest and pen.animal_type == type and !pen.is_full() and self in pen.animals_in_kick_area:
+				closest_pen = pen
+				closest = diff
+		
+		if !closest_pen:
+			return
+		end_pos = closest_pen.global_position
 	
 	animation_player.play("kicked")
 	kick_particles.emitting = true
-	collision_shape_2d.disabled = true
+	collision_shape_2d.set_deferred("disabled", true)
 	animated_sprite_2d.animation = "idle"
 	combo_count += 1
 	combo_counter.text = "x%s" % combo_count
 	show_combo_count()
 	
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", closest_pen.global_position, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
-	combo_counter.text = Globals.cowboy_congratulations.pick_random()
+	if combo_count > 1:
+		combo_counter.text = Globals.cowboy_congratulations.pick_random()
 	show_combo_count()
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false
+	if combo_animation_player.is_playing():
+		await combo_animation_player.animation_finished
 	being_kicked = false
 
 func stun(index: int):

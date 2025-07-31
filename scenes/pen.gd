@@ -27,7 +27,11 @@ func is_full() -> bool:
 	return len(animals_in_pen_enclosure) >= max_animals
 
 func _process(_delta: float) -> void:
-	animals_count_label.text = str(len(animals_in_pen_enclosure)) + " / " + str(max_animals)
+	var correct_animal_count: int = 0
+	for animal in animals_in_pen_enclosure:
+		if animal.type == animal_type:
+			correct_animal_count += 1
+	animals_count_label.text = str(correct_animal_count) + " / " + str(max_animals)
 	$KickArea/CollisionShape2D.shape.set_radius(Globals.pen_kick_area)
 
 func _on_kick_area_body_entered(body: Node2D) -> void:
@@ -44,10 +48,14 @@ func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 	if body is BaseAnimal:
 		animals_in_pen_enclosure.append(body)
 		body.in_pen = true
-		
+		if body.type != animal_type:
+			body.in_wrong_pen = true
+			body.kick()
 
 func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal:
+		if body.type != animal_type:
+			body.in_wrong_pen = false
 		animals_in_pen_enclosure.erase(body)
 		body.in_pen = false
 

@@ -41,6 +41,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Kick"):
 		for animal in animals_in_range:
 			if !animal.being_kicked and animal.is_in_kick_area:
+				animal.being_kicked = true  # necessary so that combo count doesn't reset, since it would only be set to true in kick() AFTER the stun timer timeout
 				animal.stun_timer.stop()
 				animal._on_stun_timer_timeout()
 				animal.kick()

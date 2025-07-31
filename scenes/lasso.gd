@@ -125,7 +125,7 @@ func stun_animals_in_lasso():
 			var local_pos = to_local(animal.global_position)
 			if Geometry2D.is_point_in_polygon(local_pos, lasso_polygon.polygon):
 				if !animal.being_kicked:
-					if animal.being_stunned:
+					if animal.being_stunned and !animal.in_wrong_pen:
 						animal.combo_count += 1
 						animal.combo_counter.text = "x%s" % animal.combo_count
 						animal.show_combo_count()

@@ -39,7 +39,3 @@ func apply_powerup(powerup: int):
 			player.speed += 30
 		_:
 			print("Invalid powerup")
-			 
-		
-			
-		

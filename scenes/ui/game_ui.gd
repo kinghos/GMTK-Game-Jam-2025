@@ -30,7 +30,7 @@ func close_powerups_menu():
 	powerup_selected.emit()
 
 func _on_option_pressed(option: String) -> void:
-	print("Option ", option, " pressed")
+	print(option, " pressed")
 	var powerup_type = powerup_options.get_node(option).get_meta("powerup_type")
 	Globals.apply_powerup(powerup_type)
 	close_powerups_menu()

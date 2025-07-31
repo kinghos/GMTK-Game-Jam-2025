@@ -45,9 +45,7 @@ func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 		body.in_pen = false
 
 func _on_pen_enclosure_mouse_entered() -> void:
-	print("mouse entered")
 	is_mouse_over = true
 
 func _on_pen_enclosure_mouse_exited() -> void:
-	print("mouse exited")
 	is_mouse_over = false

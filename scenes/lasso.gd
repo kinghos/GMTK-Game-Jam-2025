@@ -43,21 +43,23 @@ func _process(delta):
 	if !points.is_empty() and Globals.player.global_position.distance_to(points[0]) > Globals.player_lasso_reach:
 		finish_lasso(true)
 	
+	var player_lasso_start = player.get_node("LassoStart").global_position
+	
 	var mouse_pos = get_global_mouse_position()
-	var direction = (mouse_pos - player.global_position).normalized()
-	var distance = player.global_position.distance_to(mouse_pos)
+	var direction = (mouse_pos - player_lasso_start).normalized()
+	var distance = Globals.player.global_position.distance_to(mouse_pos)
 	
 	if distance <= Globals.player_lasso_reach:
-		line_from_player.points = [player.global_position, mouse_pos]
+		line_from_player.points = [player_lasso_start, mouse_pos]
 		line_from_player.modulate = Color.WHITE
 	else:
-		var clamped_point = player.global_position + direction * Globals.player_lasso_reach
-		line_from_player.points = [player.global_position, clamped_point]
+		var clamped_point = player_lasso_start + direction * Globals.player_lasso_reach
+		line_from_player.points = [player_lasso_start, clamped_point]
 		line_from_player.modulate = Color.RED
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed and player.global_position.distance_to(get_global_mouse_position()) <= Globals.player_lasso_reach:
+		if event.pressed and Globals.player.global_position.distance_to(get_global_mouse_position()) <= Globals.player_lasso_reach:
 			# prevent lasso drawing if mouse hovering over pen
 			for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 				if pen.is_mouse_over:

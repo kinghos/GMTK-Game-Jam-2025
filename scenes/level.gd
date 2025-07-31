@@ -7,7 +7,8 @@ extends Node2D
 func _ready():
 	Globals.current_level = self
 	Globals.pause_menu = $PauseMenu
-	
+
+# Used for test level only
 func _on_button_pressed() -> void:
 	game_ui.trigger_powerups_menu()
 

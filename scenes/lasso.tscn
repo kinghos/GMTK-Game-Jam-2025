@@ -8,6 +8,7 @@ script = ExtResource("1_1us5d")
 
 [node name="LassoLine" type="Line2D" parent="."]
 texture_repeat = 2
+width = 5.0
 texture = ExtResource("2_t680u")
 texture_mode = 1
 
@@ -15,6 +16,7 @@ texture_mode = 1
 modulate = Color(1, 1, 1, 0.392157)
 texture_repeat = 2
 closed = true
+width = 5.0
 texture = ExtResource("2_t680u")
 texture_mode = 1
 

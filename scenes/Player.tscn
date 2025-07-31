@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://t3b5gcmdq0w2"]
+[gd_scene load_steps=6 format=3 uid="uid://bf5tbh3arhyid"]
 
 [ext_resource type="Script" uid="uid://b3fn543w2od6l" path="res://scenes/player.gd" id="1_p0vlq"]
 [ext_resource type="Texture2D" uid="uid://cxwy30oynw0ag" path="res://assets/graphics/sprites/loopus.png" id="2_3li8b"]
@@ -37,3 +37,6 @@ animation = &"new_animation"
 process_callback = 0
 editor_draw_drag_margin = true
 script = ExtResource("3_3li8b")
+
+[node name="LassoStart" type="Marker2D" parent="."]
+position = Vector2(-22, 16)

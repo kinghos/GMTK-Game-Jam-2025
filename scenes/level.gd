@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 		if !pen.is_full():
 			return
+	Globals.prevent_pause = true
 	change_to_next_level()
 	Globals.time_left_on_timer = game_timer.wait_time - game_timer.time_left
 

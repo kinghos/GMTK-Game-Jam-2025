@@ -30,6 +30,7 @@ func close_powerups_menu():
 	powerups.hide()
 	get_tree().paused = false
 	powerup_selected.emit()
+	Globals.prevent_pause = false
 
 func _on_option_pressed(option: String) -> void:
 	print(option, " pressed")

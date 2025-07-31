@@ -18,12 +18,13 @@ var KICK_MULT = {
 	"Sheep": 1
 }
 var time_left_on_timer: float
+var prevent_pause: bool = false
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _process(_delta):
-	if Input.is_action_just_pressed("Pause"):
+	if Input.is_action_just_pressed("Pause") and not prevent_pause:
 		toggle_pause_menu()
 
 func toggle_pause_menu():

@@ -40,21 +40,17 @@ func _process(delta):
 					line.add_point(pos)
 			else:
 				finish_lasso()
-		
-		# Find nearest lasso point to the player
-		var distance_to_player = INF
-		for point in points:
-			if player.global_position.distance_to(point) < distance_to_player:
-				nearest_lasso_point = point
-				distance_to_player = player.global_position.distance_to(point)
 	
-	if nearest_lasso_point:
-		line_from_player.points = [player.global_position, nearest_lasso_point]
+	if !points.is_empty():
+		if Globals.player.global_position.distance_to(points[0]) > Globals.player_lasso_reach:
+			finish_lasso(true)
+		else:
+			line_from_player.points = [player.global_position, points[0]]
 	else:
 		var mouse_pos = get_global_mouse_position()
 		var direction = (mouse_pos - player.global_position).normalized()
 		var distance = player.global_position.distance_to(mouse_pos)
-
+		
 		if distance <= Globals.player_lasso_reach:
 			line_from_player.points = [player.global_position, mouse_pos]
 			line_from_player.modulate = Color.WHITE
@@ -78,9 +74,9 @@ func start_lasso():
 		tween.stop()
 	clear()
 
-func finish_lasso():
+func finish_lasso(cancel: bool = false):
 	is_drawing = false
-	if points.size() >= 3:
+	if points.size() >= 3 and not cancel:
 		close_shape()
 		update_polygon()
 		stun_animals_in_lasso()

@@ -29,6 +29,10 @@ func _physics_process(delta: float) -> void:
 	if being_stunned or being_kicked:
 		return
 	
+	# disable collision with other animals when in pen
+	if in_pen:
+		set_collision_mask_value(2, false)
+	
 	velocity = direction * speed
 	
 	# Bounce off collisions

@@ -10,3 +10,5 @@ offset_top = 679.0
 offset_right = 570.0
 offset_bottom = 710.0
 text = "activate powerup menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

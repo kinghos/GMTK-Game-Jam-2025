@@ -1,6 +1,30 @@
 [gd_scene load_steps=2 format=3 uid="uid://dymyf3ji56cb2"]
 
-[ext_resource type="Script" uid="uid://ct8630sr6nvrq" path="res://scenes/ui/animal_pointer.gd" id="1_xitwj"]
+[sub_resource type="GDScript" id="GDScript_h276e"]
+script/source = "extends Sprite2D
+
+var target: Node2D
+var animal: String
+
+const POINTER_TEXTURES = {
+	\"Sheep\": preload(\"res://assets/graphics/misc/skip_button_hovering.png\")
+}
+
+func _ready():
+	hide()
+	texture = POINTER_TEXTURES[animal]
+
+func _process(delta):
+	if not target or target.is_visible_on_screen:
+		hide()
+		return
+	
+	position = Vector2(0, 0) # edge of screen, in direction of target node from the current screen center
+	# no need to detect whether on screen, since we have is_visible_on_screen
+
+	if not visible:
+		show()
+"
 
 [node name="AnimalPointer" type="Sprite2D"]
-script = ExtResource("1_xitwj")
+script = SubResource("GDScript_h276e")

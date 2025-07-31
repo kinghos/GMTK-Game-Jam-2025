@@ -16,7 +16,7 @@ var POWERUP_LIST = ["LassoSize", "StunTime", "KickDistance", "ExtraLives", "Lass
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("Pause"):
 		toggle_pause_menu()
 

@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://fpw5j6khrg20"]
+[gd_scene load_steps=3 format=3 uid="uid://c8i5q6kc37s2"]
 
 [ext_resource type="PackedScene" uid="uid://dow5jdyygni3s" path="res://scenes/levels/base_level.tscn" id="1_jbqir"]
 [ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="2_yautc"]
 
-[node name="Level" instance=ExtResource("1_jbqir")]
+[node name="Level2" instance=ExtResource("1_jbqir")]
 
 [node name="Top" parent="CameraBounds" index="0"]
 position = Vector2(1145, -645)

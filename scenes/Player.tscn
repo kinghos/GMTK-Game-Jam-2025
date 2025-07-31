@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtxp55d6fo5rt"]
+[gd_scene load_steps=6 format=3 uid="uid://boe2krdylabhs"]
 
 [ext_resource type="Script" uid="uid://b3fn543w2od6l" path="res://scenes/player.gd" id="1_p0vlq"]
 [ext_resource type="Texture2D" uid="uid://brj7y667qscpi" path="res://assets/graphics/misc/menu_arrow.png" id="2_v6fml"]
-[ext_resource type="Script" uid="uid://b12hvo60xfyeq" path="res://scenes/camera_2d.gd" id="3_3li8b"]
+[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="3_3li8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
 size = Vector2(24, 28)
@@ -36,11 +36,5 @@ animation = &"new_animation"
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
 position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.03
-drag_top_margin = 0.03
-drag_right_margin = 0.03
-drag_bottom_margin = 0.03
 editor_draw_drag_margin = true
 script = ExtResource("3_3li8b")

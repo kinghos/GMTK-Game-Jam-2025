@@ -9,6 +9,7 @@ var target: Vector2
 var need_to_change_target = false
 var changed_target_last_time = false
 
+@export var pointer_icon: Texture2D
 @export var speed = 75
 var direction
 
@@ -16,10 +17,12 @@ var direction
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var kick_particles: CPUParticles2D = $KickParticles
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var offscreen_pointer: Sprite2D = $OffscreenPointer
 @onready var stun_timer: Timer = $StunTimer
 @onready var random_movement_timer: Timer = $RandomMovementTimer
 
 func _ready() -> void:
+	offscreen_pointer.texture = pointer_icon
 	stun_timer.wait_time = Globals.stun_time
 	random_movement_timer.wait_time *= randf_range(0.8, 1.2)
 	_on_random_movement_timer_timeout()

@@ -7,7 +7,7 @@ extends CanvasLayer
 func _ready() -> void:
 	powerups.hide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$DebugValues/PlayerSpeed.text = "Speed: " + str(Globals.player.speed)
 	$DebugValues/StunTime.text = "StunTime: " + str(Globals.stun_time)
 	$DebugValues/KickDistance.text = "Kick Distance: " + str(Globals.kick_distance)

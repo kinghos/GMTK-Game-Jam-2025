@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c730r02j0a3ic"]
+[gd_scene load_steps=4 format=3 uid="uid://c730r02j0a3ic"]
 
 [ext_resource type="Script" uid="uid://bodcxjeobaic" path="res://scenes/animals/animal.gd" id="1_a68rm"]
 [ext_resource type="Texture2D" uid="uid://cjv6h5aem5r4u" path="res://assets/graphics/misc/star_particle.png" id="2_4f3xh"]
+[ext_resource type="Script" uid="uid://ffs1brga2vho" path="res://scenes/animals/offscreen_pointer.gd" id="3_to7qb"]
 
 [node name="Animal" type="CharacterBody2D" groups=["Animals"]]
 collision_layer = 2
@@ -44,14 +45,13 @@ scale_amount_max = 0.7
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="OffscreenPointer" type="Sprite2D" parent="."]
+script = ExtResource("3_to7qb")
+
 [node name="RandomMovementTimer" type="Timer" parent="."]
 wait_time = 1.5
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [connection signal="body_entered" from="KickRange" to="." method="_on_kick_range_body_entered"]
 [connection signal="body_exited" from="KickRange" to="." method="_on_kick_range_body_exited"]
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
 [connection signal="timeout" from="RandomMovementTimer" to="." method="_on_random_movement_timer_timeout"]
-[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

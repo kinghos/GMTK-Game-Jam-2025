@@ -20,6 +20,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Kick"):
 		for animal in animals_in_range:
 			if !animal.being_kicked and animal.being_stunned:
+				animal.stun_timer.stop()
 				animal._on_stun_timer_timeout()
 				animal.kick()
 		

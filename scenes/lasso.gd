@@ -12,6 +12,7 @@ extends Node2D
 
 var points: PackedVector2Array = []
 var is_drawing = false
+var fade_out_tweens: Array[Tween]
 
 func _process(delta):
 	var nearest_lasso_point: Vector2  # for drawing line_from_player later
@@ -60,8 +61,7 @@ func _input(event):
 func start_lasso():
 	modulate = Color(1, 1, 1, 1)
 	is_drawing = true
-	var tween_array: Array[Tween] = get_tree().get_processed_tweens()
-	for tween in tween_array:
+	for tween in fade_out_tweens:
 		tween.stop()
 	clear()
 
@@ -90,10 +90,12 @@ func clear():
 
 func fade_out():
 	var tween = get_tree().create_tween()
+	fade_out_tweens.append(tween)
 	print("fading")
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 1)
 	await tween.finished
 	clear()
+	fade_out_tweens.erase(tween)
 	modulate = Color(1, 1, 1, 1)
 
 func calculate_perimeter_with_extra_point(existing_points: PackedVector2Array, new_point: Vector2) -> float:

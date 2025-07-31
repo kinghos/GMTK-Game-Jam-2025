@@ -6,10 +6,13 @@ var being_kicked: bool
 var being_stunned: bool
 
 @export var kick_distance: float = 50
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var kick_particles: CPUParticles2D = $KickParticles
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var stun_timer: Timer = $StunTimer
+
 
 func _on_kick_range_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -52,14 +55,15 @@ func kick():
 func stun():
 	being_stunned = true
 	
-			
-	
 	animation_player.play("stun")
 	kick_particles.emitting = true
 	animated_sprite_2d.animation = "idle"
 	collision_shape_2d.disabled = true
+	stun_timer.start()
 	
-	await animation_player.animation_finished
+
+func _on_stun_timer_timeout() -> void:
+	animation_player.stop()
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false
 	being_stunned = false

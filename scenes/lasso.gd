@@ -48,7 +48,11 @@ func _input(event):
 				finish_lasso()
 
 func start_lasso():
+	modulate = Color(1, 1, 1, 1)
 	is_drawing = true
+	var tween_array: Array[Tween] = get_tree().get_processed_tweens()
+	for tween in tween_array:
+		tween.stop()
 	clear()
 
 func finish_lasso():
@@ -57,6 +61,7 @@ func finish_lasso():
 		close_shape()
 		update_polygon()
 		stun_animals_in_lasso()
+		fade_out()
 	else:
 		clear()
 
@@ -73,6 +78,14 @@ func clear():
 	line.clear_points()
 	lasso_polygon.polygon = []
 
+func fade_out():
+	var tween = get_tree().create_tween()
+	print("fading")
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 1)
+	await tween.finished
+	clear()
+	modulate = Color(1, 1, 1, 1)
+
 func calculate_perimeter_with_extra_point(existing_points: PackedVector2Array, new_point: Vector2) -> float:
 	var total = 0
 	for i in range(existing_points.size() - 1):
@@ -88,7 +101,7 @@ func stun_animals_in_lasso():
 		if animal is BaseAnimal:
 			var local_pos = to_local(animal.global_position)
 			if Geometry2D.is_point_in_polygon(local_pos, lasso_polygon.polygon):
-				if !animal.being_stunned:
+				if !animal.being_stunned and !animal.being_kicked:
 					animal.stun()
 
 # Unused for now: do we want to make sure the lasso drawn by the player is circular?

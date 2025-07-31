@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Kick"):
 		for animal in animals_in_range:
-			if !animal.being_kicked:
+			if !animal.being_kicked and animal.being_stunned:
+				animal._on_stun_timer_timeout()
 				animal.kick()
 		

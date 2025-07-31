@@ -40,5 +40,9 @@ angle_max = 180.0
 scale_amount_min = 0.5
 scale_amount_max = 0.7
 
+[node name="StunTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="KickRange" to="." method="_on_kick_range_body_entered"]
 [connection signal="body_exited" from="KickRange" to="." method="_on_kick_range_body_exited"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]

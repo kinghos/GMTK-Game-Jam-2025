@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c461xpxwj25h2"]
 
 [ext_resource type="Script" uid="uid://bniwyt5umo3i7" path="res://scenes/test_scene.gd" id="1_g7g4h"]
-[ext_resource type="PackedScene" uid="uid://c2d3oaak7o717" path="res://scenes/ui/pause_menu.tscn" id="2_j8ivh"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="2_j8ivh"]
 [ext_resource type="PackedScene" uid="uid://k3vx7abiijuu" path="res://scenes/lasso.tscn" id="2_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="3_7ddre"]
 [ext_resource type="PackedScene" uid="uid://cndmwkj47j0ww" path="res://scenes/Player.tscn" id="4_qjeyg"]
@@ -31,4 +31,5 @@ position = Vector2(748, 342)
 position = Vector2(453, 307)
 
 [node name="Pen" parent="." instance=ExtResource("5_qjeyg")]
+z_index = -1
 position = Vector2(296, 350)

@@ -22,9 +22,11 @@ func _on_instant_kick_area_body_exited(body: Node2D) -> void:
 func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 	if body is BaseAnimal:
 		animals_in_pen_enclosure.append(body)
+		body.in_pen = true
 
 
 func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal:
 		animals_in_pen_enclosure.erase(body)
+		body.in_pen = false
 		

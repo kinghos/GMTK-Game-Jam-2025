@@ -63,7 +63,6 @@ func _input(event):
 			# prevent lasso drawing if mouse hovering over pen
 			for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 				if pen.is_mouse_over:
-					print("e")
 					return
 			start_lasso()
 		else:

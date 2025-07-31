@@ -11,7 +11,7 @@ var animals_in_pen_enclosure: Array[BaseAnimal]
 
 const ANIMAL_ICONS = {
 	"Cow": preload("res://assets/graphics/sprites/cow_icon.png"),
-	"Sheep": preload("res://assets/graphics/sprites/cow_icon.png")
+	"Sheep": preload("res://assets/graphics/sprites/sheep_icon.png")
 }
 
 func _ready() -> void:

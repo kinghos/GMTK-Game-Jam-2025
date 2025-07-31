@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bexj0jwnpfnte"]
+[gd_scene load_steps=8 format=3 uid="uid://dow5jdyygni3s"]
 
 [ext_resource type="PackedScene" uid="uid://byg6xjjjpdp1o" path="res://scenes/ui/game_ui.tscn" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://bmvevy34gpj8u" path="res://scenes/level.gd" id="1_ppgk2"]
-[ext_resource type="PackedScene" uid="uid://cndmwkj47j0ww" path="res://scenes/player.tscn" id="2_mx8sn"]
-[ext_resource type="PackedScene" uid="uid://c2d3oaak7o717" path="res://scenes/ui/pause_menu.tscn" id="3_2r41h"]
+[ext_resource type="PackedScene" uid="uid://cndmwkj47j0ww" path="res://scenes/Player.tscn" id="2_mx8sn"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="3_2r41h"]
 [ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="3_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/pen.tscn" id="4_2r41h"]
 [ext_resource type="PackedScene" uid="uid://k3vx7abiijuu" path="res://scenes/lasso.tscn" id="5_klq6b"]

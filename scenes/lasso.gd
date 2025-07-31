@@ -1,4 +1,5 @@
 extends Node2D
+class_name Lasso
 
 @onready var line = $LassoLine
 @onready var line_from_player = $PlayerToLassoLine
@@ -13,6 +14,9 @@ extends Node2D
 var points: PackedVector2Array = []
 var is_drawing = false
 var fade_out_tweens: Array[Tween]
+
+func _ready():
+	Globals.lasso = self
 
 func _process(delta):
 	var nearest_lasso_point: Vector2  # for drawing line_from_player later

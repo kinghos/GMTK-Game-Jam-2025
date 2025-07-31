@@ -6,6 +6,9 @@ class_name Player
 
 var animals_in_range: Array[BaseAnimal]
 
+func _ready() -> void:
+	Globals.player = self
+
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	if direction.x < 0:

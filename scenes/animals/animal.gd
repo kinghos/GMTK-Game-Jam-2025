@@ -5,14 +5,14 @@ var in_kick_range: bool
 var being_kicked: bool
 var being_stunned: bool
 
-@export var kick_distance: float = 50
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var kick_particles: CPUParticles2D = $KickParticles
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var stun_timer: Timer = $StunTimer
 
+func _ready() -> void:
+	stun_timer.wait_time = Globals.stun_time
 
 func _on_kick_range_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -37,7 +37,7 @@ func kick():
 			closest = diff
 			
 	diff = global_position - closest_pen.global_position
-	diff = diff.normalized() * kick_distance
+	diff = diff.normalized() * Globals.kick_distance
 	var end_pos = global_position - diff
 	
 	animation_player.play("kicked")

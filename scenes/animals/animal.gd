@@ -6,10 +6,12 @@ var is_in_kick_area: bool
 var being_kicked: bool
 var being_stunned: bool
 var in_pen: bool = false
+var combo_count: int = 1
 
 @export var speed = 75
 @export_enum("Sheep", "Cow", "Chicken") var type: String
 
+@onready var combo_counter: Label = $ComboCounter
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var kick_particles: CPUParticles2D = $KickParticles
@@ -17,6 +19,7 @@ var in_pen: bool = false
 @onready var offscreen_pointer: Sprite2D = $OffscreenPointer
 @onready var stun_timer: Timer = $StunTimer
 @onready var random_movement_timer: Timer = $RandomMovementTimer
+@onready var combo_animation_player: AnimationPlayer = $ComboCounter/AnimationPlayer
 
 var direction
 
@@ -46,6 +49,7 @@ func _physics_process(_delta: float) -> void:
 		
 		if collider:
 			_on_random_movement_timer_timeout()
+	
 	
 	move_and_slide()
 
@@ -107,11 +111,17 @@ func stun(index: int):
 	await tween.finished
 	stun_timer.start()
 
+func show_combo_count():
+	if combo_animation_player.is_playing():
+		combo_animation_player.stop()
+	combo_animation_player.play("update counter")
+
 func _on_stun_timer_timeout() -> void:	
 	animation_player.stop()
 	animated_sprite_2d.animation = "walk"
 	#collision_shape_2d.disabled = false
 	being_stunned = false
+	combo_count = 0
 
 func _on_random_movement_timer_timeout() -> void:
 	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()

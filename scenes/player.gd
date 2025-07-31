@@ -30,6 +30,10 @@ func _physics_process(_delta: float) -> void:
 	elif direction.x > 0:
 		animated_sprite_2d.flip_h = false
 	velocity = speed * direction
+	if velocity != Vector2.ZERO:
+		animated_sprite_2d.play("run")
+	else:
+		animated_sprite_2d.play("idle")
 	
 	move_and_slide()
 

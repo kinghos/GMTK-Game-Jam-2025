@@ -91,7 +91,6 @@ func clear():
 func fade_out():
 	var tween = get_tree().create_tween()
 	fade_out_tweens.append(tween)
-	print("fading")
 	tween.tween_property(line, "modulate", Color(1, 1, 1, 0), 1)
 	await tween.finished
 	clear()

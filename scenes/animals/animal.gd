@@ -62,6 +62,7 @@ func stun():
 	
 
 func _on_stun_timer_timeout() -> void:
+	animation_player.stop()
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false
 	being_stunned = false

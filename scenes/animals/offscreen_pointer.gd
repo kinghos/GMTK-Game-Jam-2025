@@ -23,6 +23,6 @@ func _process(delta: float) -> void:
 		show()
 		global_position.x = clamp(target_global_position.x, visible_rect.position.x + SCREEN_MARGIN, visible_rect.position.x + visible_rect.size.x - SCREEN_MARGIN)
 		global_position.y = clamp(target_global_position.y, visible_rect.position.y + SCREEN_MARGIN, visible_rect.position.y + visible_rect.size.y - SCREEN_MARGIN)
-		rotation = (target_global_position - global_position).angle()
+		rotation = (target_global_position - Globals.player.global_position).angle()
 	else:
 		hide()

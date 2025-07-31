@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bmvevy34gpj8u" path="res://scenes/level.gd" id="1_earhg"]
 [ext_resource type="Texture2D" uid="uid://dv4dd8ca7qfdr" path="res://assets/graphics/sprites/floor.png" id="2_u6ue0"]
 [ext_resource type="PackedScene" uid="uid://byg6xjjjpdp1o" path="res://scenes/ui/game_ui.tscn" id="3_fal5o"]
-[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="4_b0lsh"]
-[ext_resource type="PackedScene" uid="uid://bgke6aejttuep" path="res://scenes/Player.tscn" id="5_3rj88"]
+[ext_resource type="PackedScene" uid="uid://c2d3oaak7o717" path="res://scenes/ui/pause_menu.tscn" id="4_b0lsh"]
+[ext_resource type="PackedScene" uid="uid://dtxp55d6fo5rt" path="res://scenes/Player.tscn" id="5_3rj88"]
 [ext_resource type="PackedScene" uid="uid://k3vx7abiijuu" path="res://scenes/lasso.tscn" id="6_klwti"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8c41q"]
@@ -28,42 +28,6 @@ tile_set = SubResource("TileSet_olg7q")
 
 [node name="GameUI" parent="." instance=ExtResource("3_fal5o")]
 
-[node name="PlayerSpeed" type="Label" parent="GameUI"]
-offset_left = 22.0
-offset_top = 396.0
-offset_right = 62.0
-offset_bottom = 419.0
-
-[node name="LassoSize" type="Label" parent="GameUI"]
-offset_left = 21.0
-offset_top = 357.0
-offset_right = 61.0
-offset_bottom = 380.0
-
-[node name="StunTime" type="Label" parent="GameUI"]
-offset_left = 22.0
-offset_top = 424.0
-offset_right = 62.0
-offset_bottom = 447.0
-
-[node name="KickDistance" type="Label" parent="GameUI"]
-offset_left = 19.0
-offset_top = 454.0
-offset_right = 59.0
-offset_bottom = 477.0
-
-[node name="Lives" type="Label" parent="GameUI"]
-offset_left = 23.0
-offset_top = 481.0
-offset_right = 63.0
-offset_bottom = 504.0
-
-[node name="LassoReach" type="Label" parent="GameUI"]
-offset_left = 22.0
-offset_top = 508.0
-offset_right = 62.0
-offset_bottom = 531.0
-
 [node name="PauseMenu" parent="." instance=ExtResource("4_b0lsh")]
 visible = false
 
@@ -73,15 +37,8 @@ position = Vector2(480, 270)
 [node name="Lasso" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_klwti")]
 player = NodePath("../Player")
 
-[node name="Pens" type="Node2D" parent="."]
+[node name="Pens" type="Node" parent="."]
 
-[node name="Sheep" type="Node2D" parent="."]
+[node name="Animals" type="Node" parent="."]
 
-[node name="Button" type="Button" parent="."]
-offset_left = 378.0
-offset_top = 679.0
-offset_right = 570.0
-offset_bottom = 710.0
-text = "activate powerup menu"
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Sheep" type="Node" parent="Animals"]

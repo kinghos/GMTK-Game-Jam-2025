@@ -116,6 +116,35 @@ _data = {
 process_mode = 3
 script = ExtResource("1_gwk6t")
 
+[node name="DebugValues" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.9
+anchor_right = 0.1
+anchor_bottom = 0.9
+offset_top = -158.0
+offset_right = -60.0
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="PlayerSpeed" type="Label" parent="DebugValues"]
+layout_mode = 2
+
+[node name="LassoSize" type="Label" parent="DebugValues"]
+layout_mode = 2
+
+[node name="StunTime" type="Label" parent="DebugValues"]
+layout_mode = 2
+
+[node name="KickDistance" type="Label" parent="DebugValues"]
+layout_mode = 2
+
+[node name="Lives" type="Label" parent="DebugValues"]
+layout_mode = 2
+
+[node name="LassoReach" type="Label" parent="DebugValues"]
+layout_mode = 2
+
 [node name="Powerups" type="Control" parent="."]
 visible = false
 layout_mode = 3

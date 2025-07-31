@@ -3,9 +3,18 @@ extends CanvasLayer
 @onready var powerups: Control = $Powerups
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var powerup_options: HBoxContainer = $Powerups/ColorRect/PowerupOptions
+@onready var debug_values: VBoxContainer = $DebugValues
 
 func _ready() -> void:
 	powerups.hide()
+
+func _process(delta: float) -> void:
+	debug_values.PlayerSpeed.text = "Speed: " + str(Globals.player.speed)
+	debug_values.StunTime.text = "StunTime: " + str(Globals.stun_time)
+	debug_values.KickDistance.text = "Kick Distance: " + str(Globals.kick_distance)
+	debug_values.Lives.text = "Lives: " + str(Globals.lives)
+	debug_values.LassoReach.text = "Lasso Reach: " + str(Globals.player_lasso_reach)
+	debug_values.LassoSize.text = "Lasso Size: " + str(Globals.lasso.MAX_LASSO_LENGTH)
 
 func trigger_powerups_menu():
 	animation_player.play("Slide")

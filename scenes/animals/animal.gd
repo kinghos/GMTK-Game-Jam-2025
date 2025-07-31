@@ -107,6 +107,7 @@ func stun(index: int):
 	
 	await tween.finished
 	stun_timer.start()
+	animated_sprite_2d.play("stun")
 	animation_player.play("stun")
 	
 

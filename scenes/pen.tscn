@@ -21,6 +21,7 @@ offset_left = -93.0
 offset_top = -93.0
 offset_right = 93.0
 offset_bottom = 93.0
+mouse_filter = 1
 color = Color(0.947, 0.929, 0.778, 1)
 
 [node name="PenEnclosure" type="Area2D" parent="."]

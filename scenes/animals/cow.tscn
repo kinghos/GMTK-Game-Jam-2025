@@ -164,6 +164,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_jhwbb"]
 resource_name = "stun"
 length = 0.375
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

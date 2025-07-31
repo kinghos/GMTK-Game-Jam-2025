@@ -103,12 +103,11 @@ func stun(index: int):
 	
 	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	kick_particles.emitting = true
-	animated_sprite_2d.animation = "idle"
+	animated_sprite_2d.animation = "stun"
+	animation_player.play("stun")
 	
 	await tween.finished
 	stun_timer.start()
-	animated_sprite_2d.play("stun")
-	animation_player.play("stun")
 	
 
 func _on_stun_timer_timeout() -> void:	

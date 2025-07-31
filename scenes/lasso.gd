@@ -19,8 +19,6 @@ func _ready():
 	Globals.lasso = self
 
 func _process(delta):
-	var nearest_lasso_point: Vector2  # for drawing line_from_player later
-	
 	if is_drawing:
 		# Handle the drawing of the main lasso
 		var pos = get_global_mouse_position()
@@ -41,27 +39,30 @@ func _process(delta):
 			else:
 				finish_lasso()
 	
-	if !points.is_empty():
-		if Globals.player.global_position.distance_to(points[0]) > Globals.player_lasso_reach:
-			finish_lasso(true)
-		else:
-			line_from_player.points = [player.global_position, points[0]]
+	# Cancel lasso if the player moves further away than their reach
+	if !points.is_empty() and Globals.player.global_position.distance_to(points[0]) > Globals.player_lasso_reach:
+		finish_lasso(true)
+	
+	var mouse_pos = get_global_mouse_position()
+	var direction = (mouse_pos - player.global_position).normalized()
+	var distance = player.global_position.distance_to(mouse_pos)
+	
+	if distance <= Globals.player_lasso_reach:
+		line_from_player.points = [player.global_position, mouse_pos]
+		line_from_player.modulate = Color.WHITE
 	else:
-		var mouse_pos = get_global_mouse_position()
-		var direction = (mouse_pos - player.global_position).normalized()
-		var distance = player.global_position.distance_to(mouse_pos)
-		
-		if distance <= Globals.player_lasso_reach:
-			line_from_player.points = [player.global_position, mouse_pos]
-			line_from_player.modulate = Color.WHITE
-		else:
-			var clamped_point = player.global_position + direction * Globals.player_lasso_reach
-			line_from_player.points = [player.global_position, clamped_point]
-			line_from_player.modulate = Color.RED
+		var clamped_point = player.global_position + direction * Globals.player_lasso_reach
+		line_from_player.points = [player.global_position, clamped_point]
+		line_from_player.modulate = Color.RED
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed and player.global_position.distance_to(get_global_mouse_position()) <= Globals.player_lasso_reach:
+			# prevent lasso drawing if mouse hovering over pen
+			for pen: Pen in get_tree().get_nodes_in_group("Pens"):
+				if pen.is_mouse_over:
+					print("e")
+					return
 			start_lasso()
 		else:
 			if is_drawing:

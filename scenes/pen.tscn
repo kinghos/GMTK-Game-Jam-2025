@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://di53xit540gqa"]
+[gd_scene load_steps=8 format=3 uid="uid://di53xit540gqa"]
 
 [ext_resource type="Script" uid="uid://bablyi76071k6" path="res://scenes/pen.gd" id="1_ngeja"]
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="2_spjee"]
+[ext_resource type="Shader" uid="uid://cgd35j7ohkq3b" path="res://scenes/pen_animal_icon.gdshader" id="3_xbp3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpxs5"]
 size = Vector2(166, 166)
@@ -11,6 +12,11 @@ size = Vector2(10, 186)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lpxs5"]
 radius = 315.078
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j676a"]
+shader = ExtResource("3_xbp3v")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.5
 
 [node name="Pen" type="Node2D" groups=["Pens"]]
 z_index = -1
@@ -87,6 +93,7 @@ text = "0 / 6"
 horizontal_alignment = 1
 
 [node name="AnimalIcon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_j676a")
 position = Vector2(0, -162)
 scale = Vector2(2, 2)
 

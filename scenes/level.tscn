@@ -100,15 +100,10 @@ position = Vector2(711, 425)
 position = Vector2(154, 241)
 
 [node name="Button" type="Button" parent="."]
-offset_left = 616.0
-offset_top = 314.0
-offset_right = 692.0
-offset_bottom = 322.0
+offset_left = 378.0
+offset_top = 679.0
+offset_right = 570.0
+offset_bottom = 710.0
 text = "activate powerup menu"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_top = -241.0
-offset_right = 960.0
-offset_bottom = 781.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

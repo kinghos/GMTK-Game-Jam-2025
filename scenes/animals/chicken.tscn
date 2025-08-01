@@ -185,7 +185,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 9.0
+"speed": 18.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2rpr"]
@@ -292,10 +292,10 @@ type = "Chicken"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_wthsh")
+scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_nfg7i")
-animation = &"stun"
+animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.557186
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -1)

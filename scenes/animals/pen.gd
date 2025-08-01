@@ -41,12 +41,16 @@ func _process(_delta: float) -> void:
 	$KickArea/CollisionShape2D.shape.set_radius(Globals.pen_kick_area)
 
 func _on_kick_area_body_entered(body: Node2D) -> void:
+	if is_full():
+		return
 	if body is BaseAnimal and body.type == animal_type:
 		animals_in_kick_area.append(body)
 		body.is_in_kick_area = true
 		body.toggle_kick_icon()
 
 func _on_kick_area_body_exited(body: Node2D) -> void:
+	if is_full():
+		return
 	if body is BaseAnimal and body.type == animal_type:
 		animals_in_kick_area.erase(body)
 		body.is_in_kick_area = false

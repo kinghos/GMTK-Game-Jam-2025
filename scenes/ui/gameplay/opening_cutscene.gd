@@ -68,4 +68,9 @@ func _on_back_arrow_pressed() -> void:
 		update_current_frame()
 
 func _go_to_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/ui/menus/tutorial.tscn")
+	var path = "res://scenes/ui/menus/tutorial.tscn"
+	if Globals.seen_tutorial:
+		path = "res://scenes/levels/level_1.tscn"
+	else:
+		Globals.seen_tutorial = true
+	get_tree().change_scene_to_file(path)

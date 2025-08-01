@@ -161,7 +161,8 @@ func _on_random_movement_timer_timeout() -> void:
 
 
 func _on_screen_entered() -> void:
-	Globals.current_level.animals_on_screen.append(self)
+	if Globals.current_level:
+		Globals.current_level.animals_on_screen.append(self)
 
 func _on_screen_exited() -> void:
 	Globals.current_level.animals_on_screen.erase(self)

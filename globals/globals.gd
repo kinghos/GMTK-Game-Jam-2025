@@ -36,7 +36,7 @@ var STUN_MULTS = {
 }
 
 var cowboy_congratulations = ["Rootin' Tootin!", "Yeehaw!", "Cowabunga!", "Howdy!", "Yippee-ki-yay!", "He-yah!", "Hot Diggidy Damn!", "Well taxidermy my foot!"]
-
+var seen_tutorial: bool = false
 var wait_time: float
 var time_elapsed: float
 var time_left: float

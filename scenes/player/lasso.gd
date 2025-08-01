@@ -4,7 +4,7 @@ class_name Lasso
 @onready var line = $LassoLine
 @onready var line_from_player = $PlayerToLassoLine
 @onready var lasso_polygon = $LassoPolygon
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audio_stream_player_2d: AudioStreamPlayer = $AudioStreamPlayer2D
 
 @export var player: Player
 

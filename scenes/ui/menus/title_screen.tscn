@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxl64go8kr6od"]
+[gd_scene load_steps=5 format=3 uid="uid://cxl64go8kr6od"]
 
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_aqpy5"]
 [ext_resource type="Script" uid="uid://b5emlbe1ed4nt" path="res://scenes/ui/menus/title_screen.gd" id="1_eb34j"]
+[ext_resource type="Texture2D" uid="uid://dv0q7mipj70mc" path="res://assets/graphics/backgrounds/title_screen.png" id="3_5ad1i"]
 [ext_resource type="Texture2D" uid="uid://cxogmukk57tr1" path="res://assets/graphics/misc/transparent_menu_thing.png" id="3_cwfae"]
 
 [node name="TitleScreen" type="Control"]
@@ -19,15 +20,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1440.0
-offset_bottom = -810.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4, 4)
+texture = ExtResource("3_5ad1i")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 2603.0
+offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("3_cwfae")
 
@@ -36,9 +35,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 216.0
+offset_left = 90.0
 offset_top = -324.0
-offset_right = 356.0
+offset_right = 230.0
 offset_bottom = -108.0
 grow_vertical = 2
 scale = Vector2(3, 3)
@@ -67,10 +66,10 @@ text = "EXIT"
 
 [node name="TestButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1192.0
-offset_top = 204.0
-offset_right = 1362.0
-offset_bottom = 243.0
+offset_left = 1387.0
+offset_top = 950.0
+offset_right = 1557.0
+offset_bottom = 989.0
 scale = Vector2(3, 3)
 size_flags_vertical = 3
 text = "Test Level"

@@ -83,19 +83,7 @@ func kick():
 	if in_wrong_pen:
 		for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 			if self in pen.animals_in_pen_enclosure:
-				# Choose random spot in kick area (but not the enclosure area!) to kick the incorrect animal to
-				var pen_center = pen.global_position
-				var kick_rect = pen.get_node("KickArea/CollisionShape2D").shape.get_rect()
-				var enclosure_rect = pen.get_node("PenEnclosure/CollisionShape2D").shape.get_rect()
-				var x = randi_range(-(kick_rect.size.x / 2), kick_rect.size.x / 2)
-				var y = randi_range(-(kick_rect.size.y / 2), kick_rect.size.y / 2)
-				end_pos = Vector2(x, y)
-				while true:
-					x = randi_range(-(kick_rect.size.x / 2), kick_rect.size.x / 2)
-					y = randi_range(-(kick_rect.size.y / 2), kick_rect.size.y / 2)
-					end_pos = Vector2(pen_center.x + x, pen_center.y + y)
-					if not enclosure_rect.has_point(end_pos):
-						break
+				end_pos = pen.get_random_point()
 	else:
 		var closest = INF
 		var closest_pen: Pen

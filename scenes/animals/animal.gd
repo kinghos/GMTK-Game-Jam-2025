@@ -8,6 +8,7 @@ var being_stunned: bool
 var in_pen: bool = false
 var in_wrong_pen: bool = false
 var combo_count: int = 1
+var no_congratulation_this_kick: bool = false
 
 @export var speed = 75
 @export_enum("Sheep", "Cow", "Chicken") var type: String
@@ -30,6 +31,10 @@ func _ready() -> void:
 	_on_random_movement_timer_timeout()
 	random_movement_timer.start()
 
+func _process(_delta: float) -> void:
+	if in_wrong_pen:
+		no_congratulation_this_kick = true
+
 func _physics_process(_delta: float) -> void:
 	if being_stunned or being_kicked:
 		return
@@ -50,7 +55,6 @@ func _physics_process(_delta: float) -> void:
 		
 		if collider:
 			_on_random_movement_timer_timeout()
-	
 	
 	move_and_slide()
 
@@ -74,17 +78,20 @@ func kick():
 		for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 			if self in pen.animals_in_pen_enclosure:
 				# Choose random spot in kick area (but not the enclosure area!) to kick the incorrect animal to
+				var pen_center = pen.global_position
 				var kick_rect = pen.get_node("KickArea/CollisionShape2D").shape.get_rect()
 				var enclosure_rect = pen.get_node("PenEnclosure/CollisionShape2D").shape.get_rect()
-				var x = randi_range(kick_rect.position.x, kick_rect.position.x + kick_rect.size.x)
-				var y = randi_range(kick_rect.position.y, kick_rect.position.y + kick_rect.size.y)
+				var x = randi_range(-(kick_rect.size.x / 2), kick_rect.size.x / 2)
+				var y = randi_range(-(kick_rect.size.y / 2), kick_rect.size.y / 2)
 				end_pos = Vector2(x, y)
 				while true:
-					x = randi_range(kick_rect.position.x, kick_rect.position.x + kick_rect.size.x)
-					y = randi_range(kick_rect.position.y, kick_rect.position.y + kick_rect.size.y)
-					end_pos = to_global(Vector2(x, y))
+					x = randi_range(-(kick_rect.size.x / 2), kick_rect.size.x / 2)
+					y = randi_range(-(kick_rect.size.y / 2), kick_rect.size.y / 2)
+					end_pos = Vector2(pen_center.x + x, pen_center.y + y)
 					if not enclosure_rect.has_point(end_pos):
 						break
+					else:
+						print("e")
 	else:
 		var closest = INF
 		var closest_pen: Pen
@@ -103,21 +110,22 @@ func kick():
 	kick_particles.emitting = true
 	collision_shape_2d.set_deferred("disabled", true)
 	animated_sprite_2d.animation = "idle"
-	combo_count += 1
-	combo_counter.text = "x%s" % combo_count
-	show_combo_count()
+	if combo_count > 1:
+		combo_counter.text = "x%s" % combo_count
+		show_combo_count()
 	
 	var tween = create_tween()
+	print(end_pos)
 	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
-	if combo_count > 1:
+	if combo_count > 1 and not no_congratulation_this_kick:
 		combo_counter.text = Globals.cowboy_congratulations.pick_random()
-	show_combo_count()
+		show_combo_count()
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false
+	being_kicked = false
 	if combo_animation_player.is_playing():
 		await combo_animation_player.animation_finished
-	being_kicked = false
 
 func stun(index: int):
 	if in_pen:
@@ -150,6 +158,7 @@ func _on_stun_timer_timeout() -> void:
 	being_stunned = false
 	if not being_kicked:
 		combo_count = 0
+		no_congratulation_this_kick = false
 
 func _on_random_movement_timer_timeout() -> void:
 	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()

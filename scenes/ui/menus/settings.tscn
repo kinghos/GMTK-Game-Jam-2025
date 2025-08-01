@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbbfxgqv47ulh"]
 
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_8wfqe"]
-[ext_resource type="PackedScene" uid="uid://dsudqg24muyb2" path="res://scenes/ui/menus/menu_back_arrow.tscn" id="2_7pacj"]
-[ext_resource type="Script" uid="uid://cumdgbgw8rwv0" path="res://scenes/ui/menus/settings.gd" id="2_ptynm"]
+[ext_resource type="PackedScene" uid="uid://dsudqg24muyb2" path="res://scenes/ui/menus/menu_back_button.tscn" id="2_7pacj"]
 [ext_resource type="Script" uid="uid://dk7oyx2t2k3yj" path="res://scenes/ui/menus/volume_control.gd" id="3_h175o"]
 [ext_resource type="Texture2D" uid="uid://dv0q7mipj70mc" path="res://assets/graphics/backgrounds/title_screen.png" id="3_t45wk"]
+
+[sub_resource type="GDScript" id="GDScript_x0vp0"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -14,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8wfqe")
-script = ExtResource("2_ptynm")
+script = SubResource("GDScript_x0vp0")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -23,12 +24,7 @@ offset_bottom = 40.0
 scale = Vector2(4, 4)
 texture = ExtResource("3_t45wk")
 
-[node name="Container" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="Container"]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 1047.0
 offset_top = 530.0
@@ -37,14 +33,7 @@ offset_bottom = 705.0
 scale = Vector2(3, 3)
 color = Color(0, 0, 0, 0.34902)
 
-[node name="MenuBackArrow" parent="Container" instance=ExtResource("2_7pacj")]
-layout_mode = 0
-offset_left = 830.0
-offset_top = 938.0
-offset_right = 893.0
-offset_bottom = 977.0
-
-[node name="VolumeSlidersContainer" type="VBoxContainer" parent="Container"]
+[node name="VolumeSlidersContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 1087.0
 offset_top = 531.0
@@ -52,11 +41,11 @@ offset_right = 1337.0
 offset_bottom = 692.0
 scale = Vector2(3, 3)
 
-[node name="Label" type="Label" parent="Container/VolumeSlidersContainer"]
+[node name="Label" type="Label" parent="VolumeSlidersContainer"]
 layout_mode = 2
 text = "Master Volume"
 
-[node name="MasterVolumeSlider" type="HSlider" parent="Container/VolumeSlidersContainer"]
+[node name="MasterVolumeSlider" type="HSlider" parent="VolumeSlidersContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
@@ -65,11 +54,11 @@ tick_count = 10
 script = ExtResource("3_h175o")
 bus_name = "Master"
 
-[node name="Label2" type="Label" parent="Container/VolumeSlidersContainer"]
+[node name="Label2" type="Label" parent="VolumeSlidersContainer"]
 layout_mode = 2
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="Container/VolumeSlidersContainer"]
+[node name="MusicSlider" type="HSlider" parent="VolumeSlidersContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
@@ -78,11 +67,11 @@ tick_count = 10
 script = ExtResource("3_h175o")
 bus_name = "Music"
 
-[node name="Label3" type="Label" parent="Container/VolumeSlidersContainer"]
+[node name="Label3" type="Label" parent="VolumeSlidersContainer"]
 layout_mode = 2
 text = "Sound Effects"
 
-[node name="SFXSlider" type="HSlider" parent="Container/VolumeSlidersContainer"]
+[node name="SFXSlider" type="HSlider" parent="VolumeSlidersContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
@@ -90,3 +79,10 @@ value = 1.0
 tick_count = 10
 script = ExtResource("3_h175o")
 bus_name = "Sound Effects"
+
+[node name="MenuBackArrow" parent="." instance=ExtResource("2_7pacj")]
+layout_mode = 0
+offset_left = 830.0
+offset_top = 938.0
+offset_right = 893.0
+offset_bottom = 977.0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2d3oaak7o717"]
+[gd_scene load_steps=6 format=3 uid="uid://c2d3oaak7o717"]
 
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_fvuwu"]
 [ext_resource type="Script" uid="uid://q5a1j06gl3f0" path="res://scenes/ui/menus/pause_menu.gd" id="1_xceqw"]
 [ext_resource type="Shader" uid="uid://bdfqigqj4nw0v" path="res://scenes/ui/background_blur.gdshader" id="2_xceqw"]
+[ext_resource type="PackedScene" uid="uid://bbbfxgqv47ulh" path="res://scenes/ui/menus/settings.tscn" id="4_idy5m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nxavn"]
 shader = ExtResource("2_xceqw")
@@ -59,6 +60,57 @@ text = "SETTINGS"
 layout_mode = 2
 text = "MAIN MENU"
 
+[node name="Settings" parent="Control" instance=ExtResource("4_idy5m")]
+visible = false
+layout_mode = 1
+
+[node name="Background" parent="Control/Settings" index="0"]
+visible = false
+
+[node name="ColorRect" parent="Control/Settings" index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -411.5
+offset_top = -262.5
+offset_right = -136.5
+offset_bottom = -87.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeSlidersContainer" parent="Control/Settings" index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -241.5
+offset_right = -125.0
+offset_bottom = -80.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBackArrow" parent="Control/Settings" index="3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = 341.5
+offset_right = -125.0
+offset_bottom = 380.5
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="pressed" from="Control/ButtonContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Control/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Control/ButtonContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+
+[editable path="Control/Settings"]

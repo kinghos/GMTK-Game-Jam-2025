@@ -165,6 +165,7 @@ func _on_stun_timer_timeout() -> void:
 		no_congratulation_this_kick = false
 
 func _on_random_movement_timer_timeout() -> void:
-	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
-
-	
+	for i in 50: # 50 attempts before giving up
+		direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
+		if not test_move(global_transform, direction * 10):
+			break

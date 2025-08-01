@@ -27,14 +27,19 @@ func _ready() -> void:
 	animal_icon.texture = ANIMAL_ICONS[animal_type]
 	tick.hide()
 
-func is_full() -> bool:
-	return len(animals_in_pen_enclosure) >= max_animals and not (animation_player.current_animation == "tick" and animation_player.is_playing())
+func is_full(animation_done: bool = false) -> bool:
+	var pen_full: bool = len(animals_in_pen_enclosure) >= max_animals
+	if animation_done:
+		return pen_full and not (animation_player.current_animation == "tick" and animation_player.is_playing())
+	return pen_full
 
 func _process(_delta: float) -> void:
 	var correct_animal_count: int = 0
 	for animal in animals_in_pen_enclosure:
 		if animal.type == animal_type:
 			correct_animal_count += 1
+	if correct_animal_count > 0:
+		animal_icon.hide()
 	animals_count_label.text = str(correct_animal_count) + " / " + str(max_animals)
 	$KickArea/CollisionShape2D.shape.set_radius(Globals.pen_kick_area)
 

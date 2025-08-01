@@ -9,8 +9,6 @@ var hud: CanvasLayer
 
 # Powerup values
 var player_lasso_reach = 500
-var lives: int
-var max_combo: int = 0
 var stun_time: float = 1
 var pen_kick_area: float = 250
 enum POWERUPS {LassoSize, StunTime, PenKickArea, LassoReach, PlayerSpeed}
@@ -23,17 +21,15 @@ var POWERUP_ICONS = {
 	"Player Speed": preload("res://assets/graphics/powerups/speed.png")
 }
 
-var KICK_MULT = {
-	"Chicken": 1.2,
-	"Cow": 0.8,
-	"Sheep": 1
-}
+var max_combo: int = 0
+
 var TIME_BONUSES = {
 	"Chicken": 5,
 	"Cow": 2,
 	"Sheep": 3
 }
-var cowboy_congratulations = ["Rootin' Tootin!", "Yeehaw!", "Cowabunga!", "Howdy!", "Yippee-ki-yay!", "He-yah!", "Hot Diggidy Damn!"]
+
+var cowboy_congratulations = ["Rootin' Tootin!", "Yeehaw!", "Cowabunga!", "Howdy!", "Yippee-ki-yay!", "He-yah!", "Hot Diggidy Damn!", "Well taxidermy my foot!"]
 
 var wait_time: float
 var time_elapsed: float
@@ -48,7 +44,14 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause") and not prevent_pause:
 		toggle_pause_menu()
-	
+	if time_elapsed > 1 and time_left == 0:
+		powerup_selections.clear()
+		player_lasso_reach = 500
+		lasso.MAX_LASSO_LENGTH = 600
+		stun_time = 1
+		pen_kick_area = 250
+		player.speed = 400
+		max_combo = 0
 
 func toggle_pause_menu():
 	if pause_menu:

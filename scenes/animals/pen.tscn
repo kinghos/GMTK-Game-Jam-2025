@@ -214,11 +214,13 @@ libraries = {
 }
 
 [node name="Tick" type="Sprite2D" parent="."]
+z_index = 500
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("3_y77hr")
 
 [node name="Cross" type="Sprite2D" parent="."]
 visible = false
+z_index = 500
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("4_bsgl4")
 

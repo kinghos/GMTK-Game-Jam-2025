@@ -25,22 +25,21 @@ grow_vertical = 2
 texture = ExtResource("3_5ad1i")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
+offset_left = -1028.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("3_cwfae")
+flip_h = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 90.0
-offset_top = -324.0
-offset_right = 230.0
-offset_bottom = -108.0
-grow_vertical = 2
-scale = Vector2(3, 3)
+layout_mode = 0
+offset_left = 1460.0
+offset_top = 500.0
+offset_right = 1600.0
+offset_bottom = 716.0
+scale = Vector2(2.5, 2.5)
 theme_override_constants/separation = 20
 alignment = 1
 
@@ -66,10 +65,10 @@ text = "EXIT"
 
 [node name="TestButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1387.0
-offset_top = 950.0
-offset_right = 1557.0
-offset_bottom = 989.0
+offset_left = 18.0
+offset_top = 18.0001
+offset_right = 142.0
+offset_bottom = 57.0001
 scale = Vector2(3, 3)
 size_flags_vertical = 3
 text = "Test Level"

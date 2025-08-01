@@ -8,7 +8,7 @@ extends Node2D
 
 var in_countdown: bool = false
 var uncaptured_animal_number: int = 0
-var animals_on_screen: int = 0
+var animals_on_screen: Array[BaseAnimal]
 
 func _ready():
 	Globals.current_level = self

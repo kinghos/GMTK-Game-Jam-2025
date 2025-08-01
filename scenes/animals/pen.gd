@@ -66,6 +66,7 @@ func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 		else:
 			Globals.add_time(body.type, body.combo_count)
 			body.toggle_kick_icon()
+			Globals.current_level.animals_on_screen.erase(body)
 			
 			var correct_animal_count: int = 0
 			for animal in animals_in_pen_enclosure:

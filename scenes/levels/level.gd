@@ -1,4 +1,5 @@
 extends Node2D
+class_name Level
 
 @onready var overlay: CanvasLayer = $Overlay
 @onready var start_countdown: CanvasLayer = $StartCountdown

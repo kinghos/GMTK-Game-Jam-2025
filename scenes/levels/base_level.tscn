@@ -1,113 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://dow5jdyygni3s"]
+[gd_scene load_steps=11 format=3 uid="uid://dow5jdyygni3s"]
 
 [ext_resource type="Script" uid="uid://bmvevy34gpj8u" path="res://scenes/levels/level.gd" id="1_earhg"]
-[ext_resource type="Texture2D" uid="uid://d2brulbka1pa" path="res://assets/graphics/tilesets/tileset.png" id="2_3rriw"]
+[ext_resource type="TileSet" uid="uid://bxunby6bixkuh" path="res://globals/main_level_tileset.tres" id="2_j7gcg"]
 [ext_resource type="PackedScene" uid="uid://byg6xjjjpdp1o" path="res://scenes/ui/gameplay/overlay.tscn" id="3_fal5o"]
 [ext_resource type="PackedScene" uid="uid://bf3xuac4xxpsw" path="res://scenes/player/camera_bound.tscn" id="3_h4ce7"]
-[ext_resource type="Texture2D" uid="uid://cd2wqv0wi0kf6" path="res://assets/graphics/tilesets/water_tileset.png" id="3_j7gcg"]
+[ext_resource type="TileSet" uid="uid://dc8ucvdfsusoo" path="res://globals/water_tileset.tres" id="3_j7gcg"]
 [ext_resource type="PackedScene" uid="uid://bqj5beox7atc5" path="res://scenes/ui/gameplay/hud.tscn" id="4_43bxi"]
 [ext_resource type="PackedScene" uid="uid://c2d3oaak7o717" path="res://scenes/ui/menus/pause_menu.tscn" id="4_b0lsh"]
 [ext_resource type="PackedScene" uid="uid://bf5tbh3arhyid" path="res://scenes/player/player.tscn" id="5_3rj88"]
 [ext_resource type="PackedScene" uid="uid://fs7gqsq5cg6l" path="res://scenes/ui/gameplay/start_countdown.tscn" id="5_53c65"]
 [ext_resource type="PackedScene" uid="uid://k3vx7abiijuu" path="res://scenes/player/lasso.tscn" id="6_klwti"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4ce7"]
-texture = ExtResource("2_3rriw")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-0:3/0 = 0
-0:4/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-7:1/0 = 0
-6:1/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-14:1/0 = 0
-13:1/0 = 0
-12:1/0 = 0
-11:1/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-14:2/0 = 0
-14:3/0 = 0
-13:3/0 = 0
-12:3/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
-13:5/0 = 0
-13:6/0 = 0
-12:6/0 = 0
-12:5/0 = 0
-11:5/0 = 0
-11:6/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhwlw"]
-texture = ExtResource("3_j7gcg")
-texture_region_size = Vector2i(32, 32)
-0:0/animation_columns = 5
-0:0/animation_frame_0/duration = 0.2
-0:0/animation_frame_1/duration = 0.2
-0:0/animation_frame_2/duration = 0.2
-0:0/animation_frame_3/duration = 0.2
-0:0/animation_frame_4/duration = 0.2
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_olg7q"]
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_h4ce7")
-sources/1 = SubResource("TileSetAtlasSource_qhwlw")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rriw"]
-texture = ExtResource("2_3rriw")
-texture_region_size = Vector2i(32, 32)
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -8, 16, -8, 8, 16, 8, 16, -16, -16, -16)
-2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 8, -16, 8, -16, -16, 16, -16)
-3:2/0 = 0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 8, -16, 8, -16, -16, 16, -16)
-4:2/0 = 0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 8, 16, 8, 8, -16, 8, -16, -16, 16, -16)
-4:3/0 = 0
-4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 8, 16, 8, -16, 16, -16)
-4:4/0 = 0
-4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 8, 16, 8, -16, 16, -16)
-4:5/0 = 0
-4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 8, -16, 8, -8, -16, -8, -16, 16, 16, 16)
-3:5/0 = 0
-3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8, 16, -8, 16, 16, -16, 16)
-2:5/0 = 0
-2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8, 16, -8, 16, 16, -16, 16)
-1:5/0 = 0
-1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -8, -16, -8, -8, 16, -8, 16, 16, -16, 16)
-1:4/0 = 0
-1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -8, 16, -8, -16, -16, -16)
-1:3/0 = 0
-1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -8, 16, -8, -16, -16, -16)
-
-[sub_resource type="TileSet" id="TileSet_h4ce7"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 8
-physics_layer_0/collision_mask = 3
-sources/0 = SubResource("TileSetAtlasSource_3rriw")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_earhg")
@@ -116,10 +18,19 @@ script = ExtResource("1_earhg")
 
 [node name="Floor" type="TileMapLayer" parent="Tilemap"]
 z_index = -5
-tile_set = SubResource("TileSet_olg7q")
+tile_set = ExtResource("2_j7gcg")
 
 [node name="Fences" type="TileMapLayer" parent="Tilemap"]
-tile_set = SubResource("TileSet_h4ce7")
+tile_set = ExtResource("2_j7gcg")
+
+[node name="Details" type="TileMapLayer" parent="Tilemap"]
+tile_set = ExtResource("2_j7gcg")
+
+[node name="Water" type="TileMapLayer" parent="Tilemap"]
+tile_set = ExtResource("3_j7gcg")
+
+[node name="Foreground" type="TileMapLayer" parent="Tilemap"]
+tile_set = ExtResource("2_j7gcg")
 
 [node name="CameraBounds" type="Node2D" parent="."]
 

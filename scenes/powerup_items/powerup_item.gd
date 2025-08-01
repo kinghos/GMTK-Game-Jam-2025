@@ -18,7 +18,7 @@ static func create_powerup_item(pen: Pen) -> PowerupItem:
 	var new_powerup_item: PowerupItem = powerup_item_scene.instantiate()
 	new_powerup_item.name = "Powerup Item"
 	new_powerup_item.type = POWERUP_ITEM_TYPE.keys()[randi() % POWERUP_ITEM_TYPE.size()]
-	new_powerup_item.position = pen.global_position
+	new_powerup_item.global_position = pen.global_position
 	return new_powerup_item
 
 func _ready():

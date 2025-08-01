@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbbfxgqv47ulh"]
+
+[ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_8wfqe"]
+[ext_resource type="PackedScene" uid="uid://dsudqg24muyb2" path="res://scenes/ui/menus/menu_back_arrow.tscn" id="2_7pacj"]
+[ext_resource type="Script" uid="uid://cumdgbgw8rwv0" path="res://scenes/ui/menus/settings.gd" id="2_ptynm"]
+[ext_resource type="Script" uid="uid://dk7oyx2t2k3yj" path="res://scenes/ui/menus/volume_control.gd" id="3_h175o"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8wfqe")
+script = ExtResource("2_ptynm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuBackArrow" parent="." instance=ExtResource("2_7pacj")]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 464.0
+offset_right = 86.0
+offset_bottom = 496.0
+flip_h = true
+
+[node name="NoteToSelf" type="Label" parent="."]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 138.0
+offset_right = 1308.0
+offset_bottom = 228.0
+text = "Note to self:
+We need the background, but it needs to be disabled if coming from the pause menu"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 274.0
+offset_right = 299.0
+offset_bottom = 316.0
+text = "Master Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 236.0
+offset_right = 562.0
+offset_bottom = 413.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 10
+script = ExtResource("3_h175o")
+bus_name = "Master"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 349.0
+offset_right = 300.0
+offset_bottom = 391.0
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 311.0
+offset_right = 563.0
+offset_bottom = 488.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 10
+script = ExtResource("3_h175o")
+bus_name = "Music"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 423.0
+offset_right = 338.0
+offset_bottom = 465.0
+text = "Sound Effects"
+
+[node name="SFXSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 385.0
+offset_right = 601.0
+offset_bottom = 562.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 10
+script = ExtResource("3_h175o")
+bus_name = "Sound Effects"

@@ -1,9 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://cqbyf3duimude"]
 
 [ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_gw4f6"]
-[ext_resource type="Texture2D" uid="uid://b3j0asmr3aocx" path="res://assets/graphics/sprites/sheep_pointer.png" id="2_ag106"]
-[ext_resource type="Texture2D" uid="uid://cgs60xi7ec1wr" path="res://assets/graphics/sprites/sheep.png" id="2_ntctc"]
-[ext_resource type="Texture2D" uid="uid://cr6761hpp4jlk" path="res://assets/graphics/sprites/sheep_stun.png" id="4_xbeb1"]
+[ext_resource type="Texture2D" uid="uid://b3j0asmr3aocx" path="res://assets/graphics/animals/sheep_pointer.png" id="2_ag106"]
+[ext_resource type="Texture2D" uid="uid://cgs60xi7ec1wr" path="res://assets/graphics/animals/sheep.png" id="2_ntctc"]
+[ext_resource type="Texture2D" uid="uid://cr6761hpp4jlk" path="res://assets/graphics/animals/sheep_stun.png" id="4_xbeb1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntctc"]
 atlas = ExtResource("2_ntctc")

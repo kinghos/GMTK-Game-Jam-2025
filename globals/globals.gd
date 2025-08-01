@@ -13,11 +13,11 @@ var pen_kick_area: float = 250
 enum POWERUPS {LassoSize, StunTime, PenKickArea, LassoReach, PlayerSpeed}
 var POWERUP_LIST = ["Lasso Length", "Animal\nStun Time", "Pen Kick Area", "Lasso Reach", "Player Speed"]
 var POWERUP_ICONS = {
-	"Lasso Length": preload("res://assets/graphics/sprites/powerups/lasso_length.png"),
-	"Animal\nStun Time": preload("res://assets/graphics/sprites/powerups/lasso_reach.png"),
-	"Pen Kick Area": preload("res://assets/graphics/sprites/powerups/kick_power.png"),
-	"Lasso Reach": preload("res://assets/graphics/sprites/powerups/lasso_reach.png"),
-	"Player Speed": preload("res://assets/graphics/sprites/powerups/speed.png")
+	"Lasso Length": preload("res://assets/graphics/powerups/lasso_length.png"),
+	"Animal\nStun Time": preload("res://assets/graphics/powerups/lasso_reach.png"),
+	"Pen Kick Area": preload("res://assets/graphics/powerups/kick_power.png"),
+	"Lasso Reach": preload("res://assets/graphics/powerups/lasso_reach.png"),
+	"Player Speed": preload("res://assets/graphics/powerups/speed.png")
 }
 
 var KICK_MULT = {

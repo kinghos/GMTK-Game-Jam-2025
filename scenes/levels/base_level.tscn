@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://dow5jdyygni3s"]
 
-[ext_resource type="Script" uid="uid://bmvevy34gpj8u" path="res://scenes/level.gd" id="1_earhg"]
-[ext_resource type="Texture2D" uid="uid://d2brulbka1pa" path="res://assets/graphics/sprites/tileset.png" id="2_3rriw"]
-[ext_resource type="PackedScene" uid="uid://byg6xjjjpdp1o" path="res://scenes/ui/overlay.tscn" id="3_fal5o"]
-[ext_resource type="PackedScene" uid="uid://bf3xuac4xxpsw" path="res://scenes/camera_bound.tscn" id="3_h4ce7"]
-[ext_resource type="PackedScene" uid="uid://bqj5beox7atc5" path="res://scenes/ui/hud.tscn" id="4_43bxi"]
-[ext_resource type="PackedScene" uid="uid://c2d3oaak7o717" path="res://scenes/ui/pause_menu.tscn" id="4_b0lsh"]
-[ext_resource type="PackedScene" uid="uid://bf5tbh3arhyid" path="res://scenes/Player.tscn" id="5_3rj88"]
-[ext_resource type="PackedScene" uid="uid://fs7gqsq5cg6l" path="res://scenes/ui/start_countdown.tscn" id="5_53c65"]
-[ext_resource type="PackedScene" uid="uid://k3vx7abiijuu" path="res://scenes/lasso.tscn" id="6_klwti"]
+[ext_resource type="Script" uid="uid://bmvevy34gpj8u" path="res://scenes/levels/level.gd" id="1_earhg"]
+[ext_resource type="Texture2D" uid="uid://d2brulbka1pa" path="res://assets/graphics/tilesets/tileset.png" id="2_3rriw"]
+[ext_resource type="PackedScene" uid="uid://byg6xjjjpdp1o" path="res://scenes/ui/gameplay/overlay.tscn" id="3_fal5o"]
+[ext_resource type="PackedScene" uid="uid://bf3xuac4xxpsw" path="res://scenes/player/camera_bound.tscn" id="3_h4ce7"]
+[ext_resource type="PackedScene" uid="uid://bqj5beox7atc5" path="res://scenes/ui/gameplay/hud.tscn" id="4_43bxi"]
+[ext_resource type="PackedScene" uid="uid://c2d3oaak7o717" path="res://scenes/ui/menus/pause_menu.tscn" id="4_b0lsh"]
+[ext_resource type="PackedScene" uid="uid://bf5tbh3arhyid" path="res://scenes/player/player.tscn" id="5_3rj88"]
+[ext_resource type="PackedScene" uid="uid://fs7gqsq5cg6l" path="res://scenes/ui/gameplay/start_countdown.tscn" id="5_53c65"]
+[ext_resource type="PackedScene" uid="uid://k3vx7abiijuu" path="res://scenes/player/lasso.tscn" id="6_klwti"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4ce7"]
 texture = ExtResource("2_3rriw")

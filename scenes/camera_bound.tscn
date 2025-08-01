@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf3xuac4xxpsw"]
-
-[ext_resource type="Script" uid="uid://c26dy1iibcljs" path="res://scenes/camera_bound.gd" id="1_yd7n1"]
-
-[node name="CameraBound" type="Marker2D" groups=["CameraBounds"]]
-script = ExtResource("1_yd7n1")

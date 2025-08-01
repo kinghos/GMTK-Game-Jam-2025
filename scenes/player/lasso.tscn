@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://k3vx7abiijuu"]
+
+[ext_resource type="Script" uid="uid://dy7kp0sseanyk" path="res://scenes/player/lasso.gd" id="1_1us5d"]
+[ext_resource type="Texture2D" uid="uid://ce5uu5lcikxbs" path="res://assets/graphics/player/lasso.png" id="2_t680u"]
+
+[node name="Lasso" type="Node2D"]
+script = ExtResource("1_1us5d")
+
+[node name="LassoLine" type="Line2D" parent="."]
+texture_repeat = 2
+width = 5.0
+texture = ExtResource("2_t680u")
+texture_mode = 1
+
+[node name="PlayerToLassoLine" type="Line2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+texture_repeat = 2
+closed = true
+width = 5.0
+texture = ExtResource("2_t680u")
+texture_mode = 1
+
+[node name="LassoPolygon" type="Polygon2D" parent="."]
+color = Color(0.83, 0.598707, 0.1992, 0.517647)

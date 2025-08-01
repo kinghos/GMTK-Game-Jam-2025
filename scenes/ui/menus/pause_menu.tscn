@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2d3oaak7o717"]
+
+[ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_fvuwu"]
+[ext_resource type="Script" uid="uid://q5a1j06gl3f0" path="res://scenes/ui/menus/pause_menu.gd" id="1_xceqw"]
+[ext_resource type="Shader" uid="uid://bdfqigqj4nw0v" path="res://scenes/ui/background_blur.gdshader" id="2_xceqw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nxavn"]
+shader = ExtResource("2_xceqw")
+shader_parameter/amount = 2.0
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_xceqw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_fvuwu")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_nxavn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -235.5
+offset_right = -71.0
+offset_bottom = -78.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_constants/separation = 20
+
+[node name="ResumeButton" type="Button" parent="Control/ButtonContainer"]
+layout_mode = 2
+text = "RESUME	"
+
+[node name="SettingsButton" type="Button" parent="Control/ButtonContainer"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="MenuButton" type="Button" parent="Control/ButtonContainer"]
+layout_mode = 2
+text = "MAIN MENU"
+
+[connection signal="pressed" from="Control/ButtonContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/ButtonContainer/MenuButton" to="." method="_on_menu_button_pressed"]

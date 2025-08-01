@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://538kemwimv1m"]
 
 [ext_resource type="PackedScene" uid="uid://dow5jdyygni3s" path="res://scenes/levels/base_level.tscn" id="1_j2425"]
-[ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/pen.tscn" id="2_g2h2n"]
+[ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/animals/pen.tscn" id="2_g2h2n"]
 [ext_resource type="PackedScene" uid="uid://cqbyf3duimude" path="res://scenes/animals/sheep.tscn" id="3_fiq81"]
 [ext_resource type="PackedScene" uid="uid://bfmmdybm5lt0r" path="res://scenes/animals/cow.tscn" id="4_l37oo"]
 

@@ -90,8 +90,6 @@ func kick():
 					end_pos = Vector2(pen_center.x + x, pen_center.y + y)
 					if not enclosure_rect.has_point(end_pos):
 						break
-					else:
-						print("e")
 	else:
 		var closest = INF
 		var closest_pen: Pen
@@ -115,7 +113,6 @@ func kick():
 		show_combo_count()
 	
 	var tween = create_tween()
-	print(end_pos)
 	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
 	if combo_count > 1 and not no_congratulation_this_kick:
@@ -127,7 +124,7 @@ func kick():
 	if combo_animation_player.is_playing():
 		await combo_animation_player.animation_finished
 
-func stun(index: int):
+func stun(index: int = 1):
 	if in_pen:
 		return
 	being_stunned = true

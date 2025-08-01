@@ -14,12 +14,14 @@ grow_vertical = 2
 theme = ExtResource("1_77ypm")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
 scale = Vector2(4, 4)
 texture = ExtResource("1_w063j")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 1047.0
 offset_top = 530.0
 offset_right = 1322.0
@@ -70,6 +72,7 @@ layout_mode = 2
 text = "AspectDuck"
 
 [node name="MenuBackArrow" parent="." instance=ExtResource("1_oap8i")]
+layout_mode = 0
 offset_left = 830.0
 offset_top = 938.0
 offset_right = 893.0

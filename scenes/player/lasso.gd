@@ -4,6 +4,7 @@ class_name Lasso
 @onready var line = $LassoLine
 @onready var line_from_player = $PlayerToLassoLine
 @onready var lasso_polygon = $LassoPolygon
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var player: Player
 
@@ -82,6 +83,7 @@ func finish_lasso(cancel: bool = false):
 		close_shape()
 		update_polygon()
 		stun_animals_in_lasso()
+		audio_stream_player_2d.play()
 		fade_out()
 	else:
 		clear()

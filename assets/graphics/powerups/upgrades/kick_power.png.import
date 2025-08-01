@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnosyk6vb26po"
-path="res://.godot/imported/kick_power.png-56ef6977b10e842f6fe9e5c9682740ba.ctex"
+path="res://.godot/imported/kick_power.png-3e8d8623b20cb8a4687c2393829553f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/powerups/kick_power.png"
-dest_files=["res://.godot/imported/kick_power.png-56ef6977b10e842f6fe9e5c9682740ba.ctex"]
+source_file="res://assets/graphics/powerups/upgrades/kick_power.png"
+dest_files=["res://.godot/imported/kick_power.png-3e8d8623b20cb8a4687c2393829553f3.ctex"]
 
 [params]
 

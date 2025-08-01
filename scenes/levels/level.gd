@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	if Globals.time_left < 10:
 		hud.time_running_out()
 	else:
-		hud.reset_timer()	
+		hud.reset_timer()
 	
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 		if !pen.is_full():

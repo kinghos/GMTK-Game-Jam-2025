@@ -26,7 +26,7 @@ position = Vector2(-50, 508)
 position = Vector2(1970, 531)
 
 [node name="Player" parent="." index="6"]
-position = Vector2(960, 540)
+position = Vector2(959, 367)
 
 [node name="Pen" parent="Pens" index="0" instance=ExtResource("2_nsrm0")]
 position = Vector2(960, 540)

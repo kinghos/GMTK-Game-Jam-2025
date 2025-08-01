@@ -37,7 +37,7 @@ func _on_option_pressed(option: String) -> void:
 	var powerup_type = powerup_options.get_node(option).get_meta("powerup_type")
 	Globals.apply_powerup(powerup_type)
 	var powerup_name = Globals.POWERUP_LIST[powerup_type]
-	Globals.powerup_selections.append(powerup_name)
+	Globals.powerup_selections[powerup_name] += 1
 	close_powerups_menu()
 
 func randomise_powerup_options():

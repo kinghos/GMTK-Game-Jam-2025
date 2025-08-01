@@ -41,7 +41,13 @@ var wait_time: float
 var time_elapsed: float
 var time_left: float
 var prevent_pause: bool = false
-var powerup_selections: Array[String]
+var powerup_selections: Dictionary[String, int] = {
+	"Lasso Length": 0,
+	"Animal\nStun Time": 0,
+	"Pen Kick Area": 0,
+	"Lasso Reach": 0,
+	"Player Speed": 0
+}
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -54,7 +60,6 @@ func _process(_delta):
 		player_lasso_reach = 500
 		stun_time = 1
 		pen_kick_area = 250
-		max_combo = 0
 
 func toggle_pause_menu():
 	if pause_menu:

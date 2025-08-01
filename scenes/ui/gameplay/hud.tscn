@@ -1,8 +1,56 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqj5beox7atc5"]
+[gd_scene load_steps=22 format=3 uid="uid://bqj5beox7atc5"]
 
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_0mwgc"]
 [ext_resource type="Script" uid="uid://b60n3csy1oq4y" path="res://scenes/ui/gameplay/hud.gd" id="1_hqnrr"]
 [ext_resource type="Texture2D" uid="uid://ce5uu5lcikxbs" path="res://assets/graphics/player/lasso.png" id="3_74lpp"]
+[ext_resource type="Texture2D" uid="uid://7j01dnb6gy32" path="res://assets/graphics/powerups/upgrades/speed.png" id="3_a4wg4"]
+[ext_resource type="Texture2D" uid="uid://c8q13fys2okwv" path="res://assets/graphics/powerups/upgrades/animal_stun_time.png" id="4_65qlr"]
+[ext_resource type="Texture2D" uid="uid://dnm077e1rstjt" path="res://assets/graphics/powerups/upgrades/lasso_reach.png" id="5_e3pce"]
+[ext_resource type="Texture2D" uid="uid://dlf42s27346ri" path="res://assets/graphics/powerups/upgrades/lasso_length.png" id="6_38tne"]
+[ext_resource type="Texture2D" uid="uid://cnosyk6vb26po" path="res://assets/graphics/powerups/upgrades/kick_power.png" id="7_a3q0n"]
+
+[sub_resource type="Shader" id="Shader_a4wg4"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform bool weighted = true;	// Determines whether to use normal or weighted averages
+uniform bool enabled = true;
+void fragment() {
+	if (enabled) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), float(weighted));
+	}	
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e3pce"]
+resource_local_to_scene = true
+shader = SubResource("Shader_a4wg4")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_65qlr"]
+resource_local_to_scene = true
+shader = SubResource("Shader_a4wg4")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_38tne"]
+resource_local_to_scene = true
+shader = SubResource("Shader_a4wg4")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a3q0n"]
+resource_local_to_scene = true
+shader = SubResource("Shader_a4wg4")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kffq2"]
+resource_local_to_scene = true
+shader = SubResource("Shader_a4wg4")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
 
 [sub_resource type="ImageTexture" id="ImageTexture_xsw5n"]
 
@@ -124,21 +172,90 @@ offset_bottom = 108.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 0.392157)
 
-[node name="PowerupContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -913.0
-offset_top = 7.5
-offset_right = 113.0
-offset_bottom = 100.5
-grow_horizontal = 2
-
-[node name="Powerups" type="Label" parent="Control/PowerupContainer"]
+[node name="Powerups" type="Label" parent="Control"]
 layout_mode = 2
+offset_left = 47.0
+offset_top = -1.0
+offset_right = 258.0
+offset_bottom = 55.0
 theme_override_font_sizes/font_size = 55
 text = "Powerups"
+
+[node name="PowerupDisplay" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 1.0
+offset_right = 346.0
+offset_bottom = 105.0
+
+[node name="Row1" type="HBoxContainer" parent="Control/PowerupDisplay"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Speed" type="TextureRect" parent="Control/PowerupDisplay/Row1"]
+material = SubResource("ShaderMaterial_e3pce")
+layout_mode = 2
+texture = ExtResource("3_a4wg4")
+
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Row1/Speed"]
+layout_mode = 0
+offset_left = 36.0
+offset_right = 76.0
+offset_bottom = 31.0
+text = "1"
+
+[node name="StunTime" type="TextureRect" parent="Control/PowerupDisplay/Row1"]
+material = SubResource("ShaderMaterial_65qlr")
+layout_mode = 2
+texture = ExtResource("4_65qlr")
+
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Row1/StunTime"]
+offset_left = 36.0
+offset_right = 76.0
+offset_bottom = 31.0
+text = "1"
+
+[node name="Row2" type="HBoxContainer" parent="Control/PowerupDisplay"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="LassoReach" type="TextureRect" parent="Control/PowerupDisplay/Row2"]
+material = SubResource("ShaderMaterial_38tne")
+layout_mode = 2
+texture = ExtResource("5_e3pce")
+
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Row2/LassoReach"]
+offset_left = 36.0
+offset_right = 76.0
+offset_bottom = 31.0
+text = "1"
+
+[node name="LassoSize" type="TextureRect" parent="Control/PowerupDisplay/Row2"]
+material = SubResource("ShaderMaterial_a3q0n")
+layout_mode = 2
+texture = ExtResource("6_38tne")
+
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Row2/LassoSize"]
+offset_left = 36.0
+offset_right = 76.0
+offset_bottom = 31.0
+text = "1"
+
+[node name="Row3" type="HBoxContainer" parent="Control/PowerupDisplay"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="KickPower" type="TextureRect" parent="Control/PowerupDisplay/Row3"]
+material = SubResource("ShaderMaterial_kffq2")
+layout_mode = 2
+texture = ExtResource("7_a3q0n")
+
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Row3/KickPower"]
+offset_left = 36.0
+offset_right = 76.0
+offset_bottom = 31.0
+text = "1"
 
 [node name="TimeLeft" type="Label" parent="Control"]
 layout_mode = 0
@@ -183,3 +300,11 @@ root_node = NodePath("../Control/TimeLeft")
 libraries = {
 &"": SubResource("AnimationLibrary_7tk7y")
 }
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = 560.0
+offset_top = 43.0
+offset_right = 1360.0
+offset_bottom = 65.0
+color = Color(0, 0, 0, 0.278431)

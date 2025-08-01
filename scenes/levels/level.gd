@@ -7,6 +7,8 @@ extends Node2D
 @onready var hud: CanvasLayer = $HUD
 
 var in_countdown: bool = false
+var uncaptured_animal_number: int = 0
+var animals_on_screen: int = 0
 
 func _ready():
 	Globals.current_level = self
@@ -17,6 +19,13 @@ func _ready():
 	Globals.time_elapsed = 0
 
 func _process(delta: float) -> void:
+	var new_value: int = 0
+	for animal_type in get_node("Animals").get_children():
+		for animal in animal_type.get_children():
+			if !animal.in_pen:
+				new_value += 1
+	uncaptured_animal_number = new_value
+	
 	Globals.time_elapsed += delta
 	Globals.time_left = game_timer.time_left
 	

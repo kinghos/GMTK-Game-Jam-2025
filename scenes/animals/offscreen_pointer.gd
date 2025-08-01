@@ -20,10 +20,11 @@ func _process(_delta: float) -> void:
 		screen_size
 	)
 	
-	if not visible_rect.has_point(target_global_position) and !get_parent().in_pen:
-		show()
-		global_position.x = clamp(target_global_position.x, visible_rect.position.x + SCREEN_MARGIN, visible_rect.position.x + visible_rect.size.x - SCREEN_MARGIN)
-		global_position.y = clamp(target_global_position.y, visible_rect.position.y + SCREEN_MARGIN_TOP, visible_rect.position.y + visible_rect.size.y - SCREEN_MARGIN)
-		rotation = (target_global_position - Globals.player.global_position).angle()
-	else:
-		hide()
+	if Globals.current_level.animals_on_screen <= Globals.current_level.uncaptured_animal_number / 2:
+		if not visible_rect.has_point(target_global_position) and !get_parent().in_pen:
+			show()
+			global_position.x = clamp(target_global_position.x, visible_rect.position.x + SCREEN_MARGIN, visible_rect.position.x + visible_rect.size.x - SCREEN_MARGIN)
+			global_position.y = clamp(target_global_position.y, visible_rect.position.y + SCREEN_MARGIN_TOP, visible_rect.position.y + visible_rect.size.y - SCREEN_MARGIN)
+			rotation = (target_global_position - Globals.player.global_position).angle()
+			return
+	hide()

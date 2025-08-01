@@ -260,7 +260,11 @@ libraries = {
 }
 autoplay = "bob"
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="body_entered" from="KickRange" to="." method="_on_kick_range_body_entered"]
 [connection signal="body_exited" from="KickRange" to="." method="_on_kick_range_body_exited"]
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
 [connection signal="timeout" from="RandomMovementTimer" to="." method="_on_random_movement_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

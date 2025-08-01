@@ -73,10 +73,10 @@ func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 					correct_animal_count += 1
 			if correct_animal_count == max_animals:
 				animation_player.play("tick")
-				if randi_range(0, 2) == 1:
-					var spawned_item = PowerupItem.create_powerup_item(self)
-					add_child(spawned_item)
-					spawned_item.spawn(self)
+				#if randi_range(0, 2) == 1:
+					#var spawned_item = PowerupItem.create_powerup_item(self)
+					#add_child(spawned_item)
+					#spawned_item.spawn(self)
 
 func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal:

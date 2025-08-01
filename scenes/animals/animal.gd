@@ -158,3 +158,10 @@ func _on_random_movement_timer_timeout() -> void:
 		direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 		if not test_move(global_transform, direction * 10):
 			break
+
+
+func _on_screen_entered() -> void:
+	Globals.current_level.animals_on_screen += 1
+
+func _on_screen_exited() -> void:
+	Globals.current_level.animals_on_screen -= 1

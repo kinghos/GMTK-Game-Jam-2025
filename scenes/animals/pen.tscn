@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://di53xit540gqa"]
+[gd_scene load_steps=12 format=3 uid="uid://di53xit540gqa"]
 
 [ext_resource type="Script" uid="uid://bablyi76071k6" path="res://scenes/animals/pen.gd" id="1_ngeja"]
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="2_spjee"]
+[ext_resource type="Texture2D" uid="uid://beabds00q2sq8" path="res://assets/graphics/misc/tick.png" id="3_y77hr"]
+[ext_resource type="Texture2D" uid="uid://fwm1ni6s50mq" path="res://assets/graphics/misc/cross.png" id="4_bsgl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpxs5"]
 size = Vector2(166, 166)
@@ -11,6 +13,98 @@ size = Vector2(10, 186)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lpxs5"]
 radius = 250.0
+
+[sub_resource type="Animation" id="Animation_dxn25"]
+resource_name = "cross"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cross:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cross:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c34k1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cross:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cross:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ichob"]
+resource_name = "tick"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tick:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tick:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2tby2"]
+_data = {
+&"RESET": SubResource("Animation_c34k1"),
+&"cross": SubResource("Animation_dxn25"),
+&"tick": SubResource("Animation_ichob")
+}
 
 [node name="Pen" type="Node2D" groups=["Pens"]]
 z_index = -1
@@ -94,6 +188,20 @@ theme = ExtResource("2_spjee")
 theme_override_font_sizes/font_size = 37
 text = "0 / 6"
 horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2tby2")
+}
+
+[node name="Tick" type="Sprite2D" parent="."]
+scale = Vector2(5.1875, 5.1875)
+texture = ExtResource("3_y77hr")
+
+[node name="Cross" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(5.1875, 5.1875)
+texture = ExtResource("4_bsgl4")
 
 [connection signal="body_entered" from="PenEnclosure" to="." method="_on_pen_enclosure_body_entered"]
 [connection signal="body_exited" from="PenEnclosure" to="." method="_on_pen_enclosure_body_exited"]

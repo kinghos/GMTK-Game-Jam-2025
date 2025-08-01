@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_hmq33"]
 [ext_resource type="Texture2D" uid="uid://dkcp8mu4hpkrf" path="res://assets/graphics/sprites/chicken.png" id="2_e2rpr"]
-[ext_resource type="Texture2D" uid="uid://dg5irpu268sb7" path="res://assets/graphics/misc/menu_arrow_hovering.png" id="3_u21h3"]
+[ext_resource type="Texture2D" uid="uid://u64l8os2b7rm" path="res://assets/graphics/sprites/chicken_arrow.png" id="3_u21h3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u21h3"]
 atlas = ExtResource("2_e2rpr")

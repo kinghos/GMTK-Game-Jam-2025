@@ -3,7 +3,8 @@ extends CanvasLayer
 var frames = [
 	preload("res://assets/graphics/cutscenes/opening_1.png"),
 	preload("res://assets/graphics/cutscenes/opening_2.png"),
-	preload("res://assets/graphics/cutscenes/opening_3.png")
+	preload("res://assets/graphics/cutscenes/opening_3.png"),
+	preload("res://assets/graphics/cutscenes/opening_4.png")
 ]
 const CUTSCENE_MUSIC = null
 var current_frame: int = 0

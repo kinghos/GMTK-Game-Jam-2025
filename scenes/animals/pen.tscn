@@ -117,7 +117,6 @@ _data = {
 }
 
 [node name="Pen" type="Node2D" groups=["Pens"]]
-z_index = -1
 script = ExtResource("1_ngeja")
 
 [node name="TopHalf" type="Sprite2D" parent="."]

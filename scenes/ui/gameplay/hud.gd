@@ -4,11 +4,14 @@ extends CanvasLayer
 @onready var powerup_container: HBoxContainer = $Control/PowerupContainer
 @onready var anim_marker: Control = $Control/AnimMarker
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var lasso_bar: HSlider = $Control/LassoBar
 
 const powerup_display = preload("res://scenes/ui/gameplay/powerup_display.tscn")
 const TIMER_ANIM = preload("res://scenes/ui/gameplay/timer_anim.tscn")
 
 func _process(_delta: float) -> void:
+	lasso_bar.max_value = Globals.lasso.MAX_LASSO_LENGTH
+	lasso_bar.value = Globals.lasso.MAX_LASSO_LENGTH - Globals.lasso.current_lasso_length
 	time_left.text = "Time Left: %3.3fs" % Globals.time_left
 	if get_parent().in_countdown:
 		hide()

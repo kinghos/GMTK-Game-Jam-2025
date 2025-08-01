@@ -13,6 +13,7 @@ class_name Lasso
 @export var LASSO_COMPLETION_GAP: int = 100
 
 var points: PackedVector2Array = []
+var current_lasso_length: float
 var is_drawing = false
 var fade_out_tweens: Array[Tween]
 var crossed: bool = false
@@ -28,6 +29,7 @@ func _process(_delta):
 		if points.is_empty() or pos.distance_to(points[-1]) > DISTANCE_THRESHOLD:
 			var new_lasso_length = calculate_perimeter_with_extra_point(points, pos)
 			if new_lasso_length <= MAX_LASSO_LENGTH:
+				current_lasso_length = new_lasso_length
 				var new_segment_start = points[-1] if points.size() > 0 else pos
 				for i in range(points.size() - 2):
 					if Geometry2D.segment_intersects_segment(points[i], points[i + 1], new_segment_start, pos):
@@ -85,6 +87,7 @@ func start_lasso():
 	clear()
 
 func finish_lasso(cancel: bool = false):
+	current_lasso_length = 0
 	is_drawing = false
 	if points.size() >= 3 and not cancel:
 		close_shape()

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bfmmdybm5lt0r" path="res://scenes/animals/cow.tscn" id="4_ftfob"]
 [ext_resource type="PackedScene" uid="uid://ccewnaer85wm4" path="res://scenes/animals/chicken.tscn" id="5_fkk1g"]
 
-[node name="Level" instance=ExtResource("1_o8c3j")]
+[node name="Level3" instance=ExtResource("1_o8c3j")]
 next_level = "res://scenes/levels/level_4.tscn"
 
 [node name="Floor" parent="Tilemap" index="0"]

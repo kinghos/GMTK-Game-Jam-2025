@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bfmmdybm5lt0r" path="res://scenes/animals/cow.tscn" id="4_v45ci"]
 [ext_resource type="PackedScene" uid="uid://ccewnaer85wm4" path="res://scenes/animals/chicken.tscn" id="5_48ne7"]
 
-[node name="Level2" instance=ExtResource("1_jbqir")]
+[node name="TestLevel" instance=ExtResource("1_jbqir")]
 
 [node name="Top" parent="CameraBounds" index="0"]
 position = Vector2(1145, -645)

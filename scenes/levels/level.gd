@@ -18,6 +18,7 @@ func _ready():
 	Globals.hud = hud
 	Globals.time_elapsed = 0
 	Globals.max_combo = 0
+	
 
 func _process(delta: float) -> void:
 	var new_value: int = 0

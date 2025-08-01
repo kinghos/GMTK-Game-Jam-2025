@@ -202,7 +202,7 @@ layout_mode = 0
 offset_left = 36.0
 offset_right = 76.0
 offset_bottom = 31.0
-text = "1"
+text = "0"
 
 [node name="StunTime" type="TextureRect" parent="Control/PowerupDisplay/Row1"]
 material = SubResource("ShaderMaterial_65qlr")
@@ -210,10 +210,11 @@ layout_mode = 2
 texture = ExtResource("4_65qlr")
 
 [node name="Label" type="Label" parent="Control/PowerupDisplay/Row1/StunTime"]
+layout_mode = 0
 offset_left = 36.0
 offset_right = 76.0
 offset_bottom = 31.0
-text = "1"
+text = "0"
 
 [node name="Row2" type="HBoxContainer" parent="Control/PowerupDisplay"]
 layout_mode = 2
@@ -225,10 +226,11 @@ layout_mode = 2
 texture = ExtResource("5_e3pce")
 
 [node name="Label" type="Label" parent="Control/PowerupDisplay/Row2/LassoReach"]
+layout_mode = 0
 offset_left = 36.0
 offset_right = 76.0
 offset_bottom = 31.0
-text = "1"
+text = "0"
 
 [node name="LassoSize" type="TextureRect" parent="Control/PowerupDisplay/Row2"]
 material = SubResource("ShaderMaterial_a3q0n")
@@ -236,10 +238,11 @@ layout_mode = 2
 texture = ExtResource("6_38tne")
 
 [node name="Label" type="Label" parent="Control/PowerupDisplay/Row2/LassoSize"]
+layout_mode = 0
 offset_left = 36.0
 offset_right = 76.0
 offset_bottom = 31.0
-text = "1"
+text = "0"
 
 [node name="Row3" type="HBoxContainer" parent="Control/PowerupDisplay"]
 layout_mode = 2
@@ -252,10 +255,11 @@ layout_mode = 2
 texture = ExtResource("7_a3q0n")
 
 [node name="Label" type="Label" parent="Control/PowerupDisplay/Row3/KickPower"]
+layout_mode = 0
 offset_left = 36.0
 offset_right = 76.0
 offset_bottom = 31.0
-text = "1"
+text = "0"
 
 [node name="TimeLeft" type="Label" parent="Control"]
 layout_mode = 0

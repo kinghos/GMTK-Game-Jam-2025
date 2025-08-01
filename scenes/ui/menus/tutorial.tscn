@@ -1,0 +1,118 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4x811ww46ljp"]
+
+[ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_8fgc7"]
+[ext_resource type="Texture2D" uid="uid://b0pe6g1bqt4xu" path="res://assets/graphics/animals/kick_icon.png" id="2_4vkyh"]
+[ext_resource type="Script" uid="uid://ne7iei3u5brm" path="res://scenes/ui/menus/tutorial.gd" id="2_7agkm"]
+[ext_resource type="Texture2D" uid="uid://gwbtsmcy7f73" path="res://assets/graphics/misc/bar_tutorial.png" id="4_7agkm"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 433.0
+offset_right = -433.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8fgc7")
+script = ExtResource("2_7agkm")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -433.0
+offset_right = 433.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.815465, 0.604785, 1)
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 36.0
+offset_right = 1226.0
+offset_bottom = 229.0
+pivot_offset = Vector2(266, 96)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 141
+text = "Tutorial"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 477.0
+offset_right = 513.0
+offset_bottom = 782.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Use the mouse cursor and left mouse button to draw lassos.
+Surround animals with the lasso to pull them towards you and stun them!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 586.0
+offset_top = 477.0
+offset_right = 948.0
+offset_bottom = 782.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "You only have so much rope! This bar indicates how much rope is being used. Go over the limit, and your drawing will be invalid."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 477.0
+offset_right = 1378.0
+offset_bottom = 782.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Press Spacebar when this icon appears above their heads to kick them into their pen. Animals can go into pens marked with their icon."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1486.0
+offset_top = 517.0
+offset_right = 1848.0
+offset_bottom = 734.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Chain combos, collect power-ups and catch those pesky animals before the timer runs out!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1171.0
+offset_top = 292.0
+offset_right = 1345.0
+offset_bottom = 466.0
+texture = ExtResource("2_4vkyh")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 354.0
+offset_right = 1380.0
+offset_bottom = 528.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_7agkm")
+
+[node name="GotIt" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 815.0
+offset_top = 926.0
+offset_right = 1099.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 76
+text = "Got it!"
+
+[connection signal="pressed" from="TextureRect/GotIt" to="." method="_on_got_it_pressed"]

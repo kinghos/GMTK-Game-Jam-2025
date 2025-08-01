@@ -47,7 +47,7 @@ func _on_kick_area_body_entered(body: Node2D) -> void:
 func _on_kick_area_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal and body.type == animal_type:
 		animals_in_kick_area.erase(body)
-		body.is_in_kick_area = true
+		body.is_in_kick_area = false
 		body.toggle_kick_icon()
 
 func _on_pen_enclosure_body_entered(body: Node2D) -> void:

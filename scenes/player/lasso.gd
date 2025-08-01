@@ -15,6 +15,8 @@ class_name Lasso
 var points: PackedVector2Array = []
 var is_drawing = false
 var fade_out_tweens: Array[Tween]
+var crossed: bool = false
+var where_crossed: Vector2
 
 func _ready():
 	Globals.lasso = self
@@ -27,10 +29,10 @@ func _process(_delta):
 			var new_lasso_length = calculate_perimeter_with_extra_point(points, pos)
 			if new_lasso_length <= MAX_LASSO_LENGTH:
 				var new_segment_start = points[-1] if points.size() > 0 else pos
-				var crossed = false
 				for i in range(points.size() - 2):
 					if Geometry2D.segment_intersects_segment(points[i], points[i + 1], new_segment_start, pos):
 						crossed = true
+						where_crossed = points[i]
 						break
 				if crossed:
 					finish_lasso()
@@ -38,9 +40,14 @@ func _process(_delta):
 					points.append(pos)
 					line.add_point(pos)
 			else:
-				finish_lasso()
+				# ran_out_of_length_popup()
+				if points[0].distance_to(points[-1]) < LASSO_COMPLETION_GAP:
+					finish_lasso()
+				else:
+					finish_lasso(true)
 	
 	# Cancel lasso if the player moves further away than their reach
+	# but maybe complete it if the player had a rough shape
 	if !points.is_empty() and Globals.player.global_position.distance_to(points[0]) > Globals.player_lasso_reach:
 		finish_lasso(true)
 	
@@ -89,7 +96,10 @@ func finish_lasso(cancel: bool = false):
 		clear()
 
 func close_shape():
-	if points.size() > 1 and points[0] != points[-1]:
+	if crossed:
+		points = points.slice(points.bsearch(where_crossed))
+		line.points = line.points.slice(line.points.bsearch(where_crossed))
+	if points:
 		points.append(points[0])
 		line.add_point(points[0])
 
@@ -97,6 +107,7 @@ func update_polygon():
 	lasso_polygon.polygon = points
 
 func clear():
+	crossed = false
 	points.clear()
 	line.clear_points()
 	lasso_polygon.polygon = []

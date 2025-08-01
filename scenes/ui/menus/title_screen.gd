@@ -1,6 +1,6 @@
 extends Control
 
-const MAIN_MENU_MUSIC = preload("res://assets/audio/Main Menu.mp3")
+const MAIN_MENU_MUSIC = preload("res://assets/audio/music/intro+main menu.wav")
 
 func _ready() -> void:
 	get_tree().paused = false

@@ -2,8 +2,6 @@ extends Node2D
 class_name Pen
 
 var is_mouse_over: bool = false
-var play_tick: bool = false
-var has_been_ticked: bool = false
 
 var animals_in_kick_area: Array[BaseAnimal]
 var animals_in_pen_enclosure: Array[BaseAnimal]
@@ -30,7 +28,7 @@ func _ready() -> void:
 	tick.hide()
 
 func is_full() -> bool:
-	return len(animals_in_pen_enclosure) >= max_animals
+	return len(animals_in_pen_enclosure) >= max_animals and not (animation_player.current_animation == "tick" and animation_player.is_playing())
 
 func _process(_delta: float) -> void:
 	var correct_animal_count: int = 0
@@ -39,25 +37,21 @@ func _process(_delta: float) -> void:
 			correct_animal_count += 1
 	animals_count_label.text = str(correct_animal_count) + " / " + str(max_animals)
 	$KickArea/CollisionShape2D.shape.set_radius(Globals.pen_kick_area)
-	if play_tick and not has_been_ticked:
-		has_been_ticked = true
-		animation_player.play("tick")
-		
 
 func _on_kick_area_body_entered(body: Node2D) -> void:
 	if body is BaseAnimal and body.type == animal_type:
 		animals_in_kick_area.append(body)
 		body.is_in_kick_area = true
+		body.toggle_kick_icon()
 
 func _on_kick_area_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal and body.type == animal_type:
 		animals_in_kick_area.erase(body)
 		body.is_in_kick_area = true
+		body.toggle_kick_icon()
 
 func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 	if body is BaseAnimal:
-		animals_in_pen_enclosure.append(body)
-		body.in_pen = true
 		if body.type != animal_type:
 			body.in_wrong_pen = true
 			animation_player.play("cross")
@@ -67,6 +61,12 @@ func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 			cross.hide()
 		else:
 			Globals.add_time(body.type, body.combo_count)
+			body.toggle_kick_icon()
+		if len(animals_in_pen_enclosure) == max_animals - 1:
+			animation_player.play("tick")
+		animals_in_pen_enclosure.append(body)
+		body.in_pen = true
+
 
 func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal:

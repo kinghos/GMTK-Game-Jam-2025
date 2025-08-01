@@ -69,7 +69,7 @@ func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 			for animal in animals_in_pen_enclosure:
 				if animal.type == animal_type:
 					correct_animal_count += 1
-			if correct_animal_count == max_animals - 1:
+			if correct_animal_count == max_animals:
 				animation_player.play("tick")
 
 func _on_pen_enclosure_body_exited(body: Node2D) -> void:

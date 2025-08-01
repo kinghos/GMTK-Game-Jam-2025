@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dow5jdyygni3s"]
+[gd_scene load_steps=16 format=3 uid="uid://dow5jdyygni3s"]
 
 [ext_resource type="Script" uid="uid://bmvevy34gpj8u" path="res://scenes/levels/level.gd" id="1_earhg"]
 [ext_resource type="Texture2D" uid="uid://d2brulbka1pa" path="res://assets/graphics/tilesets/tileset.png" id="2_3rriw"]
 [ext_resource type="PackedScene" uid="uid://byg6xjjjpdp1o" path="res://scenes/ui/gameplay/overlay.tscn" id="3_fal5o"]
 [ext_resource type="PackedScene" uid="uid://bf3xuac4xxpsw" path="res://scenes/player/camera_bound.tscn" id="3_h4ce7"]
+[ext_resource type="Texture2D" uid="uid://cd2wqv0wi0kf6" path="res://assets/graphics/tilesets/water_tileset.png" id="3_j7gcg"]
 [ext_resource type="PackedScene" uid="uid://bqj5beox7atc5" path="res://scenes/ui/gameplay/hud.tscn" id="4_43bxi"]
 [ext_resource type="PackedScene" uid="uid://c2d3oaak7o717" path="res://scenes/ui/menus/pause_menu.tscn" id="4_b0lsh"]
 [ext_resource type="PackedScene" uid="uid://bf5tbh3arhyid" path="res://scenes/player/player.tscn" id="5_3rj88"]
@@ -40,9 +41,21 @@ texture_region_size = Vector2i(32, 32)
 3:5/0 = 0
 4:5/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhwlw"]
+texture = ExtResource("3_j7gcg")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 5
+0:0/animation_frame_0/duration = 0.2
+0:0/animation_frame_1/duration = 0.2
+0:0/animation_frame_2/duration = 0.2
+0:0/animation_frame_3/duration = 0.2
+0:0/animation_frame_4/duration = 0.2
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_olg7q"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_h4ce7")
+sources/1 = SubResource("TileSetAtlasSource_qhwlw")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rriw"]
 texture = ExtResource("2_3rriw")

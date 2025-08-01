@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var frames = [
-	preload("res://assets/graphics/misc/star_particle.png"),
+	preload("res://assets/graphics/cutscenes/opening_1.png"),
 	preload("res://assets/graphics/misc/star_particle.png")
 ]
 const CUTSCENE_MUSIC = null

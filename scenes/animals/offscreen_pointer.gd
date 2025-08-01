@@ -1,6 +1,6 @@
 extends Sprite2D
 
-const SCREEN_MARGIN: float = 100.0
+const SCREEN_MARGIN: float = 30.0
 
 func _ready():
 	hide()
@@ -11,7 +11,7 @@ func _process(_delta: float) -> void:
 	var camera: Camera2D = get_viewport().get_camera_2d()
 	var camera_center: Vector2 = camera.get_screen_center_position()
 	
-	var screen_size: Vector2 = get_viewport().get_visible_rect().size
+	var screen_size: Vector2 = get_viewport().get_visible_rect().size / camera.zoom
 	var half_screen = screen_size / 2
 	
 	var visible_rect = Rect2(

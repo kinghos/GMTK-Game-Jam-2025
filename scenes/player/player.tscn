@@ -167,6 +167,7 @@ frame = 1
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 process_callback = 0
 editor_draw_drag_margin = true
 script = ExtResource("3_qlg0r")

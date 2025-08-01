@@ -13,9 +13,9 @@ script = ExtResource("1_ixxvg")
 
 [node name="Frame" type="TextureRect" parent="."]
 offset_top = 180.0
-offset_right = 480.0
-offset_bottom = 360.0
-scale = Vector2(4, 4)
+offset_right = 960.0
+offset_bottom = 540.0
+scale = Vector2(2, 2)
 
 [node name="BlackBar1" type="ColorRect" parent="."]
 anchors_preset = 10

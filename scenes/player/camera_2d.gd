@@ -4,10 +4,10 @@ func _ready() -> void:
 	for bound: Marker2D in get_tree().get_nodes_in_group("CameraBounds"):
 		match bound.bound_type:
 			"top":
-				limit_top = bound.global_position.y
+				limit_top = int(bound.global_position.y)
 			"bottom":
-				limit_bottom = bound.global_position.y
+				limit_bottom = int(bound.global_position.y)
 			"left":
-				limit_left = bound.global_position.x
+				limit_left = int(bound.global_position.x)
 			"right":
-				limit_right = bound.global_position.x
+				limit_right = int(bound.global_position.x)

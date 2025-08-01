@@ -8,7 +8,7 @@ extends CanvasLayer
 const powerup_display = preload("res://scenes/ui/gameplay/powerup_display.tscn")
 const TIMER_ANIM = preload("res://scenes/ui/gameplay/timer_anim.tscn")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	time_left.text = "Time Left: %3.3fs" % Globals.time_left
 
 func _ready() -> void:

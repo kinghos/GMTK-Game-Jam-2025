@@ -26,9 +26,6 @@ position = Vector2(-248, 505)
 [node name="Right" parent="CameraBounds" index="3"]
 position = Vector2(2596, 534)
 
-[node name="HUD" parent="." index="2"]
-visible = true
-
 [node name="Player" parent="." index="6"]
 position = Vector2(1221, 504)
 
@@ -91,10 +88,13 @@ position = Vector2(1110, 120)
 position = Vector2(2272, 729)
 
 [node name="Sheep7" parent="Animals/Sheep" index="6" instance=ExtResource("3_anwe6")]
-position = Vector2(2272, 729)
+position = Vector2(2168, 646)
 
 [node name="Sheep8" parent="Animals/Sheep" index="7" instance=ExtResource("3_anwe6")]
 position = Vector2(506, 540)
+
+[node name="Sheep9" parent="Animals/Sheep" index="8" instance=ExtResource("3_anwe6")]
+position = Vector2(343, 501)
 
 [node name="Cow" parent="Animals/Cows" index="0" instance=ExtResource("4_rej77")]
 position = Vector2(1687, 538)
@@ -120,6 +120,9 @@ position = Vector2(1115, 262)
 [node name="Cow8" parent="Animals/Cows" index="7" instance=ExtResource("4_rej77")]
 position = Vector2(2268, 938)
 
+[node name="Cow9" parent="Animals/Cows" index="8" instance=ExtResource("4_rej77")]
+position = Vector2(934, 606)
+
 [node name="Chicken" parent="Animals/Chickens" index="0" instance=ExtResource("5_5vn0v")]
 position = Vector2(528, 128)
 
@@ -134,3 +137,6 @@ position = Vector2(542, 404)
 
 [node name="Chicken5" parent="Animals/Chickens" index="4" instance=ExtResource("5_5vn0v")]
 position = Vector2(2268, 510)
+
+[node name="Chicken6" parent="Animals/Chickens" index="5" instance=ExtResource("5_5vn0v")]
+position = Vector2(1656, 432)

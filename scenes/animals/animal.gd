@@ -69,10 +69,6 @@ func _on_kick_range_body_exited(body: Node2D) -> void:
 		body.animals_in_range.erase(self)
 
 func toggle_kick_icon():
-	if animated_sprite_2d.material.get_shader_parameter("width") == 0:
-		animated_sprite_2d.material.set_shader_parameter("width", 0.5)
-	elif animated_sprite_2d.material.get_shader_parameter("width") == 0.5:
-		animated_sprite_2d.material.set_shader_parameter("width", 0)
 	$KickIcon.visible = not $KickIcon.visible
 
 func kick():

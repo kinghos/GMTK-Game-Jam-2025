@@ -11,6 +11,7 @@ var animals_in_range: Array[BaseAnimal]
 
 func _ready() -> void:
 	Globals.player = self
+	rotation = 0
 
 func _process(_delta: float) -> void:
 	if get_global_mouse_position().x > global_position.x:
@@ -35,10 +36,12 @@ func _physics_process(_delta: float) -> void:
 	if !(animated_sprite_2d.animation == "kick" and animated_sprite_2d.is_playing()):
 		if velocity != Vector2.ZERO:
 			animated_sprite_2d.play("run")
-			animation_player.play("run")
+			if !animation_player.is_playing():
+				animation_player.play("run"	)
 		else:
 			animated_sprite_2d.play("idle")
 			animation_player.play("RESET")
+			animation_player.stop()
 	
 	move_and_slide()
 

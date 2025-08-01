@@ -179,3 +179,4 @@ position = Vector2(-22, 16)
 libraries = {
 &"": SubResource("AnimationLibrary_p47bc")
 }
+autoplay = "run"

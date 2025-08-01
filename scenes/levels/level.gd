@@ -19,7 +19,6 @@ func _process(_delta: float) -> void:
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 		if !pen.is_full():
 			return
-		pen.play_tick = true
 	
 	Globals.prevent_pause = true
 	change_to_next_level()

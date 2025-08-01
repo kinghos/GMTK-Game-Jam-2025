@@ -47,3 +47,10 @@ offset_right = 1823.0
 offset_bottom = 106.0
 theme_override_font_sizes/font_size = 55
 text = "Time Left: "
+
+[node name="AnimMarker" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 1601.0
+offset_top = 126.0
+offset_right = 1601.0
+offset_bottom = 126.0

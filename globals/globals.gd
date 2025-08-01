@@ -1,9 +1,11 @@
 extends Node
 
 var player: Player
+var game_timer: Timer
 var lasso: Lasso
 var current_level: Node2D
 var pause_menu: CanvasLayer = null
+var hud: CanvasLayer
 
 # Powerup values
 var player_lasso_reach = 500
@@ -25,12 +27,18 @@ var KICK_MULT = {
 	"Cow": 0.8,
 	"Sheep": 1
 }
+var TIME_BONUSES = {
+	"Chicken": 10,
+	"Cow": 3,
+	"Sheep": 5
+}
 var cowboy_congratulations = ["Rootin' Tootin!", "Yeehaw!", "Cowabunga!", "Howdy!", "Yippee-ki-yay!", "He-yah!", "Hot Diggidy Damn!"]
 
+var wait_time: float
 var time_elapsed: float
 var time_left: float
 var prevent_pause: bool = false
-
+var initial_time: float = 0
 var powerup_selections: Array[String]
 
 func _ready():
@@ -39,6 +47,7 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause") and not prevent_pause:
 		toggle_pause_menu()
+	
 
 func toggle_pause_menu():
 	if pause_menu:
@@ -60,3 +69,15 @@ func apply_powerup(powerup: int):
 			player.speed += 30
 		_:
 			print("Invalid powerup")
+
+func add_time(type: String, combo: int):
+	var time_bonus = TIME_BONUSES[type]
+	# Combo bonus is calculated as combo / 2, capping at 5 seconds
+	var combo_bonus = 0
+	if combo > 2:
+		combo_bonus = clampi(combo, 2, 10) / 2
+	var total = time_bonus + combo_bonus
+	game_timer.stop()
+	game_timer.wait_time = time_left + total
+	game_timer.start()
+	hud.add_time(total)

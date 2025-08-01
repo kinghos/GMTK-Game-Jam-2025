@@ -4,13 +4,17 @@ extends Node2D
 @onready var start_countdown: CanvasLayer = $StartCountdown
 @export var next_level: String
 @onready var game_timer: Timer = $GameTimer
+@onready var hud: CanvasLayer = $HUD
 
 func _ready():
 	Globals.current_level = self
 	Globals.pause_menu = $PauseMenu
+	Globals.wait_time = game_timer.wait_time
+	Globals.game_timer = game_timer
+	Globals.hud = hud
 
-func _process(_delta: float) -> void:
-	Globals.time_elapsed = game_timer.wait_time - game_timer.time_left
+func _process(delta: float) -> void:
+	Globals.time_elapsed += delta
 	Globals.time_left = game_timer.time_left
 	if Globals.time_left == 0:
 		get_tree().paused = true

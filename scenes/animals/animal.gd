@@ -160,3 +160,5 @@ func _on_stun_timer_timeout() -> void:
 
 func _on_random_movement_timer_timeout() -> void:
 	direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
+
+	

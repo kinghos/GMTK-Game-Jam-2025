@@ -65,6 +65,8 @@ func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 			await animation_player.animation_finished
 			animation_player.play_backwards("cross")
 			cross.hide()
+		else:
+			Globals.add_time(body.type, body.combo_count)
 
 func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal:

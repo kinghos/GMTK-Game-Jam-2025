@@ -16,13 +16,21 @@ func _ready():
 func _process(delta: float) -> void:
 	Globals.time_elapsed += delta
 	Globals.time_left = game_timer.time_left
+	
 	if Globals.time_left == 0:
 		get_tree().paused = true
 		Globals.prevent_pause = true
 		overlay.trigger_game_over()
+	
+	if Globals.time_left < 10:
+		hud.time_running_out()
+	else:
+		hud.reset_timer()	
+	
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
 		if !pen.is_full():
 			return
+		pen.play_tick = true
 	
 	Globals.prevent_pause = true
 	change_to_next_level()

@@ -50,3 +50,6 @@ position = Vector2(538, 855)
 
 [node name="Sheep6" parent="Animals/Sheep" index="5" instance=ExtResource("3_x42e6")]
 position = Vector2(271, 540)
+
+[node name="GameTimer" parent="." index="10"]
+wait_time = 30.0

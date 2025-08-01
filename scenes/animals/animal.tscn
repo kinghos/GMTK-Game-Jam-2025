@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjv6h5aem5r4u" path="res://assets/graphics/misc/star_particle.png" id="2_4f3xh"]
 [ext_resource type="Script" uid="uid://ffs1brga2vho" path="res://scenes/animals/offscreen_pointer.gd" id="3_to7qb"]
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="4_qmecq"]
-[ext_resource type="Shader" uid="uid://cgd35j7ohkq3b" path="res://globals/outline.gdshader" id="5_ivvwm"]
+[ext_resource type="Shader" path="res://globals/outline.gdshader" id="5_ivvwm"]
 [ext_resource type="Texture2D" uid="uid://b0pe6g1bqt4xu" path="res://assets/graphics/animals/kick_icon.png" id="6_dufb3"]
 
 [sub_resource type="Shader" id="Shader_ivvwm"]

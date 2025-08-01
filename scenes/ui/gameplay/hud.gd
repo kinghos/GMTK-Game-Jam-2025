@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var time_left: Label = $Control/TimeLeft
 @onready var powerup_container: HBoxContainer = $Control/PowerupContainer
 @onready var anim_marker: Control = $Control/AnimMarker
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const powerup_display = preload("res://scenes/ui/gameplay/powerup_display.tscn")
 const TIMER_ANIM = preload("res://scenes/ui/gameplay/timer_anim.tscn")
@@ -22,3 +23,9 @@ func add_time(time_added: float):
 	timer_anim.get_node("Label").text = "+%s" % time_added
 	anim_marker.add_child(timer_anim)
 	timer_anim.get_node("AnimationPlayer").play("time_add")
+
+func time_running_out():
+	animation_player.play("time_running_out")
+
+func reset_timer():
+	animation_player.play("RESET")

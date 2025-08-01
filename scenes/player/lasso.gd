@@ -26,15 +26,6 @@ func _process(_delta):
 		if points.is_empty() or pos.distance_to(points[-1]) > DISTANCE_THRESHOLD:
 			var new_lasso_length = calculate_perimeter_with_extra_point(points, pos)
 			if new_lasso_length <= MAX_LASSO_LENGTH:
-				var new_segment_start = points[-1] if points.size() > 0 else pos
-				var crossed = false
-				for i in range(points.size() - 2):
-					if Geometry2D.segment_intersects_segment(points[i], points[i + 1], new_segment_start, pos):
-						crossed = true
-						break
-				if crossed:
-					finish_lasso()
-				else:
 					points.append(pos)
 					line.add_point(pos)
 			else:
@@ -94,7 +85,32 @@ func close_shape():
 		line.add_point(points[0])
 
 func update_polygon():
-	lasso_polygon.polygon = points
+	var centre = Vector2.ZERO
+	for p in points:
+		centre += p
+	centre /= points.size()
+	
+	var min_radius: float = INF
+	var max_radius: float = -INF
+	var angle_with_max_point
+	for p in points:
+		var dist = p.distance_to(centre)
+		min_radius = min(dist, min_radius)
+		max_radius = max(dist, max_radius)
+		angle_with_max_point = (p - centre).angle()
+	
+	var circle_points = PackedVector2Array()
+	for i in range(64):
+		var angle = TAU * i / 64
+		var point = centre + Vector2(cos(angle) * max_radius, sin(angle) * min_radius).rotated(angle_with_max_point)
+		circle_points.append(point)
+	
+	circle_points.append(circle_points[0])
+	
+	lasso_polygon.polygon = circle_points
+	line.clear_points()
+	for p in circle_points:
+		line.add_point(p)
 
 func clear():
 	points.clear()

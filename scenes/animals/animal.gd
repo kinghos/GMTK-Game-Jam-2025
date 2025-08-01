@@ -139,7 +139,8 @@ func stun(index: int = 1):
 	var tween = create_tween()
 	var diff = Globals.player.global_position - global_position
 	var length = diff.length()
-	diff = diff.normalized() * pow(0.8, index) * length
+	var mult = Globals.STUN_MULTS[type]
+	diff = diff.normalized() * pow(mult, index) * length
 	var end_pos = global_position + diff
 	
 	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)

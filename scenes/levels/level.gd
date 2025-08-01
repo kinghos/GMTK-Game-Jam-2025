@@ -12,6 +12,7 @@ func _ready():
 	Globals.wait_time = game_timer.wait_time
 	Globals.game_timer = game_timer
 	Globals.hud = hud
+	Globals.time_elapsed = 0
 
 func _process(delta: float) -> void:
 	Globals.time_elapsed += delta

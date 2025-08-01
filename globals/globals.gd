@@ -15,7 +15,7 @@ enum POWERUPS {LassoSize, StunTime, PenKickArea, LassoReach, PlayerSpeed}
 var POWERUP_LIST = ["Lasso Length", "Animal\nStun Time", "Pen Kick Area", "Lasso Reach", "Player Speed"]
 var POWERUP_ICONS = {
 	"Lasso Length": preload("res://assets/graphics/powerups/lasso_length.png"),
-	"Animal\nStun Time": preload("res://assets/graphics/powerups/lasso_reach.png"),
+	"Animal\nStun Time": preload("res://assets/graphics/powerups/animal_stun_time.png"),
 	"Pen Kick Area": preload("res://assets/graphics/powerups/kick_power.png"),
 	"Lasso Reach": preload("res://assets/graphics/powerups/lasso_reach.png"),
 	"Player Speed": preload("res://assets/graphics/powerups/speed.png")
@@ -29,13 +29,18 @@ var TIME_BONUSES = {
 	"Sheep": 3
 }
 
+var STUN_MULTS = {
+	"Chicken": 1,
+	"Cow": 0.7,
+	"Sheep": 0.85
+}
+
 var cowboy_congratulations = ["Rootin' Tootin!", "Yeehaw!", "Cowabunga!", "Howdy!", "Yippee-ki-yay!", "He-yah!", "Hot Diggidy Damn!", "Well taxidermy my foot!"]
 
 var wait_time: float
 var time_elapsed: float
 var time_left: float
 var prevent_pause: bool = false
-var initial_time: float = 0
 var powerup_selections: Array[String]
 
 func _ready():
@@ -76,12 +81,12 @@ func apply_powerup(powerup: int):
 
 func add_time(type: String, combo: int):
 	var time_bonus = TIME_BONUSES[type]
-	# Combo bonus is calculated as combo / 2, capping at 5 seconds
-	var combo_bonus = 0.0
-	if combo > 2:
-		combo_bonus = clampi(combo, 2, 10) / 2
-	var total = time_bonus + combo_bonus
+	## Combo bonus is calculated as combo / 2, capping at 5 seconds
+	#var combo_bonus = 0.0
+	#if combo > 2:
+		#combo_bonus = clampi(combo, 2, 10) / 2
+	#var total = time_bonus + combo_bonus
 	game_timer.stop()
-	game_timer.wait_time = time_left + total
+	game_timer.wait_time = time_left + time_bonus
 	game_timer.start()
-	hud.add_time(total)
+	hud.add_time(time_bonus)

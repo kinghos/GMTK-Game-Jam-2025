@@ -14,7 +14,7 @@ warnings/check_invalid_track_paths=false
 
 [application]
 
-config/name="Thrown for a Loop"
+config/name="Rodeo Rampage"
 run/main_scene="uid://cxl64go8kr6od"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"

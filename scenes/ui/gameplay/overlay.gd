@@ -22,7 +22,7 @@ func trigger_powerups_menu():
 	animation_player.play("Slide")
 	randomise_powerup_options()
 	get_tree().paused = true
-	time_left.text = "Cleared in: %6.3f seconds" % Globals.time_elapsed
+	time_left.text = "Cleared in: %6.3f secs" % Globals.time_elapsed
 	max_combo.text = "Max combo: %s" % Globals.max_combo
 
 func close_powerups_menu():

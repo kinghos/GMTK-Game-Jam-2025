@@ -38,11 +38,13 @@ func _on_kick_area_body_entered(body: Node2D) -> void:
 	if body is BaseAnimal and body.type == animal_type:
 		animals_in_kick_area.append(body)
 		body.is_in_kick_area = true
+		body.toggle_kick_icon()
 
 func _on_kick_area_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal and body.type == animal_type:
 		animals_in_kick_area.erase(body)
 		body.is_in_kick_area = true
+		body.toggle_kick_icon()
 
 func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 	if body is BaseAnimal:
@@ -51,6 +53,8 @@ func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 		if body.type != animal_type:
 			body.in_wrong_pen = true
 			body.kick()
+		else:
+			body.toggle_kick_icon()
 
 func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal:

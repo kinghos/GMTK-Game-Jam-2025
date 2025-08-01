@@ -1,9 +1,85 @@
-[gd_scene load_steps=11 format=3 uid="uid://c730r02j0a3ic"]
+[gd_scene load_steps=16 format=3 uid="uid://c730r02j0a3ic"]
 
 [ext_resource type="Script" uid="uid://bodcxjeobaic" path="res://scenes/animals/animal.gd" id="1_a68rm"]
 [ext_resource type="Texture2D" uid="uid://cjv6h5aem5r4u" path="res://assets/graphics/misc/star_particle.png" id="2_4f3xh"]
 [ext_resource type="Script" uid="uid://ffs1brga2vho" path="res://scenes/animals/offscreen_pointer.gd" id="3_to7qb"]
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="4_qmecq"]
+[ext_resource type="Shader" uid="uid://cgd35j7ohkq3b" path="res://globals/outline.gdshader" id="5_ivvwm"]
+[ext_resource type="Texture2D" uid="uid://b0pe6g1bqt4xu" path="res://assets/graphics/animals/kick_icon.png" id="6_dufb3"]
+
+[sub_resource type="Shader" id="Shader_ivvwm"]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : source_color = vec4(1.0); // Color of the outline
+uniform float width : hint_range(0, 10) = 0.0; // Width of the outline
+
+
+// Offsets to check neighboring pixels for the outline
+const vec2 OFFSETS[8] = vec2[](
+    vec2(-1, -1), vec2(-1, 0), vec2(-1, 1),
+    vec2(0, -1), vec2(0, 1),
+    vec2(1, -1), vec2(1, 0), vec2(1, 1)
+);
+
+void vertex() {
+    // Add margin to the original sprite vertices based on the outline width
+    // This scales up the sprite, which will be scaled down later in the fragment() function
+    VERTEX += (UV * 2.0 - 1.0) * width;
+}
+
+void fragment() {
+    // Sample the color from the original texture
+    vec4 color = texture(TEXTURE, UV);
+
+    if (width > 0.0) {
+        // Calculate the real texture size from the texture pixel size
+        vec2 real_texture_size = 1.0 / TEXTURE_PIXEL_SIZE;
+
+        // Calculate the size of the texture with the added margin for the outline
+        vec2 added_margin_texture_pixel_size = 1.0 / (real_texture_size + (width * 2.0));
+
+        // Calculate the width in texture coordinates
+        vec2 width_size = added_margin_texture_pixel_size * width;
+
+        // Shift the UV coordinates to account for the added margin
+        vec2 shifted_uv = UV - width_size;
+
+        // Calculate the ratio to scale down the UV coordinates to the original size
+        vec2 ratio = TEXTURE_PIXEL_SIZE / added_margin_texture_pixel_size;
+        vec2 scaled_shifted_uv = shifted_uv * ratio;
+
+        // Sample the original texture with the adjusted UV to scale it back to the original size
+        vec4 original_color = texture(TEXTURE, scaled_shifted_uv);
+
+        // Check if the adjusted UV coordinates are outside the bounds of the texture
+        if (scaled_shifted_uv.x < 0.0 || scaled_shifted_uv.x > 1.0 || scaled_shifted_uv.y < 0.0 || scaled_shifted_uv.y > 1.0) {
+            original_color.a = 0.0; // Set alpha to 0 to remove artifacts outside the sprite boundary
+        }
+
+        // Initialize the outline alpha value
+        float outline = 0.0;
+
+        // Sum the alpha values of the neighboring pixels to create the outline
+        for (int i = 0; i < 8; i++) {
+            outline += texture(TEXTURE, scaled_shifted_uv + OFFSETS[i] * width_size).a;
+
+        }
+
+        // Clamp the outline value to a maximum of 1.0
+        outline = min(outline, 1.0);
+
+        // Mix the original color with the outline color based on the outline alpha value
+        color = mix(original_color, line_color, outline - original_color.a);
+    }
+
+    // Set the final color of the fragment
+    COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivvwm"]
+shader = SubResource("Shader_ivvwm")
+shader_parameter/line_color = Color(1, 0, 0, 1)
+shader_parameter/width = 0.0
 
 [sub_resource type="Animation" id="Animation_qmecq"]
 length = 0.001
@@ -128,6 +204,11 @@ _data = {
 &"update counter": SubResource("Animation_ivvwm")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6psc"]
+shader = ExtResource("5_ivvwm")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.25
+
 [node name="Animal" type="CharacterBody2D" groups=["Animals"]]
 collision_layer = 2
 collision_mask = 30
@@ -135,6 +216,7 @@ motion_mode = 1
 script = ExtResource("1_a68rm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_ivvwm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -201,6 +283,12 @@ horizontal_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_v6psc")
 }
+
+[node name="KickIcon" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_v6psc")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_dufb3")
 
 [connection signal="body_entered" from="KickRange" to="." method="_on_kick_range_body_entered"]
 [connection signal="body_exited" from="KickRange" to="." method="_on_kick_range_body_exited"]

@@ -29,9 +29,9 @@ var KICK_MULT = {
 	"Sheep": 1
 }
 var TIME_BONUSES = {
-	"Chicken": 10,
-	"Cow": 3,
-	"Sheep": 5
+	"Chicken": 5,
+	"Cow": 2,
+	"Sheep": 3
 }
 var cowboy_congratulations = ["Rootin' Tootin!", "Yeehaw!", "Cowabunga!", "Howdy!", "Yippee-ki-yay!", "He-yah!", "Hot Diggidy Damn!"]
 
@@ -74,7 +74,7 @@ func apply_powerup(powerup: int):
 func add_time(type: String, combo: int):
 	var time_bonus = TIME_BONUSES[type]
 	# Combo bonus is calculated as combo / 2, capping at 5 seconds
-	var combo_bonus = 0
+	var combo_bonus = 0.0
 	if combo > 2:
 		combo_bonus = clampi(combo, 2, 10) / 2
 	var total = time_bonus + combo_bonus

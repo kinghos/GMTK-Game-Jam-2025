@@ -3,15 +3,14 @@ extends CanvasLayer
 @onready var powerups: Control = $RoundEnd
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var powerup_options: HBoxContainer = $RoundEnd/ColorRect/PowerupOptions
-@onready var time_left: Label = $RoundEnd/TimeLeft
-@onready var max_combo: Label = $RoundEnd/MaxCombo
+@onready var time_left: Label = $RoundEnd/Box/TimeLeft
+@onready var max_combo: Label = $RoundEnd/Box/MaxCombo
 @onready var game_over_screen: Control = $GameOver
 
 signal powerup_selected
 
 func _ready() -> void:
 	powerups.hide()
-
 func _process(_delta: float) -> void:
 	$DebugValues/PlayerSpeed.text = "Speed: " + str(Globals.player.speed)
 	$DebugValues/StunTime.text = "StunTime: " + str(Globals.stun_time)

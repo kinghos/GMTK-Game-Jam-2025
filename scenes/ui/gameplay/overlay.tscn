@@ -67,7 +67,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("RoundEnd/RoundOver:visible")
+tracks/4/path = NodePath("RoundEnd/Box/RoundOver:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -79,7 +79,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("RoundEnd/TimeLeft:visible")
+tracks/5/path = NodePath("RoundEnd/Box/TimeLeft:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -91,7 +91,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("RoundEnd/RoundOver:modulate")
+tracks/6/path = NodePath("RoundEnd/Box/RoundOver:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -103,7 +103,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("RoundEnd/TimeLeft:modulate")
+tracks/7/path = NodePath("RoundEnd/Box/TimeLeft:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -115,20 +115,32 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("RoundEnd/MaxCombo:visible")
+tracks/8/path = NodePath("RoundEnd/Box/MaxCombo:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RoundEnd/Box/MaxCombo:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_1ndix"]
 resource_name = "Slide"
 length = 3.0
-step = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -180,7 +192,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("RoundEnd/RoundOver:visible")
+tracks/4/path = NodePath("RoundEnd/Box/RoundOver:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -192,7 +204,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("RoundEnd/TimeLeft:visible")
+tracks/5/path = NodePath("RoundEnd/Box/TimeLeft:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -204,7 +216,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("RoundEnd/RoundOver:modulate")
+tracks/6/path = NodePath("RoundEnd/Box/RoundOver:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -216,7 +228,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("RoundEnd/TimeLeft:modulate")
+tracks/7/path = NodePath("RoundEnd/Box/TimeLeft:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -228,7 +240,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("RoundEnd/MaxCombo:visible")
+tracks/8/path = NodePath("RoundEnd/Box/MaxCombo:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -240,11 +252,11 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("RoundEnd/MaxCombo:modulate")
+tracks/9/path = NodePath("RoundEnd/Box/MaxCombo:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(1.5, 2.2667),
+"times": PackedFloat32Array(1.5, 2.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -281,7 +293,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("RoundEnd/RoundOver:visible")
+tracks/2/path = NodePath("RoundEnd/Box/RoundOver:visible")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -293,7 +305,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("RoundEnd/TimeLeft:visible")
+tracks/3/path = NodePath("RoundEnd/Box/TimeLeft:visible")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -305,7 +317,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("RoundEnd/RoundOver:modulate")
+tracks/4/path = NodePath("RoundEnd/Box/RoundOver:modulate")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -317,7 +329,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("RoundEnd/TimeLeft:modulate")
+tracks/5/path = NodePath("RoundEnd/Box/TimeLeft:modulate")
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -474,47 +486,75 @@ vertical_icon_alignment = 0
 expand_icon = true
 metadata/powerup_type = 0
 
-[node name="RoundOver" type="Label" parent="RoundEnd"]
+[node name="Box" type="ColorRect" parent="RoundEnd"]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 152.0
+offset_right = 1306.0
+offset_bottom = 424.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="RoundOver" type="Label" parent="RoundEnd/Box"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -283.5
-offset_top = -390.5
-offset_right = 283.5
-offset_bottom = -266.5
+offset_left = -297.0
+offset_top = -138.5
+offset_right = 270.0
+offset_bottom = -14.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_gdab8")
+theme_override_colors/font_color = Color(0.462878, 1, 0.277052, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -7
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 11
 theme_override_font_sizes/font_size = 123
 text = "Round Over!"
 
-[node name="TimeLeft" type="Label" parent="RoundEnd"]
+[node name="TimeLeft" type="Label" parent="RoundEnd/Box"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -136.5
-offset_top = 275.0
-offset_right = 136.5
-offset_bottom = 343.0
+offset_left = -302.5
+offset_top = 123.0
+offset_right = 275.5
+offset_bottom = 191.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.462878, 1, 0.277052, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -7
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 11
 theme_override_font_sizes/font_size = 67
 text = "Cleared in:"
 horizontal_alignment = 1
+autowrap_mode = 1
 
-[node name="MaxCombo" type="Label" parent="RoundEnd"]
+[node name="MaxCombo" type="Label" parent="RoundEnd/Box"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -136.5
-offset_top = 348.0
-offset_right = 136.5
-offset_bottom = 416.0
+offset_left = -323.5
+offset_top = 196.0
+offset_right = 296.5
+offset_bottom = 264.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.462878, 1, 0.277052, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -7
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 11
 theme_override_font_sizes/font_size = 67
 text = "Max combo:"
 horizontal_alignment = 1

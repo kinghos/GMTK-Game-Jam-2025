@@ -8,7 +8,7 @@ var pause_menu: CanvasLayer = null
 var hud: CanvasLayer
 
 # Powerup values
-var player_lasso_reach = 500
+var player_lasso_reach = 300
 var stun_time: float = 1
 var pen_kick_area: float = 250
 enum POWERUPS {LassoSize, StunTime, PenKickArea, LassoReach, PlayerSpeed}
@@ -35,7 +35,7 @@ var STUN_MULTS = {
 	"Sheep": 0.85
 }
 
-var cowboy_congratulations = ["Rootin' Tootin!", "Yeehaw!", "Cowabunga!", "Howdy!", "Yippee-ki-yay!", "He-yah!", "Hot Diggidy Damn!", "Well taxidermy my foot!"]
+var cowboy_congratulations = ["Rootin' Tootin!", "Yeehaw!", "Cowabunga!", "Howdy!", "Yippee-ki-yay!", "He-yah!", "Hot Diggidy Damn!"]
 
 var wait_time: float
 var time_elapsed: float

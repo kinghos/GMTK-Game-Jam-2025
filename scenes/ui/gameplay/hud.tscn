@@ -130,8 +130,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -913.0
+offset_top = 7.5
 offset_right = 113.0
-offset_bottom = 93.0
+offset_bottom = 100.5
 grow_horizontal = 2
 
 [node name="Powerups" type="Label" parent="Control/PowerupContainer"]
@@ -141,10 +142,10 @@ text = "Powerups"
 
 [node name="TimeLeft" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 1344.0
-offset_top = 27.0
-offset_right = 1823.0
-offset_bottom = 89.0
+offset_left = 1400.0
+offset_top = 23.0
+offset_right = 1879.0
+offset_bottom = 85.0
 pivot_offset = Vector2(239.5, 31)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 55
@@ -163,8 +164,8 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -400.0
-offset_top = 120.0
-offset_bottom = 136.0
+offset_top = 38.0
+offset_bottom = 54.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 theme_override_icons/grabber_disabled = SubResource("ImageTexture_xsw5n")

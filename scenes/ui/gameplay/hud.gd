@@ -30,6 +30,7 @@ func add_time(time_added: float):
 
 func time_running_out():
 	animation_player.play("time_running_out")
+	animation_player.play("time_running_out")
 
 func reset_timer():
 	animation_player.play("RESET")

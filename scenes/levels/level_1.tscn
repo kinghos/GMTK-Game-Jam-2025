@@ -31,6 +31,9 @@ position = Vector2(-50, 508)
 [node name="Right" parent="CameraBounds" index="3"]
 position = Vector2(1970, 531)
 
+[node name="HUD" parent="." index="2"]
+visible = true
+
 [node name="Player" parent="." index="6"]
 position = Vector2(959, 367)
 

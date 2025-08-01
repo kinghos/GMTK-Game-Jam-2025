@@ -47,6 +47,7 @@ bound_type = "left"
 bound_type = "right"
 
 [node name="HUD" parent="." instance=ExtResource("4_43bxi")]
+visible = true
 
 [node name="Overlay" parent="." instance=ExtResource("3_fal5o")]
 

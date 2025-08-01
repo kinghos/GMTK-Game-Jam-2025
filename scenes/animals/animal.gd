@@ -70,6 +70,7 @@ func _on_kick_range_body_exited(body: Node2D) -> void:
 
 func toggle_kick_icon():
 	$KickIcon.visible = not $KickIcon.visible
+	$KickIcon/AnimationPlayer.play("bob")
 
 func kick():
 	if in_pen and not in_wrong_pen:

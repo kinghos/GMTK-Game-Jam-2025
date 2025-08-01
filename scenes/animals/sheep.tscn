@@ -289,6 +289,3 @@ libraries = {
 
 [node name="OffscreenPointer" parent="." index="6"]
 texture = ExtResource("2_ag106")
-
-[node name="KickIcon" parent="." index="9"]
-position = Vector2(0, -23.5)

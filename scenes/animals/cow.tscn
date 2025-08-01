@@ -375,4 +375,3 @@ texture = ExtResource("3_r1mxx")
 
 [node name="KickIcon" parent="." index="9"]
 material = SubResource("ShaderMaterial_jhwbb")
-position = Vector2(-1.19209e-07, -26.4)

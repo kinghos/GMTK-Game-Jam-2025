@@ -52,7 +52,6 @@ func _process(_delta):
 	if time_elapsed > 1 and time_left == 0:
 		powerup_selections.clear()
 		player_lasso_reach = 500
-		lasso.MAX_LASSO_LENGTH = 600
 		stun_time = 1
 		pen_kick_area = 250
 		player.speed = 400

@@ -8,9 +8,9 @@ class_name Lasso
 
 @export var player: Player
 
-@export var MAX_LASSO_LENGTH = 600
-@export var DISTANCE_THRESHOLD = 7
-@export var LASSO_COMPLETION_GAP = 100
+@export var MAX_LASSO_LENGTH: int = 600
+@export var DISTANCE_THRESHOLD: int = 7
+@export var LASSO_COMPLETION_GAP: int = 100
 
 var points: PackedVector2Array = []
 var is_drawing = false
@@ -115,7 +115,7 @@ func clear():
 func fade_out():
 	var tween = get_tree().create_tween()
 	fade_out_tweens.append(tween)
-	tween.tween_property(line, "modulate", Color(1, 1, 1, 0), 1)
+	tween.tween_property(line, "modulate", Color(1, 1, 1, 0), 0.5)
 	await tween.finished
 	clear()
 	fade_out_tweens.erase(tween)

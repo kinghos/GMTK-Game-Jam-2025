@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		hud.reset_timer()	
 	
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
-		if !pen.is_full(true):
+		if !pen.is_full():
 			return
 	
 	Globals.prevent_pause = true

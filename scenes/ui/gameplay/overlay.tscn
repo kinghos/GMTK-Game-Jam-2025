@@ -1,14 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://byg6xjjjpdp1o"]
+[gd_scene load_steps=15 format=3 uid="uid://byg6xjjjpdp1o"]
 
 [ext_resource type="Script" uid="uid://fwjf42gvfgrd" path="res://scenes/ui/gameplay/overlay.gd" id="1_btfje"]
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="2_gdab8"]
+[ext_resource type="Texture2D" uid="uid://dvoyhjvyn362q" path="res://assets/graphics/backgrounds/game_over.png" id="3_1vlkb"]
 [ext_resource type="Texture2D" uid="uid://cypbj03ti1omf" path="res://assets/graphics/misc/menu_button.png" id="3_58yyj"]
 [ext_resource type="Texture2D" uid="uid://du50sjms5y6q4" path="res://assets/graphics/animals/cow_icon.png" id="3_qvqcw"]
+[ext_resource type="Texture2D" uid="uid://cubiewu46bffv" path="res://assets/graphics/misc/game_over_text.png" id="4_67tsj"]
 [ext_resource type="Texture2D" uid="uid://14pfdwuwlyrm" path="res://assets/graphics/misc/menu_button_hovering.png" id="4_vc0qd"]
 [ext_resource type="Script" uid="uid://bp0kw2i2ajpgl" path="res://scenes/ui/menus/back_to_title.gd" id="5_vc0qd"]
-[ext_resource type="Shader" path="res://scenes/ui/background_blur.gdshader" id="6_wlrjj"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7jcdj"]
+[ext_resource type="Shader" uid="uid://bdfqigqj4nw0v" path="res://scenes/ui/background_blur.gdshader" id="6_wlrjj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1vlkb"]
 shader = ExtResource("6_wlrjj")
@@ -421,9 +421,44 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 180.0
+offset_right = -1440.0
+offset_bottom = -720.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_7jcdj")
+scale = Vector2(4, 4)
+texture = ExtResource("3_1vlkb")
+
+[node name="BlackBar1" type="ColorRect" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 180.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BlackBar2" type="ColorRect" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_right = 960.0
+offset_bottom = 180.0
+grow_horizontal = 2
+texture = ExtResource("4_67tsj")
+stretch_mode = 5
 
 [node name="MenuButton" type="TextureButton" parent="GameOver"]
 layout_mode = 1
@@ -432,10 +467,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -200.0
-offset_right = -160.0
-offset_bottom = -160.0
+offset_left = -168.0
+offset_top = -154.0
+offset_right = -136.0
+offset_bottom = -122.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(4, 4)

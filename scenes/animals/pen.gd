@@ -27,11 +27,8 @@ func _ready() -> void:
 	animal_icon.texture = ANIMAL_ICONS[animal_type]
 	tick.hide()
 
-func is_full(animation_done: bool = false) -> bool:
-	var pen_full: bool = len(animals_in_pen_enclosure) >= max_animals
-	if animation_done:
-		return pen_full and not (animation_player.current_animation == "tick" and animation_player.is_playing())
-	return pen_full
+func is_full() -> bool:
+	return len(animals_in_pen_enclosure) >= max_animals and not (animation_player.current_animation == "tick" and animation_player.is_playing())
 
 func _process(_delta: float) -> void:
 	var correct_animal_count: int = 0
@@ -83,6 +80,20 @@ func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 			body.in_wrong_pen = false
 		animals_in_pen_enclosure.erase(body)
 		body.in_pen = false
+
+func get_random_point():
+	var pen_center = global_position
+	var kick_rect = get_node("KickArea/CollisionShape2D").shape.get_rect()
+	var enclosure_rect = get_node("PenEnclosure/CollisionShape2D").shape.get_rect()
+	var x = randi_range(-(kick_rect.size.x / 2), kick_rect.size.x / 2)
+	var y = randi_range(-(kick_rect.size.y / 2), kick_rect.size.y / 2)
+	var pos = Vector2(x, y)
+	while true:
+		x = randi_range(-(kick_rect.size.x / 2), kick_rect.size.x / 2)
+		y = randi_range(-(kick_rect.size.y / 2), kick_rect.size.y / 2)
+		pos = Vector2(pen_center.x + x, pen_center.y + y)
+		if not enclosure_rect.has_point(pos):
+			return pos
 
 func _on_pen_enclosure_mouse_entered() -> void:
 	is_mouse_over = true

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dlkoexgmf2f6l" path="res://assets/graphics/misc/cross.png" id="4_bsgl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpxs5"]
-size = Vector2(185, 166)
+size = Vector2(182, 156)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsgl4"]
 size = Vector2(10, 174)
@@ -148,7 +148,7 @@ offset_bottom = -60.0
 scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PenEnclosure"]
-position = Vector2(-2.5, 0)
+position = Vector2(-3, 1)
 shape = SubResource("RectangleShape2D_lpxs5")
 
 [node name="Walls" type="Node2D" parent="."]

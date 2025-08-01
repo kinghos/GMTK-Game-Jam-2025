@@ -52,6 +52,8 @@ func _on_kick_area_body_exited(body: Node2D) -> void:
 
 func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 	if body is BaseAnimal:
+		animals_in_pen_enclosure.append(body)
+		body.in_pen = true
 		if body.type != animal_type:
 			body.in_wrong_pen = true
 			animation_player.play("cross")
@@ -62,11 +64,13 @@ func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 		else:
 			Globals.add_time(body.type, body.combo_count)
 			body.toggle_kick_icon()
-		if len(animals_in_pen_enclosure) == max_animals - 1:
-			animation_player.play("tick")
-		animals_in_pen_enclosure.append(body)
-		body.in_pen = true
-
+			
+			var correct_animal_count: int = 0
+			for animal in animals_in_pen_enclosure:
+				if animal.type == animal_type:
+					correct_animal_count += 1
+			if correct_animal_count == max_animals - 1:
+				animation_player.play("tick")
 
 func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal:

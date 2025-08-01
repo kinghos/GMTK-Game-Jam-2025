@@ -10,6 +10,7 @@ var hud: CanvasLayer
 # Powerup values
 var player_lasso_reach = 500
 var lives: int
+var max_combo: int = 0
 var stun_time: float = 1
 var pen_kick_area: float = 250
 enum POWERUPS {LassoSize, StunTime, PenKickArea, LassoReach, PlayerSpeed}

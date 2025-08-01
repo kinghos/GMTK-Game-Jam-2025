@@ -32,6 +32,8 @@ func _ready() -> void:
 	random_movement_timer.start()
 
 func _process(_delta: float) -> void:
+	if combo_count > Globals.max_combo:
+		Globals.max_combo = combo_count
 	if in_wrong_pen:
 		no_congratulation_this_kick = true
 

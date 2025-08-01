@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpbwdspnmsjg3"]
+
+[ext_resource type="Script" uid="uid://c6o6a48rp482b" path="res://scenes/powerup_items/powerup_item.gd" id="1_tfos7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfos7"]
+size = Vector2(25, 25)
+
+[node name="PowerupItem" type="Area2D"]
+script = ExtResource("1_tfos7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tfos7")

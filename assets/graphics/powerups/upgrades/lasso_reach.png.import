@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlf42s27346ri"
-path="res://.godot/imported/lasso_length.png-265c9a35ecb7960ed1604f131b21d7d5.ctex"
+uid="uid://dnm077e1rstjt"
+path="res://.godot/imported/lasso_reach.png-4a1c052db05058a28f14d908983725e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/powerups/lasso_length.png"
-dest_files=["res://.godot/imported/lasso_length.png-265c9a35ecb7960ed1604f131b21d7d5.ctex"]
+source_file="res://assets/graphics/powerups/upgrades/lasso_reach.png"
+dest_files=["res://.godot/imported/lasso_reach.png-4a1c052db05058a28f14d908983725e5.ctex"]
 
 [params]
 

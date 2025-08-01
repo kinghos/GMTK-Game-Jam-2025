@@ -14,11 +14,11 @@ var pen_kick_area: float = 250
 enum POWERUPS {LassoSize, StunTime, PenKickArea, LassoReach, PlayerSpeed}
 var POWERUP_LIST = ["Lasso Length", "Animal\nStun Time", "Pen Kick Area", "Lasso Reach", "Player Speed"]
 var POWERUP_ICONS = {
-	"Lasso Length": preload("res://assets/graphics/powerups/lasso_length.png"),
-	"Animal\nStun Time": preload("res://assets/graphics/powerups/animal_stun_time.png"),
-	"Pen Kick Area": preload("res://assets/graphics/powerups/kick_power.png"),
-	"Lasso Reach": preload("res://assets/graphics/powerups/lasso_reach.png"),
-	"Player Speed": preload("res://assets/graphics/powerups/speed.png")
+	"Lasso Length": preload("res://assets/graphics/powerups/upgrades/lasso_length.png"),
+	"Animal\nStun Time": preload("res://assets/graphics/powerups/upgrades/animal_stun_time.png"),
+	"Pen Kick Area": preload("res://assets/graphics/powerups/upgrades/kick_power.png"),
+	"Lasso Reach": preload("res://assets/graphics/powerups/upgrades/lasso_reach.png"),
+	"Player Speed": preload("res://assets/graphics/powerups/upgrades/speed.png")
 }
 
 var max_combo: int = 0
@@ -54,7 +54,6 @@ func _process(_delta):
 		player_lasso_reach = 500
 		stun_time = 1
 		pen_kick_area = 250
-		player.speed = 400
 		max_combo = 0
 
 func toggle_pause_menu():

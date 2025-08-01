@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8q13fys2okwv"
-path="res://.godot/imported/animal_stun_time.png-ed5339a0ea9c0c2a98403e486749701e.ctex"
+uid="uid://dlf42s27346ri"
+path="res://.godot/imported/lasso_length.png-4a24493825f8f81e98c46d6992bd5cf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/powerups/animal_stun_time.png"
-dest_files=["res://.godot/imported/animal_stun_time.png-ed5339a0ea9c0c2a98403e486749701e.ctex"]
+source_file="res://assets/graphics/powerups/upgrades/lasso_length.png"
+dest_files=["res://.godot/imported/lasso_length.png-4a24493825f8f81e98c46d6992bd5cf1.ctex"]
 
 [params]
 

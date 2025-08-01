@@ -109,6 +109,7 @@ func kick():
 	collision_shape_2d.set_deferred("disabled", true)
 	animated_sprite_2d.animation = "idle"
 	if combo_count > 1:
+		combo_count += 1
 		combo_counter.text = "x%s" % combo_count
 		show_combo_count()
 	

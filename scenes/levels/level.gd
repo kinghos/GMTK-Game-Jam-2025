@@ -8,11 +8,6 @@ extends Node2D
 func _ready():
 	Globals.current_level = self
 	Globals.pause_menu = $PauseMenu
-	Globals.prevent_pause = false
-
-# Used for test level only
-func _on_button_pressed() -> void:
-	overlay.trigger_powerups_menu()
 
 func _process(_delta: float) -> void:
 	Globals.time_elapsed = game_timer.wait_time - game_timer.time_left

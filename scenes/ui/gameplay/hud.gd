@@ -10,6 +10,10 @@ const TIMER_ANIM = preload("res://scenes/ui/gameplay/timer_anim.tscn")
 
 func _process(_delta: float) -> void:
 	time_left.text = "Time Left: %3.3fs" % Globals.time_left
+	if get_parent().in_countdown:
+		hide()
+	else:
+		show()
 
 func _ready() -> void:
 	for powerup in Globals.powerup_selections:

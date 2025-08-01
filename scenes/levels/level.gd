@@ -6,6 +6,8 @@ extends Node2D
 @onready var game_timer: Timer = $GameTimer
 @onready var hud: CanvasLayer = $HUD
 
+var in_countdown: bool = false
+
 func _ready():
 	Globals.current_level = self
 	Globals.pause_menu = $PauseMenu

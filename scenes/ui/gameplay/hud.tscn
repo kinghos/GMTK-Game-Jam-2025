@@ -91,6 +91,7 @@ _data = {
 }
 
 [node name="HUD" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_hqnrr")
 
 [node name="Control" type="Control" parent="."]

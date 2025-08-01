@@ -2,11 +2,16 @@ extends Node2D
 class_name Pen
 
 var is_mouse_over: bool = false
+var play_tick: bool = false
+var has_been_ticked: bool = false
 
 var animals_in_kick_area: Array[BaseAnimal]
 var animals_in_pen_enclosure: Array[BaseAnimal]
 @onready var animals_count_label: Label = $AnimalsCount
 @onready var animal_icon: TextureRect = $PenEnclosure/AnimalIcon
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var cross: Sprite2D = $Cross
+@onready var tick: Sprite2D = $Tick
 
 @export var max_animals: int
 @export_enum("Sheep", "Cow", "Chicken") var animal_type: String
@@ -22,6 +27,7 @@ func _draw():
 
 func _ready() -> void:
 	animal_icon.texture = ANIMAL_ICONS[animal_type]
+	tick.hide()
 
 func is_full() -> bool:
 	return len(animals_in_pen_enclosure) >= max_animals
@@ -33,6 +39,10 @@ func _process(_delta: float) -> void:
 			correct_animal_count += 1
 	animals_count_label.text = str(correct_animal_count) + " / " + str(max_animals)
 	$KickArea/CollisionShape2D.shape.set_radius(Globals.pen_kick_area)
+	if play_tick and not has_been_ticked:
+		has_been_ticked = true
+		animation_player.play("tick")
+		
 
 func _on_kick_area_body_entered(body: Node2D) -> void:
 	if body is BaseAnimal and body.type == animal_type:
@@ -52,7 +62,11 @@ func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 		body.in_pen = true
 		if body.type != animal_type:
 			body.in_wrong_pen = true
+			animation_player.play("cross")
 			body.kick()
+			await animation_player.animation_finished
+			animation_player.play_backwards("cross")
+			cross.hide()
 		else:
 			body.toggle_kick_icon()
 

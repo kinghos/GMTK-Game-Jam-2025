@@ -4,7 +4,12 @@ var frames = [
 	preload("res://assets/graphics/cutscenes/opening_1.png"),
 	preload("res://assets/graphics/cutscenes/opening_2.png"),
 	preload("res://assets/graphics/cutscenes/opening_3.png"),
-	preload("res://assets/graphics/cutscenes/opening_4.png")
+	preload("res://assets/graphics/cutscenes/opening_4.png"),
+	preload("res://assets/graphics/cutscenes/opening_5.png"),
+	preload("res://assets/graphics/cutscenes/opening_6.png"),
+	preload("res://assets/graphics/cutscenes/opening_7.png"),
+	preload("res://assets/graphics/cutscenes/opening_8.png"),
+	preload("res://assets/graphics/cutscenes/opening_9.png"),
 ]
 const CUTSCENE_MUSIC = null
 var current_frame: int = 0
@@ -38,7 +43,7 @@ func update_current_frame():
 
 func fade_to_black() -> void:
 	tween = get_tree().create_tween()
-	tween.tween_property($Frame, "modulate", Color.BLACK, 1)
+	tween.tween_property($Frame, "modulate", Color.BLACK, 0.5)
 
 func _on_next_arrow_pressed() -> void:
 	if not transitioning:

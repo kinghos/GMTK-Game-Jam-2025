@@ -23,7 +23,12 @@ offset_bottom = 40.0
 scale = Vector2(4, 4)
 texture = ExtResource("3_t45wk")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Container" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Container"]
 layout_mode = 0
 offset_left = 1047.0
 offset_top = 530.0
@@ -32,7 +37,14 @@ offset_bottom = 705.0
 scale = Vector2(3, 3)
 color = Color(0, 0, 0, 0.34902)
 
-[node name="VolumeSlidersContainer" type="VBoxContainer" parent="."]
+[node name="MenuBackArrow" parent="Container" instance=ExtResource("2_7pacj")]
+layout_mode = 0
+offset_left = 830.0
+offset_top = 938.0
+offset_right = 893.0
+offset_bottom = 977.0
+
+[node name="VolumeSlidersContainer" type="VBoxContainer" parent="Container"]
 layout_mode = 0
 offset_left = 1087.0
 offset_top = 531.0
@@ -40,11 +52,11 @@ offset_right = 1337.0
 offset_bottom = 692.0
 scale = Vector2(3, 3)
 
-[node name="Label" type="Label" parent="VolumeSlidersContainer"]
+[node name="Label" type="Label" parent="Container/VolumeSlidersContainer"]
 layout_mode = 2
 text = "Master Volume"
 
-[node name="MasterVolumeSlider" type="HSlider" parent="VolumeSlidersContainer"]
+[node name="MasterVolumeSlider" type="HSlider" parent="Container/VolumeSlidersContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
@@ -53,11 +65,11 @@ tick_count = 10
 script = ExtResource("3_h175o")
 bus_name = "Master"
 
-[node name="Label2" type="Label" parent="VolumeSlidersContainer"]
+[node name="Label2" type="Label" parent="Container/VolumeSlidersContainer"]
 layout_mode = 2
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="VolumeSlidersContainer"]
+[node name="MusicSlider" type="HSlider" parent="Container/VolumeSlidersContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
@@ -66,11 +78,11 @@ tick_count = 10
 script = ExtResource("3_h175o")
 bus_name = "Music"
 
-[node name="Label3" type="Label" parent="VolumeSlidersContainer"]
+[node name="Label3" type="Label" parent="Container/VolumeSlidersContainer"]
 layout_mode = 2
 text = "Sound Effects"
 
-[node name="SFXSlider" type="HSlider" parent="VolumeSlidersContainer"]
+[node name="SFXSlider" type="HSlider" parent="Container/VolumeSlidersContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
@@ -78,10 +90,3 @@ value = 1.0
 tick_count = 10
 script = ExtResource("3_h175o")
 bus_name = "Sound Effects"
-
-[node name="MenuBackArrow" parent="." instance=ExtResource("2_7pacj")]
-layout_mode = 0
-offset_left = 830.0
-offset_top = 938.0
-offset_right = 893.0
-offset_bottom = 977.0

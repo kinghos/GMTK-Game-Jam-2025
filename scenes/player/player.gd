@@ -5,6 +5,7 @@ class_name Player
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var lasso_start: Marker2D = $LassoStart
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var animals_in_range: Array[BaseAnimal]
 
@@ -25,6 +26,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
+	
 	if direction.x < 0:
 		animated_sprite_2d.flip_h = true
 	elif direction.x > 0:
@@ -33,8 +35,10 @@ func _physics_process(_delta: float) -> void:
 	if !(animated_sprite_2d.animation == "kick" and animated_sprite_2d.is_playing()):
 		if velocity != Vector2.ZERO:
 			animated_sprite_2d.play("run")
+			animation_player.play("run")
 		else:
 			animated_sprite_2d.play("idle")
+			animation_player.play("RESET")
 	
 	move_and_slide()
 

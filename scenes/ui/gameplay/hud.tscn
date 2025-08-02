@@ -152,7 +152,6 @@ _data = {
 }
 
 [node name="HUD" type="CanvasLayer"]
-process_mode = 3
 script = ExtResource("1_hqnrr")
 
 [node name="Control" type="Control" parent="."]

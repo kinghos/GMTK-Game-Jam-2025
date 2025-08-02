@@ -3,9 +3,9 @@ extends Level
 @onready var animals_parent: Node = $Animals
 
 var animal_numbers = {
-	"Chicken": 12,
-	"Cow": 12,
-	"Sheep": 12,
+	"Chicken": 6,
+	"Cow": 6,
+	"Sheep": 6
 }
 var upper_bounds = [[-497, 2418], [-224, 216]] # [xmin, xmax], [ymin, ymax]
 var lower_bounds = [[-497, 2418], [842, 1310]] # [xmin, xmax], [ymin, ymax]
@@ -18,7 +18,7 @@ var animal_scenes = {
 
 func _ready() -> void:
 	super()
-	print("Animals in pen %s" % animal_numbers["Sheep"])
+	print("Animals in pen %s" % (animal_numbers["Sheep"] * Globals.endless_mult))
 	generate_animals()
 
 func generate_animals():

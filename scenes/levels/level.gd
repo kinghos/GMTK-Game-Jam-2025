@@ -7,6 +7,8 @@ class_name Level
 @onready var game_timer: Timer = $GameTimer
 @onready var hud: CanvasLayer = $HUD
 
+const GAME_THEME = preload("res://assets/audio/music/game_theme.mp3")
+
 var in_countdown: bool = false
 var uncaptured_animal_number: int = 0
 var animals_on_screen: Array[BaseAnimal]
@@ -23,6 +25,8 @@ func _ready():
 	Globals.level_number = path[-1]
 	if Globals.level_number == "s":
 		Globals.level_number = "∞"
+		
+	Music.play_music(GAME_THEME)
 	
 
 func _process(delta: float) -> void:

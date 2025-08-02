@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c730r02j0a3ic"]
+[gd_scene load_steps=19 format=3 uid="uid://c730r02j0a3ic"]
 
 [ext_resource type="Script" uid="uid://bodcxjeobaic" path="res://scenes/animals/animal.gd" id="1_a68rm"]
 [ext_resource type="Texture2D" uid="uid://cjv6h5aem5r4u" path="res://assets/graphics/misc/star_particle.png" id="2_4f3xh"]
@@ -174,6 +174,11 @@ _data = {
 &"bob": SubResource("Animation_v6psc")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dufb3"]
+random_pitch = 1.2
+random_volume_offset_db = 1.6
+streams_count = 1
+
 [node name="Animal" type="CharacterBody2D" groups=["Animals"]]
 collision_layer = 2
 collision_mask = 30
@@ -267,6 +272,9 @@ modulate = Color(1, 1, 1, 0.666667)
 texture = ExtResource("2_dufb3")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_dufb3")
 
 [connection signal="body_entered" from="KickRange" to="." method="_on_kick_range_body_entered"]
 [connection signal="body_exited" from="KickRange" to="." method="_on_kick_range_body_exited"]

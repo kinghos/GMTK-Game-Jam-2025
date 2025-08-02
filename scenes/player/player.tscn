@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://bf5tbh3arhyid"]
+[gd_scene load_steps=22 format=3 uid="uid://bf5tbh3arhyid"]
 
 [ext_resource type="Script" uid="uid://b3fn543w2od6l" path="res://scenes/player/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cxwy30oynw0ag" path="res://assets/graphics/player/loopus.png" id="2_dqkch"]
 [ext_resource type="Script" uid="uid://b12hvo60xfyeq" path="res://scenes/player/camera_2d.gd" id="3_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://cyehkultjgcgp" path="res://assets/audio/sfx/kick.ogg" id="4_lvxji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
 size = Vector2(44, 58)
@@ -181,3 +182,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_p47bc")
 }
 autoplay = "run"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lvxji")
+max_polyphony = 4
+bus = &"Sound Effects"

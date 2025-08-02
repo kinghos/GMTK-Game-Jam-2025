@@ -312,7 +312,3 @@ libraries = {
 
 [node name="OffscreenPointer" parent="." index="6"]
 texture = ExtResource("3_u21h3")
-
-[node name="Ice" parent="." index="10"]
-position = Vector2(0, 3.6)
-scale = Vector2(0.75, 0.75)

@@ -6,6 +6,7 @@ class_name Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var lasso_start: Marker2D = $LassoStart
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var animals_in_range: Array[BaseAnimal]
 
@@ -54,3 +55,4 @@ func _input(event: InputEvent) -> void:
 				animal.stun_timer.stop()
 				animal._on_stun_timer_timeout()
 				animal.kick()
+				audio_stream_player.play()

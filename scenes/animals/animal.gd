@@ -9,6 +9,13 @@ var in_pen: bool = false
 var in_wrong_pen: bool = false
 var combo_count: int = 1
 var no_congratulation_this_kick: bool = false
+var audio_dict = {
+	"Cow": preload("res://assets/audio/sfx/moo.ogg"),
+	"Sheep": preload("res://assets/audio/sfx/baa.ogg"),
+	"Chicken": preload("res://assets/audio/sfx/cluck.ogg")
+	
+}
+
 
 @export var speed = 75
 @export_enum("Sheep", "Cow", "Chicken") var type: String
@@ -22,6 +29,7 @@ var no_congratulation_this_kick: bool = false
 @onready var stun_timer: Timer = $StunTimer
 @onready var random_movement_timer: Timer = $RandomMovementTimer
 @onready var combo_animation_player: AnimationPlayer = $ComboCounter/AnimationPlayer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var direction
 
@@ -30,6 +38,9 @@ func _ready() -> void:
 	random_movement_timer.wait_time *= randf_range(0.8, 1.2)
 	_on_random_movement_timer_timeout()
 	random_movement_timer.start()
+	audio_stream_player.stream.set_stream(0, audio_dict[type])
+	
+	
 
 func _process(_delta: float) -> void:
 	if is_in_kick_area:
@@ -105,6 +116,7 @@ func kick():
 		end_pos = closest_pen.global_position
 	
 	animation_player.play("kicked")
+	audio_stream_player.play()
 	kick_particles.emitting = true
 	collision_shape_2d.set_deferred("disabled", true)
 	animated_sprite_2d.animation = "idle"
@@ -139,6 +151,7 @@ func stun(index: int = 1):
 	
 	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	kick_particles.emitting = true
+	audio_stream_player.play()
 	animated_sprite_2d.animation = "stun"
 	animation_player.play("stun")
 	

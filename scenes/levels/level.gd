@@ -20,7 +20,6 @@ func _ready():
 	Globals.time_elapsed = 0
 	Globals.max_combo = 0
 	var path = str(get_path())
-	print(path[-1])
 	Globals.level_number = path[-1]
 	if Globals.level_number == "s":
 		Globals.level_number = "∞"

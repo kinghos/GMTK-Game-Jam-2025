@@ -60,10 +60,11 @@ func _on_kick_area_body_exited(body: Node2D) -> void:
 		body.toggle_kick_icon()
 
 func _on_pen_enclosure_body_entered(body: Node2D) -> void:
+	var full = is_full()	
 	if body is BaseAnimal:
 		animals_in_pen_enclosure.append(body)
 		body.in_pen = true
-		if body.type != animal_type:
+		if body.type != animal_type or full:
 			body.in_wrong_pen = true
 			animation_player.play("cross")
 			body.kick()
@@ -90,6 +91,7 @@ func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal:
 		if body.type != animal_type:
 			body.in_wrong_pen = false
+		body.in_full_pen = false
 		animals_in_pen_enclosure.erase(body)
 		body.in_pen = false
 

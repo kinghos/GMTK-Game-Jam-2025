@@ -33,7 +33,6 @@ func _ready() -> void:
 		if powerup_count > 0:
 			icon.material.set_shader_parameter("enabled", false)
 		icon.get_node("Label").text = str(powerup_count)
-		print(icon.get_node("Label").text)
 		
 
 func add_time(time_added: float):

@@ -59,6 +59,9 @@ position = Vector2(1315, 833)
 [node name="Cow3" parent="Animals/Cows" index="2" instance=ExtResource("4_v45ci")]
 position = Vector2(1591, 706)
 
+[node name="Cow4" parent="Animals/Cows" index="3" instance=ExtResource("4_v45ci")]
+position = Vector2(1603, 534)
+
 [node name="Chicken" parent="Animals/Chickens" index="0" instance=ExtResource("5_48ne7")]
 position = Vector2(675, 145)
 

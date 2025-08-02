@@ -134,6 +134,7 @@ texture = ExtResource("3_dxn25")
 stretch_mode = 5
 
 [node name="GrassTexture" type="TextureRect" parent="KickAreaMask"]
+modulate = Color(1, 1, 1, 0.333333)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -141,7 +142,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_c34k1")
-stretch_mode = 1
+stretch_mode = 4
 
 [node name="TopHalf" type="Sprite2D" parent="."]
 position = Vector2(0, -23.5)

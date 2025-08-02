@@ -7,6 +7,7 @@ var current_level: Node2D
 var level_number: String = "1"
 var pause_menu: CanvasLayer = null
 var hud: CanvasLayer
+var endless_mult: float = 1
 
 # Powerup values
 var player_lasso_reach = 300

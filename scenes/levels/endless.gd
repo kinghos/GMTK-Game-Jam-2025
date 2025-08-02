@@ -16,15 +16,15 @@ var animal_scenes = {
 	"Sheep": preload("res://scenes/animals/sheep.tscn")
 }
 
-var scaling_mult = 1.5
-
 func _ready() -> void:
 	super()
+	print("Animals in pen %s" % animal_numbers["Sheep"])
 	generate_animals()
 
 func generate_animals():
 	for animal: String in animal_numbers:
-		for i in range(animal_numbers[animal]):
+		var num_animals = int(animal_numbers[animal] * Globals.endless_mult)
+		for i in range(num_animals):
 			var new_animal: BaseAnimal = animal_scenes[animal].instantiate()
 			if randi() % 2 == 0:
 				new_animal.global_position = Vector2(randi_range(upper_bounds[0][0], upper_bounds[0][1]), randi_range(upper_bounds[1][0], upper_bounds[1][1]))
@@ -34,3 +34,7 @@ func generate_animals():
 			if ani_name != "Sheep":
 				ani_name += "s"
 			animals_parent.get_node(ani_name).add_child(new_animal)
+
+func _on_overlay_powerup_selected() -> void:
+	Globals.endless_mult *= 1.5
+	super()

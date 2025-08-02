@@ -91,7 +91,6 @@ func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 	if body is BaseAnimal:
 		if body.type != animal_type:
 			body.in_wrong_pen = false
-		body.in_full_pen = false
 		animals_in_pen_enclosure.erase(body)
 		body.in_pen = false
 

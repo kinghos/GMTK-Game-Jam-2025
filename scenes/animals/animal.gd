@@ -39,6 +39,7 @@ func _ready() -> void:
 	_on_random_movement_timer_timeout()
 	random_movement_timer.start()
 	audio_stream_player.stream.set_stream(0, audio_dict[type])
+	audio_stream_player.stream.get_stream(0).resource_local_to_scene = true
 	
 	
 

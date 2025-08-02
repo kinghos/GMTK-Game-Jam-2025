@@ -175,6 +175,7 @@ _data = {
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dufb3"]
+resource_local_to_scene = true
 random_pitch = 1.2
 random_volume_offset_db = 1.6
 streams_count = 1

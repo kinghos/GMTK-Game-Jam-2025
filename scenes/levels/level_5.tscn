@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://cvk2g60fby1cu"]
+[gd_scene load_steps=6 format=4 uid="uid://co0ebkebebeto"]
 
 [ext_resource type="PackedScene" uid="uid://dow5jdyygni3s" path="res://scenes/levels/base_level.tscn" id="1_r1vs7"]
 [ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/animals/pen.tscn" id="2_845dy"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bfmmdybm5lt0r" path="res://scenes/animals/cow.tscn" id="4_hldbq"]
 [ext_resource type="PackedScene" uid="uid://ccewnaer85wm4" path="res://scenes/animals/chicken.tscn" id="5_fsnos"]
 
-[node name="Level3" instance=ExtResource("1_r1vs7")]
+[node name="Level5" instance=ExtResource("1_r1vs7")]
 next_level = "res://scenes/levels/endless.tscn"
 
 [node name="Water" parent="Tilemap" index="0"]

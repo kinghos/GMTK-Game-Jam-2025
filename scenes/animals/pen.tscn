@@ -123,6 +123,7 @@ script = ExtResource("1_ngeja")
 
 [node name="KickAreaMask" type="TextureRect" parent="."]
 clip_children = 1
+z_index = -2
 offset_left = -128.0
 offset_top = -128.0
 offset_right = 128.0

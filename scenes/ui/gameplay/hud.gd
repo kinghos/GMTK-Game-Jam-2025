@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var lasso_bar: HSlider = $Control/LassoBar
 @onready var powerup_display: VBoxContainer = $Control/PowerupDisplay
+@onready var level_display: Label = $Control/LevelDisplay
 
 const TIMER_ANIM = preload("res://scenes/ui/gameplay/timer_anim.tscn")
 var powerup_dict = {
@@ -16,6 +17,7 @@ var powerup_dict = {
 }
 
 func _process(_delta: float) -> void:
+	level_display.text = "Level " + Globals.level_number
 	lasso_bar.max_value = Globals.lasso.MAX_LASSO_LENGTH
 	lasso_bar.value = Globals.lasso.MAX_LASSO_LENGTH - Globals.lasso.current_lasso_length
 	time_left.text = "Time Left: %3.3fs" % Globals.time_left

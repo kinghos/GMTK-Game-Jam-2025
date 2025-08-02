@@ -4,6 +4,7 @@ var player: Player
 var game_timer: Timer
 var lasso: Lasso
 var current_level: Node2D
+var level_number: String = "1"
 var pause_menu: CanvasLayer = null
 var hud: CanvasLayer
 

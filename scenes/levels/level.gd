@@ -19,6 +19,11 @@ func _ready():
 	Globals.hud = hud
 	Globals.time_elapsed = 0
 	Globals.max_combo = 0
+	var path = str(get_path())
+	print(path[-1])
+	Globals.level_number = path[-1]
+	if Globals.level_number == "s":
+		Globals.level_number = "∞"
 	
 
 func _process(delta: float) -> void:
@@ -54,3 +59,4 @@ func change_to_next_level():
 
 func _on_overlay_powerup_selected() -> void:
 	get_tree().change_scene_to_file(next_level)
+	

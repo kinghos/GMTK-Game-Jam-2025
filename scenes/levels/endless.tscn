@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://4lpu1bfp6fw1" path="res://scenes/levels/endless.gd" id="2_0kge5"]
 [ext_resource type="PackedScene" uid="uid://di53xit540gqa" path="res://scenes/animals/pen.tscn" id="3_uergm"]
 
-[node name="Level" instance=ExtResource("1_ywrxy")]
+[node name="Endless" instance=ExtResource("1_ywrxy")]
 script = ExtResource("2_0kge5")
 
 [node name="Water" parent="Tilemap" index="0"]
@@ -33,24 +33,33 @@ position = Vector2(960, 540)
 
 [node name="Pen" parent="Pens" index="0" instance=ExtResource("3_uergm")]
 position = Vector2(505, 331)
+max_animals = 3
 animal_type = "Sheep"
 
 [node name="Pen2" parent="Pens" index="1" instance=ExtResource("3_uergm")]
 position = Vector2(505, 711)
+max_animals = 3
 animal_type = "Cow"
 
 [node name="Pen3" parent="Pens" index="2" instance=ExtResource("3_uergm")]
 position = Vector2(1390, 711)
+max_animals = 3
 animal_type = "Chicken"
 
 [node name="Pen5" parent="Pens" index="3" instance=ExtResource("3_uergm")]
 position = Vector2(971, 711)
+max_animals = 3
 animal_type = "Sheep"
 
 [node name="Pen6" parent="Pens" index="4" instance=ExtResource("3_uergm")]
 position = Vector2(971, 331)
+max_animals = 3
 animal_type = "Chicken"
 
 [node name="Pen4" parent="Pens" index="5" instance=ExtResource("3_uergm")]
 position = Vector2(1390, 331)
+max_animals = 3
 animal_type = "Cow"
+
+[node name="GameTimer" parent="." index="10"]
+wait_time = 30.0

@@ -152,6 +152,7 @@ _data = {
 }
 
 [node name="HUD" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_hqnrr")
 
 [node name="Control" type="Control" parent="."]
@@ -174,18 +175,28 @@ color = Color(0, 0, 0, 0.392157)
 
 [node name="Powerups" type="Label" parent="Control"]
 layout_mode = 2
-offset_left = 47.0
-offset_top = -1.0
-offset_right = 258.0
-offset_bottom = 55.0
+offset_left = 3.0
+offset_top = 26.0
+offset_right = 214.0
+offset_bottom = 82.0
 theme_override_font_sizes/font_size = 55
 text = "Powerups"
 
+[node name="LevelDisplay" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 385.0
+offset_top = -2.0
+offset_right = 545.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 55
+text = "Level ∞"
+vertical_alignment = 1
+
 [node name="PowerupDisplay" type="VBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = 278.0
+offset_left = 234.0
 offset_top = 1.0
-offset_right = 346.0
+offset_right = 328.0
 offset_bottom = 105.0
 
 [node name="Row1" type="HBoxContainer" parent="Control/PowerupDisplay"]

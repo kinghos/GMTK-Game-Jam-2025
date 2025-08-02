@@ -25,14 +25,13 @@ const ANIMAL_ICONS = {
 func _ready() -> void:
 	animal_icon.texture = ANIMAL_ICONS[animal_type]
 	tick.hide()
+	update_kick_area_texture()
 
 func is_full() -> bool:
 	return len(animals_in_pen_enclosure) >= max_animals and not (animation_player.current_animation == "tick" and animation_player.is_playing())
 
 func _process(_delta: float) -> void:
-	var radius = Globals.pen_kick_area
-	kick_area_mask.position = $KickArea/CollisionShape2D.position - Vector2(radius, radius)
-	kick_area_mask.size = Vector2(radius * 2, radius * 2)	
+	update_kick_area_texture()
 	
 	var correct_animal_count: int = 0
 	for animal in animals_in_pen_enclosure:
@@ -43,25 +42,31 @@ func _process(_delta: float) -> void:
 	animals_count_label.text = str(correct_animal_count) + " / " + str(max_animals)
 	$KickArea/CollisionShape2D.shape.set_radius(Globals.pen_kick_area)
 
+func update_kick_area_texture():
+	var radius = Globals.pen_kick_area
+	kick_area_mask.position = $KickArea/CollisionShape2D.position - Vector2(radius, radius)
+	kick_area_mask.size = Vector2(radius * 2, radius * 2)
+
 func _on_kick_area_body_entered(body: Node2D) -> void:
 	if is_full():
 		return
-	if body is BaseAnimal and body.type == animal_type:
+	if body is BaseAnimal and body.type == animal_type and body not in animals_in_pen_enclosure:
 		animals_in_kick_area.append(body)
 		body.is_in_kick_area = true
-		body.toggle_kick_icon()
 
 func _on_kick_area_body_exited(body: Node2D) -> void:
-	if is_full():
+	if is_full() and not animals_in_kick_area:
 		return
 	if body is BaseAnimal and body.type == animal_type:
 		animals_in_kick_area.erase(body)
 		body.is_in_kick_area = false
-		body.toggle_kick_icon()
 
 func _on_pen_enclosure_body_entered(body: Node2D) -> void:
-	var full = is_full()	
+	var full = is_full()
 	if body is BaseAnimal:
+		body.is_in_kick_area = false
+		if body in animals_in_kick_area:
+			animals_in_kick_area.erase(body)
 		animals_in_pen_enclosure.append(body)
 		body.in_pen = true
 		if body.type != animal_type or full:
@@ -73,7 +78,6 @@ func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 			cross.hide()
 		else:
 			Globals.add_time(body.type, body.combo_count)
-			body.toggle_kick_icon()
 			Globals.current_level.animals_on_screen.erase(body)
 			
 			var correct_animal_count: int = 0

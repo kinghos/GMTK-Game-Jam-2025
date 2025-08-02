@@ -32,6 +32,10 @@ func _ready() -> void:
 	random_movement_timer.start()
 
 func _process(_delta: float) -> void:
+	if is_in_kick_area:
+		show_kick_icon()
+	else:
+		hide_kick_icon()
 	if combo_count > Globals.max_combo:
 		Globals.max_combo = combo_count
 	if in_wrong_pen:
@@ -70,9 +74,11 @@ func _on_kick_range_body_exited(body: Node2D) -> void:
 		in_kick_range = false
 		body.animals_in_range.erase(self)
 
-func toggle_kick_icon():
-	$KickIcon.visible = not $KickIcon.visible
-	$KickIcon/AnimationPlayer.play("bob")
+func show_kick_icon():
+	$KickIcon.visible = true
+
+func hide_kick_icon():
+	$KickIcon.visible = false
 
 func kick():
 	if in_pen and not in_wrong_pen:

@@ -20,8 +20,7 @@ const ANIMAL_ICONS = {
 	"Chicken": preload("res://assets/graphics/animals/chicken_icon.png")
 }
 
-func _draw():
-	draw_circle($KickArea/CollisionShape2D.position, Globals.pen_kick_area, Color.RED, false, 2.0, true)
+@onready var kick_area_mask: TextureRect = $KickAreaMask
 
 func _ready() -> void:
 	animal_icon.texture = ANIMAL_ICONS[animal_type]
@@ -31,6 +30,10 @@ func is_full() -> bool:
 	return len(animals_in_pen_enclosure) >= max_animals and not (animation_player.current_animation == "tick" and animation_player.is_playing())
 
 func _process(_delta: float) -> void:
+	var radius = Globals.pen_kick_area
+	kick_area_mask.position = $KickArea/CollisionShape2D.position - Vector2(radius, radius)
+	kick_area_mask.size = Vector2(radius * 2, radius * 2)	
+	
 	var correct_animal_count: int = 0
 	for animal in animals_in_pen_enclosure:
 		if animal.type == animal_type:

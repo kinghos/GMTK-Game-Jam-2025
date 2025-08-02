@@ -29,45 +29,59 @@ offset_bottom = 705.0
 scale = Vector2(3, 3)
 color = Color(0, 0, 0, 0.34902)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 1073.0
-offset_top = 540.0
-offset_right = 1456.0
-offset_bottom = 675.0
+offset_left = 1084.0
+offset_top = 517.0
+offset_right = 1467.0
+offset_bottom = 769.0
 scale = Vector2(2, 2)
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="ProgrammingContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ProgrammingContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.682353, 0.203922, 1)
+theme_override_font_sizes/font_size = 50
+text = "Programming"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ProgrammingContainer"]
+layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="ProgrammingContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer/ProgrammingContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.996078, 0.682353, 0.203922, 1)
-text = "Programming"
-
-[node name="MTOnline" type="Label" parent="HBoxContainer/ProgrammingContainer"]
+[node name="MTOnline" type="Label" parent="VBoxContainer/ProgrammingContainer/HBoxContainer"]
 layout_mode = 2
 text = "MTOnline"
 
-[node name="PeepsChilli" type="Label" parent="HBoxContainer/ProgrammingContainer"]
+[node name="PeepsChilli" type="Label" parent="VBoxContainer/ProgrammingContainer/HBoxContainer"]
 layout_mode = 2
 text = "PeepsChilli"
 
-[node name="ArtContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="ArtContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/ArtContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/ArtContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.996078, 0.682353, 0.203922, 1)
+theme_override_font_sizes/font_size = 50
 text = "Art"
+horizontal_alignment = 1
 
-[node name="Fishmommy" type="Label" parent="HBoxContainer/ArtContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ArtContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Fishmommy" type="Label" parent="VBoxContainer/ArtContainer/HBoxContainer"]
 layout_mode = 2
 text = "Fishmommy"
 
-[node name="AspectDuck" type="Label" parent="HBoxContainer/ArtContainer"]
+[node name="AspectDuck" type="Label" parent="VBoxContainer/ArtContainer/HBoxContainer"]
 layout_mode = 2
 text = "AspectDuck"
 

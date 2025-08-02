@@ -375,3 +375,6 @@ texture = ExtResource("3_r1mxx")
 
 [node name="KickIcon" parent="." index="9"]
 material = SubResource("ShaderMaterial_jhwbb")
+
+[node name="Ice" parent="." index="10"]
+scale = Vector2(1.4, 1.4)

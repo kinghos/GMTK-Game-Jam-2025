@@ -17,6 +17,8 @@ warnings/check_invalid_track_paths=false
 config/name="Rodeo Rampage"
 run/main_scene="uid://cxl64go8kr6od"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.942805, 0.856021, 0.733095, 1)
+boot_splash/image="uid://dlpkq5xjjfgdp"
 config/icon="res://icon.svg"
 
 [autoload]

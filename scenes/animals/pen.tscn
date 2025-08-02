@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://di53xit540gqa"]
+[gd_scene load_steps=18 format=3 uid="uid://di53xit540gqa"]
 
 [ext_resource type="Script" uid="uid://bablyi76071k6" path="res://scenes/animals/pen.gd" id="1_ngeja"]
 [ext_resource type="Texture2D" uid="uid://bdm4etcacyqsd" path="res://assets/graphics/misc/pen.png" id="2_bsgl4"]
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="2_spjee"]
+[ext_resource type="Texture2D" uid="uid://bciaxu5it66w5" path="res://assets/graphics/misc/white_circle.png" id="3_dxn25"]
 [ext_resource type="Texture2D" uid="uid://cyhsaebd0xj5r" path="res://assets/graphics/misc/tick.png" id="3_y77hr"]
 [ext_resource type="Texture2D" uid="uid://dlkoexgmf2f6l" path="res://assets/graphics/misc/cross.png" id="4_bsgl4"]
+[ext_resource type="Texture2D" uid="uid://bltqi84tgjjlu" path="res://assets/graphics/misc/dark_grass.png" id="4_c34k1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpxs5"]
 size = Vector2(182, 156)
@@ -118,6 +120,27 @@ _data = {
 
 [node name="Pen" type="Node2D" groups=["Pens"]]
 script = ExtResource("1_ngeja")
+
+[node name="KickAreaMask" type="TextureRect" parent="."]
+clip_children = 1
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_dxn25")
+stretch_mode = 5
+
+[node name="GrassTexture" type="TextureRect" parent="KickAreaMask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_c34k1")
+stretch_mode = 1
 
 [node name="TopHalf" type="Sprite2D" parent="."]
 position = Vector2(0, -23.5)

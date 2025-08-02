@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://fs7gqsq5cg6l"]
+[gd_scene load_steps=7 format=3 uid="uid://fs7gqsq5cg6l"]
 
 [ext_resource type="Script" uid="uid://c4jeoe7ng18sl" path="res://scenes/ui/gameplay/start_countdown.gd" id="1_d3mxy"]
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_qd3t4"]
+[ext_resource type="AudioStream" uid="uid://lg43o8vck1cb" path="res://assets/audio/sfx/countdown.wav" id="3_jr8hi"]
 
 [sub_resource type="Animation" id="Animation_3ku1a"]
 length = 0.001
@@ -106,6 +107,21 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.68,
+"start_offset": 0.0,
+"stream": ExtResource("3_jr8hi")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a5r23"]
 _data = {
@@ -133,9 +149,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1090.0
+offset_left = 1090.0
 offset_top = -128.5
-offset_right = -965.0
+offset_right = 1215.0
 offset_bottom = 128.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -151,9 +167,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1090.0
+offset_left = 1090.0
 offset_top = -128.5
-offset_right = -965.0
+offset_right = 1215.0
 offset_bottom = 128.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -169,9 +185,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1090.0
+offset_left = 1090.0
 offset_top = -128.5
-offset_right = -965.0
+offset_right = 1215.0
 offset_bottom = 128.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -187,9 +203,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1259.98
+offset_left = -150.0
 offset_top = -128.5
-offset_right = -959.98
+offset_right = 150.0
 offset_bottom = 128.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -202,3 +218,6 @@ horizontal_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_a5r23")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound Effects"

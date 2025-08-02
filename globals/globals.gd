@@ -58,7 +58,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed("Pause") and not prevent_pause:
 		toggle_pause_menu()
 	if time_elapsed > 1 and time_left == 0:
-		powerup_selections.clear()
+		for key in powerup_selections.keys():
+			powerup_selections[key] = 0
 		player_lasso_reach = 500
 		stun_time = 1
 		pen_kick_area = 250

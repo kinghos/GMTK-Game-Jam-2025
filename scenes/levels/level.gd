@@ -25,9 +25,8 @@ func _ready():
 	Globals.level_number = path[-1]
 	if Globals.level_number == "s":
 		Globals.level_number = "∞"
-		
+		Globals.unlocked_endless = true
 	Music.play_music(GAME_THEME)
-	
 
 func _process(delta: float) -> void:
 	var new_value: int = 0

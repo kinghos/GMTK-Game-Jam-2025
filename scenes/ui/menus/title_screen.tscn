@@ -38,15 +38,21 @@ layout_mode = 0
 offset_left = 1460.0
 offset_top = 500.0
 offset_right = 1600.0
-offset_bottom = 716.0
+offset_bottom = 715.0
 scale = Vector2(2.5, 2.5)
-theme_override_constants/separation = 20
+theme_override_constants/separation = 5
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "PLAY"
+
+[node name="EndlessButton" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "ENDLESS"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -74,6 +80,7 @@ size_flags_vertical = 3
 text = "Test Level"
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/EndlessButton" to="." method="_on_endless_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

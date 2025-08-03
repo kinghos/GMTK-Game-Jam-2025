@@ -40,9 +40,9 @@ var POWERUP_DESCRIPTIONS = {
 var max_combo: int = 0
 
 var TIME_BONUSES = {
-	"Chicken": 5,
-	"Cow": 2,
-	"Sheep": 3
+	"Chicken": 6,
+	"Cow": 3,
+	"Sheep": 4
 }
 
 var STUN_MULTS = {

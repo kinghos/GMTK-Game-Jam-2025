@@ -43,7 +43,8 @@ func add_time(time_added: float):
 	timer_anim.get_node("AnimationPlayer").play("time_add")
 
 func time_running_out():
-	animation_player.play("time_running_out")
+	if animation_player.is_playing():
+		return
 	animation_player.play("time_running_out")
 
 func reset_timer():

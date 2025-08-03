@@ -319,5 +319,5 @@ libraries = {
 [node name="OffscreenPointer" parent="." index="6"]
 texture = ExtResource("3_u21h3")
 
-[node name="AudioStreamPlayer" parent="." index="12"]
+[node name="AnimalASP" parent="." index="12"]
 stream = SubResource("AudioStreamRandomizer_u21h3")

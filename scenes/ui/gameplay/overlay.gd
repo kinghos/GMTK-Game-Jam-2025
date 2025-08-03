@@ -10,6 +10,7 @@ extends CanvasLayer
 signal powerup_selected
 
 func _ready() -> void:
+	game_over_screen.hide()
 	powerups.hide()
 
 func trigger_powerups_menu():
@@ -56,7 +57,8 @@ func randomise_powerup_options():
 		opt.set_meta("powerup_type", powerup)
 
 func trigger_game_over():
-	game_over_screen.show()
+	animation_player.play("game_over")
+	Music.stop_music()
 
 func _on_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/menus/title_screen.tscn")

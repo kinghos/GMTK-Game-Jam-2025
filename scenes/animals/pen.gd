@@ -55,7 +55,7 @@ func _on_kick_area_body_entered(body: Node2D) -> void:
 		body.is_in_kick_area = true
 
 func _on_kick_area_body_exited(body: Node2D) -> void:
-	if is_full() and not animals_in_kick_area:
+	if is_full() and animals_in_kick_area.is_empty():
 		return
 	if body is BaseAnimal and body.type == animal_type:
 		animals_in_kick_area.erase(body)

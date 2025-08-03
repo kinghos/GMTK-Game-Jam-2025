@@ -37,6 +37,8 @@ func _on_option_pressed(option: String) -> void:
 
 func randomise_powerup_options():
 	var powerups = Globals.POWERUP_LIST.duplicate()
+	if Globals.player_lasso_reach >= 600:
+		powerups.erase("Lasso Reach")
 	powerups.shuffle()
 	powerups = powerups.slice(0, 3)
 	var powerups_copy_1 = powerups.duplicate()

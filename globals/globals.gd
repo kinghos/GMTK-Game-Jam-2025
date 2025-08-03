@@ -10,7 +10,7 @@ var hud: CanvasLayer
 var endless_mult: float = 1
 
 # Powerup values
-var player_lasso_reach = 250
+var player_lasso_reach = 300
 var stun_time: float = 1
 var pen_kick_area: int = 200
 enum POWERUPS {LassoSize, StunTime, PenKickArea, LassoReach, PlayerSpeed}
@@ -34,7 +34,7 @@ var POWERUP_DESCRIPTIONS = {
 	POWERUPS.StunTime: "Increases the time in seconds that an animal remains stunned",
 	POWERUPS.PenKickArea: "Increases the radius of the area surrounding pens in which animals can be kicked",
 	POWERUPS.LassoReach: "Increases how far away from your character you can start drawing your loop",
-	POWERUPS.PlayerSpeed: "Increases your player's speed"
+	POWERUPS.PlayerSpeed: "Increases your character's speed"
 }
 
 var max_combo: int = 0
@@ -79,7 +79,7 @@ func _process(_delta):
 func reset_game_state():
 	for key in powerup_selections.keys():
 		powerup_selections[key] = 0
-	player_lasso_reach = 250
+	player_lasso_reach = 300
 	stun_time = 1
 	pen_kick_area = 200
 	endless_rounds = 0

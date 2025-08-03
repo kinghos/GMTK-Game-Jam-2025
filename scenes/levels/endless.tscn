@@ -33,34 +33,71 @@ position = Vector2(2805, 399)
 position = Vector2(960, 540)
 
 [node name="Pen" parent="Pens" index="0" instance=ExtResource("3_uergm")]
-position = Vector2(505, 331)
+position = Vector2(105, 131)
 max_animals = 3
 animal_type = "Sheep"
 
 [node name="Pen2" parent="Pens" index="1" instance=ExtResource("3_uergm")]
-position = Vector2(505, 711)
+position = Vector2(105, 1011)
 max_animals = 3
 animal_type = "Cow"
 
 [node name="Pen3" parent="Pens" index="2" instance=ExtResource("3_uergm")]
-position = Vector2(1390, 711)
+position = Vector2(1790, 1011)
 max_animals = 3
 animal_type = "Chicken"
 
 [node name="Pen5" parent="Pens" index="3" instance=ExtResource("3_uergm")]
-position = Vector2(971, 711)
+position = Vector2(971, 1011)
 max_animals = 3
 animal_type = "Sheep"
 
 [node name="Pen6" parent="Pens" index="4" instance=ExtResource("3_uergm")]
-position = Vector2(971, 331)
+position = Vector2(971, 131)
 max_animals = 3
 animal_type = "Chicken"
 
 [node name="Pen4" parent="Pens" index="5" instance=ExtResource("3_uergm")]
-position = Vector2(1390, 331)
+position = Vector2(1790, 131)
 max_animals = 3
 animal_type = "Cow"
 
 [node name="GameTimer" parent="." index="10"]
 wait_time = 30.0
+
+[node name="AnimalSpawnRegions" type="Node2D" parent="." index="11"]
+
+[node name="Region1" type="Node2D" parent="AnimalSpawnRegions" index="0"]
+
+[node name="Top" type="Marker2D" parent="AnimalSpawnRegions/Region1" index="0"]
+position = Vector2(-465, 314)
+
+[node name="Bottom" type="Marker2D" parent="AnimalSpawnRegions/Region1" index="1"]
+position = Vector2(751, 779)
+
+[node name="Region2" type="Node2D" parent="AnimalSpawnRegions" index="1"]
+position = Vector2(1956, 0)
+
+[node name="Top" type="Marker2D" parent="AnimalSpawnRegions/Region2" index="0"]
+position = Vector2(-776, 314)
+
+[node name="Bottom" type="Marker2D" parent="AnimalSpawnRegions/Region2" index="1"]
+position = Vector2(403, 779)
+
+[node name="Region3" type="Node2D" parent="AnimalSpawnRegions" index="2"]
+position = Vector2(948, -81)
+
+[node name="Top" type="Marker2D" parent="AnimalSpawnRegions/Region3" index="0"]
+position = Vector2(-1389, -112)
+
+[node name="Bottom" type="Marker2D" parent="AnimalSpawnRegions/Region3" index="1"]
+position = Vector2(1411, 65)
+
+[node name="Region4" type="Node2D" parent="AnimalSpawnRegions" index="3"]
+position = Vector2(948, 1244)
+
+[node name="Top" type="Marker2D" parent="AnimalSpawnRegions/Region4" index="0"]
+position = Vector2(-1389, -112)
+
+[node name="Bottom" type="Marker2D" parent="AnimalSpawnRegions/Region4" index="1"]
+position = Vector2(1411, 65)

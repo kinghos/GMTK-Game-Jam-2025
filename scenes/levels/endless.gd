@@ -1,6 +1,7 @@
 extends Level
 
 @onready var animals_parent: Node = $Animals
+@onready var animal_spawn_regions: Node2D = $AnimalSpawnRegions
 
 var animal_numbers = {
 	"Chicken": 6,
@@ -20,16 +21,14 @@ func _ready() -> void:
 	super()
 	print("Animals in pen %s" % (animal_numbers["Sheep"] * Globals.endless_mult))
 	generate_animals()
+	generate_pens()
 
 func generate_animals():
 	for animal: String in animal_numbers:
 		var num_animals = int(animal_numbers[animal] * Globals.endless_mult)
 		for i in range(num_animals):
 			var new_animal: BaseAnimal = animal_scenes[animal].instantiate()
-			if randi() % 2 == 0:
-				new_animal.global_position = Vector2(randi_range(upper_bounds[0][0], upper_bounds[0][1]), randi_range(upper_bounds[1][0], upper_bounds[1][1]))
-			else:
-				new_animal.global_position = Vector2(randi_range(lower_bounds[0][0], lower_bounds[0][1]), randi_range(lower_bounds[1][0], lower_bounds[1][1]))
+			new_animal.global_position = get_random_region()
 			var ani_name = animal
 			if ani_name != "Sheep":
 				ani_name += "s"
@@ -38,3 +37,35 @@ func generate_animals():
 func _on_overlay_powerup_selected() -> void:
 	Globals.endless_mult *= 1.5
 	super()
+
+func generate_pens():
+	var first_cow = true
+	var first_chicken = true
+	var first_sheep = true
+	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
+		var num_animals = animal_numbers["Sheep"]
+		pen.max_animals = num_animals / 2
+		var remainder = num_animals % 2
+		if remainder:
+			if first_cow and pen.animal_type == "Cow":
+				pen.max_animals += 1
+				first_cow = false
+			if first_sheep and pen.animal_type == "Sheep":
+				pen.max_animals += 1
+				first_sheep = false
+			if first_chicken and pen.animal_type == "Cow":
+				pen.max_animals += 1
+				first_chicken = false
+
+func get_random_region():
+	var regions = animal_spawn_regions.get_children()
+	var weight = randf()
+	var node = regions.pick_random()
+	var top_left: Vector2 = node.get_node("Top").global_position
+	var bottom_right: Vector2 = node.get_node("Bottom").global_position
+	var random_point = Vector2(
+		randi_range(top_left.x, bottom_right.x),
+		randi_range(top_left.y, bottom_right.y))
+	return random_point
+		
+		

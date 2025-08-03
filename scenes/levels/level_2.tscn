@@ -32,7 +32,7 @@ position = Vector2(-81, 559)
 [node name="Right" parent="CameraBounds" index="3"]
 position = Vector2(1849, 594)
 
-[node name="Player" parent="." index="7"]
+[node name="Player" parent="." index="6"]
 position = Vector2(940, 536)
 
 [node name="Pen" parent="Pens" index="0" instance=ExtResource("2_g2h2n")]
@@ -63,5 +63,5 @@ position = Vector2(242, 461)
 [node name="Cow3" parent="Animals/Cows" index="2" instance=ExtResource("4_l37oo")]
 position = Vector2(638, 227)
 
-[node name="GameTimer" parent="." index="11"]
+[node name="GameTimer" parent="." index="10"]
 wait_time = 45.0

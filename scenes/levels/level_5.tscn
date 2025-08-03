@@ -86,12 +86,6 @@ position = Vector2(2350, -209)
 [node name="Sheep10" parent="Animals/Sheep" index="9" instance=ExtResource("3_fi56y")]
 position = Vector2(-726, 687)
 
-[node name="Sheep11" parent="Animals/Sheep" index="10" instance=ExtResource("3_fi56y")]
-position = Vector2(2108, -114)
-
-[node name="Sheep12" parent="Animals/Sheep" index="11" instance=ExtResource("3_fi56y")]
-position = Vector2(2551, -252)
-
 [node name="Cow" parent="Animals/Cows" index="0" instance=ExtResource("4_hldbq")]
 position = Vector2(-623, -163)
 
@@ -107,9 +101,6 @@ position = Vector2(2149, 1340)
 [node name="Cow5" parent="Animals/Cows" index="4" instance=ExtResource("4_hldbq")]
 position = Vector2(2483, -64.9999)
 
-[node name="Cow6" parent="Animals/Cows" index="5" instance=ExtResource("4_hldbq")]
-position = Vector2(-366, -48)
-
 [node name="Chicken" parent="Animals/Chickens" index="0" instance=ExtResource("5_fsnos")]
 position = Vector2(-623, 300)
 
@@ -124,9 +115,6 @@ position = Vector2(2532, 579)
 
 [node name="Chicken5" parent="Animals/Chickens" index="4" instance=ExtResource("5_fsnos")]
 position = Vector2(2232, 341)
-
-[node name="Chicken6" parent="Animals/Chickens" index="5" instance=ExtResource("5_fsnos")]
-position = Vector2(-116, 1110)
 
 [node name="GameTimer" parent="." index="10"]
 wait_time = 90.0

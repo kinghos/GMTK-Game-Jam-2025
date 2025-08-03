@@ -47,7 +47,7 @@ var TIME_BONUSES = {
 }
 
 var STUN_MULTS = {
-	"Chicken": 1,
+	"Chicken": 0.95,
 	"Cow": 0.7,
 	"Sheep": 0.85
 }
@@ -85,7 +85,7 @@ func reset_game_state():
 	pen_kick_area = 200
 	endless_rounds = 0
 	endless_mult = 1
-	player_speed = 0
+	player_speed = 400
 
 func toggle_pause_menu():
 	if pause_menu:

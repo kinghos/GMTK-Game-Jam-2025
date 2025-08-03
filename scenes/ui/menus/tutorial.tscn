@@ -48,7 +48,7 @@ offset_right = 513.0
 offset_bottom = 782.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "Use the mouse cursor and left mouse button to draw lassos.
+text = "Use WASD to move, and use the mouse cursor and left mouse button to draw lassos.
 Surround animals with the lasso to pull them towards you and stun them!"
 horizontal_alignment = 1
 autowrap_mode = 2

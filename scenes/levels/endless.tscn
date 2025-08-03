@@ -32,7 +32,7 @@ position = Vector2(-890, 459)
 [node name="Right" parent="CameraBounds" index="3"]
 position = Vector2(2805, 399)
 
-[node name="Player" parent="." index="7"]
+[node name="Player" parent="." index="6"]
 position = Vector2(960, 540)
 
 [node name="Pen" parent="Pens" index="0" instance=ExtResource("3_uergm")]

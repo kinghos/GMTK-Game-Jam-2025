@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cqbyf3duimude"]
+[gd_scene load_steps=24 format=3 uid="uid://cqbyf3duimude"]
 
 [ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_gw4f6"]
 [ext_resource type="Texture2D" uid="uid://b3j0asmr3aocx" path="res://assets/graphics/animals/sheep_pointer.png" id="2_ag106"]
@@ -258,6 +258,12 @@ _data = {
 &"stun": SubResource("Animation_xbeb1")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xbeb1"]
+resource_local_to_scene = true
+random_pitch = 1.2
+random_volume_offset_db = 1.6
+streams_count = 1
+
 [node name="Sheep" instance=ExtResource("1_gw4f6")]
 scale = Vector2(2, 2)
 speed = 110
@@ -289,3 +295,6 @@ libraries = {
 
 [node name="OffscreenPointer" parent="." index="6"]
 texture = ExtResource("2_ag106")
+
+[node name="AudioStreamPlayer" parent="." index="12"]
+stream = SubResource("AudioStreamRandomizer_xbeb1")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ccewnaer85wm4"]
+[gd_scene load_steps=27 format=3 uid="uid://ccewnaer85wm4"]
 
 [ext_resource type="PackedScene" uid="uid://c730r02j0a3ic" path="res://scenes/animals/animal.tscn" id="1_hmq33"]
 [ext_resource type="Texture2D" uid="uid://dkcp8mu4hpkrf" path="res://assets/graphics/animals/chicken.png" id="2_e2rpr"]
@@ -285,6 +285,12 @@ _data = {
 &"stun": SubResource("Animation_fdvt3")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_u21h3"]
+resource_local_to_scene = true
+random_pitch = 1.2
+random_volume_offset_db = 1.6
+streams_count = 1
+
 [node name="Chicken" instance=ExtResource("1_hmq33")]
 scale = Vector2(2.5, 2.5)
 speed = 175
@@ -312,3 +318,6 @@ libraries = {
 
 [node name="OffscreenPointer" parent="." index="6"]
 texture = ExtResource("3_u21h3")
+
+[node name="AudioStreamPlayer" parent="." index="12"]
+stream = SubResource("AudioStreamRandomizer_u21h3")

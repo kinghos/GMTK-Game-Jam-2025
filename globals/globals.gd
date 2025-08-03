@@ -10,9 +10,9 @@ var hud: CanvasLayer
 var endless_mult: float = 1
 
 # Powerup values
-var player_lasso_reach = 300
+var player_lasso_reach = 250
 var stun_time: float = 1
-var pen_kick_area: int = 250
+var pen_kick_area: int = 200
 enum POWERUPS {LassoSize, StunTime, PenKickArea, LassoReach, PlayerSpeed}
 var POWERUP_LIST = ["Lasso Length", "Stun Time", "Pen Kick Area", "Lasso Reach", "Player Speed"]
 var POWERUP_ICONS = {
@@ -74,14 +74,14 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause") and not prevent_pause:
 		toggle_pause_menu()
-	
+
 
 func reset_game_state():
 	for key in powerup_selections.keys():
 		powerup_selections[key] = 0
-	player_lasso_reach = 500
+	player_lasso_reach = 250
 	stun_time = 1
-	pen_kick_area = 250
+	pen_kick_area = 200
 	endless_rounds = 0
 	endless_mult = 1
 

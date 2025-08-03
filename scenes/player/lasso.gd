@@ -59,7 +59,7 @@ func _process(_delta):
 	var direction = (mouse_pos - player_lasso_start).normalized()
 	var distance = Globals.player.global_position.distance_to(mouse_pos)
 	
-	if distance <= Globals.player_lasso_reach:
+	if distance < Globals.player_lasso_reach or is_drawing:
 		line_from_player.points = [player_lasso_start, mouse_pos]
 		line_from_player.modulate = Color.WHITE
 	else:

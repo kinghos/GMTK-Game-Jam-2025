@@ -28,7 +28,7 @@ var POWERUP_INCREASES = {
 	POWERUPS.StunTime: 0.5,
 	POWERUPS.PenKickArea: 20,
 	POWERUPS.LassoReach: 50,
-	POWERUPS.PlayerSpeed: 30
+	POWERUPS.PlayerSpeed: 50
 }
 var POWERUP_DESCRIPTIONS = {
 	POWERUPS.LassoSize: "Increases the length of lasso that can be used to draw a loop",

@@ -119,7 +119,7 @@ func apply_powerup(powerup: int):
 		POWERUPS.PlayerSpeed:
 			player_speed += POWERUP_INCREASES[powerup]
 		POWERUPS.TimerBonus:
-			timer_bonus += 1
+			timer_bonus += 0.5
 		_:
 			print("Invalid powerup")
 

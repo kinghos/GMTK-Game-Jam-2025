@@ -85,6 +85,7 @@ func reset_game_state():
 	pen_kick_area = 200
 	endless_rounds = 0
 	endless_mult = 1
+	player_speed = 0
 
 func toggle_pause_menu():
 	if pause_menu:

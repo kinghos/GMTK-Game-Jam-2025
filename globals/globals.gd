@@ -25,7 +25,7 @@ var POWERUP_ICONS = {
 var POWERUP_INCREASES = {
 	POWERUPS.LassoSize: 50,
 	POWERUPS.StunTime: 0.5,
-	POWERUPS.PenKickArea: 10,
+	POWERUPS.PenKickArea: 20,
 	POWERUPS.LassoReach: 50,
 	POWERUPS.PlayerSpeed: 30
 }

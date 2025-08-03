@@ -33,6 +33,11 @@ func is_full() -> bool:
 func _process(_delta: float) -> void:
 	update_kick_area_texture()
 	
+	if is_full():
+		for i in animals_in_kick_area.size():
+			animals_in_kick_area[i].is_in_kick_area = false
+		animals_in_kick_area.clear()
+	
 	var correct_animal_count: int = 0
 	for animal in animals_in_pen_enclosure:
 		if animal.type == animal_type:

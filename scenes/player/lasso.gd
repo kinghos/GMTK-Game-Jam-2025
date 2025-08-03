@@ -139,7 +139,17 @@ func stun_animals_in_lasso():
 	for animal in animals:
 		if animal is BaseAnimal:
 			var local_pos = to_local(animal.global_position)
-			if Geometry2D.is_point_in_polygon(local_pos, lasso_polygon.polygon):
+			var radius = 7
+			var inside = false
+			for x_offset in range(-radius, radius + 1):
+				for y_offset in range(-radius, radius + 1):
+					var test_pos = local_pos + Vector2(x_offset, y_offset)
+					if Geometry2D.is_point_in_polygon(test_pos, lasso_polygon.polygon):
+						inside = true
+						break
+				if inside:
+					break
+			if inside:
 				if !animal.being_kicked:
 					if animal.being_stunned:
 						animal.combo_count += 1

@@ -293,8 +293,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_xbeb1")
 }
 
-[node name="OffscreenPointer" parent="." index="6"]
+[node name="OffscreenPointer" parent="." index="7"]
 texture = ExtResource("2_ag106")
 
-[node name="AnimalASP" parent="." index="12"]
+[node name="AnimalASP" parent="." index="13"]
 stream = SubResource("AudioStreamRandomizer_xbeb1")

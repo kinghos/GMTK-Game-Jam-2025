@@ -376,14 +376,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_6t8lt")
 }
 
-[node name="OffscreenPointer" parent="." index="6"]
+[node name="OffscreenPointer" parent="." index="7"]
 texture = ExtResource("3_r1mxx")
 
-[node name="KickIcon" parent="." index="9"]
+[node name="KickIcon" parent="." index="10"]
 material = SubResource("ShaderMaterial_jhwbb")
 
-[node name="Ice" parent="." index="10"]
+[node name="Ice" parent="." index="11"]
 scale = Vector2(1.4, 1.4)
 
-[node name="AnimalASP" parent="." index="12"]
+[node name="AnimalASP" parent="." index="13"]
 stream = SubResource("AudioStreamRandomizer_6t8lt")

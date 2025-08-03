@@ -316,8 +316,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_fdvt3")
 }
 
-[node name="OffscreenPointer" parent="." index="6"]
+[node name="OffscreenPointer" parent="." index="7"]
 texture = ExtResource("3_u21h3")
 
-[node name="AnimalASP" parent="." index="12"]
+[node name="AnimalASP" parent="." index="13"]
 stream = SubResource("AudioStreamRandomizer_u21h3")

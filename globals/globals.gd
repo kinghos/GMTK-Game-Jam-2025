@@ -119,7 +119,7 @@ func get_current_powerup_value(powerup: int):
 		POWERUPS.LassoReach:
 			return player_lasso_reach
 		POWERUPS.PlayerSpeed:
-			return player.speed
+			return player_speed
 		_:
 			print("Invalid powerup")
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dw34xq1emv18a"]
 
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_77ypm"]
-[ext_resource type="PackedScene" uid="uid://dsudqg24muyb2" path="res://scenes/ui/menus/menu_back_button.tscn" id="1_oap8i"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menus/menu_back_button.tscn" id="1_oap8i"]
 [ext_resource type="Texture2D" uid="uid://dv0q7mipj70mc" path="res://assets/graphics/backgrounds/title_screen.png" id="1_w063j"]
 
 [node name="Credits" type="Control"]
@@ -36,7 +36,7 @@ offset_top = 517.0
 offset_right = 1467.0
 offset_bottom = 769.0
 scale = Vector2(2, 2)
-theme_override_constants/separation = 40
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="ProgrammingContainer" type="VBoxContainer" parent="VBoxContainer"]
@@ -84,6 +84,15 @@ text = "Fishmommy"
 [node name="AspectDuck" type="Label" parent="VBoxContainer/ArtContainer/HBoxContainer"]
 layout_mode = 2
 text = "AspectDuck"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/ArtContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="TheCurryDealer" type="Label" parent="VBoxContainer/ArtContainer/HBoxContainer2"]
+layout_mode = 2
+text = "TheCurryDealer"
 
 [node name="MenuBackArrow" parent="." instance=ExtResource("1_oap8i")]
 layout_mode = 0

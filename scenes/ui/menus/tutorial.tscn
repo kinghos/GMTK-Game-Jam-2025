@@ -28,7 +28,7 @@ offset_left = -433.0
 offset_right = 433.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.815465, 0.604785, 1)
+color = Color(0.952941, 0.768627, 0.27451, 1)
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 0

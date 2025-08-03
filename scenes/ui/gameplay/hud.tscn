@@ -2,13 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_0mwgc"]
 [ext_resource type="Script" uid="uid://b60n3csy1oq4y" path="res://scenes/ui/gameplay/hud.gd" id="1_hqnrr"]
+[ext_resource type="Texture2D" uid="uid://cjh8fi04jqyvy" path="res://assets/graphics/powerups/upgrades/borderless/lasso_reach.png" id="3_65qlr"]
 [ext_resource type="Texture2D" uid="uid://ce5uu5lcikxbs" path="res://assets/graphics/player/lasso.png" id="3_74lpp"]
-[ext_resource type="Texture2D" uid="uid://7j01dnb6gy32" path="res://assets/graphics/powerups/upgrades/speed.png" id="3_a4wg4"]
-[ext_resource type="Texture2D" uid="uid://c8q13fys2okwv" path="res://assets/graphics/powerups/upgrades/animal_stun_time.png" id="4_65qlr"]
-[ext_resource type="Texture2D" uid="uid://dnm077e1rstjt" path="res://assets/graphics/powerups/upgrades/lasso_reach.png" id="5_e3pce"]
-[ext_resource type="Texture2D" uid="uid://dlf42s27346ri" path="res://assets/graphics/powerups/upgrades/lasso_length.png" id="6_38tne"]
-[ext_resource type="Texture2D" uid="uid://cnosyk6vb26po" path="res://assets/graphics/powerups/upgrades/kick_power.png" id="7_a3q0n"]
-[ext_resource type="Texture2D" uid="uid://bi615e85hb55f" path="res://assets/graphics/powerups/upgrades/timer_bonus.png" id="8_65qlr"]
+[ext_resource type="Texture2D" uid="uid://bhatixcm5vf2y" path="res://assets/graphics/powerups/upgrades/borderless/animal_stun_time.png" id="4_e3pce"]
+[ext_resource type="Texture2D" uid="uid://cmy4o5fctb5wk" path="res://assets/graphics/powerups/upgrades/borderless/lasso_length.png" id="5_38tne"]
+[ext_resource type="Texture2D" uid="uid://cokmp08eeb6g5" path="res://assets/graphics/powerups/upgrades/borderless/kick_power.png" id="6_a3q0n"]
+[ext_resource type="Texture2D" uid="uid://dhspknhbdymam" path="res://assets/graphics/powerups/upgrades/borderless/timer_bonus.png" id="7_kffq2"]
+[ext_resource type="Texture2D" uid="uid://xvk716g8ipar" path="res://assets/graphics/powerups/upgrades/borderless/speed.png" id="8_ds2e3"]
 
 [sub_resource type="Shader" id="Shader_a4wg4"]
 resource_local_to_scene = true
@@ -175,6 +175,7 @@ grow_horizontal = 2
 color = Color(0, 0, 0, 0.392157)
 
 [node name="LevelDisplay" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 890.0
 offset_top = -2.0
 offset_right = 1031.0
@@ -195,7 +196,7 @@ theme_override_constants/separation = 20
 material = SubResource("ShaderMaterial_38tne")
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("5_e3pce")
+texture = ExtResource("3_65qlr")
 
 [node name="Label" type="Label" parent="Control/PowerupDisplay/Lasso Reach"]
 z_index = 1
@@ -211,7 +212,7 @@ text = "0"
 material = SubResource("ShaderMaterial_65qlr")
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("4_65qlr")
+texture = ExtResource("4_e3pce")
 
 [node name="Label" type="Label" parent="Control/PowerupDisplay/Stun Time"]
 z_index = 1
@@ -227,7 +228,7 @@ text = "0"
 material = SubResource("ShaderMaterial_a3q0n")
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("6_38tne")
+texture = ExtResource("5_38tne")
 
 [node name="Label" type="Label" parent="Control/PowerupDisplay/Lasso Length"]
 z_index = 1
@@ -243,7 +244,7 @@ text = "0"
 material = SubResource("ShaderMaterial_kffq2")
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("7_a3q0n")
+texture = ExtResource("6_a3q0n")
 
 [node name="Label" type="Label" parent="Control/PowerupDisplay/Pen Kick Area"]
 z_index = 1
@@ -259,7 +260,7 @@ text = "0"
 material = SubResource("ShaderMaterial_kffq2")
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("8_65qlr")
+texture = ExtResource("7_kffq2")
 
 [node name="Label" type="Label" parent="Control/PowerupDisplay/Timer Bonus"]
 z_index = 1
@@ -275,7 +276,7 @@ text = "0"
 material = SubResource("ShaderMaterial_e3pce")
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("3_a4wg4")
+texture = ExtResource("8_ds2e3")
 
 [node name="Label" type="Label" parent="Control/PowerupDisplay/Player Speed"]
 z_index = 1
@@ -288,6 +289,7 @@ theme_override_font_sizes/font_size = 50
 text = "0"
 
 [node name="TimeLeft" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 1400.0
 offset_top = 26.0
 offset_right = 1879.0

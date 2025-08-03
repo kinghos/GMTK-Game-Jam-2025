@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bqj5beox7atc5"]
+[gd_scene load_steps=23 format=3 uid="uid://bqj5beox7atc5"]
 
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_0mwgc"]
 [ext_resource type="Script" uid="uid://b60n3csy1oq4y" path="res://scenes/ui/gameplay/hud.gd" id="1_hqnrr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dnm077e1rstjt" path="res://assets/graphics/powerups/upgrades/lasso_reach.png" id="5_e3pce"]
 [ext_resource type="Texture2D" uid="uid://dlf42s27346ri" path="res://assets/graphics/powerups/upgrades/lasso_length.png" id="6_38tne"]
 [ext_resource type="Texture2D" uid="uid://cnosyk6vb26po" path="res://assets/graphics/powerups/upgrades/kick_power.png" id="7_a3q0n"]
+[ext_resource type="Texture2D" uid="uid://bi615e85hb55f" path="res://assets/graphics/powerups/upgrades/timer_bonus.png" id="8_65qlr"]
 
 [sub_resource type="Shader" id="Shader_a4wg4"]
 resource_local_to_scene = true
@@ -266,6 +267,18 @@ layout_mode = 2
 texture = ExtResource("7_a3q0n")
 
 [node name="Label" type="Label" parent="Control/PowerupDisplay/Row3/KickPower"]
+layout_mode = 0
+offset_left = 36.0
+offset_right = 76.0
+offset_bottom = 31.0
+text = "0"
+
+[node name="TimerBonus" type="TextureRect" parent="Control/PowerupDisplay/Row3"]
+material = SubResource("ShaderMaterial_kffq2")
+layout_mode = 2
+texture = ExtResource("8_65qlr")
+
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Row3/TimerBonus"]
 layout_mode = 0
 offset_left = 36.0
 offset_right = 76.0

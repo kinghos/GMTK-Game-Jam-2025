@@ -13,7 +13,8 @@ var powerup_dict = {
 	"Stun Time": "Control/PowerupDisplay/Row1/StunTime",
 	"Pen Kick Area": "Control/PowerupDisplay/Row3/KickPower",
 	"Lasso Reach": "Control/PowerupDisplay/Row2/LassoReach",
-	"Player Speed": "Control/PowerupDisplay/Row1/Speed"
+	"Player Speed": "Control/PowerupDisplay/Row1/Speed",
+	"Timer Bonus": "Control/PowerupDisplay/Row3/TimerBonus"
 }
 
 func _process(_delta: float) -> void:

@@ -14,28 +14,32 @@ var player_speed: int = 400
 var player_lasso_reach = 300
 var stun_time: float = 1
 var pen_kick_area: int = 200
-enum POWERUPS {LassoSize, StunTime, PenKickArea, LassoReach, PlayerSpeed}
-var POWERUP_LIST = ["Lasso Length", "Stun Time", "Pen Kick Area", "Lasso Reach", "Player Speed"]
+var timer_bonus = 0
+enum POWERUPS {LassoSize, StunTime, PenKickArea, LassoReach, PlayerSpeed, TimerBonus}
+var POWERUP_LIST = ["Lasso Length", "Stun Time", "Pen Kick Area", "Lasso Reach", "Player Speed", "Timer Bonus"]
 var POWERUP_ICONS = {
 	"Lasso Length": preload("res://assets/graphics/powerups/upgrades/lasso_length.png"),
 	"Stun Time": preload("res://assets/graphics/powerups/upgrades/animal_stun_time.png"),
 	"Pen Kick Area": preload("res://assets/graphics/powerups/upgrades/kick_power.png"),
 	"Lasso Reach": preload("res://assets/graphics/powerups/upgrades/lasso_reach.png"),
-	"Player Speed": preload("res://assets/graphics/powerups/upgrades/speed.png")
+	"Player Speed": preload("res://assets/graphics/powerups/upgrades/speed.png"),
+	"Timer Bonus": preload("res://assets/graphics/powerups/upgrades/timer_bonus.png")
 }
 var POWERUP_INCREASES = {
 	POWERUPS.LassoSize: 50,
 	POWERUPS.StunTime: 0.5,
 	POWERUPS.PenKickArea: 20,
 	POWERUPS.LassoReach: 50,
-	POWERUPS.PlayerSpeed: 50
+	POWERUPS.PlayerSpeed: 50,
+	POWERUPS.TimerBonus: 1
 }
 var POWERUP_DESCRIPTIONS = {
 	POWERUPS.LassoSize: "Increases the length of lasso that can be used to draw a loop",
 	POWERUPS.StunTime: "Increases the time in seconds that an animal remains stunned",
 	POWERUPS.PenKickArea: "Increases the radius of the area surrounding pens in which animals can be kicked",
 	POWERUPS.LassoReach: "Increases how far away from your character you can start drawing your loop",
-	POWERUPS.PlayerSpeed: "Increases your character's speed"
+	POWERUPS.PlayerSpeed: "Increases your character's speed",
+	POWERUPS.TimerBonus: "Increases the time bonus received from capturing an animal"
 }
 
 var max_combo: int = 0
@@ -66,7 +70,8 @@ var powerup_selections: Dictionary[String, int] = {
 	"Stun Time": 0,
 	"Pen Kick Area": 0,
 	"Lasso Reach": 0,
-	"Player Speed": 0
+	"Player Speed": 0,
+	"Timer Bonus": 0
 }
 
 func _ready():
@@ -85,6 +90,7 @@ func reset_game_state():
 	pen_kick_area = 200
 	endless_rounds = 0
 	endless_mult = 1
+	timer_bonus = 0
 	player_speed = 400
 
 func toggle_pause_menu():
@@ -105,6 +111,8 @@ func apply_powerup(powerup: int):
 			player_lasso_reach += POWERUP_INCREASES[powerup]
 		POWERUPS.PlayerSpeed:
 			player_speed += POWERUP_INCREASES[powerup]
+		POWERUPS.TimerBonus:
+			timer_bonus += 1
 		_:
 			print("Invalid powerup")
 
@@ -120,6 +128,8 @@ func get_current_powerup_value(powerup: int):
 			return player_lasso_reach
 		POWERUPS.PlayerSpeed:
 			return player_speed
+		POWERUPS.TimerBonus:
+			return timer_bonus
 		_:
 			print("Invalid powerup")
 
@@ -129,11 +139,12 @@ func add_time(type: String, combo: int):
 	#var combo_bonus = 0.0
 	#if combo > 2:
 		#combo_bonus = clampi(combo, 2, 10) / 2
-	#var total = time_bonus + combo_bonus
+	var total = time_bonus + timer_bonus
 	game_timer.stop()
-	game_timer.wait_time = time_left + time_bonus
+	print(timer_bonus)
+	game_timer.wait_time = time_left + total
 	game_timer.start()
-	hud.add_time(time_bonus)
+	hud.add_time(total)
 
 func update_timer():
 	pass

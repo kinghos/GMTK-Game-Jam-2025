@@ -1,6 +1,6 @@
 extends Control
 
-const MAIN_MENU_MUSIC = preload("res://assets/audio/music/intro+main menu.mp3")
+const MAIN_MENU_MUSIC = preload("res://assets/audio/music/intro+main menu.wav")
 
 @onready var endless_button: Button = $VBoxContainer/EndlessButton
 

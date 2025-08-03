@@ -80,7 +80,8 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause") and not prevent_pause:
 		toggle_pause_menu()
-
+	if Input.is_action_just_pressed("Camera Zoom") and not Globals.player.already_zooming and not Globals.current_level.in_countdown:
+		Globals.player.zoom_out()
 
 func reset_game_state():
 	for key in powerup_selections.keys():

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ccewnaer85wm4" path="res://scenes/animals/chicken.tscn" id="5_5vn0v"]
 
 [node name="Level4" instance=ExtResource("1_06474")]
+zoom_out_camera_level = 0.8
 next_level = "res://scenes/levels/level_5.tscn"
 
 [node name="Water" parent="Tilemap" index="0"]

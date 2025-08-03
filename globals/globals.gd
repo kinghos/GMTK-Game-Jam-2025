@@ -8,6 +8,7 @@ var level_number: String = "1"
 var pause_menu: CanvasLayer = null
 var hud: CanvasLayer
 var endless_mult: float = 1
+var player_speed: int = 400
 
 # Powerup values
 var player_lasso_reach = 300
@@ -102,7 +103,7 @@ func apply_powerup(powerup: int):
 		POWERUPS.LassoReach:
 			player_lasso_reach += POWERUP_INCREASES[powerup]
 		POWERUPS.PlayerSpeed:
-			player.speed += POWERUP_INCREASES[powerup]
+			player_speed += POWERUP_INCREASES[powerup]
 		_:
 			print("Invalid powerup")
 

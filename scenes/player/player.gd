@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed = 400
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var lasso_start: Marker2D = $LassoStart
@@ -33,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 	elif direction.x > 0:
 		animated_sprite_2d.flip_h = false
-	velocity = speed * direction
+	velocity = Globals.player_speed * direction
 	if !(animated_sprite_2d.animation == "kick" and animated_sprite_2d.is_playing()):
 		if velocity != Vector2.ZERO:
 			animated_sprite_2d.play("run")

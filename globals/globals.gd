@@ -57,6 +57,8 @@ var unlocked_endless: bool = false
 var wait_time: float
 var time_elapsed: float
 var time_left: float
+var timer_mult: float = 1
+var endless_rounds: int = 0
 var prevent_pause: bool = false
 var powerup_selections: Dictionary[String, int] = {
 	"Lasso Length": 0,
@@ -80,6 +82,8 @@ func reset_game_state():
 	player_lasso_reach = 500
 	stun_time = 1
 	pen_kick_area = 250
+	endless_rounds = 0
+	endless_mult = 1
 
 func toggle_pause_menu():
 	if pause_menu:
@@ -128,3 +132,6 @@ func add_time(type: String, combo: int):
 	game_timer.wait_time = time_left + time_bonus
 	game_timer.start()
 	hud.add_time(time_bonus)
+
+func update_timer():
+	pass

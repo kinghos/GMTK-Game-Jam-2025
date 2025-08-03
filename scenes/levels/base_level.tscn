@@ -31,7 +31,7 @@ tile_set = ExtResource("2_j7gcg")
 z_index = 1
 tile_set = ExtResource("2_j7gcg")
 
-[node name="Details" type="TileMapLayer" parent="Tilemap"]
+[node name="Details" type="TileMapLayer" parent="."]
 tile_set = ExtResource("2_j7gcg")
 
 [node name="CameraBounds" type="Node2D" parent="."]

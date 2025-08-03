@@ -385,5 +385,5 @@ material = SubResource("ShaderMaterial_jhwbb")
 [node name="Ice" parent="." index="10"]
 scale = Vector2(1.4, 1.4)
 
-[node name="AudioStreamPlayer" parent="." index="12"]
+[node name="AnimalASP" parent="." index="12"]
 stream = SubResource("AudioStreamRandomizer_6t8lt")

@@ -18,10 +18,14 @@ var animal_scenes = {
 }
 
 func _ready() -> void:
-	super()
+	for i in range(Globals.endless_rounds):
+		Globals.endless_mult *= 1.5
+		Globals.timer_mult *= 1.1
+	game_timer.wait_time *= Globals.timer_mult
 	print("Animals in pen %s" % (animal_numbers["Sheep"] * Globals.endless_mult))
 	generate_animals()
 	generate_pens()
+	super()
 
 func generate_animals():
 	for animal: String in animal_numbers:
@@ -35,7 +39,7 @@ func generate_animals():
 			animals_parent.get_node(ani_name).add_child(new_animal)
 
 func _on_overlay_powerup_selected() -> void:
-	Globals.endless_mult *= 1.5
+	Globals.endless_rounds += 1
 	super()
 
 func generate_pens():
@@ -43,7 +47,7 @@ func generate_pens():
 	var first_chicken = true
 	var first_sheep = true
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
-		var num_animals = animal_numbers["Sheep"]
+		var num_animals = int(animal_numbers["Sheep"] * Globals.endless_mult)
 		pen.max_animals = num_animals / 2
 		var remainder = num_animals % 2
 		if remainder:
@@ -53,7 +57,7 @@ func generate_pens():
 			if first_sheep and pen.animal_type == "Sheep":
 				pen.max_animals += 1
 				first_sheep = false
-			if first_chicken and pen.animal_type == "Cow":
+			if first_chicken and pen.animal_type == "Chicken":
 				pen.max_animals += 1
 				first_chicken = false
 
@@ -68,4 +72,8 @@ func get_random_region():
 		randi_range(top_left.y, bottom_right.y))
 	return random_point
 		
-		
+	
+
+
+func _on_button_pressed() -> void:
+	change_to_next_level()

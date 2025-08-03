@@ -4,18 +4,10 @@ extends CanvasLayer
 @onready var anim_marker: Control = $Control/AnimMarker
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var lasso_bar: HSlider = $Control/LassoBar
-@onready var powerup_display: VBoxContainer = $Control/PowerupDisplay
+@onready var powerup_display: HBoxContainer = $Control/PowerupDisplay
 @onready var level_display: Label = $Control/LevelDisplay
 
 const TIMER_ANIM = preload("res://scenes/ui/gameplay/timer_anim.tscn")
-var powerup_dict = {
-	"Lasso Length": "Control/PowerupDisplay/Row2/LassoSize",
-	"Stun Time": "Control/PowerupDisplay/Row1/StunTime",
-	"Pen Kick Area": "Control/PowerupDisplay/Row3/KickPower",
-	"Lasso Reach": "Control/PowerupDisplay/Row2/LassoReach",
-	"Player Speed": "Control/PowerupDisplay/Row1/Speed",
-	"Timer Bonus": "Control/PowerupDisplay/Row3/TimerBonus"
-}
 
 func _process(_delta: float) -> void:
 	if Globals.level_number == "∞":
@@ -29,7 +21,7 @@ func _process(_delta: float) -> void:
 func _ready() -> void:
 	for powerup in Globals.powerup_selections:
 		var powerup_count = Globals.powerup_selections[powerup]
-		var icon: TextureRect = get_node(powerup_dict[powerup])
+		var icon: TextureRect = powerup_display.get_node(powerup)
 		if powerup_count > 0:
 			icon.material.set_shader_parameter("enabled", false)
 		icon.get_node("Label").text = str(powerup_count)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cosx8yfyfkpk0"]
+[gd_scene load_steps=3 format=3 uid="uid://capx2sxlpmjr2"]
 
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_ff7ol"]
 [ext_resource type="Script" uid="uid://cdxf3a8gftku7" path="res://scenes/ui/menus/endless_mode_unlocked.gd" id="2_djcbf"]

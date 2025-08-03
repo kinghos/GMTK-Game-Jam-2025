@@ -23,19 +23,13 @@ void fragment() {
 	}	
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e3pce"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_38tne"]
 resource_local_to_scene = true
 shader = SubResource("Shader_a4wg4")
 shader_parameter/weighted = true
 shader_parameter/enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_65qlr"]
-resource_local_to_scene = true
-shader = SubResource("Shader_a4wg4")
-shader_parameter/weighted = true
-shader_parameter/enabled = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_38tne"]
 resource_local_to_scene = true
 shader = SubResource("Shader_a4wg4")
 shader_parameter/weighted = true
@@ -48,6 +42,12 @@ shader_parameter/weighted = true
 shader_parameter/enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kffq2"]
+resource_local_to_scene = true
+shader = SubResource("Shader_a4wg4")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e3pce"]
 resource_local_to_scene = true
 shader = SubResource("Shader_a4wg4")
 shader_parameter/weighted = true
@@ -174,129 +174,131 @@ offset_bottom = 108.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 0.392157)
 
-[node name="Powerups" type="Label" parent="Control"]
-layout_mode = 2
-offset_left = 3.0
-offset_top = 26.0
-offset_right = 214.0
-offset_bottom = 82.0
-theme_override_font_sizes/font_size = 55
-text = "Powerups"
-
 [node name="LevelDisplay" type="Label" parent="Control"]
-layout_mode = 2
-offset_left = 385.0
+offset_left = 890.0
 offset_top = -2.0
-offset_right = 545.0
-offset_bottom = 104.0
+offset_right = 1031.0
+offset_bottom = 106.0
 theme_override_font_sizes/font_size = 55
 text = "Level 1"
 vertical_alignment = 1
 
-[node name="PowerupDisplay" type="VBoxContainer" parent="Control"]
+[node name="PowerupDisplay" type="HBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = 234.0
-offset_top = 1.0
-offset_right = 328.0
-offset_bottom = 105.0
+offset_left = 25.0
+offset_top = 5.0
+offset_right = 725.0
+offset_bottom = 103.0
+theme_override_constants/separation = 20
 
-[node name="Row1" type="HBoxContainer" parent="Control/PowerupDisplay"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="Speed" type="TextureRect" parent="Control/PowerupDisplay/Row1"]
-material = SubResource("ShaderMaterial_e3pce")
-layout_mode = 2
-texture = ExtResource("3_a4wg4")
-
-[node name="Label" type="Label" parent="Control/PowerupDisplay/Row1/Speed"]
-layout_mode = 0
-offset_left = 36.0
-offset_right = 76.0
-offset_bottom = 31.0
-text = "0"
-
-[node name="StunTime" type="TextureRect" parent="Control/PowerupDisplay/Row1"]
-material = SubResource("ShaderMaterial_65qlr")
-layout_mode = 2
-texture = ExtResource("4_65qlr")
-
-[node name="Label" type="Label" parent="Control/PowerupDisplay/Row1/StunTime"]
-layout_mode = 0
-offset_left = 36.0
-offset_right = 76.0
-offset_bottom = 31.0
-text = "0"
-
-[node name="Row2" type="HBoxContainer" parent="Control/PowerupDisplay"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="LassoReach" type="TextureRect" parent="Control/PowerupDisplay/Row2"]
+[node name="Lasso Reach" type="TextureRect" parent="Control/PowerupDisplay"]
 material = SubResource("ShaderMaterial_38tne")
 layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("5_e3pce")
 
-[node name="Label" type="Label" parent="Control/PowerupDisplay/Row2/LassoReach"]
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Lasso Reach"]
+z_index = 1
 layout_mode = 0
-offset_left = 36.0
-offset_right = 76.0
-offset_bottom = 31.0
+offset_left = 78.0
+offset_top = 58.0
+offset_right = 101.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 50
 text = "0"
 
-[node name="LassoSize" type="TextureRect" parent="Control/PowerupDisplay/Row2"]
+[node name="Stun Time" type="TextureRect" parent="Control/PowerupDisplay"]
+material = SubResource("ShaderMaterial_65qlr")
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_65qlr")
+
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Stun Time"]
+z_index = 1
+layout_mode = 0
+offset_left = 78.0
+offset_top = 58.0
+offset_right = 118.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="Lasso Length" type="TextureRect" parent="Control/PowerupDisplay"]
 material = SubResource("ShaderMaterial_a3q0n")
 layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("6_38tne")
 
-[node name="Label" type="Label" parent="Control/PowerupDisplay/Row2/LassoSize"]
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Lasso Length"]
+z_index = 1
 layout_mode = 0
-offset_left = 36.0
-offset_right = 76.0
-offset_bottom = 31.0
+offset_left = 78.0
+offset_top = 58.0
+offset_right = 118.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 50
 text = "0"
 
-[node name="Row3" type="HBoxContainer" parent="Control/PowerupDisplay"]
-layout_mode = 2
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="KickPower" type="TextureRect" parent="Control/PowerupDisplay/Row3"]
+[node name="Pen Kick Area" type="TextureRect" parent="Control/PowerupDisplay"]
 material = SubResource("ShaderMaterial_kffq2")
 layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("7_a3q0n")
 
-[node name="Label" type="Label" parent="Control/PowerupDisplay/Row3/KickPower"]
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Pen Kick Area"]
+z_index = 1
 layout_mode = 0
-offset_left = 36.0
-offset_right = 76.0
-offset_bottom = 31.0
+offset_left = 78.0
+offset_top = 58.0
+offset_right = 118.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 50
 text = "0"
 
-[node name="TimerBonus" type="TextureRect" parent="Control/PowerupDisplay/Row3"]
+[node name="Timer Bonus" type="TextureRect" parent="Control/PowerupDisplay"]
 material = SubResource("ShaderMaterial_kffq2")
 layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("8_65qlr")
 
-[node name="Label" type="Label" parent="Control/PowerupDisplay/Row3/TimerBonus"]
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Timer Bonus"]
+z_index = 1
 layout_mode = 0
-offset_left = 36.0
-offset_right = 76.0
-offset_bottom = 31.0
+offset_left = 78.0
+offset_top = 58.0
+offset_right = 118.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="Player Speed" type="TextureRect" parent="Control/PowerupDisplay"]
+material = SubResource("ShaderMaterial_e3pce")
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_a4wg4")
+
+[node name="Label" type="Label" parent="Control/PowerupDisplay/Player Speed"]
+z_index = 1
+layout_mode = 0
+offset_left = 78.0
+offset_top = 58.0
+offset_right = 118.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 50
 text = "0"
 
 [node name="TimeLeft" type="Label" parent="Control"]
-layout_mode = 0
 offset_left = 1400.0
-offset_top = 23.0
+offset_top = 26.0
 offset_right = 1879.0
-offset_bottom = 85.0
+offset_bottom = 82.0
 pivot_offset = Vector2(239.5, 31)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 55
 text = "Time Left: "
 
 [node name="AnimMarker" type="Control" parent="Control"]
+layout_mode = 3
 anchors_preset = 0
 offset_left = 1601.0
 offset_top = 126.0
@@ -309,8 +311,8 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -400.0
-offset_top = 38.0
-offset_bottom = 54.0
+offset_top = 126.0
+offset_bottom = 142.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 theme_override_icons/grabber_disabled = SubResource("ImageTexture_xsw5n")
@@ -332,7 +334,7 @@ libraries = {
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
 offset_left = 560.0
-offset_top = 43.0
+offset_top = 131.0
 offset_right = 1360.0
-offset_bottom = 65.0
+offset_bottom = 153.0
 color = Color(0, 0, 0, 0.278431)

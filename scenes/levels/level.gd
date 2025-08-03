@@ -1,6 +1,8 @@
 extends Node2D
 class_name Level
 
+@export var zoom_out_camera_level: float = 1.0
+
 @onready var overlay: CanvasLayer = $Overlay
 @onready var start_countdown: CanvasLayer = $StartCountdown
 @export var next_level: String

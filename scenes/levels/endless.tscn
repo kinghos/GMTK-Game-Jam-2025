@@ -6,14 +6,17 @@
 
 [sub_resource type="InputEventKey" id="InputEventKey_uergm"]
 device = -1
-keycode = 72
-unicode = 104
+alt_pressed = true
+shift_pressed = true
+ctrl_pressed = true
+keycode = 74
 
 [sub_resource type="Shortcut" id="Shortcut_qyjdh"]
 events = [SubResource("InputEventKey_uergm")]
 
 [node name="Endless" instance=ExtResource("1_ywrxy")]
 script = ExtResource("2_0kge5")
+zoom_out_camera_level = 0.65
 next_level = "res://scenes/levels/endless.tscn"
 
 [node name="Water" parent="Tilemap" index="0"]
@@ -110,9 +113,11 @@ position = Vector2(-1389, -112)
 [node name="Bottom" type="Marker2D" parent="AnimalSpawnRegions/Region4" index="1"]
 position = Vector2(1411, 65)
 
-[node name="Button" type="Button" parent="." index="12"]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Button" type="Button" parent="." index="13"]
+offset_left = -4886.0
+offset_top = -923.0
+offset_right = -4878.0
+offset_bottom = -915.0
 shortcut = SubResource("Shortcut_qyjdh")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

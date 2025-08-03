@@ -19,8 +19,8 @@ var animal_scenes = {
 
 func _ready() -> void:
 	for i in range(Globals.endless_rounds):
-		Globals.endless_mult *= 1.5
-		Globals.timer_mult *= 1.2
+		Globals.endless_mult *= 1.2
+		Globals.timer_mult *= 1.1
 	game_timer.stop()
 	game_timer.wait_time *= Globals.timer_mult
 	game_timer.start()

@@ -145,6 +145,6 @@ func stun_animals_in_lasso():
 						animal.combo_count += 1
 						if animal.combo_count > 1:
 							animal.combo_counter.text = "x%s" % animal.combo_count
-							animal.show_combo_count()
+							animal.show_combo_count(false)
 					animal.stun(i)
 					i += 1

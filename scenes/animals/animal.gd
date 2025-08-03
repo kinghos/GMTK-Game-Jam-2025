@@ -126,14 +126,14 @@ func kick():
 	if combo_count > 1:
 		combo_count += 1
 		combo_counter.text = "x%s" % combo_count
-		show_combo_count()
+		show_combo_count(false)
 	
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
 	if combo_count > 1 and not no_congratulation_this_kick:
 		combo_counter.text = Globals.cowboy_congratulations.pick_random()
-		show_combo_count()
+		show_combo_count(true)
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false
 	being_kicked = false
@@ -161,10 +161,15 @@ func stun(index: int = 1):
 	await tween.finished
 	stun_timer.start()
 
-func show_combo_count():
+func show_combo_count(congratulations: bool):
+	var anim = "update counter"
+	if congratulations:
+		anim = "congratulations"
+		var idx = AudioServer.get_bus_index("Combo")
+		AudioServer.get_bus_effect(idx, 0).pitch_scale = 1
 	if combo_animation_player.is_playing():
 		combo_animation_player.stop()
-	combo_animation_player.play("update counter")
+	combo_animation_player.play(anim)
 
 func _on_stun_timer_timeout() -> void:	
 	animation_player.stop()
@@ -199,7 +204,7 @@ func change_combo_pitch():
 	print(pitch_shift)
 	if combo_count == 2:
 		pitch_shift.pitch_scale = 1
-	elif combo_count < 10 and combo_count > 2:
+	elif combo_count < 8 and combo_count > 2:
 		for i in range(2, combo_count):
 			print(SEMITONE_MULT)
 			pitch_shift.pitch_scale *= SEMITONE_MULT

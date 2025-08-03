@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c730r02j0a3ic"]
+[gd_scene load_steps=20 format=3 uid="uid://c730r02j0a3ic"]
 
 [ext_resource type="Script" uid="uid://bodcxjeobaic" path="res://scenes/animals/animal.gd" id="1_a68rm"]
 [ext_resource type="Texture2D" uid="uid://cjv6h5aem5r4u" path="res://assets/graphics/misc/star_particle.png" id="2_4f3xh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="4_qmecq"]
 [ext_resource type="Shader" uid="uid://cgd35j7ohkq3b" path="res://globals/outline.gdshader" id="5_ivvwm"]
 [ext_resource type="Texture2D" uid="uid://b0pe6g1bqt4xu" path="res://assets/graphics/animals/kick_icon.png" id="6_dufb3"]
+[ext_resource type="AudioStream" uid="uid://d3ld1xahdff7k" path="res://assets/audio/sfx/combo.wav" id="8_v6psc"]
 
 [sub_resource type="Animation" id="Animation_qmecq"]
 length = 0.001
@@ -87,7 +88,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_ivvwm"]
 resource_name = "update counter"
 length = 0.75
-step = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -123,6 +124,35 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ComboASP")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_v6psc")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_combo_pitch"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v6psc"]
@@ -274,8 +304,11 @@ texture = ExtResource("2_dufb3")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AnimalASP" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_dufb3")
+
+[node name="ComboASP" type="AudioStreamPlayer" parent="."]
+bus = &"Combo"
 
 [connection signal="body_entered" from="KickRange" to="." method="_on_kick_range_body_entered"]
 [connection signal="body_exited" from="KickRange" to="." method="_on_kick_range_body_exited"]

@@ -16,6 +16,7 @@ var audio_dict = {
 	
 }
 
+const SEMITONE_MULT = 1.0594630943
 
 @export var speed = 75
 @export_enum("Sheep", "Cow", "Chicken") var type: String
@@ -29,7 +30,8 @@ var audio_dict = {
 @onready var stun_timer: Timer = $StunTimer
 @onready var random_movement_timer: Timer = $RandomMovementTimer
 @onready var combo_animation_player: AnimationPlayer = $ComboCounter/AnimationPlayer
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var animal_asp: AudioStreamPlayer = $AnimalASP
+@onready var combo_asp: AudioStreamPlayer = $ComboASP
 
 var direction
 
@@ -38,8 +40,8 @@ func _ready() -> void:
 	random_movement_timer.wait_time *= randf_range(0.8, 1.2)
 	_on_random_movement_timer_timeout()
 	random_movement_timer.start()
-	audio_stream_player.stream.set_stream(0, audio_dict[type])
-	audio_stream_player.stream.get_stream(0).resource_local_to_scene = true
+	animal_asp.stream.set_stream(0, audio_dict[type])
+	animal_asp.stream.get_stream(0).resource_local_to_scene = true
 	
 	
 
@@ -117,7 +119,7 @@ func kick():
 		end_pos = closest_pen.global_position
 	
 	animation_player.play("kicked")
-	audio_stream_player.play()
+	play_sfx()
 	kick_particles.emitting = true
 	collision_shape_2d.set_deferred("disabled", true)
 	animated_sprite_2d.animation = "idle"
@@ -152,7 +154,7 @@ func stun(index: int = 1):
 	
 	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	kick_particles.emitting = true
-	audio_stream_player.play()
+	play_sfx()
 	animated_sprite_2d.animation = "stun"
 	animation_player.play("stun")
 	
@@ -186,3 +188,20 @@ func _on_screen_entered() -> void:
 
 func _on_screen_exited() -> void:
 	Globals.current_level.animals_on_screen.erase(self)
+
+func play_sfx():
+	if randi() % 2 == 0:
+		animal_asp.play()
+
+func change_combo_pitch():
+	var idx = AudioServer.get_bus_index("Combo")
+	var pitch_shift: AudioEffectPitchShift = AudioServer.get_bus_effect(idx, 0)
+	print(pitch_shift)
+	if combo_count == 2:
+		pitch_shift.pitch_scale = 1
+	elif combo_count < 10 and combo_count > 2:
+		for i in range(2, combo_count):
+			print(SEMITONE_MULT)
+			pitch_shift.pitch_scale *= SEMITONE_MULT
+			print(pitch_shift.pitch_scale)
+	pass

@@ -8,3 +8,6 @@ func play_music(music: AudioStream):
 	asp.stream = music
 	asp.bus = "Music"
 	asp.play()
+
+func stop_music():
+	asp.stop()

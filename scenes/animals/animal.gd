@@ -138,6 +138,7 @@ func kick():
 	animated_sprite_2d.animation = "walk"
 	collision_shape_2d.disabled = false
 	being_kicked = false
+	in_wrong_pen = false
 	if combo_animation_player.is_playing():
 		await combo_animation_player.animation_finished
 

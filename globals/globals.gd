@@ -74,6 +74,10 @@ var powerup_selections: Dictionary[String, int] = {
 	"Timer Bonus": 0
 }
 
+var uncaptured_cows: int = 0
+var uncaptured_chickens: int = 0
+var uncaptured_sheep: int = 0
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 

@@ -47,6 +47,8 @@ func _process(_delta: float) -> void:
 					await animation_player.animation_finished
 					animation_player.play_backwards("cross")
 					cross.hide()
+	else:
+		tick.hide()
 	
 	var correct_animal_count: int = 0
 	for animal in animals_in_pen_enclosure:
@@ -84,6 +86,13 @@ func _on_pen_enclosure_body_entered(body: Node2D) -> void:
 			animals_in_kick_area.erase(body)
 		animals_in_pen_enclosure.append(body)
 		body.in_pen = true
+		match animal_type:
+			"Cow":
+				Globals.uncaptured_cows -= 1
+			"Sheep":
+				Globals.uncaptured_sheep -= 1
+			"Chicken":
+				Globals.uncaptured_chickens -= 1
 		if body.type != animal_type or full:
 			body.in_wrong_pen = true
 			animation_player.play("cross")
@@ -112,6 +121,13 @@ func _on_pen_enclosure_body_exited(body: Node2D) -> void:
 			body.in_wrong_pen = false
 		animals_in_pen_enclosure.erase(body)
 		body.in_pen = false
+		match animal_type:
+			"Cow":
+				Globals.uncaptured_cows += 1
+			"Sheep":
+				Globals.uncaptured_sheep += 1
+			"Chicken":
+				Globals.uncaptured_chickens += 1
 
 func get_random_point():
 	var pen_center = global_position

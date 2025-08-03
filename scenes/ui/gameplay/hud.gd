@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var lasso_bar: HSlider = $Control/LassoBar
 @onready var powerup_display: HBoxContainer = $Control/PowerupDisplay
 @onready var level_display: Label = $Control/LevelDisplay
+@onready var uncaptured_display: HBoxContainer = $Control/UncapturedDisplay
 
 const TIMER_ANIM = preload("res://scenes/ui/gameplay/timer_anim.tscn")
 
@@ -17,6 +18,10 @@ func _process(_delta: float) -> void:
 	lasso_bar.max_value = Globals.lasso.MAX_LASSO_LENGTH
 	lasso_bar.value = Globals.lasso.MAX_LASSO_LENGTH - Globals.lasso.current_lasso_length
 	time_left.text = "Time Left: %3.3fs" % Globals.time_left
+	
+	uncaptured_display.get_node("Sheep/Label").text = str(Globals.uncaptured_sheep)
+	uncaptured_display.get_node("Cows/Label").text = str(Globals.uncaptured_cows)
+	uncaptured_display.get_node("Chickens/Label").text = str(Globals.uncaptured_chickens)
 
 func _ready() -> void:
 	for powerup in Globals.powerup_selections:
@@ -24,6 +29,8 @@ func _ready() -> void:
 		var icon: TextureRect = powerup_display.get_node(powerup)
 		if powerup_count > 0:
 			icon.material.set_shader_parameter("enabled", false)
+		else:
+			icon.material.set_shader_parameter("enabled", true)
 		icon.get_node("Label").text = str(powerup_count)
 
 func add_time(time_added: float):

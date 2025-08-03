@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bqj5beox7atc5"]
+[gd_scene load_steps=28 format=3 uid="uid://bqj5beox7atc5"]
 
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_0mwgc"]
 [ext_resource type="Script" uid="uid://b60n3csy1oq4y" path="res://scenes/ui/gameplay/hud.gd" id="1_hqnrr"]
@@ -9,8 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://cokmp08eeb6g5" path="res://assets/graphics/powerups/upgrades/borderless/kick_power.png" id="6_a3q0n"]
 [ext_resource type="Texture2D" uid="uid://dhspknhbdymam" path="res://assets/graphics/powerups/upgrades/borderless/timer_bonus.png" id="7_kffq2"]
 [ext_resource type="Texture2D" uid="uid://xvk716g8ipar" path="res://assets/graphics/powerups/upgrades/borderless/speed.png" id="8_ds2e3"]
+[ext_resource type="Texture2D" uid="uid://cn2qqfnu41blc" path="res://assets/graphics/animals/sheep_icon.png" id="10_a3q0n"]
 [ext_resource type="Texture2D" uid="uid://bipfrpbf8smk7" path="res://assets/graphics/misc/item_frame.png" id="10_e3pce"]
 [ext_resource type="Texture2D" uid="uid://gfy7wvgrsn40" path="res://assets/graphics/misc/spacebar.png" id="11_38tne"]
+[ext_resource type="Texture2D" uid="uid://du50sjms5y6q4" path="res://assets/graphics/animals/cow_icon.png" id="11_kffq2"]
+[ext_resource type="Texture2D" uid="uid://2munlw3feyts" path="res://assets/graphics/animals/chicken_icon.png" id="12_ds2e3"]
 
 [sub_resource type="Shader" id="Shader_a4wg4"]
 resource_local_to_scene = true
@@ -176,6 +179,28 @@ offset_bottom = 108.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 0.392157)
 
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 17.0
+offset_top = 113.0
+offset_right = -1590.0
+offset_bottom = 173.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="ColorRect3" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1586.0
+offset_top = 112.0
+offset_right = -51.0
+offset_bottom = 172.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.392157)
+
 [node name="LevelDisplay" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 890.0
@@ -304,10 +329,10 @@ text = "Time Left: "
 [node name="AnimMarker" type="Control" parent="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1601.0
-offset_top = 126.0
-offset_right = 1601.0
-offset_bottom = 126.0
+offset_left = 1411.0
+offset_top = 141.0
+offset_right = 1411.0
+offset_bottom = 141.0
 
 [node name="LassoBar" type="HSlider" parent="Control"]
 layout_mode = 1
@@ -328,6 +353,54 @@ editable = false
 scrollable = false
 tick_count = 2
 ticks_on_borders = true
+
+[node name="UncapturedDisplay" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 111.0
+offset_right = 197.0
+offset_bottom = 151.0
+scale = Vector2(1.5, 1.5)
+theme_override_constants/separation = 20
+
+[node name="Sheep" type="TextureRect" parent="Control/UncapturedDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("10_a3q0n")
+
+[node name="Label" type="Label" parent="Control/UncapturedDisplay/Sheep"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 35.0
+text = "X"
+
+[node name="Cows" type="TextureRect" parent="Control/UncapturedDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("11_kffq2")
+
+[node name="Label" type="Label" parent="Control/UncapturedDisplay/Cows"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 35.0
+text = "X"
+
+[node name="Chickens" type="TextureRect" parent="Control/UncapturedDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_ds2e3")
+
+[node name="Label" type="Label" parent="Control/UncapturedDisplay/Chickens"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 35.0
+text = "X"
 
 [node name="ZoomOut" type="TextureButton" parent="Control"]
 layout_mode = 0
@@ -396,3 +469,10 @@ offset_top = 131.0
 offset_right = 1360.0
 offset_bottom = 153.0
 color = Color(0, 0, 0, 0.278431)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = -1
+offset_left = 558.0
+offset_top = 131.0
+offset_right = 1362.0
+offset_bottom = 153.0

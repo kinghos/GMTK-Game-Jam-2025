@@ -17,14 +17,13 @@ var powerup_dict = {
 }
 
 func _process(_delta: float) -> void:
-	level_display.text = "Level " + Globals.level_number
+	if Globals.level_number == "∞":
+		level_display.text = "Endless"
+	else:
+		level_display.text = "Level " + Globals.level_number
 	lasso_bar.max_value = Globals.lasso.MAX_LASSO_LENGTH
 	lasso_bar.value = Globals.lasso.MAX_LASSO_LENGTH - Globals.lasso.current_lasso_length
 	time_left.text = "Time Left: %3.3fs" % Globals.time_left
-	if get_parent().in_countdown:
-		hide()
-	else:
-		show()
 
 func _ready() -> void:
 	for powerup in Globals.powerup_selections:
@@ -33,7 +32,6 @@ func _ready() -> void:
 		if powerup_count > 0:
 			icon.material.set_shader_parameter("enabled", false)
 		icon.get_node("Label").text = str(powerup_count)
-		
 
 func add_time(time_added: float):
 	var timer_anim: HBoxContainer = TIMER_ANIM.instantiate()

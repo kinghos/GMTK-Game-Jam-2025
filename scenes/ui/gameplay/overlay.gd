@@ -59,6 +59,13 @@ func randomise_powerup_options():
 func trigger_game_over():
 	animation_player.play("game_over")
 	Music.stop_music()
+	var level_num = 0
+	if Globals.level_number != "∞":
+		level_num = int(Globals.level_number) - 1
+	else:
+		level_num = 5
+	level_num += Globals.endless_rounds 
+	game_over_screen.get_node("Label").text = "Rounds cleared: %s" % level_num
 
 func _on_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/menus/title_screen.tscn")

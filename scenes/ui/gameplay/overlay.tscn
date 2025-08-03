@@ -475,6 +475,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("2_gdab8")
 
 [node name="TextureRect" type="TextureRect" parent="GameOver"]
 layout_mode = 1
@@ -538,6 +539,17 @@ texture_normal = ExtResource("3_58yyj")
 texture_hover = ExtResource("4_vc0qd")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameOver"]
+
+[node name="Label" type="Label" parent="GameOver"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 964.0
+offset_right = 1328.0
+offset_bottom = 1028.0
+theme_override_font_sizes/font_size = 59
+text = "Rounds cleared: "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RoundEnd" type="Control" parent="."]
 visible = false

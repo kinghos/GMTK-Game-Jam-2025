@@ -52,7 +52,6 @@ bound_type = "right"
 [node name="HUD" parent="." instance=ExtResource("4_43bxi")]
 
 [node name="Overlay" parent="." instance=ExtResource("3_fal5o")]
-visible = false
 
 [node name="StartCountdown" parent="." instance=ExtResource("5_53c65")]
 layer = 2

@@ -80,8 +80,10 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause") and not prevent_pause:
 		toggle_pause_menu()
-	if Input.is_action_just_pressed("Camera Zoom") and not Globals.player.already_zooming and not Globals.current_level.in_countdown:
-		Globals.player.zoom_out()
+	if Input.is_action_just_pressed("Camera Zoom") and not player.already_zooming and not current_level.in_countdown:
+		player.zoom_out()
+	if Input.is_action_just_pressed("Unlock Endless"):
+		unlocked_endless = true
 
 func reset_game_state():
 	for key in powerup_selections.keys():

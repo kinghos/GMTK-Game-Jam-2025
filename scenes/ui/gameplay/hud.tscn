@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bqj5beox7atc5"]
+[gd_scene load_steps=25 format=3 uid="uid://bqj5beox7atc5"]
 
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="1_0mwgc"]
 [ext_resource type="Script" uid="uid://b60n3csy1oq4y" path="res://scenes/ui/gameplay/hud.gd" id="1_hqnrr"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cokmp08eeb6g5" path="res://assets/graphics/powerups/upgrades/borderless/kick_power.png" id="6_a3q0n"]
 [ext_resource type="Texture2D" uid="uid://dhspknhbdymam" path="res://assets/graphics/powerups/upgrades/borderless/timer_bonus.png" id="7_kffq2"]
 [ext_resource type="Texture2D" uid="uid://xvk716g8ipar" path="res://assets/graphics/powerups/upgrades/borderless/speed.png" id="8_ds2e3"]
+[ext_resource type="Texture2D" uid="uid://bipfrpbf8smk7" path="res://assets/graphics/misc/item_frame.png" id="10_e3pce"]
+[ext_resource type="Texture2D" uid="uid://gfy7wvgrsn40" path="res://assets/graphics/misc/spacebar.png" id="11_38tne"]
 
 [sub_resource type="Shader" id="Shader_a4wg4"]
 resource_local_to_scene = true
@@ -326,6 +328,60 @@ editable = false
 scrollable = false
 tick_count = 2
 ticks_on_borders = true
+
+[node name="ZoomOut" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1594.0
+offset_top = 126.0
+offset_right = 1626.0
+offset_bottom = 158.0
+texture_normal = ExtResource("10_e3pce")
+texture_pressed = ExtResource("10_e3pce")
+texture_hover = ExtResource("10_e3pce")
+texture_disabled = ExtResource("10_e3pce")
+texture_focused = ExtResource("10_e3pce")
+
+[node name="Label" type="Label" parent="Control/ZoomOut"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -5.0
+offset_right = 26.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 40
+text = "R"
+
+[node name="Label2" type="Label" parent="Control/ZoomOut"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 146.0
+offset_bottom = 31.0
+text = "Zoom Out"
+
+[node name="Kick" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1769.0
+offset_top = 126.0
+offset_right = 1801.0
+offset_bottom = 158.0
+texture_normal = ExtResource("10_e3pce")
+texture_pressed = ExtResource("10_e3pce")
+texture_hover = ExtResource("10_e3pce")
+texture_disabled = ExtResource("10_e3pce")
+texture_focused = ExtResource("10_e3pce")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Kick"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("11_38tne")
+
+[node name="Label2" type="Label" parent="Control/Kick"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 146.0
+offset_bottom = 31.0
+text = "Kick"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Control/TimeLeft")

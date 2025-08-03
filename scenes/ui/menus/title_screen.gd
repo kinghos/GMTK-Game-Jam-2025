@@ -7,9 +7,11 @@ const MAIN_MENU_MUSIC = preload("res://assets/audio/music/intro+main menu.wav")
 func _ready() -> void:
 	get_tree().paused = false
 	Music.play_music(MAIN_MENU_MUSIC)
+	Globals.reset_game_state()
+
+func _process(_delta: float) -> void:
 	if Globals.unlocked_endless:
 		endless_button.show()
-	Globals.reset_game_state()
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/gameplay/opening_cutscene.tscn")

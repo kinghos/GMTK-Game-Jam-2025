@@ -47,7 +47,6 @@ func _process(_delta: float) -> void:
 					await animation_player.animation_finished
 					animation_player.play_backwards("cross")
 					cross.hide()
-
 	
 	var correct_animal_count: int = 0
 	for animal in animals_in_pen_enclosure:

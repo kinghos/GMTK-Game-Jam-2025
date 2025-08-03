@@ -1,7 +1,7 @@
 extends Sprite2D
 
 const SCREEN_MARGIN: float = 30.0
-const SCREEN_MARGIN_TOP: float = 108.0
+const SCREEN_MARGIN_TOP: float = 115.0
 
 func _ready():
 	hide()

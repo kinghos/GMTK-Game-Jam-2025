@@ -37,6 +37,17 @@ func _process(_delta: float) -> void:
 		for i in animals_in_kick_area.size():
 			animals_in_kick_area[i].is_in_kick_area = false
 		animals_in_kick_area.clear()
+		if animals_in_pen_enclosure.size() > max_animals:
+			for i in range(animals_in_pen_enclosure.size() - max_animals):
+				var animal = animals_in_pen_enclosure[i]
+				if animal.type == animal_type:
+					animal.in_wrong_pen = true
+					animal.kick()
+					animation_player.play("cross")
+					await animation_player.animation_finished
+					animation_player.play_backwards("cross")
+					cross.hide()
+
 	
 	var correct_animal_count: int = 0
 	for animal in animals_in_pen_enclosure:

@@ -12,15 +12,29 @@ var endless_mult: float = 1
 # Powerup values
 var player_lasso_reach = 300
 var stun_time: float = 1
-var pen_kick_area: float = 250
+var pen_kick_area: int = 250
 enum POWERUPS {LassoSize, StunTime, PenKickArea, LassoReach, PlayerSpeed}
-var POWERUP_LIST = ["Lasso Length", "Animal\nStun Time", "Pen Kick Area", "Lasso Reach", "Player Speed"]
+var POWERUP_LIST = ["Lasso Length", "Stun Time", "Pen Kick Area", "Lasso Reach", "Player Speed"]
 var POWERUP_ICONS = {
 	"Lasso Length": preload("res://assets/graphics/powerups/upgrades/lasso_length.png"),
-	"Animal\nStun Time": preload("res://assets/graphics/powerups/upgrades/animal_stun_time.png"),
+	"Stun Time": preload("res://assets/graphics/powerups/upgrades/animal_stun_time.png"),
 	"Pen Kick Area": preload("res://assets/graphics/powerups/upgrades/kick_power.png"),
 	"Lasso Reach": preload("res://assets/graphics/powerups/upgrades/lasso_reach.png"),
 	"Player Speed": preload("res://assets/graphics/powerups/upgrades/speed.png")
+}
+var POWERUP_INCREASES = {
+	POWERUPS.LassoSize: 50,
+	POWERUPS.StunTime: 0.5,
+	POWERUPS.PenKickArea: 10,
+	POWERUPS.LassoReach: 50,
+	POWERUPS.PlayerSpeed: 30
+}
+var POWERUP_DESCRIPTIONS = {
+	POWERUPS.LassoSize: "Increases the length of lasso that can be used to draw a loop",
+	POWERUPS.StunTime: "Increases the time in seconds that an animal remains stunned",
+	POWERUPS.PenKickArea: "Increases the radius of the area surrounding pens in which animals can be kicked",
+	POWERUPS.LassoReach: "Increases how far away from your character you can start drawing your loop",
+	POWERUPS.PlayerSpeed: "Increases your player's speed"
 }
 
 var max_combo: int = 0
@@ -46,7 +60,7 @@ var time_left: float
 var prevent_pause: bool = false
 var powerup_selections: Dictionary[String, int] = {
 	"Lasso Length": 0,
-	"Animal\nStun Time": 0,
+	"Stun Time": 0,
 	"Pen Kick Area": 0,
 	"Lasso Reach": 0,
 	"Player Speed": 0
@@ -76,15 +90,30 @@ func toggle_pause_menu():
 func apply_powerup(powerup: int):
 	match powerup:
 		POWERUPS.LassoSize:
-			lasso.MAX_LASSO_LENGTH += 50
+			lasso.MAX_LASSO_LENGTH += POWERUP_INCREASES[powerup]
 		POWERUPS.StunTime:
-			stun_time += 0.5
+			stun_time += POWERUP_INCREASES[powerup]
 		POWERUPS.PenKickArea:
-			pen_kick_area += 20
+			pen_kick_area += POWERUP_INCREASES[powerup]
 		POWERUPS.LassoReach:
-			player_lasso_reach += 50
+			player_lasso_reach += POWERUP_INCREASES[powerup]
 		POWERUPS.PlayerSpeed:
-			player.speed += 30
+			player.speed += POWERUP_INCREASES[powerup]
+		_:
+			print("Invalid powerup")
+
+func get_current_powerup_value(powerup: int):
+	match powerup:
+		POWERUPS.LassoSize:
+			return lasso.MAX_LASSO_LENGTH
+		POWERUPS.StunTime:
+			return stun_time
+		POWERUPS.PenKickArea:
+			return pen_kick_area
+		POWERUPS.LassoReach:
+			return player_lasso_reach
+		POWERUPS.PlayerSpeed:
+			return player.speed
 		_:
 			print("Invalid powerup")
 

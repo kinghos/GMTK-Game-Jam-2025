@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://du50sjms5y6q4" path="res://assets/graphics/animals/cow_icon.png" id="3_qvqcw"]
 [ext_resource type="Texture2D" uid="uid://cubiewu46bffv" path="res://assets/graphics/misc/game_over_text.png" id="4_67tsj"]
 [ext_resource type="Texture2D" uid="uid://14pfdwuwlyrm" path="res://assets/graphics/misc/menu_button_hovering.png" id="4_vc0qd"]
-[ext_resource type="Shader" path="res://scenes/ui/background_blur.gdshader" id="6_wlrjj"]
+[ext_resource type="Shader" uid="uid://bdfqigqj4nw0v" path="res://scenes/ui/background_blur.gdshader" id="6_wlrjj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1vlkb"]
 shader = ExtResource("6_wlrjj")
@@ -465,7 +465,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.392157)
 
-[node name="PowerupOptions" type="HBoxContainer" parent="RoundEnd/ColorRect"]
+[node name="PowerupOptions" type="VBoxContainer" parent="RoundEnd/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -475,13 +475,17 @@ anchor_bottom = 0.5
 offset_left = -268.0
 offset_top = 52.0
 offset_right = 268.0
-offset_bottom = 302.0
+offset_bottom = 352.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 pivot_offset = Vector2(268, 151)
 
-[node name="Option1" type="Button" parent="RoundEnd/ColorRect/PowerupOptions"]
+[node name="Options" type="HBoxContainer" parent="RoundEnd/ColorRect/PowerupOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Option1" type="Button" parent="RoundEnd/ColorRect/PowerupOptions/Options"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "opt 1"
@@ -491,7 +495,7 @@ vertical_icon_alignment = 0
 expand_icon = true
 metadata/powerup_type = 0
 
-[node name="Option2" type="Button" parent="RoundEnd/ColorRect/PowerupOptions"]
+[node name="Option2" type="Button" parent="RoundEnd/ColorRect/PowerupOptions/Options"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "opt 2"
@@ -501,7 +505,7 @@ vertical_icon_alignment = 0
 expand_icon = true
 metadata/powerup_type = 0
 
-[node name="Option3" type="Button" parent="RoundEnd/ColorRect/PowerupOptions"]
+[node name="Option3" type="Button" parent="RoundEnd/ColorRect/PowerupOptions/Options"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "opt 3"
@@ -509,6 +513,69 @@ icon = ExtResource("3_qvqcw")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
+metadata/powerup_type = 0
+
+[node name="Descriptions" type="HBoxContainer" parent="RoundEnd/ColorRect/PowerupOptions"]
+layout_mode = 2
+
+[node name="Option1" type="Button" parent="RoundEnd/ColorRect/PowerupOptions/Descriptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "Text"
+autowrap_mode = 3
+metadata/powerup_type = 0
+
+[node name="Option2" type="Button" parent="RoundEnd/ColorRect/PowerupOptions/Descriptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "Text"
+autowrap_mode = 3
+metadata/powerup_type = 0
+
+[node name="Option3" type="Button" parent="RoundEnd/ColorRect/PowerupOptions/Descriptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "Text"
+autowrap_mode = 3
+metadata/powerup_type = 0
+
+[node name="ValueChanges" type="HBoxContainer" parent="RoundEnd/ColorRect/PowerupOptions"]
+layout_mode = 2
+
+[node name="Option1" type="Button" parent="RoundEnd/ColorRect/PowerupOptions/ValueChanges"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "X -> X"
+metadata/powerup_type = 0
+
+[node name="Option2" type="Button" parent="RoundEnd/ColorRect/PowerupOptions/ValueChanges"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "X -> X"
+metadata/powerup_type = 0
+
+[node name="Option3" type="Button" parent="RoundEnd/ColorRect/PowerupOptions/ValueChanges"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "X -> X"
 metadata/powerup_type = 0
 
 [node name="Box" type="ColorRect" parent="RoundEnd"]
@@ -590,6 +657,6 @@ libraries = {
 }
 
 [connection signal="pressed" from="GameOver/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="RoundEnd/ColorRect/PowerupOptions/Option1" to="." method="_on_option_pressed" binds= ["Option1"]]
-[connection signal="pressed" from="RoundEnd/ColorRect/PowerupOptions/Option2" to="." method="_on_option_pressed" binds= ["Option2"]]
-[connection signal="pressed" from="RoundEnd/ColorRect/PowerupOptions/Option3" to="." method="_on_option_pressed" binds= ["Option3"]]
+[connection signal="pressed" from="RoundEnd/ColorRect/PowerupOptions/Options/Option1" to="." method="_on_option_pressed" binds= ["Option1"]]
+[connection signal="pressed" from="RoundEnd/ColorRect/PowerupOptions/Options/Option2" to="." method="_on_option_pressed" binds= ["Option2"]]
+[connection signal="pressed" from="RoundEnd/ColorRect/PowerupOptions/Options/Option3" to="." method="_on_option_pressed" binds= ["Option3"]]

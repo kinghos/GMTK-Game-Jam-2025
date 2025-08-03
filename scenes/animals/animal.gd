@@ -204,7 +204,7 @@ func change_combo_pitch():
 	print(pitch_shift)
 	if combo_count == 2:
 		pitch_shift.pitch_scale = 1
-	elif combo_count < 8 and combo_count > 2:
+	elif combo_count < 7 and combo_count > 2:
 		for i in range(2, combo_count):
 			print(SEMITONE_MULT)
 			pitch_shift.pitch_scale *= SEMITONE_MULT

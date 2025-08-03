@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var powerups: Control = $RoundEnd
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var powerup_options: HBoxContainer = $RoundEnd/ColorRect/PowerupOptions
+@onready var powerup_options: VBoxContainer = $RoundEnd/ColorRect/PowerupOptions
 @onready var time_left: Label = $RoundEnd/Box/TimeLeft
 @onready var max_combo: Label = $RoundEnd/Box/MaxCombo
 @onready var game_over_screen: Control = $GameOver
@@ -28,7 +28,7 @@ func close_powerups_menu():
 	Globals.prevent_pause = false
 
 func _on_option_pressed(option: String) -> void:
-	var powerup_type = powerup_options.get_node(option).get_meta("powerup_type")
+	var powerup_type = powerup_options.get_node("Options").get_node(option).get_meta("powerup_type")
 	Globals.apply_powerup(powerup_type)
 	var powerup_name = Globals.POWERUP_LIST[powerup_type]
 	Globals.powerup_selections[powerup_name] += 1
@@ -38,10 +38,22 @@ func randomise_powerup_options():
 	var powerups = Globals.POWERUP_LIST.duplicate()
 	powerups.shuffle()
 	powerups = powerups.slice(0, 3)
-	for opt: Button in powerup_options.get_children():
+	var powerups_copy_1 = powerups.duplicate()
+	var powerups_copy_2 = powerups.duplicate()
+	for opt: Button in powerup_options.get_node("Options").get_children():
 		opt.text = powerups.pop_front()
 		opt.icon = Globals.POWERUP_ICONS[opt.text]
 		opt.set_meta("powerup_type", Globals.POWERUP_LIST.find(opt.text))
+	for opt: Button in powerup_options.get_node("Descriptions").get_children():
+		var powerup = Globals.POWERUP_LIST.find(powerups_copy_1.pop_front())
+		opt.text = Globals.POWERUP_DESCRIPTIONS[powerup]
+		opt.set_meta("powerup_type", Globals.POWERUP_LIST.find(opt.text))
+	for opt: Button in powerup_options.get_node("ValueChanges").get_children():
+		var powerup = Globals.POWERUP_LIST.find(powerups_copy_2.pop_front())
+		var current_value = Globals.get_current_powerup_value(powerup)
+		var upgraded_value = current_value + Globals.POWERUP_INCREASES[powerup]
+		opt.text = "%s -> %s" % [current_value, upgraded_value]
+		opt.set_meta("powerup_type", powerup)
 
 func trigger_game_over():
 	game_over_screen.show()

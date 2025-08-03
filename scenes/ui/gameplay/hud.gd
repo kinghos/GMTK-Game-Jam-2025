@@ -10,7 +10,7 @@ extends CanvasLayer
 const TIMER_ANIM = preload("res://scenes/ui/gameplay/timer_anim.tscn")
 var powerup_dict = {
 	"Lasso Length": "Control/PowerupDisplay/Row2/LassoSize",
-	"Animal\nStun Time": "Control/PowerupDisplay/Row1/StunTime",
+	"Stun Time": "Control/PowerupDisplay/Row1/StunTime",
 	"Pen Kick Area": "Control/PowerupDisplay/Row3/KickPower",
 	"Lasso Reach": "Control/PowerupDisplay/Row2/LassoReach",
 	"Player Speed": "Control/PowerupDisplay/Row1/Speed"

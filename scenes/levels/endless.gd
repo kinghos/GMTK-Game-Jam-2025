@@ -20,8 +20,10 @@ var animal_scenes = {
 func _ready() -> void:
 	for i in range(Globals.endless_rounds):
 		Globals.endless_mult *= 1.5
-		Globals.timer_mult *= 1.1
+		Globals.timer_mult *= 1.2
+	game_timer.stop()
 	game_timer.wait_time *= Globals.timer_mult
+	game_timer.start()
 	print("Animals in pen %s" % (animal_numbers["Sheep"] * Globals.endless_mult))
 	generate_animals()
 	generate_pens()

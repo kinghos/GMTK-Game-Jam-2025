@@ -37,9 +37,6 @@ position = Vector2(-248, 505)
 [node name="Right" parent="CameraBounds" index="3"]
 position = Vector2(2596, 534)
 
-[node name="Overlay" parent="." index="3"]
-visible = false
-
 [node name="Player" parent="." index="6"]
 position = Vector2(960, 540)
 

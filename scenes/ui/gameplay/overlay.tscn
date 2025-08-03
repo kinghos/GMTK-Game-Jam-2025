@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://du50sjms5y6q4" path="res://assets/graphics/animals/cow_icon.png" id="3_qvqcw"]
 [ext_resource type="Texture2D" uid="uid://cubiewu46bffv" path="res://assets/graphics/misc/game_over_text.png" id="4_67tsj"]
 [ext_resource type="Texture2D" uid="uid://14pfdwuwlyrm" path="res://assets/graphics/misc/menu_button_hovering.png" id="4_vc0qd"]
-[ext_resource type="Shader" path="res://scenes/ui/background_blur.gdshader" id="6_wlrjj"]
+[ext_resource type="Shader" uid="uid://bdfqigqj4nw0v" path="res://scenes/ui/background_blur.gdshader" id="6_wlrjj"]
 [ext_resource type="AudioStream" uid="uid://b44jxbnwfu724" path="res://assets/audio/sfx/failure.wav" id="9_67tsj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1vlkb"]

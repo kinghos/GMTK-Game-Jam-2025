@@ -31,13 +31,15 @@ func is_full() -> bool:
 	return len(animals_in_pen_enclosure) >= max_animals and not (animation_player.current_animation == "tick" and animation_player.is_playing())
 
 func _process(_delta: float) -> void:
-	update_kick_area_texture()
-	
 	if is_full():
 		for i in animals_in_kick_area.size():
 			animals_in_kick_area[i].is_in_kick_area = false
 		animals_in_kick_area.clear()
-		if animals_in_pen_enclosure.size() > max_animals:
+		var kick_out_extra: bool = true
+		for animal in animals_in_pen_enclosure:
+			if animal.in_wrong_pen:
+				kick_out_extra = false
+		if animals_in_pen_enclosure.size() > max_animals and kick_out_extra:
 			for i in range(animals_in_pen_enclosure.size() - max_animals):
 				var animal = animals_in_pen_enclosure[i]
 				if animal.type == animal_type:
@@ -47,8 +49,6 @@ func _process(_delta: float) -> void:
 					await animation_player.animation_finished
 					animation_player.play_backwards("cross")
 					cross.hide()
-	else:
-		tick.hide()
 	
 	var correct_animal_count: int = 0
 	for animal in animals_in_pen_enclosure:

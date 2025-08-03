@@ -43,8 +43,6 @@ func _ready() -> void:
 	random_movement_timer.start()
 	animal_asp.stream.set_stream(0, audio_dict[type])
 	animal_asp.stream.get_stream(0).resource_local_to_scene = true
-	
-	
 
 func _process(_delta: float) -> void:
 	if is_in_kick_area:

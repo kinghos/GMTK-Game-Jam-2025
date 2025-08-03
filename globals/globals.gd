@@ -31,7 +31,7 @@ var POWERUP_INCREASES = {
 	POWERUPS.PenKickArea: 20,
 	POWERUPS.LassoReach: 50,
 	POWERUPS.PlayerSpeed: 50,
-	POWERUPS.TimerBonus: 1
+	POWERUPS.TimerBonus: 0.5
 }
 var POWERUP_DESCRIPTIONS = {
 	POWERUPS.LassoSize: "Increases the length of lasso that can be used to draw a loop",
@@ -119,7 +119,7 @@ func apply_powerup(powerup: int):
 		POWERUPS.PlayerSpeed:
 			player_speed += POWERUP_INCREASES[powerup]
 		POWERUPS.TimerBonus:
-			timer_bonus += 0.5
+			timer_bonus += POWERUP_INCREASES[powerup]
 		_:
 			print("Invalid powerup")
 

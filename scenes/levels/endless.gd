@@ -49,6 +49,8 @@ func generate_pens():
 	var first_chicken = true
 	var first_sheep = true
 	for pen: Pen in get_tree().get_nodes_in_group("Pens"):
+		pen.update_kick_area_texture()
+		
 		var num_animals = int(animal_numbers["Sheep"] * Globals.endless_mult)
 		pen.max_animals = num_animals / 2
 		var remainder = num_animals % 2

@@ -1,14 +1,21 @@
-[gd_scene load_steps=22 format=3 uid="uid://c730r02j0a3ic"]
+[gd_scene load_steps=24 format=3 uid="uid://c730r02j0a3ic"]
 
 [ext_resource type="Script" uid="uid://bodcxjeobaic" path="res://scenes/animals/animal.gd" id="1_a68rm"]
 [ext_resource type="Texture2D" uid="uid://cjv6h5aem5r4u" path="res://assets/graphics/misc/star_particle.png" id="2_4f3xh"]
 [ext_resource type="Texture2D" uid="uid://cu21r2a3n2i5v" path="res://assets/graphics/animals/ice.png" id="2_dufb3"]
+[ext_resource type="Texture2D" uid="uid://3uxxcpho85jo" path="res://assets/graphics/misc/dust_particle.png" id="3_pcaxe"]
 [ext_resource type="Script" uid="uid://ffs1brga2vho" path="res://scenes/animals/offscreen_pointer.gd" id="3_to7qb"]
 [ext_resource type="Theme" uid="uid://cqid6eqdw6f54" path="res://scenes/ui/ui.tres" id="4_qmecq"]
 [ext_resource type="Shader" uid="uid://cgd35j7ohkq3b" path="res://globals/outline.gdshader" id="5_ivvwm"]
 [ext_resource type="AudioStream" uid="uid://bnky687nbwiny" path="res://assets/audio/sfx/success.wav" id="6_5fvtd"]
 [ext_resource type="Texture2D" uid="uid://b0pe6g1bqt4xu" path="res://assets/graphics/animals/kick_icon.png" id="6_dufb3"]
 [ext_resource type="AudioStream" uid="uid://d3ld1xahdff7k" path="res://assets/audio/sfx/combo.wav" id="8_v6psc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_67efk"]
+particles_animation = true
+particles_anim_h_frames = 12
+particles_anim_v_frames = 1
+particles_anim_loop = true
 
 [sub_resource type="Animation" id="Animation_qmecq"]
 length = 0.001
@@ -308,6 +315,19 @@ angle_max = 180.0
 scale_amount_min = 0.5
 scale_amount_max = 0.7
 
+[node name="StunParticles" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_67efk")
+emitting = false
+amount = 1
+texture = ExtResource("3_pcaxe")
+one_shot = true
+speed_scale = 2.0
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true
 
@@ -326,9 +346,9 @@ wait_time = 1.5
 
 [node name="ComboCounter" type="Label" parent="."]
 visible = false
-offset_left = -21.0
+offset_left = -7.0
 offset_top = -34.0
-offset_right = 19.0
+offset_right = 33.0
 offset_bottom = -3.0
 theme = ExtResource("4_qmecq")
 theme_override_colors/font_color = Color(0.863421, 0.000126439, 6.98858e-05, 1)

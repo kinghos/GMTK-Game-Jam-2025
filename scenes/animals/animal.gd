@@ -25,6 +25,7 @@ const SEMITONE_MULT = 1.0594630943
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var kick_particles: CPUParticles2D = $KickParticles
+@onready var stun_particles: CPUParticles2D = $StunParticles
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var offscreen_pointer: Sprite2D = $OffscreenPointer
 @onready var stun_timer: Timer = $StunTimer
@@ -153,13 +154,15 @@ func stun(index: int = 1):
 	var end_pos = global_position + diff
 	
 	tween.tween_property(self, "global_position", end_pos, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	kick_particles.emitting = true
+	stun_particles.emitting = true
 	play_sfx()
 	animated_sprite_2d.animation = "stun"
 	animation_player.play("stun")
 	
 	await tween.finished
 	stun_timer.start()
+	kick_particles.emitting = true
+	
 
 func show_combo_count(congratulations: bool):
 	var anim = "update counter"
